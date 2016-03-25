@@ -19,7 +19,6 @@ This module is somehow different of the other modules, since it doesn't enrich t
 The API of the language identifier is the following:
 
 ```C++
-
 class lang_ident {
   public:
     /// Build an empty language identifier.
@@ -30,7 +29,7 @@ class lang_ident {
 
     /// load given language from given model file, add to existing languages.
     void add_language(const std::wstring &modelfile);
-
+    
     /// train a n-gram model of given order for language 'code', 
     /// store in modelFile, and add it to the known languages list.
     void train_language(const std::wstring &textfile, 
@@ -42,15 +41,17 @@ class lang_ident {
     /// If no language reaches the threshold,  "none" is returned
     std::wstring identify_language (
                    const std::wstring&, 
-                   const std::set<std::wstring> &ls=std::set<std::wstring>()) const; 
-
+                   const std::set<std::wstring> &ls) const; 
+                   
     /// Classify the input text and return the code and perplexity for 
     /// each language in given set. If set is empty, all known languages 
     /// are considered.
     void rank_languages (
                std::vector<std::pair<double,std::wstring> > &result, 
                const std::wstring &text,
-               const std::set<std::wstring> &ls=std::set<std::wstring>()) const;
+               const std::set<std::wstring> &ls) const;
+
+
 };
 ```
 
@@ -68,13 +69,14 @@ Section `<Languages>` contains a list of filenames, one per line. Each filename 
 
 An example of a language identifier option file is:
 
-<pre>   <Languages>
-   ./es.dat
-   ./ca.dat
-   ./it.dat
-   ./pt.dat
-   </Languages>
-</pre>
+```XML
+<Languages>
+./es.dat
+./ca.dat
+./it.dat
+./pt.dat
+</Languages>
+```
 
 # Tokenizer Module {#tokenizer-module}
 
@@ -114,9 +116,12 @@ That is, once created, the tokenizer module receives plain text in a string, tok
 
 The tokenizer rules file is divided in three sections `<Macros>`, `<RegExps>` and `<Abbreviations>`. Each section is closed by `</Macros>`, `</RegExps>` and `</Abbreviations>` tags respectively.
 
-The `<Macros>` section allows the user to define regexp macros that will be used later in the rules. Macros are defined with a name and a POSIX regexp. E.g.: `MYALPHA [A-Za-z]` `ALPHA [[:alpha:]]`
+The `<Macros>` section allows the user to define regexp macros that will be used later in the rules. Macros are defined with a name and a POSIX regexp. E.g.:  
+`MYALPHA [A-Za-z]`  
+`ALPHA [[:alpha:]]`
 
-The `<RegExps>` section defines the tokenization rules. Previously defined macros may be referred to with their name in curly brackets. E.g.: `*ABREVIATIONS1 0 ((\{ALPHA\}+\.)+)(?!\.\.)`
+The `<RegExps>` section defines the tokenization rules. Previously defined macros may be referred to with their name in curly brackets. E.g.:  
+`*ABREVIATIONS1 0 ((\{ALPHA\}+\.)+)(?!\.\.)`
 
 Rules are regular expressions, and are applied in the order of definition. The first rule matching the beginning of the line is applied, a token is built, and the rest of the rules are ignored. The process is repeated until the line has been completely processed.
 
@@ -184,58 +189,53 @@ The splitter options file contains four sections: `<General>`, `<SentenceEnd>`, 
 
 The `<General>` section contains general options for the splitter: Namely, <tt>AllowBetweenMarkers</tt> and <tt>MaxWords</tt> options. The former may take values 1 or 0 (on/off). The later may be any integer. An example of the `<General>` section is:
 
-<pre> <General>
- AllowBetweenMarkers 0
- MaxWords 0
- </General>
-</pre>
+```XML
+<General>
+AllowBetweenMarkers 0
+MaxWords 0
+</General>
+```
 
-If <tt>AllowBetweenMarkers</tt> is off (<tt>0</tt>), a sentence split will never be introduced inside a pair of parenthesis-like markers, which is useful to prevent splitting in sentences such as ``I hate'' (Mary said. Angryly.) ``apple pie''. If this option is on (<tt>1</tt>), sentence splits will be introduced as if they had happened outside the markers.
+If <tt>AllowBetweenMarkers</tt> is off (<tt>0</tt>), a sentence split will never be introduced inside a pair of parenthesis-like markers, which is useful to prevent splitting in sentences such as *"I hate --Mary said. Angryly.-- apple pie"*. If this option is on (<tt>1</tt>), sentence splits will be introduced as if they had happened outside the markers.
 
-<tt>MaxWords</tt> states how many words are processed before forcing a sentence split inside parenthesis-like markers (this option is intended to avoid memory fillups in case the markers are not properly closed in the text). A value of zero means ``Never split, I'll risk to a memory fillup''. This option is less aggressive than unconditionally activating <tt>AllowBetweenMarkers</tt>, since it will introduce a sentence split between markers only after a sentence of length <tt>MaxWords</tt> has been accumulated. Setting <tt>MaxWords</tt> to a large value will prevent memory fillups, while keeping at a minimum the splittings inside markers.
+<tt>MaxWords</tt> states how many words are processed before forcing a sentence split inside parenthesis-like markers (this option is intended to avoid memory fillups in case the markers are not properly closed in the text). A value of zero means *Never split, I'll risk to a memory fillup*. This option is less aggressive than unconditionally activating <tt>AllowBetweenMarkers</tt>, since it will introduce a sentence split between markers only after a sentence of length <tt>MaxWords</tt> has been accumulated. Setting <tt>MaxWords</tt> to a large value will prevent memory fillups, while keeping at a minimum the splittings inside markers.
 
-The `<Markers>` section lists the pairs of characters (or character groups) that have to be considered open-close markers. For instance:
-
-<pre> <Markers>
+The `<Markers>` section lists the pairs of characters (or character groups) that have to be considered open-close markers. For instance:  
+```
+<Markers>
  " "
  ( )
  { }
  /* */
  </Markers>
-</pre>
+```
 
-The `<SentenceEnd>` section lists which characters are considered as possible sentence endings. Each character is followed by a binary value stating whether the character is an unambiguous sentence ending or not. For instance, in the following example, ``?'' is an unambiguous sentence marker, so a sentence split will be introduced unconditionally after each ``?''. The other two characters are not unambiguous, so a sentence split will only be introduced if they are followed by a capitalized word or a sentence start character.
+The `<SentenceEnd>` section lists which characters are considered as possible sentence endings. Each character is followed by a binary value stating whether the character is an unambiguous sentence ending or not. For instance, in the following example, ``?`` is an unambiguous sentence marker, so a sentence split will be introduced unconditionally after each ``?``. The other two characters are not unambiguous, so a sentence split will only be introduced if they are followed by a capitalized word or a sentence start character.
 
-<pre> <SentenceEnd>
+```XML
+<SentenceEnd>
  . 0
  ? 1
  ! 0
  </SentenceEnd>
-</pre>
+```
 
 The `<SentenceStart>` section lists characters known to appear only at sentence beggining. For instance, open question/exclamation marks in Spanish:
 
-<pre> <SentenceStart>
+```XML
+<SentenceStart>
  ? 
  !
  </SentenceStart>
-</pre>
+```
 
 # Morphological Analyzer Module {#morphological-analyzer-module}
 
 The morphological analyzer is a meta-module which does not perform any processing of its own.
 
-It is just a convenience module to simplify the instantiation and call to the submodules described in the next sections (from
+It is just a convenience module to simplify the instantiation and call to the submodules described in the next sections.
 
-4.5
-
-to
-
-4.13
-
-).
-
-At instantiation time, it receives a <tt>maco_options</tt> object, containing information about which submodules have to be created and which files must be used to create them.
+At instantiation time, it receives a ``maco_options`` object, containing information about which submodules have to be created and which files must be used to create them.
 
 Any submodule loaded at instantiation time, may be deactivated/reactivated later using the method `maco::set_active_options` described above. Note that a submodule that was not loaded when creating a `maco` instance, can neither be loaded nor activated later.
 
@@ -268,7 +268,7 @@ class maco {
 };
 ```
 
-The <tt>maco_options</tt> class has the following API:
+The ``maco_options`` class has the following API:
 
 ```C++
 class maco_options {
@@ -309,11 +309,11 @@ class maco_options {
   };
 ```
 
-To instantiate a Morphological Analyzer object, the calling application needs to create an instance of <tt>maco_options</tt>, initialize its fields with the desired values, and use it to call the constructor of the <tt>maco</tt> class.
+To instantiate a Morphological Analyzer object, the calling application needs to create an instance of ``maco_options``, initialize its fields with the desired values, and use it to call the constructor of the ``maco`` class.
 
 Each possible submodule will be created and loaded if the given file is different than the empty string. The created object will create the required submodules, and when asked to <tt>analyze</tt> some sentences, it will just pass it down to each submodule, and return the final result.
 
-The <tt>maco_options</tt> class has convenience methods to set the values of the options, but note that all the members are public, so the user application can set those values directly if preferred.
+The ``maco_options`` class has convenience methods to set the values of the options, but note that all the members are public, so the user application can set those values directly if preferred.
 
 # Number Detection Module {#number-detection-module}
 
@@ -390,14 +390,16 @@ Note that this module will be applied afer the tokenizer, so, it will only annot
 
 The format of the file listing the PoS for punctuation symbols is one punctuation symbol per line, each line with the format: <tt>punctuation-symbol lemma tag</tt>. E.g.:
 
-<pre>  
-   ! ! Fat
-   , , Fc
-   : : Fd
-   ... ... Fs
-</pre>
+```
+! ! Fat
+, , Fc
+: : Fd
+... ... Fs
+```
 
-One special line may be included defining the tag that will be assigned to any other punctuation symbol not found in the list. Any token containing no alphanumeric character is considered a punctuation symbol. This special line has the format: `<Other> tag`. E.g. `<Other> Fz`
+One special line may be included defining the tag that will be assigned to any other punctuation symbol not found in the list. Any token containing no alphanumeric character is considered a punctuation symbol. This special line has the format: `<Other> tag`.  
+E.g.:  
+`<Other> Fz`
 
 # User Map Module {#user-map-module}
 
@@ -439,7 +441,7 @@ Finally, note that this module sequentially checks each regular expression in th
 
 The format of the file containing the user map from regular expression to pairs lemma-PoS is one regular expression per line, each line with the format: <tt>regex lemma1 tag1 lemma2 tag2 ...</tt>.
 
-The lemma may be any string literal, or `$$` meaning that the string matching the regular expression is to be used as a lemma. E.g.:
+The lemma may be any string literal, or \$\$ meaning that the string matching the regular expression is to be used as a lemma. E.g.:
 
 <pre>  
    @[a-z][0-9] $ NP00000
