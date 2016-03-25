@@ -55,7 +55,7 @@ class lang_ident {
 };
 ```
 
-Once created, the language identifier may be used to get the most likely language of a text using the method `identify_language`, or to return a sorted vector of probabilities for each language (`rank_languages`). In both cases, a set of languages to be considered may be supplied, telling the identifier to apply to the input text only models for those languages in the list. An empty list is interpreted as ``use all available language models''. The language list parameter is optional in both identification methods, and defaults to the empty list.
+Once created, the language identifier may be used to get the most likely language of a text using the method `identify_language`, or to return a sorted vector of probabilities for each language (`rank_languages`). In both cases, a set of languages to be considered may be supplied, telling the identifier to apply to the input text only models for those languages in the list. An empty list is interpreted as *use all available language models*. The language list parameter is optional in both identification methods, and defaults to the empty list.
 
 The same `lang_ident` class may be used to train models for new languages. A plain text file can be passed to method `train_language` which will use the data to create a new model, which will enlarge the identifier's language repertoire, and will be stored for its use in future instances of the class.
 
@@ -201,7 +201,7 @@ If <tt>AllowBetweenMarkers</tt> is off (<tt>0</tt>), a sentence split will never
 The value for <tt>MaxWords</tt> states how many words are processed before forcing a sentence split inside parenthesis-like markers (this option is intended to avoid memory fillups in case the markers are not properly closed in the text).  
 A value of zero means *Never split, I'll risk to a memory fillup*. This option is less aggressive than unconditionally activating <tt>AllowBetweenMarkers</tt>, since it will introduce a sentence split between markers only after a sentence of length <tt>MaxWords</tt> has been accumulated. Setting <tt>MaxWords</tt> to a large value will prevent memory fillups, while keeping at a minimum the splittings inside markers.
 
-The ``<Markers>`` section lists the pairs of characters (or character groups) that have to be considered open-close markers. For instance:  
+The `<Markers>` section lists the pairs of characters (or character groups) that have to be considered open-close markers. For instance:  
 ```XML
 <Markers>
  " "
@@ -211,7 +211,7 @@ The ``<Markers>`` section lists the pairs of characters (or character groups) th
  </Markers>
 ```
 
-The `<SentenceEnd>` section lists which characters are considered as possible sentence endings. Each character is followed by a binary value stating whether the character is an unambiguous sentence ending or not. For instance, in the following example, ``?`` is an unambiguous sentence marker, so a sentence split will be introduced unconditionally after each ``?``. The other two characters are not unambiguous, so a sentence split will only be introduced if they are followed by a capitalized word or a sentence start character.
+The `<SentenceEnd>` section lists which characters are considered as possible sentence endings. Each character is followed by a binary value stating whether the character is an unambiguous sentence ending or not. For instance, in the following example, `?` is an unambiguous sentence marker, so a sentence split will be introduced unconditionally after each `?`. The other two characters are not unambiguous, so a sentence split will only be introduced if they are followed by a capitalized word or a sentence start character.
 
 ```XML
 <SentenceEnd>
@@ -236,7 +236,7 @@ The morphological analyzer is a meta-module which does not perform any processin
 
 It is just a convenience module to simplify the instantiation and call to the submodules described in the next sections.
 
-At instantiation time, it receives a ``maco_options`` object, containing information about which submodules have to be created and which files must be used to create them.
+At instantiation time, it receives a `maco_options` object, containing information about which submodules have to be created and which files must be used to create them.
 
 Any submodule loaded at instantiation time, may be deactivated/reactivated later using the method `maco::set_active_options` described above. Note that a submodule that was not loaded when creating a `maco` instance, can neither be loaded nor activated later.
 
@@ -269,7 +269,7 @@ class maco {
 };
 ```
 
-The ``maco_options`` class has the following API:
+The `maco_options` class has the following API:
 
 ```C++
 class maco_options {
@@ -310,11 +310,11 @@ class maco_options {
   };
 ```
 
-To instantiate a Morphological Analyzer object, the calling application needs to create an instance of ``maco_options``, initialize its fields with the desired values, and use it to call the constructor of the ``maco`` class.
+To instantiate a Morphological Analyzer object, the calling application needs to create an instance of `maco_options`, initialize its fields with the desired values, and use it to call the constructor of the `maco` class.
 
 Each possible submodule will be created and loaded if the given file is different than the empty string. The created object will create the required submodules, and when asked to <tt>analyze</tt> some sentences, it will just pass it down to each submodule, and return the final result.
 
-Class ``maco_options`` has convenience methods to set the values of the options, but note that all the members are public, so the user application can set those values directly if preferred.
+Class `maco_options` has convenience methods to set the values of the options, but note that all the members are public, so the user application can set those values directly if preferred.
 
 # Number Detection Module {#number-detection-module}
 
@@ -442,7 +442,7 @@ Finally, note that this module sequentially checks each regular expression in th
 
 The format of the file containing the user map from regular expression to pairs lemma-PoS is one regular expression per line, each line with the format: <tt>regex lemma1 tag1 lemma2 tag2 ...</tt>.
 
-The lemma may be any string literal, or ``\$\$`` meaning that the string matching the regular expression is to be used as a lemma. E.g.:  
+The lemma may be any string literal, or <tt>\$\$</tt> meaning that the string matching the regular expression is to be used as a lemma. E.g.:  
 ```  
 @[a-z][0-9] $ NP00000
 <.*> XMLTAG Fz
@@ -451,7 +451,7 @@ hulabee hulaboo JJS hulaboo NNS
 
 The first rule will recognize tokens such as `@john` or `@peter4`, and assign them the tag `NP00000` (proper noun) and the matching string as lemma.
 
-The second rule will recognize tokens starting with ``<`` and ending with ``>`` (such as ``<HTML>`` or ``<br/>``) and assign them the literal `XMLTAG` as lemma and the tag `Fz` (punctuation:others) as PoS.
+The second rule will recognize tokens starting with `<` and ending with `>` (such as `<HTML>` or `<br/>`) and assign them the literal `XMLTAG` as lemma and the tag `Fz` (punctuation:others) as PoS.
 
 The third rule will assign the two pairs lemma-tag to each occurrence of the word *hulabee*. This is just an example, and if you want to add a word to your dictionary, the dictionary module is the right place to do so.
 
@@ -554,16 +554,8 @@ The parameters of the constructor are:
 
 *   The language of the processed text. This is required by the affixation submodule to properly handle graphical accent rules in latin languages.
 *   The dictionary file name. See below for details.
-*   The affixation rules file name (an empty string means no affix analysis is to be performed). See Section 
-
-    4.9.2
-
-    for a description of the affixation rules.
-*   The compound rules file name (an empty string means no compound analysis is to be performed). See Section 
-
-    4.9.3
-
-    for a description of the compound rules.
+*   The affixation rules file name (an empty string means no affix analysis is to be performed). 
+*   The compound rules file name (an empty string means no compound analysis is to be performed). 
 *   An optional boolean (default: false) stating whether the dictionary must be created with inverse access, to enable the use of `get_forms` to obtain a word form given a lemma+PoS pair.
 *   An optional boolean (default: true) stating whether the contractions found in the dictionary must be retokenized right away, or left for later modules to decide.
 
@@ -579,29 +571,32 @@ Section `<IndexType>` contains a single line, that may be either `DB_PREFTREE` o
 
 Section `<Entries>` contains lines with one form per line. Each form line has format: <tt>form lemma1 PoS1 lemma2 PoS2 ...</tt>. E.g.:
 
-<pre>  casa casa NCFS000 casar VMIP3S0 casar VMM02S0
-  backs back NNS back VBZ
-</pre>
+```
+casa casa NCFS000 casar VMIP3S0 casar VMM02S0
+backs back NNS back VBZ
+```
 
 Lines corresponding to words that are contractions may have an alternative format if the contraction is to be splitted. The format is <tt>form form1+form2+... PoS1+PoS2+...</tt> where <tt>form1,form2,...</tt> are the forms (not the lemmas) of the contracted words. For instance: `del de+el SP+DA`
 
-This line expresses that whenever the form del is found, it is replaced with two words: de and el. Each of the new two word forms are searched in the dictionary, and assigned any tag matching their correspondig tag in the third field. So, de will be assigned all tags starting with <tt>SP</tt> that this entry may have in the dictionary, and el will get any tag starting with <tt>DA</tt>.
+This line expresses that whenever the form *del* is found, it is replaced with two words: *de* and *el*. Each of the new two word forms are searched in the dictionary, and assigned any tag matching their correspondig tag in the third field. So, *de* will be assigned all tags starting with <tt>SP</tt> that this entry may have in the dictionary, and *el* will get any tag starting with <tt>DA</tt>.
 
 Note that a contraction included in the dictionary cannot be splitted in two different ways corresponding to different forms (e.g. <tt>he's = he+is | he+has</tt>), so only a combination of forms and a combination of tags may appear in the dictionary.
+That is, the dictionary entry:  
+`he's he+is PRP+VB he+has PRP+VB`  
+is invalid because it states two different forms for *'s*, while the entry:  
+`he's he+'s PRP+VB`  
+is valid because it only states a form (*'s*) that will get two lemmas (*be* and *have*) when looked up in the dictionary.
 
-Nevertheless, a set of tags may be specified for a given form, e.g.: `he'd he+'d PRP+VB/MD`
+Also, a set of tags may be specified for a given form, e.g.:  
+`he'd he+'d PRP+VB/MD`
 
-This will produce two words: he with <tt>PRP</tt> analysis, and 'd with its analysis matching any of the two given tags (i.e. <tt>have_VBZ</tt> and <tt>would_MD</tt>). Note that this will work only if the form 'd is found in the dictionary with those possible analysis.
+This will produce two words: *he* with <tt>PRP</tt> analysis, and *'d* with its analysis matching any of the two given tags (i.e. <tt>have_VBZ</tt> and <tt>would_MD</tt>). Note that this will work only if the form 'd is found in the dictionary with those possible analysis.
 
 If all tags for one of the new forms are to be used, a wildcard may be written as a tag. e.g.: `pal para+el SP+*`
 
 This will replace pal with two words, para with only its <tt>SP</tt> analysis, plus el with all its possible tags.
 
-The contraction entries in the dictionary are intended for inambiguous contractions, or for cases such that it is not worth (or it is too difficult) to handle otherwise. For splitting more sophisticated compound words, such as verb clitic pronouns in Spanish or Italian (e.g dale → dar+él), derivation (e.g. _quick → quickly_, rápida → rápidamente), diminutive/augmentative sufixes, prefixes, or other similar behaviours, the affixation module should be used (see section
-
-4.9.2
-
-for details).
+The contraction entries in the dictionary are intended for inambiguous contractions, or for cases such that it is not worth (or it is too difficult) to handle otherwise. For splitting more sophisticated compound words, such as verb clitic pronouns in Spanish or Italian (e.g dale → dar+él), derivation (e.g. _quick → quickly_, rápida → rápidamente), diminutive/augmentative sufixes, prefixes, or other similar behaviours, the affixation module should be used.
 
 An optional parameter in the constructor enables to control whether contractions are splitted by the dictionary module itself (thus passing two words instead of one to later modules) or the decision is left to later modules (which will receive a single word carrying retokenization information).
 
