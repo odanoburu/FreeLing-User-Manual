@@ -80,5 +80,5 @@ FreeLing is developed and maintained by people in [TALP Research Center](http://
 
 Many people further contributed to by reporting problems, suggesting various improvements, submitting actual code or extending linguistic databases.
 
-A detailed list can be found in Contributions section at [FreeLing webpage](http://nlp.lsi.upc.edu/freeling).
+A detailed list can be found in [Contributions](http://nlp.lsi.upc.edu/freeling/node/5) section at [FreeLing webpage](http://nlp.lsi.upc.edu/freeling).
 
