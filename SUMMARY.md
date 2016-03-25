@@ -1,3 +1,4 @@
 # Summary
 
-* [First Chapter](chapter1.md)
+* [Introduction](introduction.md)
+* [Getting it to Work](installation.md)
