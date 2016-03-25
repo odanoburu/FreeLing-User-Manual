@@ -198,10 +198,11 @@ MaxWords 0
 
 If <tt>AllowBetweenMarkers</tt> is off (<tt>0</tt>), a sentence split will never be introduced inside a pair of parenthesis-like markers, which is useful to prevent splitting in sentences such as *"I hate --Mary said. Angryly.-- apple pie"*. If this option is on (<tt>1</tt>), sentence splits will be introduced as if they had happened outside the markers.
 
-<tt>MaxWords</tt> states how many words are processed before forcing a sentence split inside parenthesis-like markers (this option is intended to avoid memory fillups in case the markers are not properly closed in the text). A value of zero means *Never split, I'll risk to a memory fillup*. This option is less aggressive than unconditionally activating <tt>AllowBetweenMarkers</tt>, since it will introduce a sentence split between markers only after a sentence of length <tt>MaxWords</tt> has been accumulated. Setting <tt>MaxWords</tt> to a large value will prevent memory fillups, while keeping at a minimum the splittings inside markers.
+The value for <tt>MaxWords</tt> states how many words are processed before forcing a sentence split inside parenthesis-like markers (this option is intended to avoid memory fillups in case the markers are not properly closed in the text).  
+A value of zero means *Never split, I'll risk to a memory fillup*. This option is less aggressive than unconditionally activating <tt>AllowBetweenMarkers</tt>, since it will introduce a sentence split between markers only after a sentence of length <tt>MaxWords</tt> has been accumulated. Setting <tt>MaxWords</tt> to a large value will prevent memory fillups, while keeping at a minimum the splittings inside markers.
 
-The `<Markers>` section lists the pairs of characters (or character groups) that have to be considered open-close markers. For instance:  
-```
+The ``<Markers>`` section lists the pairs of characters (or character groups) that have to be considered open-close markers. For instance:  
+```XML
 <Markers>
  " "
  ( )
@@ -313,7 +314,7 @@ To instantiate a Morphological Analyzer object, the calling application needs to
 
 Each possible submodule will be created and loaded if the given file is different than the empty string. The created object will create the required submodules, and when asked to <tt>analyze</tt> some sentences, it will just pass it down to each submodule, and return the final result.
 
-The ``maco_options`` class has convenience methods to set the values of the options, but note that all the members are public, so the user application can set those values directly if preferred.
+Class ``maco_options`` has convenience methods to set the values of the options, but note that all the members are public, so the user application can set those values directly if preferred.
 
 # Number Detection Module {#number-detection-module}
 
@@ -441,27 +442,22 @@ Finally, note that this module sequentially checks each regular expression in th
 
 The format of the file containing the user map from regular expression to pairs lemma-PoS is one regular expression per line, each line with the format: <tt>regex lemma1 tag1 lemma2 tag2 ...</tt>.
 
-The lemma may be any string literal, or \$\$ meaning that the string matching the regular expression is to be used as a lemma. E.g.:
-
-<pre>  
-   @[a-z][0-9] $ NP00000
-   <.*> XMLTAG Fz
-   hulabee hulaboo JJS hulaboo NNS
-</pre>
+The lemma may be any string literal, or ``\$\$`` meaning that the string matching the regular expression is to be used as a lemma. E.g.:  
+```  
+@[a-z][0-9] $ NP00000
+<.*> XMLTAG Fz
+hulabee hulaboo JJS hulaboo NNS
+```
 
 The first rule will recognize tokens such as `@john` or `@peter4`, and assign them the tag `NP00000` (proper noun) and the matching string as lemma.
 
-The second rule will recognize tokens starting with ```<`'' and ending with ```>`'' (such as `<HTML>` or `<br/>`) and assign them the literal `XMLTAG` as lemma and the tag `Fz` (punctuation:others) as PoS.
+The second rule will recognize tokens starting with ``<`` and ending with ``>`` (such as ``<HTML>`` or ``<br/>``) and assign them the literal `XMLTAG` as lemma and the tag `Fz` (punctuation:others) as PoS.
 
-The third rule will assign the two pairs lemma-tag to each occurrence of the word ``hulabee''. This is just an example, and if you want to add a word to your dictionary, the dictionary module is the right place to do so.
+The third rule will assign the two pairs lemma-tag to each occurrence of the word *hulabee*. This is just an example, and if you want to add a word to your dictionary, the dictionary module is the right place to do so.
 
 # Dates Detection Module {#dates-detection-module}
 
-The dates detection module, as the number detection module in section
-
-4.5
-
-, is a collection of language-specific Augmented Transition Networks, and for this reason needs no data file to be provided at instantiation time.
+The dates detection module, as the number detection module, is a collection of language-specific Augmented Transition Networks, and for this reason needs no data file to be provided at instantiation time.
 
 For languages that do not have a specific ATN, a default analyzer is used that detects simple date patterns (e.g. <tt>DD-MM-AAAA</tt>, <tt>MM/DD/AAAA</tt>, etc.)
 
@@ -491,12 +487,11 @@ The only parameter expected by the constructor is the language of the text to an
 
 # Dictionary Search Module {#dictionary-search-module}
 
-The dictionary search module has two functions: Search the word forms in the dictionary to find out their lemmas and PoS tags, and apply affixation or compounding rules to find the same information in the cases in which the form is a derived form not included in the dictionary (e.g. the word <tt>quickly</tt> may not be in the dictionary, but a suffixation rule may state that removing <tt>-ly</tt> and searching for the obtained adjective is a valid way to form and adverb).
+The dictionary search module has two functions: Search the word forms in the dictionary to find out their lemmas and PoS tags, and apply affixation or compounding rules to find the same information in the cases in which the form is a derived form not included in the dictionary (e.g. the word *quickly* may not be in the dictionary, but a suffixation rule may state that removing suffix *-ly* and searching for the obtained adjective is a valid way to form and adverb).
 
 The decision of what is included in the dictionary and what is dealt with through affixation rules is left to the linguist building the linguistic data resources.
 
-The API for this module is the following:
-
+The API for this module is the following:   
 ```C++
 class dictionary {
   public:
