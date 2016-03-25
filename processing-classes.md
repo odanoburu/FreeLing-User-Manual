@@ -18,7 +18,8 @@ This module is somehow different of the other modules, since it doesn't enrich t
 
 The API of the language identifier is the following:
 
-<pre>class lang_ident {
+```C++
+class lang_ident {
   public:
     /// Build an empty language identifier.
     lang_ident();
@@ -50,7 +51,7 @@ The API of the language identifier is the following:
                const std::wstring &text,
                const std::set<std::wstring> &ls=std::set<std::wstring>()) const;
 };
-</pre>
+```
 
 Once created, the language identifier may be used to get the most likely language of a text using the method `identify_language`, or to return a sorted vector of probabilities for each language (`rank_languages`). In both cases, a set of languages to be considered may be supplied, telling the identifier to apply to the input text only models for those languages in the list. An empty list is interpreted as ``use all available language models''. The language list parameter is optional in both identification methods, and defaults to the empty list.
 
@@ -60,18 +61,18 @@ The constructor expects a configuration file name, containing information about 
 
 ## Language Identifier Options File {#language-identifier-options-file}
 
-The language identifier options file has a unique section `&lt;Languages&gt;` closed by tag `&lt;/Languages&gt;`.
+The language identifier options file has a unique section `<Languages>` closed by tag `</Languages>`.
 
-Section `&lt;Languages&gt;` contains a list of filenames, one per line. Each filename contains a language model (generated with the `train_language` method). The filenames may be absolute or relative. If relative, they are considered to be relative to the location of the identifier options file.
+Section `<Languages>` contains a list of filenames, one per line. Each filename contains a language model (generated with the `train_language` method). The filenames may be absolute or relative. If relative, they are considered to be relative to the location of the identifier options file.
 
 An example of a language identifier option file is:
 
-<pre>   &lt;Languages&gt;
+<pre>   <Languages>
    ./es.dat
    ./ca.dat
    ./it.dat
    ./pt.dat
-   &lt;/Languages&gt;
+   </Languages>
 </pre>
 
 # Tokenizer Module {#tokenizer-module}
@@ -82,49 +83,50 @@ Tokenization rules are regular expressions that are matched against the begginin
 
 The API of the tokenizer module is the following:
 
-<pre>class tokenizer {
+```C++
+class tokenizer {
   public:
     /// Constructor
     tokenizer(const std::wstring &cfgfile);
 
     /// tokenize string, leave result in lw
     void tokenize(const std::wstring &text, 
-                  std::list&lt;word&gt; &lw) const;
+                  std::list<word> &lw) const;
 
    /// tokenize string, return result as list
-    std::list&lt;word&gt; tokenize(const std::wstring &text) const;
+    std::list<word> tokenize(const std::wstring &text) const;
 
     /// tokenize string, updating byte offset. Leave results in lw.
     void tokenize(const std::wstring &text, 
                   unsigned long &offset, 
-                  std::list&lt;word&gt; &lw) const;
+                  std::list<word> &lw) const;
 
     /// tokenize string, updating offset, return result as list
-    std::list&lt;word&gt; tokenize(const std::wstring &text, 
+    std::list<word> tokenize(const std::wstring &text, 
                              unsigned long &offset) const;
 };
-</pre>
+```
 
 That is, once created, the tokenizer module receives plain text in a string, tokenizes it, and returns a list of <tt>word</tt> objects corresponding to the created tokens
 
 ## Tokenizer Rules File {#tokenizer-rules-file}
 
-The tokenizer rules file is divided in three sections `&lt;Macros&gt;`, `&lt;RegExps&gt;` and `&lt;Abbreviations&gt;`. Each section is closed by `&lt;/Macros&gt;`, `&lt;/RegExps&gt;` and `&lt;/Abbreviations&gt;` tags respectively.
+The tokenizer rules file is divided in three sections `<Macros>`, `<RegExps>` and `<Abbreviations>`. Each section is closed by `</Macros>`, `</RegExps>` and `</Abbreviations>` tags respectively.
 
-The `&lt;Macros&gt;` section allows the user to define regexp macros that will be used later in the rules. Macros are defined with a name and a POSIX regexp. E.g.: `MYALPHA [A-Za-z]` `ALPHA [[:alpha:]]`
+The `<Macros>` section allows the user to define regexp macros that will be used later in the rules. Macros are defined with a name and a POSIX regexp. E.g.: `MYALPHA [A-Za-z]` `ALPHA [[:alpha:]]`
 
-The `&lt;RegExps&gt;` section defines the tokenization rules. Previously defined macros may be referred to with their name in curly brackets. E.g.: `*ABREVIATIONS1 0 ((\{ALPHA\}+\.)+)(?!\.\.)`
+The `<RegExps>` section defines the tokenization rules. Previously defined macros may be referred to with their name in curly brackets. E.g.: `*ABREVIATIONS1 0 ((\{ALPHA\}+\.)+)(?!\.\.)`
 
 Rules are regular expressions, and are applied in the order of definition. The first rule matching the beginning of the line is applied, a token is built, and the rest of the rules are ignored. The process is repeated until the line has been completely processed.
 
 The format of each rule is:
 
-*   The first field in the rule is the rule name. If it starts with a <tt>*</tt>, the RegExp will only produce a token if the match is found in the abbreviation list (`&lt;Abbreviations&gt;` section). Apart from that, the rule name is only for informative/readability purposes.
+*   The first field in the rule is the rule name. If it starts with a <tt>*</tt>, the RegExp will only produce a token if the match is found in the abbreviation list (`<Abbreviations>` section). Apart from that, the rule name is only for informative/readability purposes.
 *   The second field in the rule is the substring to form the token/s with. It may be 0 (the match of the whole expression) or any number from 1 to the number of subexpression (up to 9). A token will be created for each subexpression from 1 to the specified value.
 *   The third field is the regexp to match against the input. line. Any POSIX regexp convention may be used.
 *   An optional fourth field may be added, containing the string <tt>CI</tt> (standing for Case Insensitive). In this case, the input text will be matched case-insensitively against the regexp. If the fourth field is not present, or it is different than <tt>CI</tt>, the rule is matched case-sensitively.
 
-The `&lt;Abbreviations&gt;` section defines common abbreviations (one per line) that must not be separated of their following dot (e.g. <tt>etc.</tt>, <tt>mrs.</tt>). They must be lowercased, even if they are expected to appear uppercased in the text.
+The `<Abbreviations>` section defines common abbreviations (one per line) that must not be separated of their following dot (e.g. <tt>etc.</tt>, <tt>mrs.</tt>). They must be lowercased, even if they are expected to appear uppercased in the text.
 
 # Splitter Module {#splitter-module}
 
@@ -138,7 +140,8 @@ In addition, each session will have its own sentence-id counter, so sentences pr
 
 The API for the splitter class is:
 
-<pre>class splitter {
+```C++
+class splitter {
   public:
     /// Constructor. Receives a file with the desired options
     splitter(const std::wstring &cfgfile);
@@ -162,59 +165,59 @@ The API for the splitter class is:
     /// needs to wait to see what is coming next.
     /// Each thread using the same splitter needs to open a new session.
     void split(session_id ses, 
-               const std::list&lt;word&gt; &lw, 
+               const std::list<word> &lw, 
                bool flush, 
-               std::list&lt;sentence&gt; &ls);
+               std::list<sentence> &ls);
 
     /// same than previous method, but result sentences are returned.
-    std::list&lt;sentence&gt; split(session_id ses, 
-                              const std::list&lt;word&gt; &lw, 
+    std::list<sentence> split(session_id ses, 
+                              const std::list<word> &lw, 
                               bool flush);
 
 };
-</pre>
+```
 
 ## Splitter Options File {#splitter-options-file}
 
-The splitter options file contains four sections: `&lt;General&gt;`, `&lt;SentenceEnd&gt;`, `&lt;SentenceStart&gt;`, and `&lt;Markers&gt;`.
+The splitter options file contains four sections: `<General>`, `<SentenceEnd>`, `<SentenceStart>`, and `<Markers>`.
 
-The `&lt;General&gt;` section contains general options for the splitter: Namely, <tt>AllowBetweenMarkers</tt> and <tt>MaxWords</tt> options. The former may take values 1 or 0 (on/off). The later may be any integer. An example of the `&lt;General&gt;` section is:
+The `<General>` section contains general options for the splitter: Namely, <tt>AllowBetweenMarkers</tt> and <tt>MaxWords</tt> options. The former may take values 1 or 0 (on/off). The later may be any integer. An example of the `<General>` section is:
 
-<pre> &lt;General&gt;
+<pre> <General>
  AllowBetweenMarkers 0
  MaxWords 0
- &lt;/General&gt;
+ </General>
 </pre>
 
 If <tt>AllowBetweenMarkers</tt> is off (<tt>0</tt>), a sentence split will never be introduced inside a pair of parenthesis-like markers, which is useful to prevent splitting in sentences such as ``I hate'' (Mary said. Angryly.) ``apple pie''. If this option is on (<tt>1</tt>), sentence splits will be introduced as if they had happened outside the markers.
 
 <tt>MaxWords</tt> states how many words are processed before forcing a sentence split inside parenthesis-like markers (this option is intended to avoid memory fillups in case the markers are not properly closed in the text). A value of zero means ``Never split, I'll risk to a memory fillup''. This option is less aggressive than unconditionally activating <tt>AllowBetweenMarkers</tt>, since it will introduce a sentence split between markers only after a sentence of length <tt>MaxWords</tt> has been accumulated. Setting <tt>MaxWords</tt> to a large value will prevent memory fillups, while keeping at a minimum the splittings inside markers.
 
-The `&lt;Markers&gt;` section lists the pairs of characters (or character groups) that have to be considered open-close markers. For instance:
+The `<Markers>` section lists the pairs of characters (or character groups) that have to be considered open-close markers. For instance:
 
-<pre> &lt;Markers&gt;
+<pre> <Markers>
  " "
  ( )
  { }
  /* */
- &lt;/Markers&gt;
+ </Markers>
 </pre>
 
-The `&lt;SentenceEnd&gt;` section lists which characters are considered as possible sentence endings. Each character is followed by a binary value stating whether the character is an unambiguous sentence ending or not. For instance, in the following example, ``?'' is an unambiguous sentence marker, so a sentence split will be introduced unconditionally after each ``?''. The other two characters are not unambiguous, so a sentence split will only be introduced if they are followed by a capitalized word or a sentence start character.
+The `<SentenceEnd>` section lists which characters are considered as possible sentence endings. Each character is followed by a binary value stating whether the character is an unambiguous sentence ending or not. For instance, in the following example, ``?'' is an unambiguous sentence marker, so a sentence split will be introduced unconditionally after each ``?''. The other two characters are not unambiguous, so a sentence split will only be introduced if they are followed by a capitalized word or a sentence start character.
 
-<pre> &lt;SentenceEnd&gt;
+<pre> <SentenceEnd>
  . 0
  ? 1
  ! 0
- &lt;/SentenceEnd&gt;
+ </SentenceEnd>
 </pre>
 
-The `&lt;SentenceStart&gt;` section lists characters known to appear only at sentence beggining. For instance, open question/exclamation marks in Spanish:
+The `<SentenceStart>` section lists characters known to appear only at sentence beggining. For instance, open question/exclamation marks in Spanish:
 
-<pre> &lt;SentenceStart&gt;
+<pre> <SentenceStart>
  ? 
  !
- &lt;/SentenceStart&gt;
+ </SentenceStart>
 </pre>
 
 # Morphological Analyzer Module {#morphological-analyzer-module}
@@ -239,7 +242,8 @@ A calling application may bypass this module and just call directly the submodul
 
 The Morphological Analyzer API is:
 
-<pre>class maco {
+```C++ 
+class maco {
   public:
     /// Constructor. Receives a set of options.
     maco(const maco_options &); 
@@ -253,19 +257,20 @@ The Morphological Analyzer API is:
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The <tt>maco_options</tt> class has the following API:
 
-<pre>class maco_options {
+```C++
+class maco_options {
   public:
     // Language analyzed
     std::wstring Lang;
@@ -301,7 +306,7 @@ The <tt>maco_options</tt> class has the following API:
     void set_inverse_dict(bool);
     void set_retok_contractions(bool);
   };
-</pre>
+```
 
 To instantiate a Morphological Analyzer object, the calling application needs to create an instance of <tt>maco_options</tt>, initialize its fields with the desired values, and use it to call the constructor of the <tt>maco</tt> class.
 
@@ -321,7 +326,7 @@ There is no configuration file to be provided to the class when it is instantiat
 
 The API of the class is:
 
-<pre>  
+```C++  
 class numbers {
   public:
     /// Constructor: receives the language code, and the decimal 
@@ -334,15 +339,15 @@ class numbers {
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 Parameters expected by the constructor are:
 
@@ -356,7 +361,7 @@ The last two parameters are needed because in some latin languages, the comma is
 
 The punctuation detection module assigns Part-of-Speech tags to punctuation symbols. The API of the class is the following:
 
-<pre>  
+```C++  
 class punts {
   public:
     /// Constructor: load punctuation symbols and tags from given file
@@ -366,15 +371,15 @@ class punts {
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The constructor receives as parameter the name of a file containing the list of the PoS tags to be assigned to each punctuation symbol.
 
@@ -391,7 +396,7 @@ The format of the file listing the PoS for punctuation symbols is one punctuatio
    ... ... Fs
 </pre>
 
-One special line may be included defining the tag that will be assigned to any other punctuation symbol not found in the list. Any token containing no alphanumeric character is considered a punctuation symbol. This special line has the format: `&lt;Other&gt; tag`. E.g. `&lt;Other&gt; Fz`
+One special line may be included defining the tag that will be assigned to any other punctuation symbol not found in the list. Any token containing no alphanumeric character is considered a punctuation symbol. This special line has the format: `<Other> tag`. E.g. `<Other> Fz`
 
 # User Map Module {#user-map-module}
 
@@ -401,7 +406,7 @@ If used, it should be run before the other modules (e.g. morphological analysis)
 
 The API of the class is the following:
 
-<pre>  
+```C++  
 class RE_map {
   public:
     /// Constructor, load special token patterns
@@ -411,15 +416,15 @@ class RE_map {
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The constructor receives as parameter the name of a file containing a list of regular expressions, and the list of pairs lemma-PoS tag to be assigned to each word matching the expression.
 
@@ -443,7 +448,7 @@ The lemma may be any string literal, or `$$` meaning that the string matching th
 
 The first rule will recognize tokens such as `@john` or `@peter4`, and assign them the tag `NP00000` (proper noun) and the matching string as lemma.
 
-The second rule will recognize tokens starting with ```<`'' and ending with ```>`'' (such as `&lt;HTML&gt;` or `&lt;br/&gt;`) and assign them the literal `XMLTAG` as lemma and the tag `Fz` (punctuation:others) as PoS.
+The second rule will recognize tokens starting with ```<`'' and ending with ```>`'' (such as `<HTML>` or `<br/>`) and assign them the literal `XMLTAG` as lemma and the tag `Fz` (punctuation:others) as PoS.
 
 The third rule will assign the two pairs lemma-tag to each occurrence of the word ``hulabee''. This is just an example, and if you want to add a word to your dictionary, the dictionary module is the right place to do so.
 
@@ -459,7 +464,7 @@ For languages that do not have a specific ATN, a default analyzer is used that d
 
 The API of the class is:
 
-<pre>        
+```C++        
 class dates {             
   public:   
     /// Constructor: receives the language code
@@ -469,15 +474,15 @@ class dates {
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The only parameter expected by the constructor is the language of the text to analyze, in order to be able to apply the appropriate specific automata, or select the default one if none is available.
 
@@ -489,7 +494,8 @@ The decision of what is included in the dictionary and what is dealt with throug
 
 The API for this module is the following:
 
-<pre>class dictionary {
+```C++
+class dictionary {
   public:
     /// Constructor
     dictionary(const std::wstring &Lang, const std::wstring &dicFile, 
@@ -515,12 +521,12 @@ The API for this module is the following:
     bool has_compounds() const;
 
     /// Get dictionary entry for a given form, add to given list.
-    void search_form(const std::wstring &form, std::list&lt;analysis&gt; &la) const;
+    void search_form(const std::wstring &form, std::list<analysis> &la) const;
 
     /// Fills the analysis list of a word, checking for suffixes and contractions.
     /// Returns true iff the form is a contraction, returns contraction components
     /// in given list
-    bool annotate_word(word &w, std::list&lt;word&gt; &lw, bool override=false) const;
+    bool annotate_word(word &w, std::list<word> &lw, bool override=false) const;
 
     /// Fills the analysis list of a word, checking for suffixes and contractions.
     /// Never retokenizing contractions, nor returning component list.
@@ -536,15 +542,15 @@ The API for this module is the following:
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &ls) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The parameters of the constructor are:
 
@@ -569,11 +575,11 @@ The dictionary module behaviour may be tuned on-the-fly with the methods `set_af
 
 ## Form Dictionary File {#form-dictionary-file}
 
-The form dictionary contais two required sections: `&lt;IndexType&gt;` and `&lt;Entries&gt;`
+The form dictionary contais two required sections: `<IndexType>` and `<Entries>`
 
-Section `&lt;IndexType&gt;` contains a single line, that may be either `DB_PREFTREE` or `DB_MAP`. With `DB_MAP` the dictionary is stored in a C++ STL <tt>map</tt> container. With `DB_PREFTREE` it is stored in a prefix-tree structure. Depending on the size of the dictionary and on the morphological variation of the language, one structure may yield slightly better access times than the other.
+Section `<IndexType>` contains a single line, that may be either `DB_PREFTREE` or `DB_MAP`. With `DB_MAP` the dictionary is stored in a C++ STL <tt>map</tt> container. With `DB_PREFTREE` it is stored in a prefix-tree structure. Depending on the size of the dictionary and on the morphological variation of the language, one structure may yield slightly better access times than the other.
 
-Section `&lt;Entries&gt;` contains lines with one form per line. Each form line has format: <tt>form lemma1 PoS1 lemma2 PoS2 ...</tt>. E.g.:
+Section `<Entries>` contains lines with one form per line. Each form line has format: <tt>form lemma1 PoS1 lemma2 PoS2 ...</tt>. E.g.:
 
 <pre>  casa casa NCFS000 casar VMIP3S0 casar VMM02S0
   backs back NNS back VBZ
@@ -605,7 +611,7 @@ An optional parameter in the constructor enables to control whether contractions
 
 The submodule of the dictionary handler that deals with affixes requires a set of affixation rules.
 
-The file consists of two (optional) sections: `&lt;Suffixes&gt;` and `&lt;Prefixes&gt;`. The first one contains suffixation rules, and the second, prefixation rules. They may appear in any order.
+The file consists of two (optional) sections: `<Suffixes>` and `<Prefixes>`. The first one contains suffixation rules, and the second, prefixation rules. They may appear in any order.
 
 Both kinds of rules have the same format, and only differ in whether the affix is checked at the beggining or at the end of the word.
 
@@ -651,13 +657,13 @@ The dictionary may be configured to check whether a word is a compound formed by
 
 The compounds will be detected if they are formed strictly by words in the dictionary, either glued toghether (e.g. ghostbusters,underworld), or separated with a character especified to be a compound joint (e.g. a dash middle-aged). In the current version, if a component of the compound is a form derived via affixation (e.g. extremely-complex) it will not be detected, even if the base form (extreme) is in the dictionary.
 
-The submodule of the dictionary handler that deals with compounds requires a set of valid compound patterns. The configuration file for the compound detection module consists of three sections: `&lt;UnknownWordsOnly&gt;`, `&lt;JoinChars&gt;`, and `&lt;CompoundPatterns&gt;`.
+The submodule of the dictionary handler that deals with compounds requires a set of valid compound patterns. The configuration file for the compound detection module consists of three sections: `<UnknownWordsOnly>`, `<JoinChars>`, and `<CompoundPatterns>`.
 
-Section `&lt;UnknownWordsOnly&gt;` is optional, and contains just one line with either `yes` or `no`. Default is `yes`, meaning that only words not found in the dictionary or solved by the affixation module will be tried as potential compounds. If the option is set to `no`, all words will be tried as potential compounds (probably overgenerating wrong analysis).
+Section `<UnknownWordsOnly>` is optional, and contains just one line with either `yes` or `no`. Default is `yes`, meaning that only words not found in the dictionary or solved by the affixation module will be tried as potential compounds. If the option is set to `no`, all words will be tried as potential compounds (probably overgenerating wrong analysis).
 
-Section `&lt;JoinChars&gt;` contains a list of characters to be considered compound joints. A typical member of this list is the dash ``-'', though the list may vary from one language to another. The character list must be specified with one character per line.
+Section `<JoinChars>` contains a list of characters to be considered compound joints. A typical member of this list is the dash ``-'', though the list may vary from one language to another. The character list must be specified with one character per line.
 
-Section `&lt;CompoundPatterns&gt;` contains a list of valid compound patterns. Each pattern must be defined in a separate line.
+Section `<CompoundPatterns>` contains a list of valid compound patterns. Each pattern must be defined in a separate line.
 
 There are two possible formats for specifying a pattern:
 
@@ -691,7 +697,8 @@ This module aggregates input tokens in a single word object if they are found in
 
 The API for this class is:
 
-<pre>class locutions: public automat {
+```C++
+class locutions: public automat {
   public:
     /// Constructor, receives the name of the file
     /// containing the multiwords to recognize.
@@ -707,15 +714,15 @@ The API for this class is:
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 Class <tt>automat</tt> implements a generic ATN. The <tt>locutions</tt> class is a derived class which implements an ATN to recognize the word patterns listed in the file given to the constructor.
 
@@ -723,18 +730,18 @@ Class <tt>automat</tt> implements a generic ATN. The <tt>locutions</tt> class is
 
 The file contains a list of multiwords to be recognized.
 
-The file consists of three sections `&lt;TagSetFile&gt;`, `&lt;OnlySelected&gt;`, and `&lt;Multiwords&gt;`. All of them are optional (though an empty or unexisting `&lt;Multiwords&gt;` section will result in never detecting any multiword).
+The file consists of three sections `<TagSetFile>`, `<OnlySelected>`, and `<Multiwords>`. All of them are optional (though an empty or unexisting `<Multiwords>` section will result in never detecting any multiword).
 
-*   Section `&lt;TagSetFile&gt;`. This section contains a single line with the path to a tagset description file (see section
+*   Section `<TagSetFile>`. This section contains a single line with the path to a tagset description file (see section
 
     5.1
 
     ) to be used when computing short versions for PoS tags. If the path is relative, the location of the multiwords file is used as the base directory.
-*   Section `&lt;OnlySelected&gt;` contains a single line with the one of the words `yes`, `true`, `no`, or `false`. If the section is ommited, or contains any unknown value, the value defaults to `false`.
+*   Section `<OnlySelected>` contains a single line with the one of the words `yes`, `true`, `no`, or `false`. If the section is ommited, or contains any unknown value, the value defaults to `false`.
 
     This flag controls the analysis that the multiword detector will consider when matching a multiwords pattern that contains lemmas or PoS descriptions. If `OnlySelected==false` (the default) all possible analysis for each word will matched against the pattern. If `OnlySelected==true`, only selected analysis will be checked. Note that `OnlySelected==true` only makes sense if the multiwords module is applied after the PoS tagger, since otherwise no analysis will be selected.
 
-*   Section `&lt;Multiwords&gt;` contains one multiword pattern per line. Each line has the format: `form lemma1 pos1 lemma2 pos2 ... [A|I]`
+*   Section `<Multiwords>` contains one multiword pattern per line. Each line has the format: `form lemma1 pos1 lemma2 pos2 ... [A|I]`
 
     The multiword form may contain lemmas in angle brackets, meaning that any form with that lemma will be considered a valid component for the multiword.
 
@@ -746,9 +753,9 @@ The file consists of three sections `&lt;TagSetFile&gt;`, `&lt;OnlySelected&gt;`
 
     <pre>a_buenas_horas a_buenas_horas RG A
     a_causa_de a_causa_de SPS00 I
-    &lt;accidente&gt;_de_trabajo accidente_de_trabajo $1:NC I
-    &lt;acabar&gt;_de_VMN0000 acabar_de_$L3 $1:VMI I
-    Z_&lt;vez&gt; TIMES:$L1 Zu I
+    <accidente>_de_trabajo accidente_de_trabajo $1:NC I
+    <acabar>_de_VMN0000 acabar_de_$L3 $1:VMI I
+    Z_<vez> TIMES:$L1 Zu I
     NC_SP_NC $L1_$L2_$L3 $1:NC I
     </pre>
 
@@ -772,7 +779,8 @@ There are two different modules able to perform NE recognition. They can be inst
 
 The API for the wrapper is the following:
 
-<pre>class ner {
+```C++
+class ner {
   public:
     /// Constructor
     ner(const std::wstring &cfgfile);
@@ -783,17 +791,17 @@ The API for the wrapper is the following:
     void analyze(sentence &s) const;
 
     /// analyze given sentences
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// analyze sentence, return analyzed copy
     sentence analyze(const sentence &s) const;
 
     /// analyze sentences, return analyzed copy
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
-The parameter to the constructor is the absolute name of a configuration file, which must contain the desired module type (`basic` or `bio`) in a line enclosed by the tags `&lt;Type&gt;` and `&lt;/Type&gt;`.
+The parameter to the constructor is the absolute name of a configuration file, which must contain the desired module type (`basic` or `bio`) in a line enclosed by the tags `<Type>` and `</Type>`.
 
 The rest of the file must contain the configuration options specific for the selected NER type, described below.
 
@@ -807,7 +815,8 @@ The first NER module is the <tt>np</tt> class, which is a just an ATN that basic
 
 It can be instantiated via the <tt>ner</tt> wrapper described above, or directly via its own API:
 
-<pre>class np: public ner_module, public automat {
+```C++
+class np: public ner_module, public automat {
   public:
     /// Constructor, receives a configuration file.
     np(const std::string &cfgfile); 
@@ -819,21 +828,21 @@ It can be instantiated via the <tt>ner</tt> wrapper described above, or directly
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The file that controls the behaviour of the simple NE recognizer consists of the following sections:
 
-*   Section `&lt;FunctionWords&gt;` lists the function words that can be embeeded inside a proper noun (e.g. preposisions and articles such as those in ``Banco de EspaÃ±a'' or ``Foundation for the Eradication of Poverty''). For instance:
+*   Section `<FunctionWords>` lists the function words that can be embeeded inside a proper noun (e.g. preposisions and articles such as those in ``Banco de EspaÃ±a'' or ``Foundation for the Eradication of Poverty''). For instance:
 
-    <pre>&lt;FunctionWords&gt;
+    <pre><FunctionWords>
     el
     la
     los
@@ -841,21 +850,21 @@ The file that controls the behaviour of the simple NE recognizer consists of the
     de
     del
     para
-    &lt;/FunctionWords&gt;
+    </FunctionWords>
     </pre>
 
-*   Section `&lt;SpecialPunct&gt;` lists the PoS tags (according to punctuation tags definition file, section
+*   Section `<SpecialPunct>` lists the PoS tags (according to punctuation tags definition file, section
 
     4.6
 
     ) after which a capitalized word may be indicating just a sentence or clause beggining and not necessarily a named entity. Typical cases are colon, open parenthesis, dot, hyphen..
 
-    <pre>&lt;SpecialPunct&gt;
+    <pre><SpecialPunct>
     Fpa
     Fp
     Fd
     Fg
-    &lt;/SpecialPunct&gt;
+    </SpecialPunct>
     </pre>
 
 *   Section `<NE_Tag>` contains only one line with the PoS tag that will be assigned to the recognized entities. If the NE classifier is going to be used later, it will have to be informed of this tag at creation time.
@@ -865,42 +874,42 @@ The file that controls the behaviour of the simple NE recognizer consists of the
     </NE_Tag>
     </pre>
 
-*   Section `&lt;Ignore&gt;` contains a list of forms (lowercased) or PoS tags (uppercased) that are not to be considered a named entity even when they appear capitalized in the middle of a sentence. For instance, the word Spanish in the sentence He started studying Spanish two years ago is not a named entity. If the words in the list appear with other capitalized words, they are considered to form a named entity (e.g. An announcement of the Spanish Bank of Commerce was issued yesterday). The same distinction applies to the word I in the sentences whatever you say, I don't believe, and _That was the death of Henry I_.
+*   Section `<Ignore>` contains a list of forms (lowercased) or PoS tags (uppercased) that are not to be considered a named entity even when they appear capitalized in the middle of a sentence. For instance, the word Spanish in the sentence He started studying Spanish two years ago is not a named entity. If the words in the list appear with other capitalized words, they are considered to form a named entity (e.g. An announcement of the Spanish Bank of Commerce was issued yesterday). The same distinction applies to the word I in the sentences whatever you say, I don't believe, and _That was the death of Henry I_.
 
     Each word or tag is followed by a 0 or 1 indicating whether the ignore condition is strict (0: non-strict, 1: strict). The entries marked as non-strict will have the behaviour described above. The entries marked as strict will never be considered named entities or NE parts.
 
-    For instance, the following `&lt;Ignore&gt;` section states that the word ``I'' is not to be a proper noun (whatever you say, I don't believe) unless some of its neighbour words are ( _That was the death of Henry I_). It also states that any word with the <tt>RB</tt> tag, and any of the listed language names must never be considered as possible NEs.
+    For instance, the following `<Ignore>` section states that the word ``I'' is not to be a proper noun (whatever you say, I don't believe) unless some of its neighbour words are ( _That was the death of Henry I_). It also states that any word with the <tt>RB</tt> tag, and any of the listed language names must never be considered as possible NEs.
 
-    <pre>&lt;Ignore&gt;
+    <pre><Ignore>
     i  0
     RB 1
     english 1
     dutch 1
     spanish 1
-    &lt;/Ignore&gt;
+    </Ignore>
     </pre>
 
-*   Section `&lt;Names&gt;` contains a list of lemmas that may be names, even if they conflict with some of the heuristic criteria used by the NE recognizer. This is useful when they appear capitalized at sentence beggining. For instance, the basque name Miren (Mary) or the nickname Pelé may appear at the beggining of a Spanish sentence. Since both of them are verbal forms in Spanish, they would not be considered candidates to form named entities.
+*   Section `<Names>` contains a list of lemmas that may be names, even if they conflict with some of the heuristic criteria used by the NE recognizer. This is useful when they appear capitalized at sentence beggining. For instance, the basque name Miren (Mary) or the nickname Pelé may appear at the beggining of a Spanish sentence. Since both of them are verbal forms in Spanish, they would not be considered candidates to form named entities.
 
-    Including the form in the `&lt;Names&gt;` section, causes the NE choice to be added to the possible tags of the form, giving the tagger the chance to decide whether it is actually a verb or a proper noun.
+    Including the form in the `<Names>` section, causes the NE choice to be added to the possible tags of the form, giving the tagger the chance to decide whether it is actually a verb or a proper noun.
 
-    <pre>&lt;Names&gt;
+    <pre><Names>
     miren
     pelé
     zapatero
     china
-    &lt;/Names&gt;
+    </Names>
     </pre>
 
-*   Section `&lt;Affixes&gt;` contains a list of words that may be part of a NE -either prefixing or suffixing it- even if they are lowercased. For instance, this is the case of the word don in Spanish (e.g. don_Juan should be a NE, even if don is lowercased), or the word junior or jr. in English (e.g. Peter_Grasswick_jr. should be a NE, even if _jr._ is lowercased).
+*   Section `<Affixes>` contains a list of words that may be part of a NE -either prefixing or suffixing it- even if they are lowercased. For instance, this is the case of the word don in Spanish (e.g. don_Juan should be a NE, even if don is lowercased), or the word junior or jr. in English (e.g. Peter_Grasswick_jr. should be a NE, even if _jr._ is lowercased).
 
     The section should containt a word per line, followed by the keyword <tt>PRE</tt> or <tt>SUF</tt> stating whether the word may be attached before or after an NE. It a word should be either a prefix or a suffix, it must be declared in two different lines, one with each keyword.
 
-    <pre>&lt;Affixes&gt;
+    <pre><Affixes>
     don  PRE
     doña PRE
     jr.  SUF
-    &lt;Affixes&gt;
+    <Affixes>
     </pre>
 
 *   Sections `<RE_NounAdj>` `<RE_Closed>` and `<RE_DateNumPunct>` allow to modify the default regular expressions for Part-of-Speech tags. This regular expressions are used by the NER to determine whether a sentence-beginning word has some tag that is Noun or Adj, or any tag that is a closed category, or one of date/punctuation/number. The default is to check against Eagles tags, thus, the recognizer will fail to identifiy these categories if your dictionary uses another tagset, unless you specify the right patterns to look for.
@@ -915,11 +924,11 @@ The file that controls the behaviour of the simple NE recognizer consists of the
     </RE_Closed>
     </pre>
 
-*   Section `&lt;TitleLimit&gt;` contains only one line with an integer value stating the length beyond which a sentence written _entirely_ in uppercase will be considered a title and not a proper noun. Example:
+*   Section `<TitleLimit>` contains only one line with an integer value stating the length beyond which a sentence written _entirely_ in uppercase will be considered a title and not a proper noun. Example:
 
-    <pre>&lt;TitleLimit&gt;
+    <pre><TitleLimit>
     3
-    &lt;/TitleLimit&gt;
+    </TitleLimit>
     </pre>
 
     If `TitleLimit=0` (the default) title detection is deactivated (i.e, all-uppercase sentences are always marked as named entities).
@@ -930,11 +939,11 @@ The file that controls the behaviour of the simple NE recognizer consists of the
 
     Obviously this heuristic is not 100% accurate, but in some cases (e.g. if you are analyzing newspapers) it may be preferrable to the default behaviour (which is not 100% accurate, either).
 
-*   Section `&lt;SplitMultiwords&gt;` contains only one line with either `yes` or `no`. If `SplitMultiwords` is activated Named Entities still will be recognized but they will not be treated as a unit with only one Part-of-Speech tag for the whole compound. Each word gets its own Part-of-Speech tag instead. Capitalized words get the Part-of-Speech tag as specified in `NE_Tag`, The Part-of-Speech tags of non-capitalized words inside a Named Entity (typically, prepositions and articles) will be left untouched.
+*   Section `<SplitMultiwords>` contains only one line with either `yes` or `no`. If `SplitMultiwords` is activated Named Entities still will be recognized but they will not be treated as a unit with only one Part-of-Speech tag for the whole compound. Each word gets its own Part-of-Speech tag instead. Capitalized words get the Part-of-Speech tag as specified in `NE_Tag`, The Part-of-Speech tags of non-capitalized words inside a Named Entity (typically, prepositions and articles) will be left untouched.
 
-    <pre>&lt;SplitMultiwords&gt;
+    <pre><SplitMultiwords>
     no
-    &lt;/SplitMultiwords&gt;
+    </SplitMultiwords>
     </pre>
 
 ## BIO NER module (<tt>bioner</tt>) {#bio-ner-module-bioner}
@@ -943,7 +952,8 @@ The machine-learning based NER module uses a classification algorithm to decide 
 
 It can be instantiated via the <tt>ner</tt> wrapper described above, or directly via its own API:
 
-<pre>class bioner: public ner_module {
+```C++
+class bioner: public ner_module {
   public:
     /// Constructor, receives the name of the configuration file.
     bioner ( const std::string & );
@@ -952,15 +962,15 @@ It can be instantiated via the <tt>ner</tt> wrapper described above, or directly
     void analyze(sentence &) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &) const;
+    void analyze(std::list<sentence> &) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &) const;
+    std::list<sentence> analyze(const std::list<sentence> &) const;
 };
-</pre>
+```
 
 The configuration file sets the required model and lexicon files, which may be generated from a training corpus using the scripts provided with FreeLing (in folder <tt>src/utilities/nerc</tt>). Check the README and comments in the scripts to find out what to do.
 
@@ -972,51 +982,51 @@ The most important file in the set is the <tt>.rgf</tt> file, which contains a d
 
 The sections of the configuration file for bioner module are:
 
-*   Section `&lt;RGF&gt;` contains one line with the path to the RGF file of the model. This file is the definition of the features that will be taken into account for NER.
+*   Section `<RGF>` contains one line with the path to the RGF file of the model. This file is the definition of the features that will be taken into account for NER.
 
-    <pre>&lt;RGF&gt;
+    <pre><RGF>
     ner.rgf
-    &lt;/RGF&gt;
+    </RGF>
     </pre>
 
-*   Section `&lt;Classifier&gt;` contains one line with the kind of classifier to use. Valid values are `AdaBoost` and `SVM`.
+*   Section `<Classifier>` contains one line with the kind of classifier to use. Valid values are `AdaBoost` and `SVM`.
 
-    <pre>&lt;Classifier&gt;
+    <pre><Classifier>
     Adaboost
-    &lt;/Classifier&gt;
+    </Classifier>
     </pre>
 
-*   Section `&lt;ModelFile&gt;` contains one line with the path to the model file to be used. The model file must match the classifier type given in section `&lt;Classifier&gt;`.
+*   Section `<ModelFile>` contains one line with the path to the model file to be used. The model file must match the classifier type given in section `<Classifier>`.
 
-    <pre>&lt;ModelFile&gt;
+    <pre><ModelFile>
     ner.abm
-    &lt;/ModelFile&gt;
+    </ModelFile>
     </pre>
 
     The <tt>.abm</tt> files contain AdaBoost models based on shallow Decision Trees (see [CMP03] for details). You don't need to understand this, unless you want to enter into the code of the AdaBoost classifier.
 
     The <tt>.svm</tt> files contain Support Vector Machine models generated by <tt>libsvm</tt> [CL11]. You don't need to understand this, unless you want to enter into the code of <tt>libsvm</tt>.
 
-*   Section `&lt;Lexicon&gt;` contains one line with the path to the lexicon file of the learnt model. The lexicon is used to translate string-encoded features generated by the extractor to integer-encoded features needed by the classifier. The lexicon file is generated at training time.
+*   Section `<Lexicon>` contains one line with the path to the lexicon file of the learnt model. The lexicon is used to translate string-encoded features generated by the extractor to integer-encoded features needed by the classifier. The lexicon file is generated at training time.
 
-    <pre>&lt;Lexicon&gt;
+    <pre><Lexicon>
     ner.lex
-    &lt;/Lexicon&gt;
+    </Lexicon>
     </pre>
 
     The <tt>.lex</tt> file is a dictionary that assigns a number to each symbolic feature used in the AdaBoost or SVM model. You don't need to understand this either unless you are a Machine Learning student or the like.
-*   Section `&lt;UseSoftMax&gt;` contains only one line with _yes_ or no, indicating whether the classifier output must be converted to probabilities with the SoftMax function. Currently, AdaBoost models need that conversion, and SVM models do not.
+*   Section `<UseSoftMax>` contains only one line with _yes_ or no, indicating whether the classifier output must be converted to probabilities with the SoftMax function. Currently, AdaBoost models need that conversion, and SVM models do not.
 
-    <pre>&lt;UseSoftMax&gt;
+    <pre><UseSoftMax>
     yes
-    &lt;/UseSoftMax&gt;
+    </UseSoftMax>
     </pre>
 
-*   Section `&lt;Classes&gt;` contains only one line with the classes of the model and its translation to B, I, O tag.
+*   Section `<Classes>` contains only one line with the classes of the model and its translation to B, I, O tag.
 
-    <pre>&lt;Classes&gt;
+    <pre><Classes>
     0 B 1 I 2 O
-    &lt;/Classes&gt;
+    </Classes>
     </pre>
 
 *   Section `<NE_Tag>` contains only one line with the PoS tag that will be assigned to the recognized entities. If the NE classifier is going to be used later, it will have to be informed of this tag at creation time.
@@ -1026,18 +1036,18 @@ The sections of the configuration file for bioner module are:
     </NE_Tag>
     </pre>
 
-*   Section `&lt;InitialProb&gt;` Contains the probabilities of seeing each class at the begining of a sentence. These probabilities are necessary for the Viterbi algorithm used to annotate NEs in a sentence.
+*   Section `<InitialProb>` Contains the probabilities of seeing each class at the begining of a sentence. These probabilities are necessary for the Viterbi algorithm used to annotate NEs in a sentence.
 
-    <pre>&lt;InitialProb&gt;
+    <pre><InitialProb>
     B 0.200072
     I 0.0
     O 0.799928
-    &lt;/InitialProb&gt;
+    </InitialProb>
     </pre>
 
-*   Section `&lt;TransitionProb&gt;` Contains the transition probabilities for each class to each other class, used by the Viterbi algorithm.
+*   Section `<TransitionProb>` Contains the transition probabilities for each class to each other class, used by the Viterbi algorithm.
 
-    <pre>&lt;TransitionProb&gt;
+    <pre><TransitionProb>
     B B 0.00829346
     B I 0.395481
     B O 0.596225
@@ -1047,14 +1057,14 @@ The sections of the configuration file for bioner module are:
     O B 0.0758838
     O I 0.0
     O O 0.924116
-    &lt;/TransitionProb&gt;
+    </TransitionProb>
     </pre>
 
-*   Section `&lt;TitleLimit&gt;` contains only one line with an integer value stating the length beyond which a sentence written _entirely_ in uppercase will be considered a title and not a proper noun. Example:
+*   Section `<TitleLimit>` contains only one line with an integer value stating the length beyond which a sentence written _entirely_ in uppercase will be considered a title and not a proper noun. Example:
 
-    <pre>&lt;TitleLimit&gt;
+    <pre><TitleLimit>
     3
-    &lt;/TitleLimit&gt;
+    </TitleLimit>
     </pre>
 
     If `TitleLimit=0` (the default) title detection is deactivated (i.e, all-uppercase sentences are always marked as named entities).
@@ -1065,11 +1075,11 @@ The sections of the configuration file for bioner module are:
 
     Obviously this heuristic is not 100% accurate, but in some cases (e.g. if you are analyzing newspapers) it may be preferrable to the default behaviour (which is not 100% accurate, either).
 
-*   Section `&lt;SplitMultiwords&gt;` contains only one line with either `yes` or `no`. If `SplitMultiwords` is activated Named Entities still will be recognized but they will not be treated as a unit with only one Part-of-Speech tag for the whole compound. Each word gets its own Part-of-Speech tag instead. Capitalized words get the Part-of-Speech tag as specified in `NE_Tag`, The Part-of-Speech tags of non-capitalized words inside a Named Entity (typically, prepositions and articles) will be left untouched.
+*   Section `<SplitMultiwords>` contains only one line with either `yes` or `no`. If `SplitMultiwords` is activated Named Entities still will be recognized but they will not be treated as a unit with only one Part-of-Speech tag for the whole compound. Each word gets its own Part-of-Speech tag instead. Capitalized words get the Part-of-Speech tag as specified in `NE_Tag`, The Part-of-Speech tags of non-capitalized words inside a Named Entity (typically, prepositions and articles) will be left untouched.
 
-    <pre>&lt;SplitMultiwords&gt;
+    <pre><SplitMultiwords>
     no
-    &lt;/SplitMultiwords&gt;
+    </SplitMultiwords>
     </pre>
 
 # Quantity Recognition Module {#quantity-recognition-module}
@@ -1086,7 +1096,8 @@ This module, similarly to number recognition, is language dependent: That is, an
 
 Currency and physical magnitudes can be recognized in any language, given the appropriate data file.
 
-<pre>class quantities {
+```C++
+class quantities {
   public:
     /// Constructor: receives the language code, and the data file.
     quantities(const std::string &lang, const std::string &cfgfile); 
@@ -1098,40 +1109,40 @@ Currency and physical magnitudes can be recognized in any language, given the ap
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 ## Quantity Recognition Data File {#quantity-recognition-data-file}
 
-This file contains the data necessary to perform currency amount and physical magnitude recognition. It consists of three sections: `&lt;Currency&gt;`, `&lt;Measure&gt;`, and `&lt;/MeasureNames&gt;`.
+This file contains the data necessary to perform currency amount and physical magnitude recognition. It consists of three sections: `<Currency>`, `<Measure>`, and `</MeasureNames>`.
 
-Section `&lt;Currency&gt;` contains a single line indicating which is the code, among those used in section `&lt;Measure&gt;`, that stands for 'currency amount'. This is used to assign to currency ammounts a different PoS tag than physical magnitudes. E.g.:
+Section `<Currency>` contains a single line indicating which is the code, among those used in section `<Measure>`, that stands for 'currency amount'. This is used to assign to currency ammounts a different PoS tag than physical magnitudes. E.g.:
 
-<pre>&lt;Currency&gt;
+<pre><Currency>
 CUR
-&lt;/Currency&gt;
+</Currency>
 </pre>
 
-Section `&lt;Measure&gt;` indicates the type of measure corresponding to each possible unit. Each line contains two fields: the measure code and the unit code. The codes may be anything, at user's choice, and will be used to build the lemma of the recognized quantity multiword.
+Section `<Measure>` indicates the type of measure corresponding to each possible unit. Each line contains two fields: the measure code and the unit code. The codes may be anything, at user's choice, and will be used to build the lemma of the recognized quantity multiword.
 
 E.g., the following section states that <tt>USD</tt> and <tt>FRF</tt> are of type <tt>CUR</tt> (currency), <tt>mm</tt> is of type <tt>LN</tt> (length), and <tt>ft/s</tt> is of type <tt>SP</tt> (speed):
 
-<pre>&lt;Measure&gt;
+<pre><Measure>
 CUR USD
 CUR FRF
 LN mm
 SP ft/s
-&lt;/Measure&gt;
+</Measure>
 </pre>
 
-Finally, section `&lt;MeasureNames&gt;` describes which multiwords have to be interpreted as a measure, and which unit they represent. The unit must appear in section `&lt;Measure&gt;` with its associated code. Each line has the format:
+Finally, section `<MeasureNames>` describes which multiwords have to be interpreted as a measure, and which unit they represent. The unit must appear in section `<Measure>` with its associated code. Each line has the format:
 
 <pre>multiword_description code tag
 </pre>
@@ -1148,18 +1159,18 @@ where <tt>multiword_description</tt> is a multiword pattern as in multiwords fil
 
 E.g.,
 
-<pre>&lt;MeasureNames&gt;
-french_&lt;franc&gt; FRF $2:N
-&lt;franc&gt; FRF $1:N
-&lt;dollar&gt; USD $1:N
-american_&lt;dollar&gt; USD $2:N
-us_&lt;dollar&gt; USD $2:N
-&lt;milimeter&gt; mm $1:N
-&lt;foot&gt;_per_second ft/s $1:N
-&lt;foot&gt;_Fh_second ft/s $1:N
-&lt;foot&gt;_Fh_s ft/s $1:N
-&lt;foot&gt;_second ft/s $1:N
-&lt;/MeasureNames&gt;
+<pre><MeasureNames>
+french_<franc> FRF $2:N
+<franc> FRF $1:N
+<dollar> USD $1:N
+american_<dollar> USD $2:N
+us_<dollar> USD $2:N
+<milimeter> mm $1:N
+<foot>_per_second ft/s $1:N
+<foot>_Fh_second ft/s $1:N
+<foot>_Fh_s ft/s $1:N
+<foot>_second ft/s $1:N
+</MeasureNames>
 </pre>
 
 This section will recognize strings such as the following:
@@ -1177,7 +1188,8 @@ It is important to note that the lemmatized multiword expressions (the ones that
 
 This class ends the morphological analysis subchain, and has two functions: first, it assigns an a priori probability to each analysis of each word. These probablities will be needed for the PoS tagger later. Second, if a word has no analysis (none of the previously applied modules succeeded to analyze it), this module tries to guess which are its possible PoS tags, based on the word ending.
 
-<pre>class probabilities {
+```C++
+class probabilities {
   public:
     /// Constructor: receives the name of the file
     // containing probabilities, and a threshold.
@@ -1193,15 +1205,15 @@ This class ends the morphological analysis subchain, and has two functions: firs
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The method `set_activate_guesser` will turn on/off the guessing of likely PoS tags for words with no analysis. Note that the guesser is turned on/off for any thread using the same probabilities instance.
 
@@ -1218,36 +1230,36 @@ See <tt>src/utilities/train-tagger/README</tt> to find out how to use it.
 
 The probabilities file has the following sections:
 
-*   Optional section `&lt;LemmaPreferences&gt;` and contains a list of pairs of lemmas. The meaning of each pair is that the first element is prefereble to the second in case the tagger can not decide between them and is forced to.
+*   Optional section `<LemmaPreferences>` and contains a list of pairs of lemmas. The meaning of each pair is that the first element is prefereble to the second in case the tagger can not decide between them and is forced to.
 
     For instance, the section:
 
-    <pre>       &lt;LemmaPreferences&gt;
+    <pre>       <LemmaPreferences>
            salir salgar
-           &lt;/LemmaPreferences&gt;
+           </LemmaPreferences>
     </pre>
 
     solves the ambiguity for Spanish word salgo, which may correspond to indicative first person singular of verb salir (go out), or to exactly the same tense of verb salgar (feed salt to cattle). Since the PoS tag is the same for both lemmas, the tagger can not decide which is the right one. This preference solves the dilemma in favour of salir (go out), which is more frequent.
 
-*   Optional section `&lt;PoSPreferences&gt;` and contains a list of pairs of PoS tags. The meaning of each pair is that the first element is prefereble to the second in case the tagger can not decide between them and is forced to. The POS preference is only used when the tie can not be solved using lemma preferences.
+*   Optional section `<PoSPreferences>` and contains a list of pairs of PoS tags. The meaning of each pair is that the first element is prefereble to the second in case the tagger can not decide between them and is forced to. The POS preference is only used when the tie can not be solved using lemma preferences.
 
     For instance, the section
 
-    <pre>      &lt;PosPreferences&gt;
+    <pre>      <PosPreferences>
           VMII3S0 VMII1S0
-          &lt;/PosPreferences&gt;
+          </PosPreferences>
     </pre>
 
     helps solving cases as the past tense for Spanish verbs such as cantaba (I/he sung), which are shared by first and third person. In this case, if the tagger is not able to make a decision a preference is set for 3rd person (which is more frequent in standard text).
 
-*   Section `&lt;TagsetFile&gt;`. This section contains a single line with the path to a tagset description file (see section
+*   Section `<TagsetFile>`. This section contains a single line with the path to a tagset description file (see section
 
     5.1
 
     ) to be used when computing short versions for PoS tags. If the path is relative, the location of the lexical probabilities file is used as the base directory.
-*   Section `&lt;FormTagFreq&gt;`. Probability data of some high frequency forms.
+*   Section `<FormTagFreq>`. Probability data of some high frequency forms.
 
-    If the word is found in this list, lexical probabilities are computed using data in `&lt;FormTagFreq&gt;` section.
+    If the word is found in this list, lexical probabilities are computed using data in `<FormTagFreq>` section.
 
     The list consists of one form per line, each line with format: <tt>form ambiguity-class, tag1 #observ1 tag2 #observ2 ...</tt>
 
@@ -1255,9 +1267,9 @@ The probabilities file has the following sections:
 
     Form probabilities are smoothed to avoid zero-probabilities.
 
-*   Section `&lt;ClassTagFreq&gt;`. Probability data of ambiguity classes.
+*   Section `<ClassTagFreq>`. Probability data of ambiguity classes.
 
-    If the word is not found in the `&lt;FormTagFreq&gt;`, frequencies for its ambiguity class are used.
+    If the word is not found in the `<FormTagFreq>`, frequencies for its ambiguity class are used.
 
     The list consists of class per line, each line with format: <tt>class tag1 #observ1 tag2 #observ2 ...</tt>
 
@@ -1265,9 +1277,9 @@ The probabilities file has the following sections:
 
     Class probabilities are smoothed to avoid zero-probabilities.
 
-*   Section `&lt;SingleTagFreq&gt;`. Unigram probabilities.
+*   Section `<SingleTagFreq>`. Unigram probabilities.
 
-    If the ambiguity class is not found in the `&lt;ClassTagFreq&gt;`, individual frequencies for its possible tags are used.
+    If the ambiguity class is not found in the `<ClassTagFreq>`, individual frequencies for its possible tags are used.
 
     One tag per line, each line with format: <tt>tag #observ</tt>
 
@@ -1275,19 +1287,19 @@ The probabilities file has the following sections:
 
     Tag probabilities are smoothed to avoid zero-probabilities.
 
-*   Section `&lt;Theeta&gt;`. Value for parameter theeta used in smoothing of tag probabilities based on word suffixes.
+*   Section `<Theeta>`. Value for parameter theeta used in smoothing of tag probabilities based on word suffixes.
 
-    If the word is not found in dictionary (and so the list of its possible tags is unknown), the distribution is computed using the data in the `&lt;Theeta&gt;`, `&lt;Suffixes&gt;`, and `&lt;UnknownTags&gt;` sections.
-
-    The section has exactly one line, with one real number.
-
-    E.g. `&lt;Theeta&gt;` `0.00834` `&lt;/Theeta&gt;`
-
-*   Section `&lt;BiassSuffixes&gt;`. Weighted interpolation factor between class probability and word suffixes.
+    If the word is not found in dictionary (and so the list of its possible tags is unknown), the distribution is computed using the data in the `<Theeta>`, `<Suffixes>`, and `<UnknownTags>` sections.
 
     The section has exactly one line, with one real number.
 
-    E.g. `&lt;BiassSuffixes&gt;` `0.4` `&lt;/BiassSuffixes&gt;`
+    E.g. `<Theeta>` `0.00834` `</Theeta>`
+
+*   Section `<BiassSuffixes>`. Weighted interpolation factor between class probability and word suffixes.
+
+    The section has exactly one line, with one real number.
+
+    E.g. `<BiassSuffixes>` `0.4` `</BiassSuffixes>`
 
     This section is optional. If ommited, used default value is 0.3.
 
@@ -1297,37 +1309,37 @@ The probabilities file has the following sections:
 
     This parameter specifies the weight that suffix information is given in the iterpolation, i.e. if `BiassSuffixes=0` only the ambiguity class information is used. If `BiassSuffixes=1`, only the probabilities provided by the guesser are used.
 
-*   Section `&lt;Suffixes&gt;`. List of suffixes obtained from a train corpus, with information about which tags were assigned to the word with that suffix.
+*   Section `<Suffixes>`. List of suffixes obtained from a train corpus, with information about which tags were assigned to the word with that suffix.
 
     The list has one suffix per line, each line with format: <tt>suffix #observ tag1 #observ1 tag2 #observ2 ...</tt>
 
     E.g. <tt>orada 133 AQ0FSP 17 VMP00SF 8 NCFS000 108</tt>
 
-*   Section `&lt;UnknownTags&gt;`. List of open-category tags to consider as possible candidates for any unknown word.
+*   Section `<UnknownTags>`. List of open-category tags to consider as possible candidates for any unknown word.
 
     One tag per line, each line with format: <tt>tag #observ</tt>. The tag is the complete label. The count is the number of occurrences in a training corpus.
 
     E.g. <tt>NCMS000 33438</tt>
 
-*   Section `&lt;LidstoneLambdaLexical&gt;` specifies the _λ_ parameter for Lidstone's Law smoothing.
+*   Section `<LidstoneLambdaLexical>` specifies the _λ_ parameter for Lidstone's Law smoothing.
 
     The section has exactly one line, with one real number.
 
-    E.g. `&lt;LidstoneLambdaLexical&gt;` `0.2` `&lt;/LidstoneLambdaLexical&gt;`
+    E.g. `<LidstoneLambdaLexical>` `0.2` `</LidstoneLambdaLexical>`
 
     This section is optional. If ommited, used default value is 0.1.
 
-    This parameter is used only to smooth the lexical probabilities of words that have appeared in the training corpus, and thus are listed in the `&lt;FormTagFreq&gt;` section described above.
+    This parameter is used only to smooth the lexical probabilities of words that have appeared in the training corpus, and thus are listed in the `<FormTagFreq>` section described above.
 
-*   Section `&lt;LidstoneLambdaClass&gt;` specifies the _λ_ parameter for Lidstone's Law smoothing.
+*   Section `<LidstoneLambdaClass>` specifies the _λ_ parameter for Lidstone's Law smoothing.
 
     The section has exactly one line, with one real number.
 
-    E.g. `&lt;LidstoneLambdaClass&gt;` `0.7` `&lt;/LidstoneLambdaClass&gt;`
+    E.g. `<LidstoneLambdaClass>` `0.7` `</LidstoneLambdaClass>`
 
     This section is optional. If ommited, used default value is 0.1.
 
-    This parameter is used only to smooth the lexical probabilities of words that have not appeared in the training corpus, and thus are not listed in the `&lt;FormTagFreq&gt;` section. In these cases, information from appropriate ambiguity class in `&lt;ClassTagFreq&gt;` section is used.
+    This parameter is used only to smooth the lexical probabilities of words that have not appeared in the training corpus, and thus are not listed in the `<FormTagFreq>` section. In these cases, information from appropriate ambiguity class in `<ClassTagFreq>` section is used.
 
 # Alternatives Suggestion Module {#alternatives-suggestion-module}
 
@@ -1337,7 +1349,8 @@ The alternatives module can be created to perform a direct search of the form in
 
 The API for this module is the following:
 
-<pre>class alternatives {
+```C++
+class alternatives {
   public:
     /// Constructor
     alternatives(const std::wstring &cfgfile);
@@ -1354,21 +1367,21 @@ The API for this module is the following:
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 This module will find alternatives for words in the sentences, and enrich them with a list of forms, each with the corresponding SED value. The forms are added to the <tt>alternatives</tt> member of class <tt>word</tt>, which is a <tt>std::list<pair<std::wstring,int»</tt>. The list can be traversed using the iterators <tt>word::alternatives_begin()</tt> and <tt>word::alternatives_end()</tt>.
 
 The constructor of this module expects a configuration file containing the following sections:
 
-*   Section `&lt;General&gt;` contains values for general parameters, expressed in lines of the form `key value`.
+*   Section `<General>` contains values for general parameters, expressed in lines of the form `key value`.
 
     More specifically, it must contain a line `Type (orthographic|phonetic)` stating whether the similar words must be searched using direct SED between of orthographic forms, or between their phonetic encoding.
 
@@ -1390,7 +1403,7 @@ The `PhoneticDictionary` must contain one phonetic form per line, followed by a 
     tu too two
 </pre>
 
-*   Section `&lt;Distance&gt;` contains `key value` lines stating parameters related to the SED measure to use.
+*   Section `<Distance>` contains `key value` lines stating parameters related to the SED measure to use.
 
     A line `CostMatrix filename` is expected, stating the file where the SED cost matrix to be used. The `CostMatrix` file must comply with FOMA requirements for cost matrices (see FOMA documentation, or examples provided in `data/common/alternatives` in FreeLing tarball).
 
@@ -1398,7 +1411,7 @@ The `PhoneticDictionary` must contain one phonetic form per line, followed by a 
 
     A line `MaxSizeDiff int-value` may also be provided. Similar strings with a length difference greater than this parameter will be filtered out of the result. To deactivate this feature, just set the value to a large number (e.g. 99).
 
-    *   Section `&lt;Target&gt;` contains `key value` lines describing which words in the sentence must be checked for similar forms.
+    *   Section `<Target>` contains `key value` lines describing which words in the sentence must be checked for similar forms.
 
     The line `UnknownWords (yes|no)` states whether similar forms are to be searched for unknown words (i.e. words that didn't receive any analysis from any module so far).
 
@@ -1414,7 +1427,8 @@ The module receives a file containing several configuration options, which speci
 
 FreeLing provides WordNet-based [Fel98,Vos98] dictionaries, but the results of this module can be changed to any other sense catalogue simply providing a different sense dictionary file.
 
-<pre>class senses {
+```C++
+class senses {
   public:
     /// Constructor: receives the name of the configuration file
     senses(const std::string &cfgfile); 
@@ -1423,28 +1437,28 @@ FreeLing provides WordNet-based [Fel98,Vos98] dictionaries, but the results of t
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The constructor of this class receives the name of a configuration file which is expected to contain the following sections:
 
-*   A section `&lt;WNposMap&gt;` with the mapping rules of FreeLing PoS tags to sense dictionary PoS tags. See details in section
+*   A section `<WNposMap>` with the mapping rules of FreeLing PoS tags to sense dictionary PoS tags. See details in section
 
     5.2
 
     .
-*   A section `&lt;DataFiles&gt;` containing at least the keyword `SenseDictFile` defined to a valid sense dictionary file name. E.g.:
+*   A section `<DataFiles>` containing at least the keyword `SenseDictFile` defined to a valid sense dictionary file name. E.g.:
 
-    <pre>    &lt;DataFiles&gt;
+    <pre>    <DataFiles>
         SenseDictFile  ./senses30.src
-        &lt;/DataFiles&gt;
+        </DataFiles>
     </pre>
 
     The sense dictionary must follow the format described in section
@@ -1453,13 +1467,13 @@ The constructor of this class receives the name of a configuration file which is
 
     .
 
-    If the mapping rules `&lt;WNposMap&gt;` require a form dictionary, a keyword `formDictFile` with the dictionary to use must be provided in this section. More details are given in section
+    If the mapping rules `<WNposMap>` require a form dictionary, a keyword `formDictFile` with the dictionary to use must be provided in this section. More details are given in section
 
     5.2
 
     .
 
-*   A section `&lt;DuplicateAnalysis&gt;` containing a single line with either `yes` or `no`, stating whether the analysis with more than one senses must be duplicated. If this section is ommitted, `no` is used as default value. The effect of activating this option is described in the following example:
+*   A section `<DuplicateAnalysis>` containing a single line with either `yes` or `no`, stating whether the analysis with more than one senses must be duplicated. If this section is ommitted, `no` is used as default value. The effect of activating this option is described in the following example:
 
     For instance, the word crane has the follwing analysis:
 
@@ -1504,7 +1518,8 @@ The module expects the input words to have been annotated with a list of candida
 
 The API of the class is the following:
 
-<pre>class ukb {
+```C++
+class ukb {
   public:
     /// Constructor. Receives a configuration file for UKB
     ukb(const std::string &cfgfile);
@@ -1513,33 +1528,33 @@ The API of the class is the following:
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The constructor receives a file name where module configuration options are found. The contents of the configuration files are the following:
 
-*   A section `&lt;PageRankParameters&gt;` specifying values for UKB stopping criteria. E.g.:
+*   A section `<PageRankParameters>` specifying values for UKB stopping criteria. E.g.:
 
-    <pre>    &lt;PageRankParameters&gt;
+    <pre>    <PageRankParameters>
         Epsilon 0.03
         MaxIterations 10 
         Damping 0.85
-        &lt;/PageRankParameters&gt;
+        </PageRankParameters>
     </pre>
 
     These parameters are UKB parameters: The an _epsilon_ float value that controls the precision with with the end of PageRank iterations is decided, and a MaxIterations integer, that controls the maximum number of PageRank iterations, even is no convergence is reached. The Damping parameter is the standard parameter in PageRank algorithm.
-*   A section `&lt;RelationFile&gt;` specifying the knowledge base required by the algorithm. This section must one lines, with the path to a file containing a list of relations between senses.
+*   A section `<RelationFile>` specifying the knowledge base required by the algorithm. This section must one lines, with the path to a file containing a list of relations between senses.
 
-    <pre>    &lt;RelationFile&gt;
+    <pre>    <RelationFile>
         ../common/xwn.dat
-        &lt;/RelationFile&gt;
+        </RelationFile>
     </pre>
 
     The path may be absolute, or relative to the position of the ukb module configuration file.
@@ -1563,7 +1578,8 @@ The second module, named <tt>relax_tagger</tt>, is a hybrid system capable to in
 
 The <tt>hmm_tagger</tt> module is somewhat faster than <tt>relax_tagger</tt>, but the later allows you to add manual constraints to the model. Its API is the following:
 
-<pre>class hmm_tagger: public POS_tagger {
+```C++
+class hmm_tagger: public POS_tagger {
   public:
     /// Constructor
     hmm_tagger(const std::string &hmmfile, 
@@ -1575,19 +1591,19 @@ The <tt>hmm_tagger</tt> module is somewhat faster than <tt>relax_tagger</tt>, bu
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 
     /// given an analyzed sentence find out probability 
     /// of the k-th best sequence
     double SequenceProb_log(const sentence &s, int k=0) const;
 };
-</pre>
+```
 
 The <tt>hmm_tagger</tt> constructor receives the following parameters:
 
@@ -1598,7 +1614,8 @@ The <tt>hmm_tagger</tt> constructor receives the following parameters:
 
 The <tt>relax_tagger</tt> module can be tuned with hand written constraint, but is about 2 times slower than <tt>hmm_tagger</tt>. It is not able to produce <tt>k</tt> best sequences either.
 
-<pre>class relax_tagger : public POS_tagger {
+```C++
+class relax_tagger : public POS_tagger {
   public:
     /// Constructor, given the constraint file and config parameters
     relax_tagger(const std::string &cfgfile, 
@@ -1612,15 +1629,15 @@ The <tt>relax_tagger</tt> module can be tuned with hand written constraint, but 
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The <tt>relax_tagger</tt> constructor receives the following parameters:
 
@@ -1643,21 +1660,21 @@ See <tt>src/utilities/train-tagger/README</tt> for details.
 
 The file has eight sections which contain -among other things- the paremeters of the HMM (e.g. the tag (unigram), bigram, and trigram probabilities used in Linear Interpolation smoothing by the tagger to compute state transition probabilities ( _α_<sub>ij</sub> parameters of the HMM):
 
-*   Section `&lt;TagsetFile&gt;`. This section contains a single line with the path to a tagset description file (see section
+*   Section `<TagsetFile>`. This section contains a single line with the path to a tagset description file (see section
 
     5.1
 
     ) to be used when computing short versions for PoS tags. If the path is relative, the location of the lexical probabilities file is used as the base directory.
 
-    This section has to appear before section `&lt;Forbidden&gt;`.
+    This section has to appear before section `<Forbidden>`.
 
-*   Section `&lt;Tag&gt;`. List of unigram tag probabilities (estimated via your preferred method). Each line is a tag probability <tt>P(t)</tt> with format <tt>Tag Probability</tt>
+*   Section `<Tag>`. List of unigram tag probabilities (estimated via your preferred method). Each line is a tag probability <tt>P(t)</tt> with format <tt>Tag Probability</tt>
 
     Lines for zero tag (for initial states) and for <tt>x</tt> (unobserved tags) must be included.
 
     E.g. <tt>0 0.03747</tt> <tt>AQ 0.00227</tt> <tt>NC 0.18894</tt> <tt>x 1.07312e-06</tt>
 
-*   Section `&lt;Bigram&gt;`. List of bigram transition probabilities (estimated via your preferred method). Each line is a transition probability, with the format: <tt>Tag1.Tag2 Probability</tt>
+*   Section `<Bigram>`. List of bigram transition probabilities (estimated via your preferred method). Each line is a transition probability, with the format: <tt>Tag1.Tag2 Probability</tt>
 
     Tag zero indicates sentence-beggining.
 
@@ -1665,7 +1682,7 @@ The file has eight sections which contain -among other things- the paremeters of
 
     E.g. the following line indicates the transition probability between two consecutive tags. <tt>AQ.NC 0.16963</tt>
 
-*   Section `&lt;Trigram&gt;`. List of trigram transition probabilities (estimated via your preferred method). Each line is a transition probability, with the format: <tt>Tag1.Tag2.Tag3 Probability</tt>.
+*   Section `<Trigram>`. List of trigram transition probabilities (estimated via your preferred method). Each line is a transition probability, with the format: <tt>Tag1.Tag2.Tag3 Probability</tt>.
 
     Tag zero indicates sentence-beggining.
 
@@ -1673,7 +1690,7 @@ The file has eight sections which contain -among other things- the paremeters of
 
     E.g. the following line indicates the probability of a tag <tt>SP</tt> appearing after two words tagged <tt>DA</tt> and <tt>NC</tt>. <tt>DA.NC.SP 0.33312</tt>
 
-*   Section `&lt;Initial&gt;`. List of initial state probabilities (estimated via your preferred method), i.e. the _π_<sub>i</sub> parameters of the HMM. Each line is an initial probability, with the format <tt>InitialState LogProbability</tt>.
+*   Section `<Initial>`. List of initial state probabilities (estimated via your preferred method), i.e. the _π_<sub>i</sub> parameters of the HMM. Each line is an initial probability, with the format <tt>InitialState LogProbability</tt>.
 
     Each <tt>InitialState</tt> is a PoS-bigram code with the form <tt>0.tag</tt>. Probabilities are given in logarithmic form to avoid underflows.
 
@@ -1681,17 +1698,17 @@ The file has eight sections which contain -among other things- the paremeters of
 
     E.g. the following line indicates the probability that the sequence starts with an unknown tag. <tt>0.x -10.462703</tt>
 
-*   Section `&lt;Word&gt;`. Contains a list of word probabilities <tt>P(w)</tt> (estimated via your preferred method). It is used, toghether with the tag probabilities above, to compute emission probabilities (_b_<sub>iw</sub> parameters of the HMM).
+*   Section `<Word>`. Contains a list of word probabilities <tt>P(w)</tt> (estimated via your preferred method). It is used, toghether with the tag probabilities above, to compute emission probabilities (_b_<sub>iw</sub> parameters of the HMM).
 
     Each line is a word probability <tt>P(w)</tt> with format: <tt>word LogProbability</tt>. A special line for `<UNOBSERVED_WORD>` must be included. Sample lines for this section are:
 
     `afortunado -13.69500` `sutil -13.57721` `<UNOBSERVED_WORD> -13.82853`
 
-*   Section `&lt;Smoothing&gt;` contains three lines with the coefficients used for linear interpolation of unigram (`c1`), bigram (`c2`), and trigram (`c3`) probabilities. The section looks like:
+*   Section `<Smoothing>` contains three lines with the coefficients used for linear interpolation of unigram (`c1`), bigram (`c2`), and trigram (`c3`) probabilities. The section looks like:
 
-    `&lt;Smoothing&gt;` `c1 0.120970620869314` `c2 0.364310868831106` `c3 0.51471851029958` `&lt;/Smoothing&gt;`
+    `<Smoothing>` `c1 0.120970620869314` `c2 0.364310868831106` `c3 0.51471851029958` `</Smoothing>`
 
-*   Section `&lt;Forbidden&gt;` is the only that is not generated by the training scripts, and is supposed to be manually added (if needed). The utility is to prevent smoothing of some combinations that are known to have zero probability.
+*   Section `<Forbidden>` is the only that is not generated by the training scripts, and is supposed to be manually added (if needed). The utility is to prevent smoothing of some combinations that are known to have zero probability.
 
     Lines in this section are trigrams, in the same format than above: `Tag1.Tag2.Tag3`
 
@@ -1707,7 +1724,7 @@ The file has eight sections which contain -among other things- the paremeters of
 
     Similarly, the set of rules:
 
-    `*.VAI&lt;haber&gt;.NC` `*.VAI&lt;haber&gt;.AQ` `*.VAI&lt;haber&gt;.VMP00SF` `*.VAI&lt;haber&gt;.VMP00PF` `*.VAI&lt;haber&gt;.VMP00PM`
+    `*.VAI<haber>.NC` `*.VAI<haber>.AQ` `*.VAI<haber>.VMP00SF` `*.VAI<haber>.VMP00PF` `*.VAI<haber>.VMP00PM`
 
     will assign zero probability to any sequence containing the verb ``haber'' tagged as an auxiliar (VAI) followed by any of the listed tags. Note that the masculine singular participle is not excluded, since it is the only allowed after an auxiliary ``haber''.
 
@@ -1723,14 +1740,14 @@ The file consists of two sections: <tt>SETS</tt> and <tt>CONSTRAINTS</tt>.
 
 The <tt>SETS</tt> section consists of a list of set definitions, each of the form <tt>Set-name = element1 element2 ... elementN ;</tt>
 
-Where the <tt>Set-name</tt> is any alphanumeric string starting with a capital letter, and the elements are either forms, lemmas, plain PoS tags, or senses. Forms are enclosed in parenthesis -e.g. `(comimos)`-, lemmas in angle brackets -e.g. `&lt;comer&gt;`-, PoS tags are alphanumeric strings starting with a capital letter -e.g. `NCMS000`-, and senses are enclosed in square brackets -e.g. `[00794578]`. The sets must be homogeneous: That is, all the elements of a set have to be of the same kind.
+Where the <tt>Set-name</tt> is any alphanumeric string starting with a capital letter, and the elements are either forms, lemmas, plain PoS tags, or senses. Forms are enclosed in parenthesis -e.g. `(comimos)`-, lemmas in angle brackets -e.g. `<comer>`-, PoS tags are alphanumeric strings starting with a capital letter -e.g. `NCMS000`-, and senses are enclosed in square brackets -e.g. `[00794578]`. The sets must be homogeneous: That is, all the elements of a set have to be of the same kind.
 
 Examples of set definitions:
 
 <pre>   DetMasc = DA0MS0 DA0MP0 DD0MS0 DD0MP0 DI0MS0 DI0MP0 DP1MSP DP1MPP
              DP2MSP DP2MPP DT0MS0 DT0MP0 DE0MS0 DE0MP0 AQ0MS0 AQ0MP0;
-   VerbPron = <dar_cuenta> &lt;atrever&gt; &lt;arrepentir&gt; &lt;equivocar&gt; &lt;inmutar&gt;
-              &lt;morir&gt; &lt;ir&gt; &lt;manifestar&gt; &lt;precipitar&gt; &lt;referir&gt; &lt;venir&gt;;
+   VerbPron = <dar_cuenta> <atrever> <arrepentir> <equivocar> <inmutar>
+              <morir> <ir> <manifestar> <precipitar> <referir> <venir>;
    Animal = [00008019] [00862484] [00862617] [00862750] [00862871] [00863425]
             [00863992] [00864099] [00864394] [00865075] [00865379] [00865569]
             [00865638] [00867302] [00867448] [00867773] [00867864] [00868028]
@@ -1749,7 +1766,7 @@ Where:
 *   <tt>core</tt> indicates the analysis or analyses (form interpretation) in a word that will be affected by the constraint. It may be:
     *   Plain tag: A plain complete PoS tag, e.g. <tt>VMIP3S0</tt>
     *   Wildcarded tag: A PoS tag prefix, right-wilcarded, e.g. <tt>VMI*</tt>, <tt>VMIP*</tt>.
-    *   Lemma: A lemma enclosed in angle brackets, optionaly preceded by a tag or a wildcarded tag. e.g. `&lt;comer&gt;`, `VMIP3S0&lt;comer&gt;`, `VMI*&lt;comer&gt;` will match any word analysis with those tag/prefix and lemma.
+    *   Lemma: A lemma enclosed in angle brackets, optionaly preceded by a tag or a wildcarded tag. e.g. `<comer>`, `VMIP3S0<comer>`, `VMI*<comer>` will match any word analysis with those tag/prefix and lemma.
     *   Form: Form enclosed in parenthesis, preceded by a PoS tag (or a wilcarded tag). e.g. <tt>VMIP3S0(comió)</tt>, <tt>VMI*(comió)</tt> will match any word analysis with those tag/prefix and form. Note that the form alone is not allowed in the rule core, since the rule woull to distinguish among different analysis of the same form.
     *   Sense: A sense code enclosed in square brackets, optionaly preceded by a tag or a wildcarded tag. e.g. `[00862617]`, `NCMS000[00862617]`, `NC*[00862617]` will match any word analysis with those tag/prefix and sense.
 *   <tt>context</tt> is a list of conditions that the context of the word must satisfy for the constraint to be applied. Each condition is enclosed in parenthesis and the list (and thus the constraint) is finished with a semicolon. Each condition has the form: <tt>(position terms)</tt> or either: <tt>(position terms barrier terms)</tt>
@@ -1762,7 +1779,7 @@ Where:
     *   <tt>terms</tt> is a list of one or more terms separated by the token <tt>or</tt>. Each term may be:
         *   Plain tag: A plain complete PoS tag, e.g. <tt>VMIP3S0</tt>
         *   Wildcarded tag: A PoS tag prefix, right-wilcarded, e.g. <tt>VMI*</tt>, <tt>VMIP*</tt>.
-        *   Lemma: A lemma enclosed in angle brackets, optionaly preceded by a tag or a wildcarded tag. e.g. `&lt;comer&gt;`, `VMIP3S0&lt;comer&gt;`, `VMI*&lt;comer&gt;` will match any word analysis with those tag/prefix and lemma.
+        *   Lemma: A lemma enclosed in angle brackets, optionaly preceded by a tag or a wildcarded tag. e.g. `<comer>`, `VMIP3S0<comer>`, `VMI*<comer>` will match any word analysis with those tag/prefix and lemma.
         *   Form: Form enclosed in parenthesis, optionally preceded by a PoS tag (or a wilcarded tag). e.g. <tt>(comió)</tt>, <tt>VMIP3S0(comió)</tt>, <tt>VMI*(comió)</tt> will match any word analysis with those tag/prefix and form. Note that -contrarily to when defining the rule core- the form alone is allowed in the context.
         *   Sense: A sense code enclosed in square brackets, optionaly preceded by a tag or a wildcarded tag. e.g. `[00862617]`, `NCMS000[00862617]`, `NC*[00862617]` will match any word analysis with those tag/prefix and sense.
         *   Set reference: A name of a previously defined SET in curly brackets. e.g. `{DetMasc}`, `{VerbPron}` will match any word analysis with a tag, lemma or sense in the specified set.
@@ -1780,7 +1797,7 @@ The next constraint states a positive compatibility value for a word being a nou
 
 The next constraint states a positive compatibility value for a word being a masculine noun (<tt>NCM*</tt>) if the word to its left is a masculine determiner. It refers to a previously defined SET which should contain the list of all tags that are masculine determiners. This rule could be useful to correctly tag Spanish words which have two different NC analysis differing in gender: e.g. el cura (the priest) vs. la cura (the cure): <tt>5.0 NCM* (-1* DetMasc;)</tt>
 
-The next constraint adds some positive compatibility to a 3rd person personal pronoun being of undefined gender and number (<tt>PP3CNA00</tt>) if it has the possibility of being masculine singular (<tt>PP3MSA00</tt>), the next word may have lemma estar (to be), and the second word to the right is not a gerund (<tt>VMG</tt>). This rule is intended to solve the different behaviour of the Spanish word lo (it) in sentences such as ``Â¿Cansado? Si, lo estoy.'' (Tired? Yes, I am [it]) or ``lo estoy viendo.'' (I am watching it). `0.5 PP3CNA00 (0 PP3MSA00) (1 &lt;estar&gt;) (not 2 VMG*);`
+The next constraint adds some positive compatibility to a 3rd person personal pronoun being of undefined gender and number (<tt>PP3CNA00</tt>) if it has the possibility of being masculine singular (<tt>PP3MSA00</tt>), the next word may have lemma estar (to be), and the second word to the right is not a gerund (<tt>VMG</tt>). This rule is intended to solve the different behaviour of the Spanish word lo (it) in sentences such as ``Â¿Cansado? Si, lo estoy.'' (Tired? Yes, I am [it]) or ``lo estoy viendo.'' (I am watching it). `0.5 PP3CNA00 (0 PP3MSA00) (1 <estar>) (not 2 VMG*);`
 
 # Phonetic Encoding Module {#phonetic-encoding-module}
 
@@ -1794,7 +1811,8 @@ The module applies a set of rules to transform the written form to the output ph
 
 The API of the module is the following:
 
-<pre>class phonetics {
+```C++
+class phonetics {
 
  public:
   /// Constructor, given config file
@@ -1807,15 +1825,15 @@ The API of the module is the following:
   void analyze(sentence &s) const;
 
   /// analyze given sentences
-  void analyze(std::list&lt;sentence&gt; &ls) const;
+  void analyze(std::list<sentence> &ls) const;
 
   /// analyze sentence, return analyzed copy
   sentence analyze(const sentence &s) const;
 
   /// analyze sentences, return analyzed copy
-  std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+  std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The constructor receives a configuration file that contains the transformation rules to apply and the exception dictionary.
 
@@ -1825,7 +1843,7 @@ The phonetic encoding is stored in the word object and can be retrieved using th
 
 The format of the configuration file is the following:
 
-There can be at most one exception dictionary, delimited by `&lt;Exceptions&gt;` and `&lt;/Exceptions&gt;`. Each entry in the dictionary contains two fields: a lowercase word form and the output phonetic encoding. E.g.:
+There can be at most one exception dictionary, delimited by `<Exceptions>` and `</Exceptions>`. Each entry in the dictionary contains two fields: a lowercase word form and the output phonetic encoding. E.g.:
 
 <pre>addition @dISIn
 varieties B@raIItiz
@@ -1834,7 +1852,7 @@ worcester wUst@r
 
 If a word form is found in the exceptions dictionary, the corresponding phonetic string is returned and no transformation rules are applied.
 
-There can be one or more rulesets delimited by `&lt;Rules&gt;` and `&lt;/Rules&gt;`. Rulesets are applied in the order they are defined. Each ruleset is applied on the result of the previous.
+There can be one or more rulesets delimited by `<Rules>` and `</Rules>`. Rulesets are applied in the order they are defined. Each ruleset is applied on the result of the previous.
 
 Rulesets can contain two kind of lines: Category definitions and rules.
 
@@ -1888,7 +1906,8 @@ The most important file in the set is the <tt>.rgf</tt> file, which contains a d
 
 The API of the class is the following:
 
-<pre>class nec {
+```C++
+class nec {
   public:
     /// Constructor
     nec(const std::string &cfgfile); 
@@ -1897,15 +1916,15 @@ The API of the class is the following:
     void analyze(sentence &s) const;
 
     /// analyze given sentences.
-    void analyze(std::list&lt;sentence&gt; &ls) const;
+    void analyze(std::list<sentence> &ls) const;
 
     /// return analyzed copy of given sentence
     sentence analyze(const sentence &s) const;
 
     /// return analyzed copy of given sentences
-    std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The constructor receives one parameter with the name of the configuration file for the module. Its content is described below.
 
@@ -1913,44 +1932,44 @@ The constructor receives one parameter with the name of the configuration file f
 
 The machine-learning based Named Entity Classification module reads a configuration file with the following sections
 
-*   Section `&lt;RGF&gt;` contains one line with the path to the RGF file of the model. This file is the definition of the features that will be taken into account for NEC.
+*   Section `<RGF>` contains one line with the path to the RGF file of the model. This file is the definition of the features that will be taken into account for NEC.
 
-    <pre>&lt;RGF&gt;
+    <pre><RGF>
     ner.rgf
-    &lt;/RGF&gt;
+    </RGF>
     </pre>
 
-*   Section `&lt;Classifier&gt;` contains one line with the kind of classifier to use. Valid values are `AdaBoost` and `SVM`.
+*   Section `<Classifier>` contains one line with the kind of classifier to use. Valid values are `AdaBoost` and `SVM`.
 
-    <pre>&lt;Classifier&gt;
+    <pre><Classifier>
     Adaboost
-    &lt;/Classifier&gt;
+    </Classifier>
     </pre>
 
-*   Section `&lt;ModelFile&gt;` contains one line with the path to the model file to be used. The model file must match the classifier type given in section `&lt;Classifier&gt;`.
+*   Section `<ModelFile>` contains one line with the path to the model file to be used. The model file must match the classifier type given in section `<Classifier>`.
 
-    <pre>&lt;ModelFile&gt;
+    <pre><ModelFile>
     ner.abm
-    &lt;/ModelFile&gt;
+    </ModelFile>
     </pre>
 
     The <tt>.abm</tt> files contain AdaBoost models based on shallow Decision Trees (see [CMP03] for details). You don't need to understand this, unless you want to enter into the code of the AdaBoost classifier.
 
     The <tt>.svm</tt> files contain Support Vector Machine models generated by <tt>libsvm</tt> [CL11]. You don't need to understand this, unless you want to enter into the code of <tt>libsvm</tt>.
 
-*   Section `&lt;Lexicon&gt;` contains one line with the path to the lexicon file of the learnt model. The lexicon is used to translate string-encoded features generated by the feature extractor to integer-encoded features needed by the classifier. The lexicon file is generated at training time.
+*   Section `<Lexicon>` contains one line with the path to the lexicon file of the learnt model. The lexicon is used to translate string-encoded features generated by the feature extractor to integer-encoded features needed by the classifier. The lexicon file is generated at training time.
 
-    <pre>&lt;Lexicon&gt;
+    <pre><Lexicon>
     ner.lex
-    &lt;/Lexicon&gt;
+    </Lexicon>
     </pre>
 
     The <tt>.lex</tt> file is a dictionary that assigns a number to each symbolic feature used in the AdaBoost or SVM model. You don't need to understand this either unless you are a Machine Learning student or the like.
-*   Section `&lt;Classes&gt;` contains only one line with the classes of the model and its translation to B, I, O tag.
+*   Section `<Classes>` contains only one line with the classes of the model and its translation to B, I, O tag.
 
-    <pre>&lt;Classes&gt;
+    <pre><Classes>
     0 NP00SP0 1 NP00G00 2 NP00O00 3 NP00V00
-    &lt;/Classes&gt;
+    </Classes>
     </pre>
 
 *   Section `<NE_Tag>` contains only one line with the PoS tag assigned by the NER module, which will be used to select named entities to be classified.
@@ -1966,7 +1985,8 @@ The chart parser enriches each <tt>sentence</tt> object with a <tt>parse_tree</t
 
 The API of the parser is:
 
-<pre>class chart_parser {
+```C++
+class chart_parser {
  public:
    /// Constructor
    chart_parser(const std::string &cfgfile);
@@ -1978,15 +1998,15 @@ The API of the parser is:
    void analyze(sentence &s) const;
 
    /// analyze given sentences.
-   void analyze(std::list&lt;sentence&gt; &ls) const;
+   void analyze(std::list<sentence> &ls) const;
 
    /// return analyzed copy of given sentence
    sentence analyze(const sentence &s) const;
 
    /// return analyzed copy of given sentences
-   std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+   std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The constructor receives a file with the CFG grammar to be used by the grammar, which is described in the next section
 
@@ -2012,7 +2032,7 @@ Terminals are PoS tags, but some variations are allowed for flexibility:
 
 *   Plain tag: A terminal may be a plain complete PoS tag, e.g. <tt>VMIP3S0</tt>
 *   Wildcarding: A terminal may be a PoS tag prefix, right-wilcarded, e.g. <tt>VMI*</tt>, <tt>VMIP*</tt>.
-*   Specifying lemma: A terminal may be a PoS tag (or a wilcarded prefix) with a lemma enclosed in angle brackets, e.g `VMIP3S0&lt;comer&gt;`, `VMI*&lt;comer&gt;` will match only words with those tag/prefix and lemma.
+*   Specifying lemma: A terminal may be a PoS tag (or a wilcarded prefix) with a lemma enclosed in angle brackets, e.g `VMIP3S0<comer>`, `VMI*<comer>` will match only words with those tag/prefix and lemma.
 *   Specifying form: A terminal may be a PoS tag (or a wilcarded prefix) with a form enclosed in parenthesis, e.g <tt>VMIP3S0(comió)</tt>, <tt>VMI*(comió)</tt> will match only words with those tag/prefix and form.
 *   If a double-quoted string is given inside the angle brackets or parenthesis (e.g. `VMI*("myforms.dat")` or `VMIP3S0<"mylemmas.dat">`) it is interpreted as a file name, and the terminal will match any lemma (or word form) found in that file. If the file name is not an absolute path, it is interpreted as a relative path based at the location of the grammar file.
 
@@ -2028,7 +2048,8 @@ The grammar file may contain also some directives to help the parser decide whic
 
 The Txala dependency parser [ACM05] gets parsed sentences -that is, <tt>sentence</tt> objects which have been enriched with a <tt>parse_tree</tt> by the <tt>chart_parser</tt> (or by any other means).
 
-<pre>class dep_txala : public dependency_parser {
+```C++
+class dep_txala : public dependency_parser {
  public:   
    /// constructor
    dep_txala(const std::string &cfgfile, const std::string &start);
@@ -2037,25 +2058,25 @@ The Txala dependency parser [ACM05] gets parsed sentences -that is, <tt>sentence
    void analyze(sentence &s) const;
 
    /// analyze given sentences.
-   void analyze(std::list&lt;sentence&gt; &ls) const;
+   void analyze(std::list<sentence> &ls) const;
 
    /// return analyzed copy of given sentence
    sentence analyze(const sentence &s) const;
 
    /// return analyzed copy of given sentences
-   std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+   std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The constructor receives two strings: the name of the file containging the dependency rules to be used, and the start symbol of the grammar used by the <tt>chart_parser</tt> to parse the sentence.
 
 The dependency parser works in three stages:
 
-*   At the first stage, the `&lt;GRPAR&gt;` rules are used to complete the shallow parsing produced by the chart into a complete parsing tree. The rules are applied to a pair of adjacent chunks. At each step, the selected pair is fused in a single chunk. The process stops when only one chunk remains
+*   At the first stage, the `<GRPAR>` rules are used to complete the shallow parsing produced by the chart into a complete parsing tree. The rules are applied to a pair of adjacent chunks. At each step, the selected pair is fused in a single chunk. The process stops when only one chunk remains
 *   The next step is an automatic conversion of the complete parse tree to a dependency tree. Since the parsing grammar encodes information about the head of each rule, the conversion is straighforward
-*   The last step is the labeling. Each edge in the dependeny tree is labeled with a syntactic function, using the `&lt;GRLAB&gt;` rules
+*   The last step is the labeling. Each edge in the dependeny tree is labeled with a syntactic function, using the `<GRLAB>` rules
 
-The syntax and semantics of `&lt;GRPAR&gt;` and `&lt;GRLAB&gt;` rules are described in section
+The syntax and semantics of `<GRPAR>` and `<GRLAB>` rules are described in section
 
 4.21.1
 
@@ -2065,11 +2086,11 @@ The syntax and semantics of `&lt;GRPAR&gt;` and `&lt;GRLAB&gt;` rules are descri
 
 The dependency rules file contains a set of rules to perform dependency parsing.
 
-The file consists of five sections: sections: `&lt;GRPAR&gt;`, `&lt;GRLAB&gt;`, `&lt;SEMDB&gt;`, `&lt;CLASS&gt;`, and `&lt;PAIRS&gt;`, respectively closed by tags `&lt;/GRPAR&gt;`, `&lt;/GRLAB&gt;`, `&lt;/SEMDB&gt;`, `&lt;/CLASS&gt;`, and `&lt;/PAIRS&gt;`.
+The file consists of five sections: sections: `<GRPAR>`, `<GRLAB>`, `<SEMDB>`, `<CLASS>`, and `<PAIRS>`, respectively closed by tags `</GRPAR>`, `</GRLAB>`, `</SEMDB>`, `</CLASS>`, and `</PAIRS>`.
 
 ### Parse-tree completion rules {#parse-tree-completion-rules}
 
-Section `&lt;GRPAR&gt;` contains rules to complete the partial parsing provided by the chart parser. The tree is completed by combining chunk pairs as stated by the rules. Rules are applied from highest priority (lower values) to lowest priority (higher values), and left-to right. That is, the pair of adjacent chunks matching the most prioritary rule is found, and the rule is applied, joining both chunks in one. The process is repeated until only one chunk is left.
+Section `<GRPAR>` contains rules to complete the partial parsing provided by the chart parser. The tree is completed by combining chunk pairs as stated by the rules. Rules are applied from highest priority (lower values) to lowest priority (higher values), and left-to right. That is, the pair of adjacent chunks matching the most prioritary rule is found, and the rule is applied, joining both chunks in one. The process is repeated until only one chunk is left.
 
 The rules can be enabled/disabled via the activation of global flags. Each rule may be stated to be enabled only if certain flags are on. If none of its enabling flags are on, the rule is not applied. Each rule may also state which flags have to be toggled on/off after its application, thus enabling/disabling other rule subsets.
 
@@ -2085,7 +2106,7 @@ where:
 *   `context` is a context limiting the application of the rule only to chunk pairs that are surrounded by the appropriate context (```-`'' means no limitations, and the rule is applied to any matching chunk pair) (see below).
 *   `(lchunk,rchunk)` are the labels of the adjacent pair of chunks the rule will be applied to. The labels are either assigned by the chunk parser, or by a `RELABEL` operation on some other completion rule. The pair must be enclosed in parenthesis, separated by a comma, and contain NO whitespaces.
 
-    The chunk labels may be suffixed with one extra condition of the form: `(form)`, `&lt;lemma&gt;`, `[class]`, or `{PoS_regex}`.
+    The chunk labels may be suffixed with one extra condition of the form: `(form)`, `<lemma>`, `[class]`, or `{PoS_regex}`.
 
     For instance,
 
@@ -2094,7 +2115,7 @@ where:
     | `np` | any chunk labeled `np` by the chunker |
     | `np(cats)` | any chunk labeled `np` by the chunker |
     |   | with a head word with form `cats` |
-    | `np&lt;cat&gt;` | any chunk labeled `np` by the chunker |
+    | `np<cat>` | any chunk labeled `np` by the chunker |
     |   | with a head word with lemma `cat` |
     | `np[animal]` | any chunk labeled `np` by the chunker |
     |   | with a head word with a lemma in `animal` |
@@ -2104,7 +2125,7 @@ where:
     |   | the `^N.M` regular expression |
 
 *   `pair-constraits` expresses a constraint that must be satisfied by the `(lchunk,rchunk)` chunks. If no constraints are required, this field must be a dash: ```-`''. The format of the constraint is `pairclass::(value1,value2)`, where:
-    *   `pairclass` is the name of a pair class defined in the `&lt;PAIRS&gt;` section (see subsection
+    *   `pairclass` is the name of a pair class defined in the `<PAIRS>` section (see subsection
 
         4.21.1
 
@@ -2123,15 +2144,15 @@ where:
 
 *   `operation` is the way in which `lchunk` and `rchunk` nodes are to be combined (see below).*   The `op-params` component has two meanings, depending on the `operation` field: `top_left` and `top_right` operations must be followed by the literal `RELABEL` plus the new label(s) to assign to the chunks. Other operations must be followed by the literal `MATCHING` plus the label to be matched.
 
-    For `top_left` and `top_right` operations the labels following the keyword `RELABEL` state the labels with which each chunk in the pair will be relabelled, in the format `label1:label2`. If specified, `label1` will be the new label for the left chunk, and `label2` the one for the right chunk. A dash ( ```-`'') means no relabelling. In none of both chunks is to be relabelled, ```-`'' may be used instead of ```-:-`''. For example, the rule: `20 - - (np,pp&lt;of&gt;) top_left RELABEL np-of:- -` will hang the `pp` chunk as a daughter of the left chunk in the pair (i.e. `np`), then relabel the `np` to `np-of`, and leave the label for the `pp` unchanged.
+    For `top_left` and `top_right` operations the labels following the keyword `RELABEL` state the labels with which each chunk in the pair will be relabelled, in the format `label1:label2`. If specified, `label1` will be the new label for the left chunk, and `label2` the one for the right chunk. A dash ( ```-`'') means no relabelling. In none of both chunks is to be relabelled, ```-`'' may be used instead of ```-:-`''. For example, the rule: `20 - - (np,pp<of>) top_left RELABEL np-of:- -` will hang the `pp` chunk as a daughter of the left chunk in the pair (i.e. `np`), then relabel the `np` to `np-of`, and leave the label for the `pp` unchanged.
 
-    For `last_left`, `last_right` and `cover_last_left` operations, the label following the keyword `MATCHING` states the label that a node must have in order to be considered a valid ``last'' and get the subtree as a new child. This label may carry the same modifying suffixes than the chunk labels. If no node with this label is found in the tree, the rule is not applied. For example, the rule: `20 - - (vp,pp&lt;of&gt;) last_left MATCHING np -` will hang the `pp` chunk as a daughter of the last subtree labeled `np` found inside the `vp` chunk.
+    For `last_left`, `last_right` and `cover_last_left` operations, the label following the keyword `MATCHING` states the label that a node must have in order to be considered a valid ``last'' and get the subtree as a new child. This label may carry the same modifying suffixes than the chunk labels. If no node with this label is found in the tree, the rule is not applied. For example, the rule: `20 - - (vp,pp<of>) last_left MATCHING np -` will hang the `pp` chunk as a daughter of the last subtree labeled `np` found inside the `vp` chunk.
 
     *   The last field `flag-ops` is a space-separated list of flags to be toggled on/off. The list may be empty (meaning that the rule doesn't change the status of any flag). If a flag name is preceded by a ```+`'', it will be toggled on. If the leading symbol is a ```-`'', it will be toggled off.
 
 For instance, the rule:
 
-<pre>  20 - - (np,pp&lt;of&gt;) top_left RELABEL - -
+<pre>  20 - - (np,pp<of>) top_left RELABEL - -
 </pre>
 
 states that if two subtrees labelled `np` and `pp` are found contiguous in the partial tree, and the second head word has lemma `of`, then the later (rightmost) is added as a new child of the former (leftmost), whatever the context is, without need of any special flag active, and performing no relabelling of the new tree root.
@@ -2148,10 +2169,10 @@ The context may be specified as a sequence of chunk labels, separated by undersc
 
 For instance, the rule:
 
-<pre>   20 - $_vp (np,pp&lt;of&gt;) top_left RELABEL -
+<pre>   20 - $_vp (np,pp<of>) top_left RELABEL -
 </pre>
 
-would add the rightmost chunk in the pair (`pp&lt;of&gt;`) under the leftmost (`np`) only if the chunk immediate to the right of the pair is labeled `vp`.
+would add the rightmost chunk in the pair (`pp<of>`) under the leftmost (`np`) only if the chunk immediate to the right of the pair is labeled `vp`.
 
 Other admitted labels in the context are: `?` (matching exactly one chunk, with any label), `*` (matching zero or more chunks with any label), and `OUT` (matching a sentence boundary).
 
@@ -2163,7 +2184,7 @@ Context condition components may also be individually negated preceding them wit
 
 Enabling flags may be defined and used at the grammarian's will. For instance, the rule:
 
-<pre>20 INIT|PH1 $_vp (np,pp&lt;of&gt;) last_left MATCHING npms[animal] +PH2 -INIT -PH1
+<pre>20 INIT|PH1 $_vp (np,pp<of>) last_left MATCHING npms[animal] +PH2 -INIT -PH1
 </pre>
 
 Will be applied if either `INIT` or `PH1` flags are on, the chunk pair is a `np` followed by a `pp` with head lemma `of`, and the context (one `vp` chunk following the pair) is met. Then, the deepest rightmost node matching the label `npms[animal]` will be sought in the left chunk, and the right chunk will be linked as one of its children. If no such node is found, the rule will not be applied.
@@ -2176,7 +2197,7 @@ The only predefined flag is `INIT`, which is toggled on when the parsing starts.
 
 .
 
-Section `&lt;GRLAB&gt;` contains two kind of lines.
+Section `<GRLAB>` contains two kind of lines.
 
 The first kind are the lines defining `UNIQUE` labels, which have the format:
 
@@ -2263,17 +2284,17 @@ And some examples for `pairclass`:
 verb-phr loc d.label=pp* d.lemma=in|at d.side=right [p.lemma,d:noun-phr.lemma].pairclass=location
 </pre>
 
-First rule above states that a `noun-phr` daughter under a `verb-phr` parent will be labeled as `dobj` if it is to the right of its parent, and the pair formed by their lemmas is found in the `direct` pair class (which should be defined in section `&lt;PAIRS&gt;` as described below).
+First rule above states that a `noun-phr` daughter under a `verb-phr` parent will be labeled as `dobj` if it is to the right of its parent, and the pair formed by their lemmas is found in the `direct` pair class (which should be defined in section `<PAIRS>` as described below).
 
-The second rule states that a `pp` daughter under a `verb-phr` parent will be labeled as `loc` if it is to the right of its parent, the preposition heading the `pp` is one of `in|at`, and the pair formed by the verb lemma and the noun heading the noun phrase inside the `pp` is found in the `location` pair class (which should be defined in section `&lt;PAIRS&gt;` as described below).
+The second rule states that a `pp` daughter under a `verb-phr` parent will be labeled as `loc` if it is to the right of its parent, the preposition heading the `pp` is one of `in|at`, and the pair formed by the verb lemma and the noun heading the noun phrase inside the `pp` is found in the `location` pair class (which should be defined in section `<PAIRS>` as described below).
 
 ### Semantic database location {#semantic-database-location}
 
-Section `&lt;SEMDB&gt;` is only necessary if the dependency labeling rules in section `&lt;GRLAB&gt;` use conditions on semantic values (that is, any of `tonto`, `semfile`, `synon`, or `asynon`). Since it is needed by `&lt;GRLAB&gt;` rules, section `&lt;SEMDB&gt;` must be defined before section `&lt;GRLAB&gt;`. The section must contain a single line specifying a configuration file for a semanticDB object. The filename may be absolute or relative to the location of the dependency rules file.
+Section `<SEMDB>` is only necessary if the dependency labeling rules in section `<GRLAB>` use conditions on semantic values (that is, any of `tonto`, `semfile`, `synon`, or `asynon`). Since it is needed by `<GRLAB>` rules, section `<SEMDB>` must be defined before section `<GRLAB>`. The section must contain a single line specifying a configuration file for a semanticDB object. The filename may be absolute or relative to the location of the dependency rules file.
 
-<pre>&lt;SEMDB&gt;
+<pre><SEMDB>
 ../semdb.dat
-&lt;/SEMDB&gt;
+</SEMDB>
 </pre>
 
 The configuration file must follow the format described in section
@@ -2284,7 +2305,7 @@ The configuration file must follow the format described in section
 
 ### Class definitions {#class-definitions}
 
-Section `&lt;CLASS&gt;` contains class definitions which may be used as attributes in the dependency labelling rules.
+Section `<CLASS>` contains class definitions which may be used as attributes in the dependency labelling rules.
 
 Each line contains a class assignation for a lemma, with two possible formats:
 
@@ -2306,7 +2327,7 @@ animal "animals.dat"
 
 ### Pair-class definitions {#pair-class-definitions}
 
-Section `&lt;PAIRS&gt;` contains class definitions of compatible pairs. They can be used as attributes in the tree-completing rules.
+Section `<PAIRS>` contains class definitions of compatible pairs. They can be used as attributes in the tree-completing rules.
 
 Each line contains a class assignation for a pair, with two possible formats:
 
@@ -2349,15 +2370,15 @@ The API of the class is the following:
    void analyze(sentence &s) const;
 
    /// analyze given sentences.
-   void analyze(std::list&lt;sentence&gt; &ls) const;
+   void analyze(std::list<sentence> &ls) const;
 
    /// return analyzed copy of given sentence
    sentence analyze(const sentence &s) const;
 
    /// return analyzed copy of given sentences
-   std::list&lt;sentence&gt; analyze(const std::list&lt;sentence&gt; &ls) const;
+   std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
-</pre>
+```
 
 The constructor to class <tt>dep_treeler</tt> expects a configuration file with the contents described below.
 
@@ -2367,9 +2388,9 @@ The configuration file establishes whether both tasks are performed, or just dep
 
 ## Statistical Parser and SRL Configuration File {#statistical-parser-and-srl-configuration-file}
 
-The configuration file for the statistical dependency parser and semantic role labelling module has two main sections: `&lt;Dependencies&gt;` and `&lt;SRL&gt;`. Each section establishes the configuration and parameters of the corresponding subtask. Section `&lt;Dependencies&gt;` is required, but section `&lt;SRL&gt;` may be ommitted if no SRL is required.
+The configuration file for the statistical dependency parser and semantic role labelling module has two main sections: `<Dependencies>` and `<SRL>`. Each section establishes the configuration and parameters of the corresponding subtask. Section `<Dependencies>` is required, but section `<SRL>` may be ommitted if no SRL is required.
 
-Section `&lt;Dependencies&gt;` contains two lines, with a keyword and a value each:
+Section `<Dependencies>` contains two lines, with a keyword and a value each:
 
 The `DependencyTreeler` keyword should be followed by a path to a Treeler configuration file with the dependency parsing model to use. The path may be either absolute or relative to the Statistical Parser and SRL configuration file.
 
@@ -2379,18 +2400,18 @@ The `Tagset` keyword should be followed by a path to a Tagset definition file (s
 
 ) which will be used to convert the input PoS tags to the short versions and MSD features expected by the Treeler model.
 
-An example of the `&lt;Dependencies&gt;` section:
+An example of the `<Dependencies>` section:
 
-<pre>&lt;Dependencies&gt;
+<pre><Dependencies>
 ## treeler config file for dep parser
 DependencyTreeler ./dep/config.dat
 
 ## Tagset description file
 Tagset ./tagset.dat
-&lt;/Dependencies&gt;
+</Dependencies>
 </pre>
 
-Section `&lt;SRL&gt;` contains also keyword-value lines, which may be of 4 different types:
+Section `<SRL>` contains also keyword-value lines, which may be of 4 different types:
 
 *   `Predicates`: Lines stating a PoS and a list of files containing associations between senses as output by the sense annotation modules (e.g. WN synsets). See sections 
 
@@ -2405,9 +2426,9 @@ Section `&lt;SRL&gt;` contains also keyword-value lines, which may be of 4 diffe
 *   `DefaultArgs`: List of labels for the argument frame to be used for predicates not found in any list (but considered predicates because some `Predicates` line had an asterisk).
 *   `SRLTreeler`: This keyword must be followed by a path to a Treeler configuration file with the SRL model to use. The path may be either absolute or relative to the Statistical Parser and SRL configuration file.
 
-An example of the `&lt;SRL&gt;` section:
+An example of the `<SRL>` section:
 
-<pre>&lt;SRL&gt;
+<pre><SRL>
 ## Files containing conversion synset->predicate->argument list
 ## Each PoS admits a list of files, checked in cascade.
 ## Asterisc means any word with that PoS will be a predicate, 
@@ -2427,10 +2448,10 @@ PredicateException V:do V
 ## by an asterisc)
 DefaultArgs A0 A1 A2 A3
 
-## If you do not need SRL, comment out SRLTreeler line or remove section &lt;SRL&gt;
+## If you do not need SRL, comment out SRLTreeler line or remove section <SRL>
 ## treeler config file for SRL
 SRLTreeler ./srl/config.dat
-&lt;/SRL&gt;
+</SRL>
 </pre>
 
 # R<small>ELAX</small>C<small>OR</small> Coreference Resolution Module {#relaxcor-coreference-resolution-module}
@@ -2439,7 +2460,8 @@ This module offers coreference resolution capabilities.
 
 The API to this module is:
 
-<pre>  class relaxcor {
+```C++
+class relaxcor {
   public:
 
     /// Constructor
@@ -2450,7 +2472,7 @@ The API to this module is:
    /// Finds the coreferent mentions in a document
     void analyze(document&) const;
   };
-</pre>
+```
 
 The module constructor expects a configuration file that define which resources to load and parameters to use. This file also defines which are the configuration files for several sub-modules (mention detection, feature extraction, etc).
 
@@ -2462,7 +2484,8 @@ Note that this module can only process whole documents, and not single sentences
 
 This module will combine the information provided by the parser, the SRL, and the coreference resolution modules, and build a semantic graph encoding which events are described in the text, which are the relations between them, and which are the actors participating in those events.
 
-<pre>  class semgraph_extract {
+```C++
+class semgraph_extract {
 
   public:
     /// Constructor   
@@ -2474,87 +2497,87 @@ This module will combine the information provided by the parser, the SRL, and th
     void extract(freeling::document &doc) const;
 
   };
-</pre>
+```
 
 This module will enrich the document with an object <tt>semantic_graph</tt> containing a pseudo entity-relationship model of the events described in the text.
 
 For instance, for the text: Mary says that Peter Smith bought a car that runs fast. Peter loves Mary. FreeLing would produce the following graph:
 
-<pre>[language=XML,otherkeywords={entity,semantic_graph,mention,id,lemma,class,words,sense,synonym,URI,knowledgeBase,argument,role,frame,token}]
+```XML
 <semantic_graph>
-   &lt;entity id="E1" lemma="mary" class="person"&gt;
-      &lt;mention id="t1.1" words="Mary" /&gt;
-      &lt;mention id="t2.3" words="Mary" /&gt;
-   &lt;/entity&gt;
-   &lt;entity id="E2" lemma="peter_smith" class="person" &gt;
-      &lt;mention id="t1.4" words="Peter_Smith" /&gt;
-      &lt;mention id="t2.1" words="Peter" /&gt;
-   &lt;/entity&gt;
-   &lt;entity id="W6" lemma="car" sense="02958343-n" &gt;
-      &lt;mention id="t1.7" words="a car that runs fast" /&gt;
-      &lt;synonym lemma="auto"/&gt;
-      &lt;synonym lemma="automobile"/&gt;
-      &lt;synonym lemma="car"/&gt;
-      &lt;synonym lemma="machine"/&gt;
-      &lt;synonym lemma="motorcar"/&gt;
+   <entity id="E1" lemma="mary" class="person">
+      <mention id="t1.1" words="Mary" />
+      <mention id="t2.3" words="Mary" />
+   </entity>
+   <entity id="E2" lemma="peter_smith" class="person" >
+      <mention id="t1.4" words="Peter_Smith" />
+      <mention id="t2.1" words="Peter" />
+   </entity>
+   <entity id="W6" lemma="car" sense="02958343-n" >
+      <mention id="t1.7" words="a car that runs fast" />
+      <synonym lemma="auto"/>
+      <synonym lemma="automobile"/>
+      <synonym lemma="car"/>
+      <synonym lemma="machine"/>
+      <synonym lemma="motorcar"/>
       <URI knowledgeBase="WordNet" 
            URI="http://wordnet-rdf.princeton.edu/wn30/02958343-n"/>
       <URI knowledgeBase="OpenCYC" 
            URI="http://sw.opencyc.org/concept/Mx4rvViVwZwpEbGdrcN5Y29ycA"/>
       <URI knowledgeBase="SUMO" 
            URI="http://ontologyportal.org/SUMO.owl#Automobile"/>
-   &lt;/entity&gt;
-   &lt;entity id="W8" lemma="fast" sense="00086000-r" &gt;
-      &lt;mention id="t1.10" words="fast" /&gt;
-      &lt;synonym lemma="fast"/&gt;
+   </entity>
+   <entity id="W8" lemma="fast" sense="00086000-r" >
+      <mention id="t1.10" words="fast" />
+      <synonym lemma="fast"/>
       <URI knowledgeBase="WordNet" 
            URI="http://wordnet-rdf.princeton.edu/wn30/00086000-r"/>
       <URI knowledgeBase="SUMO" 
            URI="http://ontologyportal.org/SUMO.owl#SubjectiveAssessmentAttribute"/>
-   &lt;/entity&gt;
-   &lt;frame id="F3" token="t1.2" lemma="say.00" sense="00928959-v" &gt;
-      &lt;argument role="A0" entity="E1" /&gt;
-      &lt;argument role="A1" entity="F4" /&gt;
-      &lt;synonym lemma="say"/&gt;
+   </entity>
+   <frame id="F3" token="t1.2" lemma="say.00" sense="00928959-v" >
+      <argument role="A0" entity="E1" />
+      <argument role="A1" entity="F4" />
+      <synonym lemma="say"/>
       <URI knowledgeBase="WordNet" 
            URI="http://wordnet-rdf.princeton.edu/wn30/00928959-v"/>
       <URI knowledgeBase="SUMO" 
            URI="http://ontologyportal.org/SUMO.owl#Process"/>
-   &lt;/frame&gt;
-   &lt;frame id="F4" token="t1.5" lemma="purchase.01|buy.01" sense="02207206-v" &gt;
-      &lt;argument role="A0:Agent" entity="E2" /&gt;
-      &lt;argument role="A1:Theme" entity="W6" /&gt;
-      &lt;synonym lemma="buy"/&gt;
-      &lt;synonym lemma="purchase"/&gt;
+   </frame>
+   <frame id="F4" token="t1.5" lemma="purchase.01|buy.01" sense="02207206-v" >
+      <argument role="A0:Agent" entity="E2" />
+      <argument role="A1:Theme" entity="W6" />
+      <synonym lemma="buy"/>
+      <synonym lemma="purchase"/>
       <URI knowledgeBase="WordNet" 
            URI="http://wordnet-rdf.princeton.edu/wn30/02207206-v"/>
       <URI knowledgeBase="OpenCYC" 
            URI="http://sw.opencyc.org/concept/Mx4rvVjL2pwpEbGdrcN5Y29ycA"/>
       <URI knowledgeBase="SUMO" 
            URI="http://ontologyportal.org/SUMO.owl#Buying"/>
-   &lt;/frame&gt;
-   &lt;frame id="F5" token="t1.9" lemma="run.00" sense="01926311-v" &gt;
-      &lt;argument role="A0" entity="W6" /&gt;
-      &lt;argument role="AM-MNR" entity="W8" /&gt;
-      &lt;synonym lemma="run"/&gt;
+   </frame>
+   <frame id="F5" token="t1.9" lemma="run.00" sense="01926311-v" >
+      <argument role="A0" entity="W6" />
+      <argument role="AM-MNR" entity="W8" />
+      <synonym lemma="run"/>
       <URI knowledgeBase="WordNet" 
            URI="http://wordnet-rdf.princeton.edu/wn30/01926311-v"/>
       <URI knowledgeBase="OpenCYC" 
            URI="http://sw.opencyc.org/concept/Mx4rvVjkGpwpEbGdrcN5Y29ycA"/>
       <URI knowledgeBase="SUMO" 
            URI="http://ontologyportal.org/SUMO.owl#Running"/>
-   &lt;/frame&gt;
-   &lt;frame id="F9" token="t2.2" lemma="love.01" sense="01775164-v" &gt;
-      &lt;argument role="A0:Experiencer" entity="E2" /&gt;
-      &lt;argument role="A1:Stimulus" entity="E1" /&gt;
-      &lt;synonym lemma="love"/&gt;
+   </frame>
+   <frame id="F9" token="t2.2" lemma="love.01" sense="01775164-v" >
+      <argument role="A0:Experiencer" entity="E2" />
+      <argument role="A1:Stimulus" entity="E1" />
+      <synonym lemma="love"/>
       <URI knowledgeBase="WordNet" 
            URI="http://wordnet-rdf.princeton.edu/wn30/01775164-v"/>
       <URI knowledgeBase="SUMO" 
            URI="http://ontologyportal.org/SUMO.owl#wants"/>
-   &lt;/frame&gt;
+   </frame>
 </semantic_graph>
-</pre>
+```
 
 The graph encodes that there are three entities in the text (``Peter'', ``Mary'', and ``a car''). Some of them are mentioned more than once (and so, they participate in different events described in the text). Some of them have a class (e.g. ``person'') or a link to an external ontology (such as WN, SUMO, or OpenCYC).
 
@@ -2579,7 +2602,8 @@ Thus, different instances of this class can be created using different option se
 
 The API of the class is the following:
 
-<pre>class analyzer {
+```C++
+class analyzer {
  public:
    typedef analyzer_config_options config_options;
    typedef analyzer_invoke_options invoke_options;
@@ -2603,21 +2627,21 @@ The API of the class is the following:
 
    /// Analyze text as a partial document. Retain incomplete sentences in buffer   
    /// in case next call completes them (except if flush==true)
-   void analyze(const wstring &text, std::list&lt;sentence&gt; &ls, bool flush=false);
+   void analyze(const wstring &text, std::list<sentence> &ls, bool flush=false);
 
    /// analyze further levels on a partially analyzed document
    void analyze(document &doc) const;
 
    /// analyze further levels on partially analyzed sentences
-   void analyze(std::list&lt;sentence&gt; &ls) const;
+   void analyze(std::list<sentence> &ls) const;
 
    /// flush splitter buffer and analyze any pending text. 
-   void flush_buffer(std::list&lt;sentence&gt; &ls);
+   void flush_buffer(std::list<sentence> &ls);
 
    /// Reset tokenizer byte offset counter to 0.
    void reset_offset();
 };
-</pre>
+```
 
 The constructor expects a set of configuration options (see `class analyzer::config_options` below) which specifiy creation-time options for all modules that need to be loaded. These options are basically configuration and data files to load.
 
@@ -2631,7 +2655,8 @@ When invoke options are set, the `analyzer` meta-module can be called to process
 
 Class `analyzer::config_options` contains the configuration options that define which modules are active and which configuration files are loaded for each of them at construction time. Options in this set can not be altered once the analyzer is created. If an option has an empty value, the corresponding module will not be created (and thus it will not be possible to call it just altering `invoke_options` later)
 
-<pre>class analyzer::config_options {
+```C++
+class analyzer::config_options {
   public:
      /// Language of text to process
      std::wstring Lang;
@@ -2681,7 +2706,7 @@ Class `analyzer::config_options` contains the configuration options that define 
      /// semantic graph extractor config file
      std::wstring SEMGRAPH_SemGraphFile;
 };
-</pre>
+```
 
 ## Analyzer invocation options {#analyzer-invocation-options}
 
@@ -2689,7 +2714,8 @@ Class `analyzer::invoke_options` contains the options that define the behaviour 
 
 Values for this options need to be consistent with configuration options used to create the analyzer (e.g. it is not possible to activate a module that has not been loaded at creation time)
 
-<pre>class analyzer_invoke_options {
+```C++
+class analyzer_invoke_options {
    public:
      /// Level of analysis in input and output
      AnalysisLevel InputLevel, OutputLevel;
@@ -2716,7 +2742,7 @@ Values for this options need to be consistent with configuration options used to
      /// Select which dependency parser to use (NO_DEP,TXALA,TREELER)
      DependencyParser DEP_which;    
 };
-</pre>
+```
 
 # Other useful modules {#other-useful-modules}
 
@@ -2736,7 +2762,8 @@ This module is internally used by some analyzers (e.g. probabilities module, HMM
 
 The API of the module is:
 
-<pre>class tagset {
+```C++
+class tagset {
 
   public:
     /// constructor: load a tag set description file
@@ -2756,7 +2783,7 @@ The API of the module is:
     /// information, in a string format
     std::wstring get_msf_string(const std::wstring &tag) const;
 };
-</pre>
+```
 
 The class constructor receives a file name with a tagset description. Format of the file is described below. The class offers two services:
 
@@ -2765,15 +2792,15 @@ The class constructor receives a file name with a tagset description. Format of 
 
 ## Tagset Description File {#tagset-description-file}
 
-Tagset description file has two sections: `&lt;DecompositionRules&gt;` and `&lt;DirectTranslations&gt;`, which describe how tags are converted to their short version and decomposed into morphological feature-value pairs
+Tagset description file has two sections: `<DecompositionRules>` and `<DirectTranslations>`, which describe how tags are converted to their short version and decomposed into morphological feature-value pairs
 
-*   Section `&lt;DirectTranslations&gt;` describes a direct mapping from a tag to its short version and to its feature-value pair list. Each line in the section corresponds to a tag, and has the format: `tag short-tag feature-value-pairs`
+*   Section `<DirectTranslations>` describes a direct mapping from a tag to its short version and to its feature-value pair list. Each line in the section corresponds to a tag, and has the format: `tag short-tag feature-value-pairs`
 
     For instance the line: `NCMS000 NC postype=common|gender=masc|number=sg` states that the tag `NCMS000` is shortened as `NC` and that its list of feature-value pairs is the one specified.
 
-    This section has precedence over section `&lt;DecompositionRules&gt;`, and can be used as an exception list. If a tag is found in section `&lt;DirectTranslations&gt;`, the rule is applied and any rule in section `&lt;DecompositionRules&gt;` for this tag is ignored.
+    This section has precedence over section `<DecompositionRules>`, and can be used as an exception list. If a tag is found in section `<DirectTranslations>`, the rule is applied and any rule in section `<DecompositionRules>` for this tag is ignored.
 
-*   Section `&lt;DecompositionRules&gt;` encodes rules to compute the morphological features from an EAGLES tag digits. The form of each line is:
+*   Section `<DecompositionRules>` encodes rules to compute the morphological features from an EAGLES tag digits. The form of each line is:
 
     <pre>tag short-tag-size digit-description-1 digit-description-2 ...
     </pre>
@@ -2782,7 +2809,7 @@ Tagset description file has two sections: `&lt;DecompositionRules&gt;` and `&lt;
 
     There should be as many `digit-description` fields as digits there are in the PoS tag for that category. Each `digit-description` field has the format: `feature/digit:value;digit:value;digit:value;...` That is: the name of the feature encoded by that digit, followed by a slash, and then a semicolon-separated list of translation pairs that, for each possible digit in that position give the feature value.
 
-    For instance, the rule for Spanish noun PoS tags is (in a single line): `N 2 postype/C:common;P:proper gen/F:f;M:m;C:c num/S:s;P:p;N:c` `neclass/S:person;G:location;O:organization;V:other` `grade/A:augmentative;D:diminutive` and states that any tag starting with <tt>N</tt> (unless it is found in section `&lt;DirectTranslations&gt;`) will be shortened using its two first digits (e.g. <tt>NC</tt>, or <tt>NP</tt>). Then, the description of each digit in the tag follows, encoding the information:
+    For instance, the rule for Spanish noun PoS tags is (in a single line): `N 2 postype/C:common;P:proper gen/F:f;M:m;C:c num/S:s;P:p;N:c` `neclass/S:person;G:location;O:organization;V:other` `grade/A:augmentative;D:diminutive` and states that any tag starting with <tt>N</tt> (unless it is found in section `<DirectTranslations>`) will be shortened using its two first digits (e.g. <tt>NC</tt>, or <tt>NP</tt>). Then, the description of each digit in the tag follows, encoding the information:
 
     1.  <tt>postype/C:common;P:proper</tt> - second digit is the subcategory (feature <tt>postype</tt>) and its possible values are <tt>C</tt> (translated as <tt>common</tt>) and <tt>P</tt> (translated as <tt>proper</tt>).
     2.  <tt>gen/F:f;M:m;C:c</tt> - third digit is the gender (feature <tt>gen</tt>) and its possible values are <tt>F</tt> (feminine, translated as <tt>f</tt>), <tt>M</tt> (masculine, translated as <tt>m</tt>), and <tt>C</tt> (common/invariable, translated as <tt>c</tt>).
@@ -2811,7 +2838,8 @@ Moreover, this module can be used by the applications to enrich or post process 
 
 The API for this module is
 
-<pre>class semanticDB {
+```C++
+class semanticDB {
   public:
     /// Constructor
     semanticDB(const std::string &); 
@@ -2834,22 +2862,22 @@ The API for this module is
     /// get sense info for a sensecode+pos
     sense_info get_sense_info(const std::string &, const std::string &) const;
 };
-</pre>
+```
 
 The constructor receives a configuration file, with the following contents:
 
-*   A section `&lt;WNPosMap&gt;` which establishes which PoS found in the morphological dictionary should be mapped to each WN part-of-speech. Rule format is described in section
+*   A section `<WNPosMap>` which establishes which PoS found in the morphological dictionary should be mapped to each WN part-of-speech. Rule format is described in section
 
     5.2.1
 
     .
-*   A section `&lt;DataFiles&gt;` specifying the knowledge bases required by the algorithm. This section may contain up to three keywords, with the format:
+*   A section `<DataFiles>` specifying the knowledge bases required by the algorithm. This section may contain up to three keywords, with the format:
 
-    <pre>    &lt;DataFiles&gt;
+    <pre>    <DataFiles>
         senseDictFile  ./senses30.src
         wnFile  ../common/wn30.src
         formDictFile  ./dicc.src
-        &lt;/DataFiles&gt;
+        </DataFiles>
     </pre>
 
     `senseDictFile` is the sense repository, with the format described in section
@@ -2864,7 +2892,7 @@ The constructor receives a configuration file, with the following contents:
 
 .
 
-`formDictFile` may be needed if mapping rules in `&lt;WNPosMap&gt;` require it. It is a regular form file with morphological information, as described in section
+`formDictFile` may be needed if mapping rules in `<WNPosMap>` require it. It is a regular form file with morphological information, as described in section
 
 4.9
 
@@ -2872,32 +2900,32 @@ The constructor receives a configuration file, with the following contents:
 
 ## PoS mapping rules {#pos-mapping-rules}
 
-Each line in section `&lt;WNPosMap&gt;` defines a mapping rule, with format `FreeLing-PoS WN-PoS search-key`, where `FreeLing-PoS` is a prefix for a FreeLing PoS tag, `WN-Pos` must be one of <tt>n</tt>, <tt>a</tt>, <tt>r</tt>, or <tt>v</tt>, and `search-key` defines what should be used as a lemma to search the word in WN files.
+Each line in section `<WNPosMap>` defines a mapping rule, with format `FreeLing-PoS WN-PoS search-key`, where `FreeLing-PoS` is a prefix for a FreeLing PoS tag, `WN-Pos` must be one of <tt>n</tt>, <tt>a</tt>, <tt>r</tt>, or <tt>v</tt>, and `search-key` defines what should be used as a lemma to search the word in WN files.
 
 The given `search-key` may be one of <tt>L</tt>, <tt>F</tt>, or a FreeLing PoS tag. If <tt>L</tt> (<tt>F</tt>) is given, the word lemma (form) will be searched in WN to find candidate senses. If a FreeLing PoS tag is given, the form for that lemma with the given tag will be used.
 
 Example 1: For English, we could have a mapping like:
 
-<pre>    &lt;WNposMap&gt;
+<pre>    <WNposMap>
     N n L
     J a L
     R r L
     V v L
     VBG a F
-    &lt;/WNposMap&gt;
+    </WNposMap>
 </pre>
 
 which states that for words with FreeLing tags starting with <tt>N</tt>, <tt>J</tt>, <tt>R</tt>, and <tt>V</tt>, lemma will be searched in wordnet with PoS <tt>n</tt>, <tt>a</tt>, <tt>r</tt>, and <tt>v</tt> respectively. It also states that words with tag <tt>VBG</tt> (e.g. boring) must be searched as adjectives (<tt>a</tt>) using their form (that is, boring instead of lemma bore). This may be useful, for instance, if FreeLing English dictionary assigns to that form a gerund analysis (bore VBG) but not an adjective one.
 
 Example 2: A similar example for Spanish, could be:
 
-<pre>     &lt;WNposMap&gt;
+<pre>     <WNposMap>
      N n L
      A a L
      R r L
      V v L
      VMP a VMP00SM
-     &lt;/WNposMap&gt;
+     </WNposMap>
 </pre>
 
 which states that for words with FreeLing tags starting with <tt>N</tt>, <tt>A</tt>, <tt>R</tt>, and <tt>V</tt>, lemma will be searched in wordnet with PoS <tt>n</tt>, <tt>a</tt>, <tt>r</tt>, and <tt>v</tt> respectively. It also states that words with tag starting with <tt>VMP</tt> (e.g. cansadas) must be searched as adjectives (<tt>a</tt>) using the form for the same lema (i.e. cansar) that matches the tag <tt>VMP00SM</tt> (resulting in cansado). This is useful to have participles searched as adjectives, since FreeLing Spanish dictionary doesn't contain any participle as adjective, but esWN does.
@@ -2933,7 +2961,8 @@ This class wraps a <tt>libfoma</tt> FSM and allows fast retrieval of similar wor
 
 The API of the class is the following:
 
-<pre>class foma_FSM {
+```C++
+class foma_FSM {
 
   public:
     typedef enum {FSM_DICC,FSM_COMPOUNDS} FSM_Type;
@@ -2960,7 +2989,7 @@ The API of the class is the following:
                             const std::wstring &out, 
                             int cost);
   };
-</pre>
+```
 
 The constructor of the module requests one parameter stating the file to load, second optional parameter stating whether the automata must recognize just the words in the given dictionary file, or it must recognize compounds of these words (that is, the language _L_(_L_ +)). The third parameter -also optional- is a file with the cost matrix for SED operations. If the cost matrix is not given, all operations default to a cost of 1 (or to the value set with the method `set_basic_operation_cost`).
 
@@ -2982,7 +3011,8 @@ Thus, the Feature Extraction Module converts words in a sentence to feature vect
 
 The API of this module is the following:
 
-<pre>class fex {
+```C++
+class fex {
   private:
 
   public:
@@ -2994,18 +3024,18 @@ The API of this module is the following:
     /// encode given sentence in features as feature names. 
     void encode_name(const sentence &, std::vector<std::set<std::wstring> > &);
     /// encode given sentence in features as integer feature codes
-    void encode_int(const sentence &, std::vector<std::set&lt;int&gt; > &);
+    void encode_int(const sentence &, std::vector<std::set<int> > &);
     /// encode given sentence in features as integer feature codes and 
     /// as features names
     void encode_all(const sentence &, std::vector<std::set<std::wstring> > &, 
-                    std::vector<std::set&lt;int&gt; > &);
+                    std::vector<std::set<int> > &);
 
     /// encode given sentence in features as feature names. 
     /// Return result suitable for Java/perl APIs
     std::vector<std::list<std::wstring> > encode_name(const sentence &);
     /// encode given sentence in features as integer feature codes.
     /// Return result suitable for Java/perl APIs
-    std::vector<std::set&lt;int&gt; > encode_int(const sentence &);
+    std::vector<std::set<int> > encode_int(const sentence &);
 
     /// clear lexicon
     void clear_lexicon(); 
@@ -3014,7 +3044,7 @@ The API of this module is the following:
     /// save lexicon to a file, filtering features with low occurrence rate
     void save_lexicon(const std::wstring &, double) const;
 };
-</pre>
+```
 
 The class may be used to encode a corpus and generate a feature lexicon, or to encode a corpus filtering the obtained features using a previously generated feature lexicon.
 
@@ -3158,11 +3188,11 @@ Note that all word properties (including <tt>na</tt>) are either strings or list
 
 The available primitive operations to build single conditions are the following:
 
-1.  <tt>&lt;property&gt; is &lt;string&gt;</tt> : String identity.
-2.  <tt>&lt;property&gt; matches &lt;regexp&gt;</tt> : Regex match. If the regex is parenthesized, (sub)expression matches <tt>$0</tt>, <tt>$1</tt>, <tt>$2</tt>, etc. are stored and can be used in the feature name pattern.
-3.  <tt><property-list> any_in_set &lt;filename&gt;</tt> (or simply <tt>in_set</tt>): True if any property in the list is found in the given file.
-4.  <tt><property-list> all_in_set &lt;filename&gt;</tt> True if all properties in the list are found in the given file.
-5.  <tt><property-list> some_in_set &lt;filename&gt;</tt> True if at least two properties in the list are found in the given file.
+1.  <tt><property> is <string></tt> : String identity.
+2.  <tt><property> matches <regexp></tt> : Regex match. If the regex is parenthesized, (sub)expression matches <tt>$0</tt>, <tt>$1</tt>, <tt>$2</tt>, etc. are stored and can be used in the feature name pattern.
+3.  <tt><property-list> any_in_set <filename></tt> (or simply <tt>in_set</tt>): True if any property in the list is found in the given file.
+4.  <tt><property-list> all_in_set <filename></tt> True if all properties in the list are found in the given file.
+5.  <tt><property-list> some_in_set <filename></tt> True if at least two properties in the list are found in the given file.
 
 Operators can be negated with the character <tt>!</tt>. E.g. <tt>!is</tt>, <tt>!matches</tt>, etc.
 
@@ -3184,7 +3214,8 @@ Actual code computing custom feature functions must be provided by the caller. t
 
 Custom feature functions must be classes derived from class <tt>feature_function</tt>:
 
-<pre>  class feature_function {  
+```C++
+class feature_function {  
     public: 
       virtual void extract (const sentence &s, 
                             int pos, 
@@ -3192,13 +3223,14 @@ Custom feature functions must be classes derived from class <tt>feature_function
       /// Destructor
       virtual ~feature_function() {};
   };
-</pre>
+```
 
 They must implement a method <tt>extract</tt> that receives the sentence, the position of the target word, and a list of strings where the resulting feature name (or names if more than one is to be generated) will be added.
 
 For instance, the example below generates the feature name <tt>in_quotes</tt> when the target word is surrounded by words with the <tt>Fe</tt> PoS tag (which is assigned to any quote symbol by the punctuation module).
 
-<pre>  class fquoted : public feature_function {
+```C++
+class fquoted : public feature_function {
     public:
       void extract (const sentence &sent, 
                     int i, 
@@ -3208,13 +3240,14 @@ For instance, the example below generates the feature name <tt>in_quotes</tt> wh
           res.push_back(L"in_quotes");
       }
   };
-</pre>
+```
 
 We can associate this function with the function name <tt>quoted</tt> adding the pair to a map:
 
-<pre>map<wstring,const feature_function*> myfunctions;
+```C++
+map<wstring,const feature_function*> myfunctions;
 myfunctions.insert(make_pair(L"quoted", (feature_function *) new fquoted()));
-</pre>
+```
 
 If we now create a <tt>fex</tt> object passing this map to the constructor, the created instance will call <tt>fquoted::extract</tt> with the appropriate parameters whenever `{quote()}` function is used in a rule in the <tt>.rgf</tt> file.
 
@@ -3232,7 +3265,8 @@ The I/O handlers are derived from two top abstract classes: <tt>input_handler</t
 
 Derived classes handle a particular I/O format, and must implement the appropriate methods.
 
-<pre>class input_handler {
+```C++
+class input_handler {
 
  public:   
    /// constructor. 
@@ -3247,9 +3281,10 @@ Derived classes handle a particular I/O format, and must implement the appropria
    virtual void input_document(const std::wstring &lines, 
                                freeling::document &doc) const;
 };
-</pre>
+```
 
-<pre>class output_handler {
+```C++
+class output_handler {
 
  public:   
    /// empty constructor
@@ -3277,7 +3312,7 @@ Derived classes handle a particular I/O format, and must implement the appropria
                              const freeling::document &doc) const = 0;
    virtual std::wstring PrintResults (const freeling::document &doc) const;
 };
-</pre>
+```
 
 ## Output handlers {#output-handlers}
 
@@ -3285,7 +3320,8 @@ Currently, the following output handlers are implemented. All of them are derive
 
 The module <tt>output_freeling</tt> produces the classical FreeLing output (column-like for lower analysis levels, and parenthesized trees for higher levels). The desired output can be configured by the calling application activating or deactivating print levels.
 
-<pre>class output_freeling : public output_handler {
+```C++
+class output_freeling : public output_handler {
  public:   
    // constructor. 
    output_freeling ();
@@ -3333,7 +3369,7 @@ The module <tt>output_freeling</tt> produces the classical FreeLing output (colu
    void output_corefs(bool);  
    void output_semgraph(bool);
 };
-</pre>
+```
 
 The module <tt>output_conll</tt> produces a CoNLL-like column format. The default format is not exactly any of the CoNLL competitions, but an adapted version.
 
@@ -3341,7 +3377,8 @@ The module will always print all information avaliable in the document (i.e. if 
 
 The constructor may be called with a configuration file stating which columns should be printed and in which order.
 
-<pre>class output_conll : public output_handler {
+```C++
+class output_conll : public output_handler {
 
  public:   
    /// empty constructor. 
@@ -3364,13 +3401,14 @@ The constructor may be called with a configuration file stating which columns sh
    /// inherit other methods
    using output_handler::PrintResults;
 };
-</pre>
+```
 
 The module <tt>output_xml</tt> produces an XML representation of the analyzed document.
 
 The module will always print all information avaliable in the document (i.e. if the document is parsed, an XML tag for the parse tree will be generated).
 
-<pre>class output_xml : public output_handler {
+```C++
+class output_xml : public output_handler {
 
  public:   
    /// constructor. 
@@ -3393,13 +3431,14 @@ The module will always print all information avaliable in the document (i.e. if 
    /// inherit other methods
    using output_handler::PrintResults;
 };
-</pre>
+```
 
 The module <tt>output_json</tt> produces a JSON object for the analyzed document.
 
 The module will always print all information avaliable in the document (i.e. if the document is parsed, an JSON object for the parse tree will be included in the document object).
 
-<pre>class output_json : public output_handler {
+```C++
+class output_json : public output_handler {
 
  public:   
    // constructor. 
@@ -3417,13 +3456,14 @@ The module will always print all information avaliable in the document (i.e. if 
    /// inherit other methods
    using output_handler::PrintResults;
 };
-</pre>
+```
 
 The module <tt>output_naf</tt> produces a NAF [FSB<sup>+</sup>14] representation for the analyzed document.
 
 The desired output can be configured by the calling application activating or deactivating annotation layers.
 
-<pre>class output_naf : public output_handler {
+```C++
+class output_naf : public output_handler {
  public:   
    // constructor. 
    output_naf ();
@@ -3448,11 +3488,12 @@ The desired output can be configured by the calling application activating or de
    // activate/deactivate layer for next printings
    void ActivateLayer(const std::wstring &ly, bool b);
 };
-</pre>
+```
 
 The module <tt>output_train</tt> produces a FreeLing specific format suitable to be used to retrain the PoS tagger (tipically after hand correction of the tagger errors).
 
-<pre>class output_train : public output_handler {
+```C++
+class output_train : public output_handler {
 
  public:   
    // constructor. 
@@ -3472,4 +3513,4 @@ The module <tt>output_train</tt> produces a FreeLing specific format suitable to
    /// inherit other methods
    using output_handler::PrintResults;
 };
-</pre>
+```
