@@ -23,7 +23,7 @@ The word also stores information about which analysis were selected by the tagge
 The API for the class word is:
 
 ```C++
-class word : public std::list&lt;analysis&gt; {
+class word : public std::list<analysis> {
 
   public:
     /// user-managed data, we just store it.
@@ -34,9 +34,9 @@ class word : public std::list&lt;analysis&gt; {
     /// constructor
     word(const std::wstring &);
     /// constructor
-    word(const std::wstring &, const std::list&lt;word&gt; &);
+    word(const std::wstring &, const std::list<word> &);
     /// constructor
-    word(const std::wstring &, const std::list&lt;analysis&gt; &, const std::list&lt;word&gt; &);
+    word(const std::wstring &, const std::list<analysis> &, const std::list<word> &);
     /// Copy constructor
     word(const word &);
     /// assignment
@@ -57,7 +57,7 @@ class word : public std::list&lt;analysis&gt; {
     /// get number of words in compound
     int get_n_words_mw() const;
     /// get word objects that form the multiword
-    const std::list&lt;word&gt;& get_words_mw() const;
+    const std::list<word>& get_words_mw() const;
     /// get word form
     const std::wstring& get_form() const;
     /// Get word form, lowercased.
@@ -136,7 +136,7 @@ class word : public std::list&lt;analysis&gt; {
     /// set analysis list to one single analysis, overwriting current values
     void set_analysis(const analysis &);
     /// set analysis list, overwriting current values
-    void set_analysis(const std::list&lt;analysis&gt; &);
+    void set_analysis(const std::list<analysis> &);
     /// set word form
     void set_form(const std::wstring &);
     /// Set word phonetic form
@@ -162,7 +162,7 @@ class word : public std::list&lt;analysis&gt; {
     /// remove the given analysis from selected list.
     void unselect_analysis(word::iterator, int k=0);
     /// get list of analysis (useful for perl API)
-    std::list&lt;analysis&gt; get_analysis() const;
+    std::list<analysis> get_analysis() const;
     /// get begin iterator to analysis list (useful for perl/java API)
     word::iterator analysis_begin();
     word::const_iterator analysis_begin() const;
@@ -193,7 +193,7 @@ class analysis {
     void set_tag(const std::wstring &);
     void set_prob(double);
     void set_distance(double);
-    void set_retokenizable(const std::list&lt;word&gt; &);
+    void set_retokenizable(const std::list<word> &);
 
     bool has_prob() const;
     bool has_distance() const;
@@ -202,8 +202,8 @@ class analysis {
     double get_prob() const;
     double get_distance() const;
     bool is_retokenizable() const;
-    std::list&lt;word&gt;& get_retokenizable();
-    const std::list&lt;word&gt;& get_retokenizable() const;
+    std::list<word>& get_retokenizable();
+    const std::list<word>& get_retokenizable() const;
 
     const std::list<std::pair<std::wstring,double> > & get_senses() const;
     std::list<std::pair<std::wstring,double> > & get_senses();
@@ -227,12 +227,12 @@ class analysis {
 Words are grouped to form sentences. A <tt>sentence</tt> is basically a list of <tt>word</tt> objects, but it also may contain additional information, such as a parse tree, a dependency tree, or a list of predicates and arguments.
 
 ```C++
-class sentence : public std::list&lt;word&gt; {
+class sentence : public std::list<word> {
 
   public:
     sentence();
     ~sentence();
-    sentence(const std::list&lt;word&gt;&);
+    sentence(const std::list<word>&);
     /// Copy constructor
     sentence(const sentence &);
     /// assignment
@@ -266,7 +266,7 @@ class sentence : public std::list&lt;word&gt; {
     bool is_dep_parsed() const;
 
     /// get word list (useful for perl API)
-    std::vector&lt;word&gt; get_words() const;
+    std::vector<word> get_words() const;
     /// get iterators to word list (useful for perl/java API)
     sentence::iterator words_begin();
     sentence::const_iterator words_begin() const;
@@ -304,10 +304,10 @@ Please check FreeLing Technical Reference Manual to find out details about the A
 Sentences can be grouped in <tt>paragraphs</tt>, and these can be grouped in a <tt>document</tt>
 
 ```C++
-class paragraph : public std::list&lt;sentence&gt; {
+class paragraph : public std::list<sentence> {
   public:
     paragraph();
-    paragraph(const std::list&lt;sentence&gt; &x);
+    paragraph(const std::list<sentence> &x);
     void set_paragraph_id(const std::wstring &);
     const std::wstring & get_paragraph_id() const;
   };
@@ -320,7 +320,7 @@ In addition, a <tt>document</tt> may contain also information about the corefere
 Please check FreeLing Technical Reference Manual to find out details about the API for class <tt>mention</tt>.
 
 ```C++
-class document : public std::list&lt;paragraph&gt; {
+class document : public std::list<paragraph> {
 
   public:
     document();
@@ -346,23 +346,23 @@ class document : public std::list&lt;paragraph&gt; {
     /// Gets the number of coreference groups found
     int get_num_groups() const;
     /// get list of ids of existing groups
-    const std::list&lt;int&gt; & get_groups() const;
+    const std::list<int> & get_groups() const;
 
     /// Gets an iterator pointing to the beginning of the mentions 
-    std::vector&lt;mention&gt;::const_iterator begin_mentions() const;
-    std::vector&lt;mention&gt;::iterator begin_mentions();
+    std::vector<mention>::const_iterator begin_mentions() const;
+    std::vector<mention>::iterator begin_mentions();
     /// Gets an iterator pointing to the end of the mentions 
-    std::vector&lt;mention&gt;::const_iterator end_mentions() const;
-    std::vector&lt;mention&gt;::iterator end_mentions();
+    std::vector<mention>::const_iterator end_mentions() const;
+    std::vector<mention>::iterator end_mentions();
 
     /// get reference to i-th mention
     const mention& get_mention(int) const;
 
     /// Gets all the nodes in a coreference group
-    ///std::list&lt;int&gt; get_coref_nodes(int) const;
+    ///std::list<int> get_coref_nodes(int) const;
 
     /// Gets all the mentions' ids in the ith coreference group found
-    std::list&lt;int&gt; get_coref_id_mentions(int) const;
+    std::list<int> get_coref_id_mentions(int) const;
 
     /// Returns if two nodes are in the same coreference group
     /// bool is_coref(const std::wstring &, const std::wstring &) const;
