@@ -34,51 +34,51 @@ The current version supports the following languages(to different extents and ac
 
 **Table 1.1:** Analysis services available for each language.
 
-|   |as|ca|cy|de|en|es|fr|gl|hr|it|nb|pt|ru|sl|
-| -- |--|--|--|--|--|--|--|--|--|--|--|--|--|
-Tokenization| X X X X X X X X X X X X X X 
-Sentence splitting| X X X X X X X X X X X X X X 
-Number detection| X X X X X X X 
-Date detection| X X X X X X 
-Morphological dictionary| X X X X X X X X X X X X X X 
-Affix rules| X X X X X X X X X X X 
-Multiword detection| X X X X X X X X X 
-Basic named entity detection| X X X X X X X X X X X 
-B-I-O named entity detection| X X X X X
-Named Entity Classification| X X X X 
-Quantity detection| X X X X X X 
-PoS tagging| X X X X X X X X X X X X X X 
-Phonetic encoding| X X 
-WN sense annotation| X X X X X X 
-UKB sense disambiguation| X X X X X X 
-Shallow parsing| X X X X X X 
-Full/dependency parsing| X X X X X X X 
-Semantic Role Labelling| X X X X 
-Coreference resolution| X X 
+                             | as  | ca  | cy  | de  | en  | es  | fr  | gl  | hr  | it  | nb  | pt  | ru  | sl  |
+-----------------------------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+Tokenization                 | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
+Sentence splitting           | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
+Number detection             |     | X   |     |     | X   | X   |     | X   |     | X   |     | X   | X   |     |
+Date detection               |     | X   |     |     | X   | X   |     | X   |     |     |     | X   | X   |     |
+Morphological dictionary     | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
+Affix rules                  | X   | X   | X   | X   | X   | X   | X   | X   |     | X   | X   | X   |     |     |
+Multiword detection          | X   | X   | X   |     | X   | X   | X   | X   |     | X   |     | X   |     |     |
+Basic named entity detection | X   | X   | X   |     | X   | X   | X   | X   |     | X   |     | X   | X   | X   |
+B-I-O named entity detection |     | X   |     |     | X   | X   |     | X   |     |     |     | X   |     |     |
+Named Entity Classification  |     | X   |     |     | X   | X   |     |     |     |     |     | X   |     |     | 
+Quantity detection           |     | X   |     |     | X   | X   |     | X   |     |     |     | X   | X   |     | 
+PoS tagging                  | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | 
+Phonetic encoding            |     |     |     |     | X   | X   |     |     |     |     |     |     |     |     | 
+WN sense annotation          |     | X   |     |     | X   | X   | X   | X   |     |     |     |     |     | X   |
+UKB sense disambiguation     |     | X   |     |     | X   | X   | X   | X   |     |     |     |     |     | X   |
+Shallow parsing              | X   | X   |     |     | X   | X   |     | X   |     |     |     | X   |     |     | 
+Full/dependency parsing      | X   | X   |     |     | X   | X   |     | X   | X   |     |     |     |     | X   |
+Semantic Role Labelling      |     | X   |     | X   | X   | X   |     |     |     |     |     |     |     |     |
+Coreference resolution       |     |     |     |     | X   | X   |     |     |     |     |     |     |     |     | 
 
 FreeLing is designed to be modular and to keep linguistic data separated from code. So, most modules can be adapted to a new language just replacing a configuration file or providing a file with rules specific for that language.
 
 Thus, most of the missing crosses in previous table could be filled up just writting a small configuration or rule file (this is the case of, e.g. affixation rules, multiword detection, basic named entity detection, quantity detection, phonetic encoding) or an appropriate dictionary/lexicon file (e.g. Morphological dictionary or WN sense annotation modules).
 
-FreeLing also includes WordNet-based sense dictionaries for some of the covered languages, as well as some knowledge extracted from WordNet, such as semantic file codes, or hypernymy relationships. See <small class="SMALL"><tt>[http://wordnet.princeton.edu](http://wordnet.princeton.edu)</tt></small> and <small class="SMALL"><tt>[http://www.illc.uva.nl/EuroWordNet](http://www.illc.uva.nl/EuroWordNet)</tt></small> for details on WordNet and EuroWordNet, respectively.
+FreeLing also includes WordNet-based sense dictionaries for some of the covered languages, as well as some knowledge extracted from WordNet, such as semantic file codes, or hypernymy relationships. See [http://wordnet.princeton.edu](http://wordnet.princeton.edu) and [http://www.illc.uva.nl/EuroWordNet](http://www.illc.uva.nl/EuroWordNet) for details on WordNet and EuroWordNet, respectively.
 
-See the Linguistic Data section on FreeLing webpage to find out more about the size and origin the linguistic resources for these languages.
+See the [Linguistic Data](http://nlp.lsi.upc.edu/freeling/linguistic-data) section on FreeLing webpage to find out more about the size and origin the linguistic resources for these languages.
 
-See file <tt>COPYING</tt> in the distribution packages to find out the license of each third-party linguistic resource included in FreeLing packages.
+See file [`COPYING`](https://github.com/TALP-UPC/FreeLing/blob/master/COPYING) in the distribution packages to find out the license of each third-party linguistic resource included in FreeLing packages.
 
 ## License {#license}
 
-FreeLing code is licensed under Affero GNU General Public License (AGPL).
+FreeLing code is licensed under Affero GNU General Public License ([AGPL](http://www.gnu.org/licenses/agpl.html)).
 
 The linguistic data collections are distributed under diverse licenses, depending on their original sources.
 
-Find the details in the <tt>COPYING</tt> file in the tarball, or in the <tt>License</tt> section in FreeLing webpage.
+Find the details in the [`COPYING`](https://github.com/TALP-UPC/FreeLing/blob/master/COPYING) file in the tarball, or in the [License](http://nlp.lsi.upc.edu/freeling/node/6) section in [FreeLing webpage](http://nlp.lsi.upc.edu/freeling).
 
 ## Contributions {#contributions}
 
-FreeLing is developed and maintained by people in TALP Research Center at Universitat Politecnica de Catalunya (<small class="SMALL"><tt>[http://www.talp.upc.edu](http://www.talp.upc.edu)</tt></small>).
+FreeLing is developed and maintained by people in [TALP Research Center](http://www.talp.upc.edu) at Universitat Politecnica de Catalunya.
 
 Many people further contributed to by reporting problems, suggesting various improvements, submitting actual code or extending linguistic databases.
 
-A detailed list can be found in Contributions section at FreeLing webpage (<small class="SMALL"><tt>[http://nlp.lsi.upc.edu/freeling](http://nlp.lsi.upc.edu/freeling)</tt></small>).
+A detailed list can be found in Contributions section at [FreeLing webpage](http://nlp.lsi.upc.edu/freeling).
 
