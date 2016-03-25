@@ -2,7 +2,7 @@
 
 This book contains the user manual for FreeLing.
 
-FreeLing is a library oriented to developers, so a large part of de book describes which are the available C++ modules and classes.
+FreeLing is a library oriented to developers, so a large part of the book describes which are the available C++ modules and classes.
 Developers can find more information in the Technical Reference Manual.
 
 Non-developer users can also find useful information here: 
