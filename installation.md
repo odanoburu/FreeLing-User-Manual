@@ -22,17 +22,17 @@ To install FreeLing you'll need:
 
 ### Orientative package names {#orientative-package-names}
 
-    The name of the packages containing the dependencies listed above vary depending on your linux distribution.
+The name of the packages containing the dependencies listed above vary depending on your linux distribution.
 
-    Please check the package manager in your system, and use its package search capabilities to install the needed dependencies.
+Please check the package manager in your system, and use its package search capabilities to install the needed dependencies.
 
-    As an orientation, here are the names of these packages in some popular distributions. (Note that this may change over time too)
+As an orientation, here are the names of these packages in some popular distributions. (Note that this may change over time too)
 
-    *   Ubuntu/Debian: `libboost-dev libboost-regex-dev libicu-dev libboost-system-dev libboost-program-options-dev libboost-thread-dev zlib1g-dev`
-    *   OpenSuse/Fedora/Mandriva: `boost-devel boost-regex-devel libicu-devel boost-system-devel boost-program-options-devel boost-thread-dev zlib-devel`
-    *   Slackware: `boost icu4c zlib`
+*   Ubuntu/Debian: `libboost-dev libboost-regex-dev libicu-dev libboost-system-dev libboost-program-options-dev libboost-thread-dev zlib1g-dev`
+*   OpenSuse/Fedora/Mandriva: `boost-devel boost-regex-devel libicu-devel boost-system-devel boost-program-options-devel boost-thread-dev zlib-devel`
+*   Slackware: `boost icu4c zlib`
 
-    Note that you need to install both the binary libraries and the development packages (usually sufixed as `-dev` or `-devel`). Most package managers will install both binary and development packages when the `-dev` package is required. If this is not your case, you'll need to manually select both packages.
+Note that you need to install both the binary libraries and the development packages (usually sufixed as `-dev` or `-devel`). Most package managers will install both binary and development packages when the `-dev` package is required. If this is not your case, you'll need to manually select both packages.
 
 See details on the installation procedure in section [Installation](#installation).
 
@@ -52,16 +52,16 @@ Most debian-bawsed systems will launch the apropriate installer if you just doub
 
 If that doesn't work, you can install it by hand (in Ubuntu or Debian) with the following procedure (will probably work for other debian-based distros):
 
-1.  Install required system libraries
-
-    The following commands should install *both* header packages and binary libraries. If they don't, use your package manager to install all required packages as described in section [Requirements]{#orientative-package-names}.
-    `sudo apt-get install libboost-regex-dev libicu-dev zlib1g-dev`
+1.  Install required system libraries.
+  
+    The following commands should install *both* header packages and binary libraries. If they don't, use your package manager to install all required packages as described in section [Requirements](#orientative-package-names).    
+    `sudo apt-get install libboost-regex-dev libicu-dev zlib1g-dev`    
     `sudo apt-get install libboost-system-dev libboost-program-options-dev`
 
-2.   Install freeling package
-     `sudo dpkg -i freeling-4.0.deb`
+*   Install freeling package  
+    `sudo dpkg -i freeling-4.0.deb`
 
-In a Debian system, the above commands must be issued as root and without `sudo`.
+    In a Debian system, the above commands must be issued as root and without `sudo`.
 
 ### Install from `.tar.gz` source packages {#install-from-tar-gz-source-packages}
 
@@ -71,32 +71,31 @@ Installing from source is slower and harder, but it will work in any Linux box, 
 
 1.  Install development tools
 
-    You'll need to install the C++ compiler and other developer tools:
+    You'll need to install the C++ compiler and other developer tools:  
     `sudo apt-get install build-essential automake autoconf`
 
     In Debian, use the same command as root, without `sudo`. In other distributions, check the distribution package manager to install a working C++ compiler and autotools.
 
-2.  Install packaged requirements
+*  Install packaged requirements
 
     All required libraries are standard packages in all Linux distributions. Just open your favorite software package manager and install them.
 
-    Package names may vary slightly in different distributions. See section [Requirements]{#orientative-package-names} for some hints on possible package names.
+    Package names may vary slightly in different distributions. See section [Requirements](#orientative-package-names) for some hints on possible package names.
 
     As an example, commands to install the packages from command line in Ubuntu and Debian are provided, though you can do the same using synaptic, or aptitude. If you have another distribution, use your package manager to locate and install the appropriate library packages.
 
-    Both in Debian and in Ubuntu you need to do:
-    `sudo apt-get install libboost-regex-dev libicu-dev zlib1g-dev`
+    Both in Debian and in Ubuntu you need to do:  
+    `sudo apt-get install libboost-regex-dev libicu-dev zlib1g-dev`  
     `sudo apt-get install libboost-system-dev libboost-program-options-dev`
 
 *   Download and Install FreeLing
 
-    Download source package `freeling-4.0.tar.gz` from FreeLing webpage download section, and then execute:
-
-    `tar xzvf freeling-4.0.tar.gz
-     cd freeling-4.0
-     ./configure
-     make
-     sudo make install`
+    Download source package `freeling-4.0.tar.gz` from FreeLing webpage download section, and then execute:   
+    `tar xzvf freeling-4.0.tar.gz`  
+    `cd freeling-4.0`  
+    `./configure`  
+    `make`  
+    `sudo make install`
 
     FreeLing library is entirely contained in the file `libfreeling.so` installed in `/usr/local/lib` by default.
 
@@ -110,50 +109,47 @@ Installing from GitHub is very similar to installing from source, but you'll hav
 
 1.  Install development tools
 
-    You'll need to install the C++ compiler, the GNU autotools, plus a `git` client.
-
+    You'll need to install the C++ compiler, the GNU autotools, plus a `git` client.  
     `sudo apt-get install build-essential automake autoconf libtool git`
 
     If you use a distribution different than Debian or Ubuntu, these packages may have different names. Use your package manager to locate and install the appropriate ones.
 
-2.  Install packaged requirements
+*  Install packaged requirements
 
     Follow the same procedure described in section about [Source Installation](#install-from-tag-gz-source-packages) for this step.
 
-3.   Checkout FreeLing sources
+*   Checkout FreeLing sources
 
-    If you want the latest development version, do:
+    If you want the latest development version, do:  
     `git clone https://github.com/TALP-UPC/FreeLing.git mysrc`
 
     (you can replace `mysrc` with the directory name of your choice).
 
     If you want a previous release, after cloning the repository with the above command, you can checkout any previous tagged version with something like:
+    
     `git checkout -b mybranch-v4 4.0-beta1`
 
     (that will create a new branch `mybranch-v4` in your local repository that will contain the version tagged as `4.0-beta1` in GitHub).
 
-    You can find out the available tags at `[https://github.com/TALP-UPC/freeling](https://github.com/TALP-UPC/freeling)`.
+    You can find out the available tags at [https://github.com/TALP-UPC/freeling](https://github.com/TALP-UPC/freeling).
 
     Versions older than 4.0 are available at the [old SVN repository](http://devel.cpl.upc.edu/freeling/svn/versions)
-
-   
-4.    Prepare local repositories for compilation
-
-     `cd mysrc`
+    
+*   Prepare local repositories for compilation  
+     `cd mysrc`  
      `autoreconf --install`
 
-5.   Build and install FreeLing
-
-    `./configure`
-    `make`
+*   Build and install FreeLing  
+    `./configure`  
+    `make`  
     `sudo make install`
 
-If you keep the source directories, you will be able to update to newer versions at any moment:
-`cd mysrc
- git pull
- ./configure
- make
- sudo make install`
+If you keep the source directories, you will be able to update to newer versions at any moment with:  
+ `cd mysrc`  
+ `git pull`  
+ `./configure`  
+ `make`
+ `sudo make install`
 
 Depending on what changed in the repository, you may need to issue `autoreconf --install` after `git pull`. You may also need to issue `make distclean` and repeat the process from `./configure` onwards.
 
@@ -168,11 +164,13 @@ all languages in FreeLing should work with this locale, though Russian may need 
 The procedure to install a locale in your system varies depending on your distribution. For instance:
 
 *   In Ubuntu, you must use the `locale-get` command. E.g.:   
-       `sudo locale-gen en_US.UTF8`
-       `sudo locale-gen pt_BR.UTF8`
-       `sudo locale-gen ru_RU.UTF8`    ...
+    `sudo locale-gen en_US.UTF8`  
+    `sudo locale-gen pt_BR.UTF8`  
+    `sudo locale-gen ru_RU.UTF8`   
+    `...`
+    
 *   In Debian, you need to run the command:   
-       `dpkg-reconfigure locales`   
+    `dpkg-reconfigure locales`   
     and select the desired locales from the list.
 
 ## Installing on MacOS {#installing-on-macos}
