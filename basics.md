@@ -34,27 +34,27 @@ The current version supports the following languages(to different extents and ac
 
 **Table 1.1:** Analysis services available for each language.
 
-                             | as  | ca  | cy  | de  | en  | es  | fr  | gl  | hr  | it  | nb  | pt  | ru  | sl  |
------------------------------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-Tokenization                 | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
-Sentence splitting           | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
-Number detection             |     | X   |     |     | X   | X   |     | X   |     | X   |     | X   | X   |     |
-Date detection               |     | X   |     |     | X   | X   |     | X   |     |     |     | X   | X   |     |
-Morphological dictionary     | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
-Affix rules                  | X   | X   | X   | X   | X   | X   | X   | X   |     | X   | X   | X   |     |     |
-Multiword detection          | X   | X   | X   |     | X   | X   | X   | X   |     | X   |     | X   |     |     |
-Basic named entity detection | X   | X   | X   |     | X   | X   | X   | X   |     | X   |     | X   | X   | X   |
-B-I-O named entity detection |     | X   |     |     | X   | X   |     | X   |     |     |     | X   |     |     |
-Named Entity Classification  |     | X   |     |     | X   | X   |     |     |     |     |     | X   |     |     | 
-Quantity detection           |     | X   |     |     | X   | X   |     | X   |     |     |     | X   | X   |     | 
-PoS tagging                  | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | 
-Phonetic encoding            |     |     |     |     | X   | X   |     |     |     |     |     |     |     |     | 
-WN sense annotation          |     | X   |     |     | X   | X   | X   | X   |     |     |     |     |     | X   |
-UKB sense disambiguation     |     | X   |     |     | X   | X   | X   | X   |     |     |     |     |     | X   |
-Shallow parsing              | X   | X   |     |     | X   | X   |     | X   |     |     |     | X   |     |     | 
-Full/dependency parsing      | X   | X   |     |     | X   | X   |     | X   | X   |     |     |     |     | X   |
-Semantic Role Labelling      |     | X   |     | X   | X   | X   |     |     |     |     |     |     |     |     |
-Coreference resolution       |     |     |     |     | X   | X   |     |     |     |     |     |     |     |     | 
+|                             | as  | ca  | cy  | de  | en  | es  | fr  | gl  | hr  | it  | nb  | pt  | ru  | sl  |
+|-----------------------------|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|Tokenization                 | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
+|Sentence splitting           | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
+|Number detection             |     | X   |     |     | X   | X   |     | X   |     | X   |     | X   | X   |     |
+|Date detection               |     | X   |     |     | X   | X   |     | X   |     |     |     | X   | X   |     |
+|Morphological dictionary     | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
+|Affix rules                  | X   | X   | X   | X   | X   | X   | X   | X   |     | X   | X   | X   |     |     |
+|Multiword detection          | X   | X   | X   |     | X   | X   | X   | X   |     | X   |     | X   |     |     |
+|Basic named entity detection | X   | X   | X   |     | X   | X   | X   | X   |     | X   |     | X   | X   | X   |
+|B-I-O named entity detection |     | X   |     |     | X   | X   |     | X   |     |     |     | X   |     |     |
+|Named Entity Classification  |     | X   |     |     | X   | X   |     |     |     |     |     | X   |     |     | 
+|Quantity detection           |     | X   |     |     | X   | X   |     | X   |     |     |     | X   | X   |     | 
+|PoS tagging                  | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | 
+|Phonetic encoding            |     |     |     |     | X   | X   |     |     |     |     |     |     |     |     | 
+|WN sense annotation          |     | X   |     |     | X   | X   | X   | X   |     |     |     |     |     | X   |
+|UKB sense disambiguation     |     | X   |     |     | X   | X   | X   | X   |     |     |     |     |     | X   |
+|Shallow parsing              | X   | X   |     |     | X   | X   |     | X   |     |     |     | X   |     |     | 
+|Full/dependency parsing      | X   | X   |     |     | X   | X   |     | X   | X   |     |     |     |     | X   |
+|Semantic Role Labelling      |     | X   |     | X   | X   | X   |     |     |     |     |     |     |     |     |
+|Coreference resolution       |     |     |     |     | X   | X   |     |     |     |     |     |     |     |     | 
 
 FreeLing is designed to be modular and to keep linguistic data separated from code. So, most modules can be adapted to a new language just replacing a configuration file or providing a file with rules specific for that language.
 
