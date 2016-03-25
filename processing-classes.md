@@ -19,6 +19,7 @@ This module is somehow different of the other modules, since it doesn't enrich t
 The API of the language identifier is the following:
 
 ```C++
+
 class lang_ident {
   public:
     /// Build an empty language identifier.
