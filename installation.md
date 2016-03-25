@@ -10,14 +10,14 @@ To install FreeLing you'll need:
     *   C++ compiler with STL and C++11 support (e.g. g++ 4.6 or newer)
 *   Enough hard disk space -about 3 Gb for source and temporary compilation files (which you can delete later if needed), plus some 1.1Gb for final installation.
 *   Some external libraries are required to compile FreeLing:
-    *   `libboost` & `libicu` libraries. Included in all Linux distributions. You probably do not have all neeeded components installed. Make sure to install both runtime and development packages for:
+    *   <tt>libboost</tt> & <tt>libicu</tt> libraries. Included in all Linux distributions. You probably do not have all neeeded components installed. Make sure to install both runtime and development packages for:
         *   libicu
         *   libboost-regex
         *   libboost-system
         *   libboost-thread
         *   libboost-program-options
         *   libboost-locale (only required for MacOSX or FreeBSD, not required in Linux)
-    *   `libz` compression library. Included in all Linux distributions. You probably do not have all neeeded components installed. Make sure to install both runtime and development packages for:
+    *   <tt>libz</tt> compression library. Included in all Linux distributions. You probably do not have all neeeded components installed. Make sure to install both runtime and development packages for:
         *   zlib
 
 ### Orientative package names {#orientative-package-names}
@@ -40,7 +40,7 @@ See details on the installation procedure in section [Installation](#installatio
 
 This section provides a detailed guide on different options to install FreeLing (and all its required packages).
 
-### Install from `.deb` binary packages {#install-from-deb-binary-packages}
+### Install from <tt>.deb</tt> binary packages {#install-from-deb-binary-packages}
 
 This installation procedure is the fastest and easiest. If you do not plan to modify the code, this is the option you should take.
 
@@ -63,11 +63,11 @@ If that doesn't work, you can install it by hand (in Ubuntu or Debian) with the 
 
     In a Debian system, the above commands must be issued as root and without `sudo`.
 
-### Install from `.tar.gz` source packages {#install-from-tar-gz-source-packages}
+### Install from <tt>.tar.gz</tt> source packages {#install-from-tar-gz-source-packages}
 
 Installation from source follows standard GNU autoconfigure installation procedures (that is, the usual `./configure && make && make install` stuff).
 
-Installing from source is slower and harder, but it will work in any Linux box, even if you have library versions different than those required by the `.deb` package.
+Installing from source is slower and harder, but it will work in any Linux box, even if you have library versions different than those required by the <tt>.deb</tt> package.
 
 1.  Install development tools
 
@@ -103,13 +103,13 @@ Installing from source is slower and harder, but it will work in any Linux box, 
 
     See `./configure --help` for options about installing in non-default directories or disabling some FreeLing options.
 
-### Install from `GitHub` repositories {#install-from-github-repositories}
+### Install from <tt>GitHub</tt> repositories {#install-from-github-repositories}
 
 Installing from GitHub is very similar to installing from source, but you'll have the chance to easily update your FreeLing to the latest development version.
 
 1.  Install development tools
 
-    You'll need to install the C++ compiler, the GNU autotools, plus a `git` client.  
+    You'll need to install the C++ compiler, the GNU autotools, plus a <tt>git</tt> client.  
     `sudo apt-get install build-essential automake autoconf libtool git`
 
     If you use a distribution different than Debian or Ubuntu, these packages may have different names. Use your package manager to locate and install the appropriate ones.
@@ -125,8 +125,7 @@ Installing from GitHub is very similar to installing from source, but you'll hav
 
     (you can replace `mysrc` with the directory name of your choice).
 
-    If you want a previous release, after cloning the repository with the above command, you can checkout any previous tagged version with something like:
-    
+    If you want a previous release, after cloning the repository with the above command, you can checkout any previous tagged version with something like:  
     `git checkout -b mybranch-v4 4.0-beta1`
 
     (that will create a new branch `mybranch-v4` in your local repository that will contain the version tagged as `4.0-beta1` in GitHub).
@@ -155,9 +154,9 @@ Depending on what changed in the repository, you may need to issue `autoreconf -
 
 ## Locale-related problems when installing {#locale-related-problems-when-installing}
 
-If you get an error about `bad locale` when you enter `make install` or when you try to execute the `analyzer` sample program, you probably need to generate some locales in your system.
+If you get an error about <tt>bad locale</tt> when you enter `make install` or when you try to execute the `analyzer` sample program, you probably need to generate some locales in your system.
 
-FreeLing uses `en_US.UTF8` locale as default during installation. If this locale is not installed in your system, you'll get an error during dictionary installation.
+FreeLing uses <tt>en_US.UTF8</tt> locale as default during installation. If this locale is not installed in your system, you'll get an error during dictionary installation.
 
 all languages in FreeLing should work with this locale, though Russian may need to have its own locale installed in the system.
 
@@ -177,15 +176,15 @@ The procedure to install a locale in your system varies depending on your distri
 
 Installing on MacOS is very similar to installing on Linux. The main difference is how to install the dependencies and required development tools, which is greatly eased by MacPorts.
 
-*   Download and install MacPorts following the instructions in `www.macports.org/install.php`. Note that you will need to install Apple XCode too, as described in the same page.
+*   Download and install MacPorts following the instructions in [http://www.macports.org/install.php]. Note that you will need to install Apple XCode too, as described in the same page.
 
-*   Use MacPorts to install required developer tools:
-     `sudo port install automake
-      sudo port install libtoool
-      sudo port install subversion`
+*   Use MacPorts to install required developer tools:  
+    `sudo port install automake`  
+    `sudo port install libtoool`  
+    `sudo port install subversion`
 
-*   Use MacPorts to install required dependencies
-     `sudo port install boost`
+*   Use MacPorts to install required dependencies:  
+    `sudo port install boost`
 
     This will install also `libicu`. Note that `zlib` is already installed in MacOS. If configure complains about it not being there, you can install it with `sudo port install zlib`.
 
@@ -193,7 +192,7 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 
     Important: libraries in MacOS are installed in `/opt/local` instead of `/usr/local`. So, when running `configure`, you need to specify the right library paths. Also, locales need some specific handling which requires the use of `libboost-locale`
 
-    In summary, you need to run `./configure` with the command:
+    In summary, you need to run `./configure` with the command:  
     `./configure --enable-boost-locale CPPFLAGS="-I/opt/local/include" LDFLAGS="-L/opt/local/lib"`
 
     You can add to this command any extra options you wish (`-enable-traces`, `-prefix`, etc). Use `./configure -help` to find out available options.

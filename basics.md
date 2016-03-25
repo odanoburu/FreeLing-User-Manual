@@ -78,7 +78,5 @@ Find the details in the [`COPYING`](https://github.com/TALP-UPC/FreeLing/blob/ma
 
 FreeLing is developed and maintained by people in [TALP Research Center](http://www.talp.upc.edu) at Universitat Politecnica de Catalunya.
 
-Many people further contributed to by reporting problems, suggesting various improvements, submitting actual code or extending linguistic databases.
-
-A detailed list can be found in [Contributions](http://nlp.lsi.upc.edu/freeling/node/5) section at [FreeLing webpage](http://nlp.lsi.upc.edu/freeling).
+Many people further contributed to by reporting problems, suggesting various improvements, submitting actual code or extending linguistic databases. A detailed list can be found in [Contributions](http://nlp.lsi.upc.edu/freeling/node/5) section at [FreeLing webpage](http://nlp.lsi.upc.edu/freeling).
 

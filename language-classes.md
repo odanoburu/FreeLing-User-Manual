@@ -22,7 +22,8 @@ The word also stores information about which analysis were selected by the tagge
 
 The API for the class word is:
 
-<pre>  class word : public std::list&lt;analysis&gt; {
+```C++
+class word : public std::list&lt;analysis&gt; {
 
   public:
     /// user-managed data, we just store it.
@@ -169,11 +170,12 @@ The API for the class word is:
     word::iterator analysis_end();
     word::const_iterator analysis_end() const;
   };
-</pre>
+```
 
 Since a large amount of useful information about the word is stored in the analysis it contains, the class <tt>analysis</tt> also offers methods to access its content:
 
-<pre>  class analysis {
+```C++
+class analysis {
 
   public:
     /// user-managed data, we just store it.
@@ -218,13 +220,14 @@ Since a large amount of useful information about the word is stored in the analy
     // unmark this analysis as selected in k-th best sequence
     void unmark_selected(int k=0);
   };
-</pre>
+```
 
 # Class <tt>sentence</tt> {#class-sentence}
 
 Words are grouped to form sentences. A <tt>sentence</tt> is basically a list of <tt>word</tt> objects, but it also may contain additional information, such as a parse tree, a dependency tree, or a list of predicates and arguments.
 
-<pre>  class sentence : public std::list&lt;word&gt; {
+```C++
+class sentence : public std::list&lt;word&gt; {
 
   public:
     sentence();
@@ -288,7 +291,7 @@ Words are grouped to form sentences. A <tt>sentence</tt> is basically a list of 
     /// get predicates of the sentence (e.g. to iterate over them)
     const predicates & get_predicates() const;
   };
-</pre>
+```
 
 Trees stored in the sentence (either constituency trees or dependency trees) are a STL-like container that offers STL-like iterators to traverse the tree.
 
@@ -300,14 +303,15 @@ Please check FreeLing Technical Reference Manual to find out details about the A
 
 Sentences can be grouped in <tt>paragraphs</tt>, and these can be grouped in a <tt>document</tt>
 
-<pre>  class paragraph : public std::list&lt;sentence&gt; {
+```C++
+class paragraph : public std::list&lt;sentence&gt; {
   public:
     paragraph();
     paragraph(const std::list&lt;sentence&gt; &x);
     void set_paragraph_id(const std::wstring &);
     const std::wstring & get_paragraph_id() const;
   };
-</pre>
+```
 
 Class <tt>document</tt> is able to contain a sequence of <tt>paragraphs</tt>, each containing several <tt>sentences</tt>, each of which is made of <tt>words</tt> that have different <tt>analysis</tt>.
 
@@ -315,7 +319,8 @@ In addition, a <tt>document</tt> may contain also information about the corefere
 
 Please check FreeLing Technical Reference Manual to find out details about the API for class <tt>mention</tt>.
 
-<pre>  class document : public std::list&lt;paragraph&gt; {
+```C++
+class document : public std::list&lt;paragraph&gt; {
 
   public:
     document();
@@ -365,7 +370,7 @@ Please check FreeLing Technical Reference Manual to find out details about the A
     const semgraph::semantic_graph & get_semantic_graph() const;
     semgraph::semantic_graph & get_semantic_graph();
   };
-</pre>
+```
 
 Finally, the <tt>document</tt> may contain also a semantic graph describing relations between entities and events.
 
@@ -373,7 +378,8 @@ The graph contains instances of <tt>SG_entity</tt> (an entity mentioned in the t
 
 Please check FreeLing Technical Reference Manual to find out details about the API for classes contained in the <tt>semgraph</tt>.
 
-<pre>    class semantic_graph {
+```C++
+class semantic_graph {
     public:
       semantic_graph();
       ~semantic_graph();
@@ -408,4 +414,5 @@ Please check FreeLing Technical Reference Manual to find out details about the A
 
       bool empty() const;
     };
-</pre>
+```
+
