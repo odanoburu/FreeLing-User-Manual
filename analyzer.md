@@ -330,11 +330,12 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
   Input format in which to expect text to analyze.
 
-  Valid values are:
-
-    * <tt>text</tt>: Plain text.
-    * <tt>freeling</tt>: pseudo-column format produced by freeling with output level <tt>morfo</tt> or <tt>tagged</tt>.
-    * <tt>conll</tt>: CoNLL-like column format.
+  Valid values are:  
+  <ul>
+    <li> <tt>text</tt>: Plain text.
+    <li> <tt>freeling</tt>: pseudo-column format produced by freeling with output level <tt>morfo</tt> or <tt>tagged</tt>.
+    <li> <tt>conll</tt>: CoNLL-like column format.
+  <ul>
 
 * Output Format
 
