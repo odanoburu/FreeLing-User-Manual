@@ -181,9 +181,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
 *   Help
 
-| Command line | Configuration file |
-| ------------ | ------------------ |
-| `-h`, `--help`, `--help-cf` | <tt>N/A</tt>       |
+    | Command line | Configuration file |
+    | ------------ | ------------------ |
+    | `-h`, `--help`, `--help-cf` | <tt>N/A</tt>       |
 
     Prints to stdout a help screen with valid options and exits.
 
