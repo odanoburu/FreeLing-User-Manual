@@ -883,13 +883,13 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
 ### Sample Configuration File {#sample-configuration-file}
 
-A sample configuration file follows. This is only a sample, and probably won't work if you use it as is. You can start using freeling with the default configuration files which -after installation- are located in <tt>/usr/local/share/FreeLing/config</tt> (note than prefix <tt>/usr/local</tt> may differ if you specified an alternative location when installing FreeLing. If you installed from a binary <tt>.deb</tt> package), it will be at <tt>/usr/share/FreeLing/config</tt>.
+A sample configuration file follows. You can start using freeling with the default configuration files which are installed at `/usr/local/share/freeling/config` (note than prefix `/usr/local` may differ if you specified an alternative location when installing FreeLing. If you installed from a binary `.deb` package), it will be at `/usr/share/freeling/config`.
 
 You can use those files as a starting point to customize one configuration file to suit your needs.
 
 Note that file paths in the sample configuration file contain `$FREELINGSHARE`, which is supposed to be an environment variable. If this variable is not defined, the analyzer will abort, complaining about not finding the files.
 
-If you use the <tt>analyze</tt> script, it will define the variable for you as <tt>/usr/local/share/Freeling</tt> (or the right installation path), unless you define it to point somewhere else.
+If you use the `analyze` script, it will define the variable for you as `/usr/local/share/Freeling` (or the right installation path), unless you define it to point somewhere else.
 
 You can also adjust your configuration files to use normal paths for the files (either relative or absolute) instead of using variables.
 
