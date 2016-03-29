@@ -108,7 +108,8 @@ int main (int argc, char **argv) {
   // create chunker
   chart_parser parser(path+L"chunker/grammar-chunk.dat");
   // create dependency parser
-  dep_txala dep(path+L"dep_txala/dependences.dat",parser.get_start_symbol( ) );
+  wstring S=parser.get_start_symbol();
+  dep_txala dep(path+L"dep_txala/dependences.dat",S);
   
   // get plain text input lines while not EOF.
   wstring text;
