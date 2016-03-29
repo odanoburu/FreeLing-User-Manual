@@ -1,4 +1,4 @@
-# Basic Concepts {#basic-concepts}
+#Basic Concepts {#basic-concepts}
 
 FreeLing is a C++ library providing language analysis services (such as morphological analysis, date recognition, PoS tagging, parsing, etc.)
 
@@ -8,7 +8,7 @@ FreeLing is designed to be used as an external library from any application requ
 
 Additionally, a command-line main program with many customization options is also provided as a basic interface to the library, enabling the user to analyze text files with no need of coding any programs to call the library.
 
-## What is FreeLing {#what-is-freeling}
+  ##What is FreeLing {#what-is-freeling}
 
 FreeLing is a developer-oriented library providing language analysis services. If you want to develop, say, a machine translation system, and you need some kind of linguistic processing of the source text, your MT application can call FreeLing modules to do the required analysis.
 
@@ -16,7 +16,7 @@ In the directory `src/main/simple_examples` in FreeLing tarball, some sample pro
 
 In the directory `src/main/sample_analyzer` a couple of more complex programs are provided, which can be used either as a command line interface to the library to process texts, or as examples of how to build customized applications using FreeLing.
 
-## What is NOT FreeLing {#what-is-not-freeling}
+  1 ## What is NOT FreeLing {#what-is-not-freeling}
 
 FreeLing is not a user-oriented text analysis tool. That is, it is not designed to be user friendly, to have a fancy GUI, or to output results with a cute image, or in a certain format.
 
