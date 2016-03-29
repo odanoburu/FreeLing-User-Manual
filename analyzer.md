@@ -180,9 +180,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 |:--- |:--- |
 | `-h`, `--help`, `--help-cf` | <tt>N/A</tt> |
 
-Prints to stdout a help screen with valid options and exits.  
-`--help` provides information about command line options.  
-`--help-cf` provides information about configuration file options.
+  Prints to stdout a help screen with valid options and exits.  
+  `--help` provides information about command line options.  
+  `--help-cf` provides information about configuration file options.
 
 * Version number
 
@@ -190,7 +190,7 @@ Prints to stdout a help screen with valid options and exits.
 |:--- |:--- |
 | `-v`, `--version` | <tt>N/A</tt> |
 
-Prints the version number of currently installed FreeLing library.
+  Prints the version number of currently installed FreeLing library.
 
 * Configuration file
 
@@ -198,7 +198,7 @@ Prints the version number of currently installed FreeLing library.
 |:--- |:--- |
 | `-f <filename>` | <tt>N/A</tt> |
 
-Specify configuration file to use (default: analyzer.cfg).
+  Specify configuration file to use (default: analyzer.cfg).
 
 * Server mode
 
@@ -206,8 +206,8 @@ Specify configuration file to use (default: analyzer.cfg).
 |:--- |:--- |
 | `--server` | `ServerMode=(yes|y|on|no|n|off)` |
 
-Activate server mode. Requires that option `--port` is also provided.  
-Default value is `off`.
+  Activate server mode. Requires that option `--port` is also provided.  
+  Default value is `off`.
 
 * Server Port Number
 
@@ -215,7 +215,7 @@ Default value is `off`.
 |:--- |:--- |
 | `-p <int>`, `--port <int>` | `ServerPort=<int>` |
 
-Specify port where server will be listening for requests. This option must be specified if server mode is active, and it is ignored if server mode is off.
+  Specify port where server will be listening for requests. This option must be specified if server mode is active, and it is ignored if server mode is off.
 
 * Maximum Number of Server Workers
 
@@ -223,11 +223,11 @@ Specify port where server will be listening for requests. This option must be sp
 |:--- |:--- |
 | `-w <int>`, `--workers <int>` | `ServerMaxWorkers=<int>` |
 
-Specify maximum number of active workers that the server will launch. Each worker attends a client, so this is the maximum number of clients that are simultaneously attended. This option is ignored if server mode is off.
+  Specify maximum number of active workers that the server will launch. Each worker attends a client, so this is the maximum number of clients that are simultaneously attended. This option is ignored if server mode is off.
 
-Default vaule is 5\. Note that a high number of simultaneous workers will result in forking that many processes, which may overload the CPU and memory of your machine resulting in a system collapse.
+  Default vaule is 5\. Note that a high number of simultaneous workers will result in forking that many processes, which may overload the CPU and memory of your machine resulting in a system collapse.
 
-When the maximum number of workers is reached, new incoming requests are queued until a worker finishes.
+  When the maximum number of workers is reached, new incoming requests are queued until a worker finishes.
 
 * Maximum Size of Server Queue
 
@@ -235,13 +235,13 @@ When the maximum number of workers is reached, new incoming requests are queued 
 |:--- |:--- |
 | `-q <int>`, `--queue <int>` | `ServerQueueSize=<int>` |
 
-Specify maximum number of pending clients that the server socket can hold. This option is ignored if server mode is off.
+  Specify maximum number of pending clients that the server socket can hold. This option is ignored if server mode is off.
 
-Pending clients are requests waiting for a worker to be available. They are queued in the operating system socket queue.
+  Pending clients are requests waiting for a worker to be available. They are queued in the operating system socket queue.
 
-Default value is 32\. Note that the operating system has an internal limit for the socket queue size (e.g. modern linux kernels set it to 128). If the given value is higher than the operating system limit, it will be ignored.
+  Default value is 32\. Note that the operating system has an internal limit for the socket queue size (e.g. modern linux kernels set it to 128). If the given value is higher than the operating system limit, it will be ignored.
 
-When the pending queue is full, new incoming requests get a connection error.
+  When the pending queue is full, new incoming requests get a connection error.
 
 * Trace Level
 
@@ -249,9 +249,9 @@ When the pending queue is full, new incoming requests get a connection error.
 |:--- |:--- |
 | `-l <int>`, `--tlevel <int>` | `TraceLevel=<int>` |
 
-Set the trace level (0 = no trace, higher values = more trace), for debugging purposes.
+  Set the trace level (0 = no trace, higher values = more trace), for debugging purposes.
 
-This will work only if the library was compiled with tracing information, using <tt>./configure -enable-traces</tt>. Note that the code with tracing information is slower than the code compiled without it, even when traces are not active.
+  This will work only if the library was compiled with tracing information, using <tt>./configure -enable-traces</tt>. Note that the code with tracing information is slower than the code compiled without it, even when traces are not active.
 
 * Trace Module
 
@@ -259,40 +259,40 @@ This will work only if the library was compiled with tracing information, using 
 |:--- |:--- |
 | `-m <mask>`, `--tmod <mask>` | `TraceModule=<mask>` |
 
-Specify modules to trace. Each module is identified with an hexadecimal flag. All flags may be OR-ed to specificy the set of modules to be traced.
+  Specify modules to trace. Each module is identified with an hexadecimal flag. All flags may be OR-ed to specificy the set of modules to be traced.
 
-Valid masks are defined in file `src/include/freeling/morfo/traces.h`, and are the following:
+  Valid masks are defined in file `src/include/freeling/morfo/traces.h`, and are the following:
 
 | Module | Mask |
 |:--- |:--- |
-| Splitter | 0x00000001 |
-| Tokenizer | 0x00000002 |
-| Morphological analyzer | 0x00000004 |
-| Options management | 0x00000008 |
-| Number detection | 0x00000010 |
-| Date identification | 0x00000020 |
-| Punctuation detection | 0x00000040 |
-| Dictionary search | 0x00000080 |
-| Affixation rules | 0x00000100 |
-| Multiword detection | 0x00000200 |
-| Named entity detection | 0x00000400 |
-| Probability assignment | 0x00000800 |
-| Quantities detection | 0x00001000 |
-| Named entity classification | 0x00002000 |
-| Automata (abstract) | 0x00004000 |
-| Sense annotation | 0x00010000 |
-| Chart parser | 0x00020000 |
-| Parser grammar | 0x00040000 |
-| Dependency parser | 0x00080000 |
-| Correference resolution | 0x00100000 |
-| Utilities | 0x00200000 |
-| Word sense disambiguation | 0x00400000 |
-| Ortographic correction | 0x00800000 |
-| Database storage | 0x01000000 |
-| Feature extraction | 0x02000000 |
-| Language identifier | 0x04000000 |
-| Omlet | 0x08000000 |
-| Phonetics | 0x10000000 |
+| Splitter | <tt>0x00000001</tt> |
+| Tokenizer | <tt>0x00000002</tt> |
+| Morphological analyzer | <tt>0x00000004</tt> |
+| Options management | <tt>0x00000008</tt> |
+| Number detection | <tt>0x00000010</tt> |
+| Date identification | <tt>0x00000020</tt> |
+| Punctuation detection | <tt>0x00000040</tt> |
+| Dictionary search | <tt>0x00000080</tt> |
+| Affixation rules | <tt>0x00000100</tt> |
+| Multiword detection | <tt>0x00000200</tt> |
+| Named entity detection | <tt>0x00000400</tt> |
+| Probability assignment | <tt>0x00000800</tt> |
+| Quantities detection | <tt>0x00001000</tt> |
+| Named entity classification | <tt>0x00002000</tt> |
+| Automata (abstract) | <tt>0x00004000</tt> |
+| Sense annotation | <tt>0x00010000</tt> |
+| Chart parser | <tt>0x00020000</tt> |
+| Parser grammar | <tt>0x00040000</tt> |
+| Dependency parser | <tt>0x00080000</tt> |
+| Correference resolution | <tt>0x00100000</tt> |
+| Utilities | <tt>0x00200000</tt> |
+| Word sense disambiguation | <tt>0x00400000</tt> |
+| Ortographic correction | <tt>0x00800000</tt> |
+| Database storage | <tt>0x01000000</tt> |
+| Feature extraction | <tt>0x02000000</tt> |
+| Language identifier | <tt>0x04000000</tt> |
+| Omlet | <tt>0x08000000</tt> |
+| Phonetics | <tt>0x10000000</tt> |
 
 * Language of input text
 
@@ -300,9 +300,9 @@ Valid masks are defined in file `src/include/freeling/morfo/traces.h`, and are t
 |:--- |:--- |
 | `--lang <language>` | `Lang=<language>` |
 
-Code for language of input text. Though it is not required, the convention is to use two-letter ISO codes (as: Asturian, es: Spanish, ca: Catalan, en: English, cy: Welsh, it: Italian, gl: Galician, pt: Portuguese, ru: Russian, old-es: old Spanish, etc).
+  Code for language of input text. Though it is not required, the convention is to use two-letter ISO codes (as: Asturian, es: Spanish, ca: Catalan, en: English, cy: Welsh, it: Italian, gl: Galician, pt: Portuguese, ru: Russian, old-es: old Spanish, etc).
 
-Other languages may be added to the library. See chapter [Adding Support for New Languages](new-languages.md) for details.
+  Other languages may be added to the library. See chapter [Adding Support for New Languages](new-languages.md) for details.
 
 * Locale
 
@@ -310,7 +310,7 @@ Other languages may be added to the library. See chapter [Adding Support for New
 |:--- |:--- |
 | `--locale <locale>` | `Locale=<locale>` |
 
-Locale to be used to interpret both input text and data files. Usually, the value will match the locale of the `Lang` option (e.g. `es_ES.utf8` for spanish, `ca_ES.utf8` for Catalan, etc.). The values `default` (stands for `en_US.utf8`) and `system` (stands for currently active system locale) may also be used.
+  Locale to be used to interpret both input text and data files. Usually, the value will match the locale of the `Lang` option (e.g. `es_ES.utf8` for spanish, `ca_ES.utf8` for Catalan, etc.). The values `default` (stands for `en_US.utf8`) and `system` (stands for currently active system locale) may also be used.
 
 * Splitter Buffer Flushing
 
@@ -318,9 +318,9 @@ Locale to be used to interpret both input text and data files. Usually, the valu
 |:--- |:--- |
 | `--flush`, `--noflush` | `AlwaysFlush=(yes|y|on|no|n|off)` |
 
-When this option is inactive (most usual choice) sentence splitter buffers lines until a sentence marker is found. Then, it outputs a complete sentence.
+  When this option is inactive (most usual choice) sentence splitter buffers lines until a sentence marker is found. Then, it outputs a complete sentence.
 
-When this option is active, the splitter never buffers any token, and considers each newline as a sentence end, thus processing each line as an independent sentence.
+  When this option is active, the splitter never buffers any token, and considers each newline as a sentence end, thus processing each line as an independent sentence.
 
 * Input Format
 
@@ -328,9 +328,9 @@ When this option is active, the splitter never buffers any token, and considers 
 |:--- |:--- |
 | `--input <string>` | `InputFormat=<string>` |
 
-Input format in which to expect text to analyze.
+  Input format in which to expect text to analyze.
 
-Valid values are:
+  Valid values are:
 
     * <tt>text</tt>: Plain text.
     * <tt>freeling</tt>: pseudo-column format produced by freeling with output level <tt>morfo</tt> or <tt>tagged</tt>.
@@ -342,9 +342,9 @@ Valid values are:
 |:--- |:--- |
 | `--output <string>` | `OutputFormat=<string>` |
 
-Output format to produce with analysis results.
+  Output format to produce with analysis results.
 
-Valid values are:
+  Valid values are:
 
     * <tt>freeling</tt>: Classical freeling format. It may be a pseudo-column for with output levels <tt>morfo</tt> or <tt>tagged</tt>, parenthesized trees for parsing output, or other human-readable output for coreferences or semantic graph output.
     * <tt>conll</tt>: CoNLL-like column format.
@@ -359,7 +359,7 @@ Valid values are:
 |:--- |:--- |
 | `--inplv <string>` | `InputLevel=<string>` |
 
-Analysis level of input data (plain, token, splitted, morfo, tagged, shallow, dep, coref).
+  Analysis level of input data (plain, token, splitted, morfo, tagged, shallow, dep, coref).
 
     * plain: plain text.
     * token: tokenized text (one token per line).
@@ -376,7 +376,7 @@ Analysis level of input data (plain, token, splitted, morfo, tagged, shallow, de
 |:--- |:--- |
 | `--outlv <string>` | `OutputLevel=<string>` |
 
-Analysis level of output data (token, splitted, morfo, tagged, shallow, dep, coref, semgraph).
+  Analysis level of output data (token, splitted, morfo, tagged, shallow, dep, coref, semgraph).
 
     * token: tokenized text (one token per line).
     * splitted : tokenized and sentence-splitted text (one token per line, sentences separated with one blank line).
@@ -394,7 +394,7 @@ Analysis level of output data (token, splitted, morfo, tagged, shallow, dep, cor
 |:--- |:--- |
 | `-I <filename>`, `--fidn <filename>` | `N/A` |
 
-Configuration file for language identifier. 
+  Configuration file for language identifier. 
 
 * Tokenizer File
 
@@ -402,7 +402,7 @@ Configuration file for language identifier.
 |:--- |:--- |
 | `--abrev <filename>` | `TokenizerFile=<filename>` |
 
-File of tokenization rules. 
+  File of tokenization rules. 
 
 * Splitter File
 
@@ -410,7 +410,7 @@ File of tokenization rules.
 |:--- |:--- |
 | `--fsplit <filename>` | `SplitterFile=<filename>` |
 
-File of splitter rules.
+  File of splitter rules.
 
 * Affix Analysis
 
@@ -418,7 +418,7 @@ File of splitter rules.
 |:--- |:--- |
 | `--afx`, `--noafx` | `AffixAnalysis=(yes|y|on|no|n|off)` |
 
-Whether to perform affix analysis on unknown words. Affix analysis applies a set of affixation rules to the word to check whether it is a derived form of a known word.
+  Whether to perform affix analysis on unknown words. Affix analysis applies a set of affixation rules to the word to check whether it is a derived form of a known word.
 
 * Affixation Rules File
 
@@ -426,7 +426,7 @@ Whether to perform affix analysis on unknown words. Affix analysis applies a set
 |:--- |:--- |
 | `-S <filename>`, `--fafx <filename>` | `AffixFile=<filename>` |
 
-Affix rules file, used by dictionary module.
+  Affix rules file, used by dictionary module.
 
 * User Map
 
@@ -434,7 +434,7 @@ Affix rules file, used by dictionary module.
 |:--- |:--- |
 | `--usr`, `--nousr` | `UserMap=(yes|y|on|no|n|off)` |
 
-Whether to apply or not a file of customized word-tag mappings.
+  Whether to apply or not a file of customized word-tag mappings.
 
 * User Map File
 
@@ -442,7 +442,7 @@ Whether to apply or not a file of customized word-tag mappings.
 |:--- |:--- |
 | `-M <filename>`, `--fmap <filename>` | `UserMapFile=<filename>` |
 
-User Map file to be used. 
+  User Map file to be used. 
 
 * Multiword Detection
 
@@ -450,7 +450,7 @@ User Map file to be used.
 |:--- |:--- |
 | `--loc`, `--noloc` | `MultiwordsDetection=(yes|y|on|no|n|off)` |
 
-Whether to perform multiword detection. This option requires that a multiword file is provided.
+  Whether to perform multiword detection. This option requires that a multiword file is provided.
 
 * Multiword File
 
@@ -458,7 +458,7 @@ Whether to perform multiword detection. This option requires that a multiword fi
 |:--- |:--- |
 | `-L <filename>`, `--floc <filename>` | `LocutionsFile=<filename>` |
 
-Multiword definition file. 
+  Multiword definition file. 
 
 * Number Detection
 
@@ -466,7 +466,7 @@ Multiword definition file.
 |:--- |:--- |
 | `--numb`, `--nonumb` | `NumbersDetection=(yes|y|on|no|n|off)` |
 
-Whether to perform nummerical expression detection. Deactivating this feature will affect the behaviour of date/time and ratio/currency detection modules.
+  Whether to perform nummerical expression detection. Deactivating this feature will affect the behaviour of date/time and ratio/currency detection modules.
 
 * Decimal Point
 
@@ -474,7 +474,7 @@ Whether to perform nummerical expression detection. Deactivating this feature wi
 |:--- |:--- |
 | `--dec <string>` | `DecimalPoint=<string>` |
 
-Specify decimal point character for the number detection module (for instance, in English is a dot, but in Spanish is a comma).
+  Specify decimal point character for the number detection module (for instance, in English is a dot, but in Spanish is a comma).
 
 * Thousand Point
 
@@ -482,7 +482,7 @@ Specify decimal point character for the number detection module (for instance, i
 |:--- |:--- |
 | `--thou <string>` | `ThousandPoint=<string>` |
 
-Specify thousand point character for the number detection module (for instance, in English is a comma, but in Spanish is a dot).
+  Specify thousand point character for the number detection module (for instance, in English is a comma, but in Spanish is a dot).
 
 * Punctuation Detection
 
@@ -490,7 +490,7 @@ Specify thousand point character for the number detection module (for instance, 
 |:--- |:--- |
 | `--punt`, `--nopunt` | `PunctuationDetection=(yes|y|on|no|n|off)` |
 
-Whether to assign PoS tag to punctuation signs.
+  Whether to assign PoS tag to punctuation signs.
 
 * Punctuation Detection File
 
@@ -498,7 +498,7 @@ Whether to assign PoS tag to punctuation signs.
 |:--- |:--- |
 | `-F <filename>`, `--fpunct <filename>` | `PunctuationFile=<filename>` |
 
-Punctuation symbols file. 
+  Punctuation symbols file. 
 
 * Date Detection
 
@@ -506,7 +506,7 @@ Punctuation symbols file.
 |:--- |:--- |
 | `--date`, `--nodate` | `DatesDetection=(yes|y|on|no|n|off)` |
 
-Whether to perform date and time expression detection.
+  Whether to perform date and time expression detection.
 
 * Quantities Detection
 
@@ -514,7 +514,7 @@ Whether to perform date and time expression detection.
 |:--- |:--- |
 | `--quant`, `--noquant` | `QuantitiesDetection=(yes|y|on|no|n|off)` |
 
-Whether to perform currency amounts, physical magnitudes, and ratio detection.
+  Whether to perform currency amounts, physical magnitudes, and ratio detection.
 
 * Quantity Recognition File
 
@@ -522,7 +522,7 @@ Whether to perform currency amounts, physical magnitudes, and ratio detection.
 |:--- |:--- |
 | `-Q <filename>`, `--fqty <filename>` | `QuantitiesFile=<filename>` |
 
-Quantitiy recognition configuration file.
+  Quantitiy recognition configuration file.
 
 * Dictionary Search
 
@@ -530,7 +530,7 @@ Quantitiy recognition configuration file.
 |:--- |:--- |
 | `--dict`, `--nodict` | `DictionarySearch=(yes|y|on|no|n|off)` |
 
-Whether to search word forms in dictionary. Deactivating this feature also deactivates AffixAnalysis option.
+  Whether to search word forms in dictionary. Deactivating this feature also deactivates AffixAnalysis option.
 
 * Dictionary File
 
@@ -538,7 +538,7 @@ Whether to search word forms in dictionary. Deactivating this feature also deact
 |:--- |:--- |
 | `-D <filename>`, `--fdict <filename>` | `DictionaryFile=<filename>` |
 
-Dictionary database.
+  Dictionary database.
 
 
 * Probability Assignment
@@ -547,7 +547,7 @@ Dictionary database.
 |:--- |:--- |
 | `--prob`, `--noprob` | `ProbabilityAssignment=(yes|y|on|no|n|off)` |
 
-Whether to compute a lexical probability for each tag of each word. Deactivating this feature will affect the behaviour of the PoS tagger.
+  Whether to compute a lexical probability for each tag of each word. Deactivating this feature will affect the behaviour of the PoS tagger.
 
 * Lexical Probabilities File
 
@@ -555,7 +555,7 @@ Whether to compute a lexical probability for each tag of each word. Deactivating
 |:--- |:--- |
 | `-P <filename>`, `--fprob <filename>` | `ProbabilityFile=<filename>` |
 
-Lexical probabilities file. The probabilities in this file are used to compute the most likely tag for a word, as well to estimate the likely tags for unknown words. 
+  Lexical probabilities file. The probabilities in this file are used to compute the most likely tag for a word, as well to estimate the likely tags for unknown words. 
 
 * Unknown Words Probability Threshold.
 
@@ -563,7 +563,7 @@ Lexical probabilities file. The probabilities in this file are used to compute t
 |:--- |:--- |
 | `-e <float>`, `--thres <float>` | `ProbabilityThreshold=<float>` |
 
-Threshold that must be reached by the probability of a tag given the suffix of an unknown word in order to be included in the list of possible tags for that word. Default is zero (all tags are included in the list). A non-zero value (e.g. 0.0001, 0.001) is recommended.
+  Threshold that must be reached by the probability of a tag given the suffix of an unknown word in order to be included in the list of possible tags for that word. Default is zero (all tags are included in the list). A non-zero value (e.g. 0.0001, 0.001) is recommended.
 
 * Named Entity Recognition
 
@@ -571,7 +571,7 @@ Threshold that must be reached by the probability of a tag given the suffix of a
 |:--- |:--- |
 | `--ner [bio|basic|none]` | `NERecognition=(bio|basic|none)` |
 
-Whether to perform NE recognition and which recognizer to use: ``bio'' for AdaBoost based NER, ``basic'' for a simple heuristic NE recognizer and ``none'' to perform no NE recognition . Deactivating this feature will cause the NE Classification module to have no effect.
+  Whether to perform NE recognition and which recognizer to use: ``bio'' for AdaBoost based NER, ``basic'' for a simple heuristic NE recognizer and ``none'' to perform no NE recognition . Deactivating this feature will cause the NE Classification module to have no effect.
 
 * Named Entity Recognition
 
@@ -579,7 +579,7 @@ Whether to perform NE recognition and which recognizer to use: ``bio'' for AdaBo
 |:--- |:--- |
 | `--ner`, `--noner` | `NERecognition=(yes|y|on|no|n|off)` |
 
-Whether to perform NE recognition.
+  Whether to perform NE recognition.
 
 * Named Entity Recognizer File
 
@@ -587,7 +587,7 @@ Whether to perform NE recognition.
 |:--- |:--- |
 | `-N <filename>`, `--fnp <filename>` | `NPDataFile=<filename>` |
 
-Configuration data file for NE recognizer.
+  Configuration data file for NE recognizer.
 
 * Named Entity Classification
 
@@ -595,7 +595,7 @@ Configuration data file for NE recognizer.
 |:--- |:--- |
 | `--nec`, `--nonec` | `NEClassification=(yes|y|on|no|n|off)` |
 
-Whether to perform NE classification.
+  Whether to perform NE classification.
 
 * Named Entity Classifier File
 
@@ -603,7 +603,7 @@ Whether to perform NE classification.
 |:--- |:--- |
 | `--fnec <filename>` | `NECFile=<filename>` |
 
-Configuration file for Named Entity Classifier module
+  Configuration file for Named Entity Classifier module
 
 * Phonetic Encoding
 
@@ -611,7 +611,7 @@ Configuration file for Named Entity Classifier module
 |:--- |:--- |
 | `--phon`, `--nophon` | `Phonetics=(yes|y|on|no|n|off)` |
 
-Whether to add phonetic transcription to each word.
+  Whether to add phonetic transcription to each word.
 
 * Phonetic Encoder File
 
@@ -619,7 +619,7 @@ Whether to add phonetic transcription to each word.
 |:--- |:--- |
 | `--fphon <filename>` | `PhoneticsFile=<filename>` |
 
-Configuration file for phonetic encoding module
+  Configuration file for phonetic encoding module
 
 * Sense Annotation
 
@@ -627,16 +627,16 @@ Configuration file for phonetic encoding module
 |:--- |:--- |
 | `-s <string>`, `--sense <string>` | `SenseAnnotation=<string>` |
 
-Kind of sense annotation to perform
+  Kind of sense annotation to perform
 
     * no, none: Deactivate sense annotation.
     * all: annotate with all possible senses in sense dictionary.
     * mfs: annotate with most frequent sense.
     * ukb: annotate all senses, ranked by UKB algorithm.
 
-Whether to perform sense anotation.
+  Whether to perform sense anotation.
 
-If active, the PoS tag selected by the tagger for each word is enriched with a list of all its possible WN synsets. The sense repository used depends on the options ``Sense Annotation Configuration File'' and ``UKB Word Sense Disambiguator Configuration File'' described below.
+  If active, the PoS tag selected by the tagger for each word is enriched with a list of all its possible WN synsets. The sense repository used depends on the options ``Sense Annotation Configuration File'' and ``UKB Word Sense Disambiguator Configuration File'' described below.
 
 * Sense Annotation Configuration File
 
@@ -644,7 +644,7 @@ If active, the PoS tag selected by the tagger for each word is enriched with a l
 |:--- |:--- |
 | `-W <filename>`, `--fsense <filename>` | `SenseConfigFile=<filename>` |
 
-Word sense annotator configuration file. 
+  Word sense annotator configuration file. 
 
 * UKB Word Sense Disambiguator Configuration File
 
@@ -652,7 +652,7 @@ Word sense annotator configuration file.
 |:--- |:--- |
 | `-U <filename>`, `--fukb <filename>` | `UKBConfigFile=<filename>` |
 
-UKB configuration file. 
+  UKB configuration file. 
 
 * Tagger algorithm
 
@@ -660,7 +660,7 @@ UKB configuration file.
 |:--- |:--- |
 | `-t <string>`, `--tag <string>` | `Tagger=<string>` |
 
-Algorithm to use for PoS tagging
+  Algorithm to use for PoS tagging
 
     * hmm: Hidden Markov Model tagger, based on [Bra00].
     * relax: Relaxation Labelling tagger, based on [Pad98].
@@ -671,7 +671,7 @@ Algorithm to use for PoS tagging
 |:--- |:--- |
 | `-H <filename>`, `--hmm <filename>` | `TaggerHMMFile=<filename>` |
 
-Parameters file for HMM tagger.
+  Parameters file for HMM tagger.
 
 * Relaxation labelling tagger constraints file
 
@@ -679,7 +679,7 @@ Parameters file for HMM tagger.
 |:--- |:--- |
 | `-R <filename>`, `--rlx <filename>` | `TaggerRelaxFile=<filename>` |
 
-File containing the constraints to apply to solve the PoS tagging. 
+  File containing the constraints to apply to solve the PoS tagging. 
 
 * Relaxation labelling tagger iteration limit
 
@@ -687,7 +687,7 @@ File containing the constraints to apply to solve the PoS tagging.
 |:--- |:--- |
 | `-i <int>`, `--iter <int>` | `TaggerRelaxMaxIter=<int>` |
 
-Maximum numbers of iterations to perform in case relaxation does not converge.
+  Maximum numbers of iterations to perform in case relaxation does not converge.
 
 * Relaxation labelling tagger scale factor
 
@@ -695,7 +695,7 @@ Maximum numbers of iterations to perform in case relaxation does not converge.
 |:--- |:--- |
 | `-r <float>`, `--sf <float>` | `TaggerRelaxScaleFactor=<float>` |
 
-Scale factor to normalize supports inside RL algorithm. It is comparable to the step lenght in a hill-climbing algorithm: The larger scale factor, the smaller step.
+  Scale factor to normalize supports inside RL algorithm. It is comparable to the step lenght in a hill-climbing algorithm: The larger scale factor, the smaller step.
 
 * Relaxation labelling tagger epsilon value
 
@@ -703,7 +703,7 @@ Scale factor to normalize supports inside RL algorithm. It is comparable to the 
 |:--- |:--- |
 | `--eps <float>` | `TaggerRelaxEpsilon=<float>` |
 
-Real value used to determine when a relaxation labelling iteration has produced no significant changes. The algorithm stops when no weight has changed above the specified epsilon.
+  Real value used to determine when a relaxation labelling iteration has produced no significant changes. The algorithm stops when no weight has changed above the specified epsilon.
 
 * Retokenize contractions in dictionary
 
@@ -711,9 +711,9 @@ Real value used to determine when a relaxation labelling iteration has produced 
 |:--- |:--- |
 | `--rtkcon`, `--nortkcon` | `RetokContractions=(yes|y|on|no|n|off)` |
 
-Specifies whether the dictionary must retokenize contractions when found, or leave the decision to the `TaggerRetokenize` option.
+  Specifies whether the dictionary must retokenize contractions when found, or leave the decision to the `TaggerRetokenize` option.
 
-Note that if this option is active, contractions will be retokenized even if the `TaggerRetokenize` option is not active. If this option is not active, contractions will be retokenized depending on the value of the `TaggerRetokenize` option.
+  Note that if this option is active, contractions will be retokenized even if the `TaggerRetokenize` option is not active. If this option is not active, contractions will be retokenized depending on the value of the `TaggerRetokenize` option.
 
 * Retokenize after tagging
 
@@ -721,7 +721,7 @@ Note that if this option is active, contractions will be retokenized even if the
 |:--- |:--- |
 | `--rtk`, `--nortk` | `TaggerRetokenize=(yes|y|on|no|n|off)` |
 
-Determine whether the tagger must perform retokenization after the appropriate analysis has been selected for each word. This is closely related to affix analysis and PoS taggers.
+  Determine whether the tagger must perform retokenization after the appropriate analysis has been selected for each word. This is closely related to affix analysis and PoS taggers.
 
 * Force the selection of one unique tag
 
@@ -729,7 +729,7 @@ Determine whether the tagger must perform retokenization after the appropriate a
 |:--- |:--- |
 | `--force <string>` | `TaggerForceSelect=(none,tagger,retok)` |
 
-Determine whether the tagger must be forced to (probably randomly) make a unique choice and when.
+  Determine whether the tagger must be forced to (probably randomly) make a unique choice and when.
 
     * <tt>none</tt>: Do not force the tagger, allow ambiguous output.
     * <tt>tagger</tt>: Force the tagger to choose before retokenization (i.e. if retokenization introduces any ambiguity, it will be present in the final output).
@@ -742,7 +742,7 @@ Determine whether the tagger must be forced to (probably randomly) make a unique
 |:--- |:--- |
 | `-G <filename>`, `--grammar <filename>` | `GrammarFile=<filename>` |
 
-This file contains a CFG grammar for the chart parser, and some directives to control which chart edges are selected to build the final tree. 
+  This file contains a CFG grammar for the chart parser, and some directives to control which chart edges are selected to build the final tree. 
 
 * Dependency Parser Rule File
 
@@ -750,7 +750,7 @@ This file contains a CFG grammar for the chart parser, and some directives to co
 |:--- |:--- |
 | `-T <filename>`, `--txala <filename>` | `DepTxalaFile==<filename>` |
 
-Rules to be used to perform rule-based dependency analysis. 
+  Rules to be used to perform rule-based dependency analysis. 
 
 * Statistical Dependency Parser File
 
@@ -758,7 +758,7 @@ Rules to be used to perform rule-based dependency analysis.
 |:--- |:--- |
 | `-E <filename>`, `--treeler <filename>` | `DepTreelerFile==<filename>` |
 
-Configuration file for statistical dependency parser and SRL module
+  Configuration file for statistical dependency parser and SRL module
 
 * Dependency Parser Selection
 
@@ -766,7 +766,7 @@ Configuration file for statistical dependency parser and SRL module
 |:--- |:--- |
 | `-d <string>`, `--dep <string>` | `DependencyParser==<string>` |
 
-Which dependency parser to use: <tt>txala</tt> (rule-based) or <tt>treeler</tt> (statistical, may have SRL also).
+  Which dependency parser to use: <tt>txala</tt> (rule-based) or <tt>treeler</tt> (statistical, may have SRL also).
 
 * Coreference Resolution File
 
@@ -774,7 +774,7 @@ Which dependency parser to use: <tt>txala</tt> (rule-based) or <tt>treeler</tt> 
 |:--- |:--- |
 | `-C <filename>`, `--fcorf <filename>` | `CorefFile=<filename>` |
 
-Configuration file for coreference resolution module.
+  Configuration file for coreference resolution module.
 
 
 
