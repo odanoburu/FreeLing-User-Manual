@@ -71,16 +71,19 @@ int main (int argc, char **argv) {
   splitter sp(path+L"splitter.dat");
   splitter::session_id sid=sp.open_session();
 
-  // morphological analysis has a lot of options, and for simplicity they are packed up
-  // in a maco_options object. First, create the maco_options object with default values.
+  // morphological analysis has a lot of options, and for simplicity they are 
+  // packed up in a maco_options object. 
+  // First, create the maco_options object with default values.
   maco_options opt(L"es");  
-  // and provide files for morphological submodules. Note that it is not necessary
-  // to set opt.QuantitiesFile, since Quantities module was deactivated.
+
+  // then, provide files for morphological submodules. 
+  // Note that opt.QuantitiesFile is not set and takes the default empty value.
+  // This will cause quantities module to be deactivated in this example.
   opt.UserMapFile=L"";
   opt.LocutionsFile=path+L"locucions.dat"; opt.AffixFile=path+L"afixos.dat";
   opt.ProbabilityFile=path+L"probabilitats.dat"; opt.DictionaryFile=path+L"dicc.src";
   opt.NPdataFile=path+L"np.dat"; opt.PunctuationFile=path+L"../common/punct.dat"; 
-  // alternatively, you can set the files in a single call:
+  // alternatively, you could set the files in a single call:
   // opt.set_data_files("", path+"locucions.dat", "", path+"afixos.dat",
   //                   path+"probabilitats.dat", opt.DictionaryFile=path+"maco.db",
   //                   path+"np.dat", path+"../common/punct.dat");

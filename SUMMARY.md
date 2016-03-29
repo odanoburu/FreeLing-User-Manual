@@ -5,4 +5,4 @@
 * [Linguistic Data Classes](language-classes.md)
 * [Language Processing Modules](processing-classes.md)
 * [Using the library from your own application](user-application.md)
-* [Using <tt>analyzer</tt> Program to Process Corpora](analyzer.md)
+* [Using `analyzer` Program to Process Corpora](analyzer.md)
