@@ -9,7 +9,7 @@ However, quite complete APIs are provided for Java, Perl, Python, PHP, and Ruby.
 ## Basic Classes {#basic-classes}
 
 This section briefs the basic C++ classes any application needs to know. 
-For detailed API definition, consult the technical documentation in <tt>doc/html</tt> and <tt>doc/latex</tt> directories, or chapters about [Linguistic Data Classes]((language-classes.md)) or [Language Processing Modules](processing-classes.md)
+For detailed API definition, consult the technical documentation in <tt>doc/html</tt> and <tt>doc/latex</tt> directories, or chapters about [Linguistic Data Classes](language-classes.md) or [Language Processing Modules](processing-classes.md)
 
 ### Linguistic Data Classes
 
@@ -54,11 +54,12 @@ The directory `src/main/simple_examples` in the tarball contains some example pr
 
 See the README file in that directory for details on what does each of the programs.
 
-The most complete program in that directory is <tt>sample.cc</tt>, which is a simple version of the <tt>analyzer</tt> program described in section [Using the <tt>analyzer</tt> Program to Process Corpora](#using-the-sample-main-program-to-process-corpora) with a fixed set of options.
+The most complete program in that directory is <tt>sample.cc</tt>, which is a simple version of the <tt>analyzer</tt> program described in section [Using <tt>analyzer</tt> Program to Process Corpora](analyzer.md) with a fixed set of options.
 
 Note that depending on the application, the input text could be obtained from a speech recongnition system, or from a XML parser, or from any source suiting the application goals. Similarly, the obtained analysis, instead of being output, could be used in a translation system, or sent to a dialogue control module, etc.
 
-<pre>int main (int argc, char **argv) {
+```C++
+int main (int argc, char **argv) {
   /// set locale to an UTF8 comaptible locale
   util::init_locale(L"default");
 
@@ -149,11 +150,12 @@ Note that depending on the application, the input text could be obtained from a 
   // 'ls' contains a list of analyzed sentences.  Do whatever is needed
   ProcessResults(ls);
 }
-</pre>
+```
 
 The processing performed on the obtained results would obviously depend on the goal of the application (translation, indexation, etc.). In order to illustrate the structure of the linguistic data objects, a simple procedure is presented below, in which the processing consists of merely printing the results to stdout in XML format.
 
-<pre>void ProcessResults(const list<sentence> &ls) {
+```C++
+void ProcessResults(const list<sentence> &ls) {
 
   list<sentence>::const_iterator is;
   word::const_iterator a;   //iterator over all analysis of a word
@@ -190,7 +192,7 @@ The processing performed on the obtained results would obviously depend on the g
     wcout<<L"</SENT>"<<endl;
   }
 }
-</pre>
+```
 
 The above sample program may be found in `/src/main/simple_examples/sample.cc<` in FreeLing tarball. The actual program also outputs tree structures resulting from parsing, which is ommitted here for simplicity.
 
