@@ -107,9 +107,6 @@ int main (int argc, char **argv) {
   hmm_tagger tagger(path+L"tagger.dat", true, FORCE_TAGGER); 
   // create chunker
   chart_parser parser(path+L"chunker/grammar-chunk.dat");
-  // create dependency parser 
-  dep_txala dep(path+L"dep_txala/dependences.dat", parser.get_start_symbol());
-  
 
 }
 ```
