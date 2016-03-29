@@ -174,16 +174,11 @@ FreeLing package includes default configuration files. They can be found at the 
 
 This section presents the options that can be given to the <tt>analyzer</tt> program (and thus, also to the <tt>analyzer_server</tt> program and to the <tt>analyze</tt> script). All options can be written in the configuration file as well as in the command line. The later has always precedence over the former.
 
-| Command line | Configuration file |
-| -----------  | ------------------ |
-| `-h`, `--help`, `--help-cf` | <tt>N/A</tt>       |
-
-<ul>
-<li>   Help
+*   Help
 
 | Command line | Configuration file |
 | ------------ | ------------------ |
-| `-h`, `--help`, `--help-cf` | <tt>N/A</tt>       |
+| `-h`, `--help`, `--help-cf` | <tt>N/A</tt> |
 
     Prints to stdout a help screen with valid options and exits.
 
@@ -191,29 +186,27 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     `--help-cf` provides information about configuration file options.
 
-<li>   Version number
+*   Version number
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-v`, `--version` | <tt>N/A</tt> |
+| Command line | Configuration file |
+| --- | --- |
+| `-v`, `--version` | <tt>N/A</tt> |
 
     Prints the version number of currently installed FreeLing library.
 
-</ul>
-
 *   Configuration file
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-f &lt;filename&gt;` | <tt>N/A</tt> |
+| Command line | Configuration file |
+| --- | --- |
+| `-f <filename>` | <tt>N/A</tt> |
 
     Specify configuration file to use (default: analyzer.cfg).
 
 *   Server mode
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--server` | `ServerMode=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--server` | `ServerMode=(yes|y|on|no|n|off)` |
 
     Activate server mode. Requires that option `--port` is also provided.
 
@@ -221,17 +214,17 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
 *   Server Port Number
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-p &lt;int&gt;`, `--port &lt;int&gt;` | `ServerPort=&lt;int&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-p <int>`, `--port <int>` | `ServerPort=<int>` |
 
     Specify port where server will be listening for requests. This option must be specified if server mode is active, and it is ignored if server mode is off.
 
 *   Maximum Number of Server Workers
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-w &lt;int&gt;`, `--workers &lt;int&gt;` | `ServerMaxWorkers=&lt;int&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-w <int>`, `--workers <int>` | `ServerMaxWorkers=<int>` |
 
     Specify maximum number of active workers that the server will launch. Each worker attends a client, so this is the maximum number of clients that are simultaneously attended. This option is ignored if server mode is off.
 
@@ -241,9 +234,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
 *   Maximum Size of Server Queue
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-q &lt;int&gt;`, `--queue &lt;int&gt;` | `ServerQueueSize=&lt;int&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-q <int>`, `--queue <int>` | `ServerQueueSize=<int>` |
 
     Specify maximum number of pending clients that the server socket can hold. This option is ignored if server mode is off.
 
@@ -255,9 +248,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
 *   Trace Level
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-l &lt;int&gt;`, `--tlevel &lt;int&gt;` | `TraceLevel=&lt;int&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-l <int>`, `--tlevel <int>` | `TraceLevel=<int>` |
 
     Set the trace level (0 = no trace, higher values = more trace), for debugging purposes.
 
@@ -265,50 +258,50 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
 *   Trace Module
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-m &lt;mask&gt;`, `--tmod &lt;mask&gt;` | `TraceModule=&lt;mask&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-m <mask>`, `--tmod <mask>` | `TraceModule=<mask>` |
 
     Specify modules to trace. Each module is identified with an hexadecimal flag. All flags may be OR-ed to specificy the set of modules to be traced.
 
     Valid masks are defined in file `src/include/freeling/morfo/traces.h`, and are the following:
 
-    | Module | Mask |
-    | --- | --- |
-    | Splitter | 0x00000001 |
-    | Tokenizer | 0x00000002 |
-    | Morphological analyzer | 0x00000004 |
-    | Options management | 0x00000008 |
-    | Number detection | 0x00000010 |
-    | Date identification | 0x00000020 |
-    | Punctuation detection | 0x00000040 |
-    | Dictionary search | 0x00000080 |
-    | Affixation rules | 0x00000100 |
-    | Multiword detection | 0x00000200 |
-    | Named entity detection | 0x00000400 |
-    | Probability assignment | 0x00000800 |
-    | Quantities detection | 0x00001000 |
-    | Named entity classification | 0x00002000 |
-    | Automata (abstract) | 0x00004000 |
-    | Sense annotation | 0x00010000 |
-    | Chart parser | 0x00020000 |
-    | Parser grammar | 0x00040000 |
-    | Dependency parser | 0x00080000 |
-    | Correference resolution | 0x00100000 |
-    | Utilities | 0x00200000 |
-    | Word sense disambiguation | 0x00400000 |
-    | Ortographic correction | 0x00800000 |
-    | Database storage | 0x01000000 |
-    | Feature extraction | 0x02000000 |
-    | Language identifier | 0x04000000 |
-    | Omlet | 0x08000000 |
-    | Phonetics | 0x10000000 |
+| Module | Mask |
+| --- | --- |
+| Splitter | 0x00000001 |
+| Tokenizer | 0x00000002 |
+| Morphological analyzer | 0x00000004 |
+| Options management | 0x00000008 |
+| Number detection | 0x00000010 |
+| Date identification | 0x00000020 |
+| Punctuation detection | 0x00000040 |
+| Dictionary search | 0x00000080 |
+| Affixation rules | 0x00000100 |
+| Multiword detection | 0x00000200 |
+| Named entity detection | 0x00000400 |
+| Probability assignment | 0x00000800 |
+| Quantities detection | 0x00001000 |
+| Named entity classification | 0x00002000 |
+| Automata (abstract) | 0x00004000 |
+| Sense annotation | 0x00010000 |
+| Chart parser | 0x00020000 |
+| Parser grammar | 0x00040000 |
+| Dependency parser | 0x00080000 |
+| Correference resolution | 0x00100000 |
+| Utilities | 0x00200000 |
+| Word sense disambiguation | 0x00400000 |
+| Ortographic correction | 0x00800000 |
+| Database storage | 0x01000000 |
+| Feature extraction | 0x02000000 |
+| Language identifier | 0x04000000 |
+| Omlet | 0x08000000 |
+| Phonetics | 0x10000000 |
 
 *   Language of input text
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--lang &lt;language&gt;` | `Lang=&lt;language&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--lang <language>` | `Lang=<language>` |
 
     Code for language of input text. Though it is not required, the convention is to use two-letter ISO codes (as: Asturian, es: Spanish, ca: Catalan, en: English, cy: Welsh, it: Italian, gl: Galician, pt: Portuguese, ru: Russian, old-es: old Spanish).
 
@@ -320,17 +313,17 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
 *   Locale
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--locale &lt;locale&gt;` | `Locale=&lt;locale&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--locale <locale>` | `Locale=<locale>` |
 
     Locale to be used to interpret both input text and data files. Usually, the value will match the locale of the `Lang` option (e.g. `es_ES.utf8` for spanish, `ca_ES.utf8` for Catalan, etc.). The values `default` (stands for `en_US.utf8`) and `system` (stands for currently active system locale) may also be used.
 
     *   Splitter Buffer Flushing
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--flush`, `--noflush` | `AlwaysFlush=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--flush`, `--noflush` | `AlwaysFlush=(yes|y|on|no|n|off)` |
 
     When this option is inactive (most usual choice) sentence splitter buffers lines until a sentence marker is found. Then, it outputs a complete sentence.
 
@@ -338,9 +331,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Input Format
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--input &lt;string&gt;` | `InputFormat=&lt;string&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--input <string>` | `InputFormat=<string>` |
 
     Input format in which to expect text to analyze.
 
@@ -352,9 +345,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Output Format
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--output &lt;string&gt;` | `OutputFormat=&lt;string&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--output <string>` | `OutputFormat=<string>` |
 
     Output format to produce with analysis results.
 
@@ -369,9 +362,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Input Level
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--inplv &lt;string&gt;` | `InputLevel=&lt;string&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--inplv <string>` | `InputLevel=<string>` |
 
     Analysis level of input data (plain, token, splitted, morfo, tagged, shallow, dep, coref).
 
@@ -386,9 +379,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Output Level
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--outlv &lt;string&gt;` | `OutputLevel=&lt;string&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--outlv <string>` | `OutputLevel=<string>` |
 
     Analysis level of output data (token, splitted, morfo, tagged, shallow, dep, coref, semgraph).
 
@@ -404,9 +397,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Language Identification Configuration File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-I &lt;filename&gt;`, `--fidn &lt;filename&gt;` | `N/A` |
+| Command line | Configuration file |
+| --- | --- |
+| `-I <filename>`, `--fidn <filename>` | `N/A` |
 
     Configuration file for language identifier. See section 
 
@@ -416,9 +409,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Tokenizer File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--abrev &lt;filename&gt;` | `TokenizerFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--abrev <filename>` | `TokenizerFile=<filename>` |
 
     File of tokenization rules. See section 
 
@@ -428,9 +421,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Splitter File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--fsplit &lt;filename&gt;` | `SplitterFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--fsplit <filename>` | `SplitterFile=<filename>` |
 
     File of splitter options rules. See section 
 
@@ -440,17 +433,17 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Affix Analysis
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--afx`, `--noafx` | `AffixAnalysis=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--afx`, `--noafx` | `AffixAnalysis=(yes|y|on|no|n|off)` |
 
     Whether to perform affix analysis on unknown words. Affix analysis applies a set of affixation rules to the word to check whether it is a derived form of a known word.
 
     *   Affixation Rules File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-S &lt;filename&gt;`, `--fafx &lt;filename&gt;` | `AffixFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-S <filename>`, `--fafx <filename>` | `AffixFile=<filename>` |
 
     Affix rules file. See section
 
@@ -460,17 +453,17 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   User Map
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--usr`, `--nousr` | `UserMap=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--usr`, `--nousr` | `UserMap=(yes|y|on|no|n|off)` |
 
     Whether to apply or not a file of customized word-tag mappings.
 
     *   User Map File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-M &lt;filename&gt;`, `--fmap &lt;filename&gt;` | `UserMapFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-M <filename>`, `--fmap <filename>` | `UserMapFile=<filename>` |
 
     User Map file to be used. See section
 
@@ -480,17 +473,17 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Multiword Detection
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--loc`, `--noloc` | `MultiwordsDetection=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--loc`, `--noloc` | `MultiwordsDetection=(yes|y|on|no|n|off)` |
 
     Whether to perform multiword detection. This option requires that a multiword file is provided.
 
     *   Multiword File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-L &lt;filename&gt;`, `--floc &lt;filename&gt;` | `LocutionsFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-L <filename>`, `--floc <filename>` | `LocutionsFile=<filename>` |
 
     Multiword definition file. See section
 
@@ -500,41 +493,41 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Number Detection
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--numb`, `--nonumb` | `NumbersDetection=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--numb`, `--nonumb` | `NumbersDetection=(yes|y|on|no|n|off)` |
 
     Whether to perform nummerical expression detection. Deactivating this feature will affect the behaviour of date/time and ratio/currency detection modules.
 
     *   Decimal Point
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--dec &lt;string&gt;` | `DecimalPoint=&lt;string&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--dec <string>` | `DecimalPoint=<string>` |
 
     Specify decimal point character for the number detection module (for instance, in English is a dot, but in Spanish is a comma).
 
     *   Thousand Point
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--thou &lt;string&gt;` | `ThousandPoint=&lt;string&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--thou <string>` | `ThousandPoint=<string>` |
 
     Specify thousand point character for the number detection module (for instance, in English is a comma, but in Spanish is a dot).
 
     *   Punctuation Detection
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--punt`, `--nopunt` | `PunctuationDetection=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--punt`, `--nopunt` | `PunctuationDetection=(yes|y|on|no|n|off)` |
 
     Whether to assign PoS tag to punctuation signs.
 
     *   Punctuation Detection File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-F &lt;filename&gt;`, `--fpunct &lt;filename&gt;` | `PunctuationFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-F <filename>`, `--fpunct <filename>` | `PunctuationFile=<filename>` |
 
     Punctuation symbols file. See section
 
@@ -544,25 +537,25 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Date Detection
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--date`, `--nodate` | `DatesDetection=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--date`, `--nodate` | `DatesDetection=(yes|y|on|no|n|off)` |
 
     Whether to perform date and time expression detection.
 
     *   Quantities Detection
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--quant`, `--noquant` | `QuantitiesDetection=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--quant`, `--noquant` | `QuantitiesDetection=(yes|y|on|no|n|off)` |
 
     Whether to perform currency amounts, physical magnitudes, and ratio detection.
 
     *   Quantity Recognition File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-Q &lt;filename&gt;`, `--fqty &lt;filename&gt;` | `QuantitiesFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-Q <filename>`, `--fqty <filename>` | `QuantitiesFile=<filename>` |
 
     Quantitiy recognition configuration file. See section
 
@@ -572,17 +565,17 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Dictionary Search
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--dict`, `--nodict` | `DictionarySearch=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--dict`, `--nodict` | `DictionarySearch=(yes|y|on|no|n|off)` |
 
     Whether to search word forms in dictionary. Deactivating this feature also deactivates AffixAnalysis option.
 
     *   Dictionary File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-D &lt;filename&gt;`, `--fdict &lt;filename&gt;` | `DictionaryFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-D <filename>`, `--fdict <filename>` | `DictionaryFile=<filename>` |
 
     Dictionary database. See section
 
@@ -596,17 +589,17 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Probability Assignment
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--prob`, `--noprob` | `ProbabilityAssignment=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--prob`, `--noprob` | `ProbabilityAssignment=(yes|y|on|no|n|off)` |
 
     Whether to compute a lexical probability for each tag of each word. Deactivating this feature will affect the behaviour of the PoS tagger.
 
     *   Lexical Probabilities File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-P &lt;filename&gt;`, `--fprob &lt;filename&gt;` | `ProbabilityFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-P <filename>`, `--fprob <filename>` | `ProbabilityFile=<filename>` |
 
     Lexical probabilities file. The probabilities in this file are used to compute the most likely tag for a word, as well to estimate the likely tags for unknown words. See section
 
@@ -616,33 +609,33 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Unknown Words Probability Threshold.
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-e &lt;float&gt;`, `--thres &lt;float&gt;` | `ProbabilityThreshold=&lt;float&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-e <float>`, `--thres <float>` | `ProbabilityThreshold=<float>` |
 
     Threshold that must be reached by the probability of a tag given the suffix of an unknown word in order to be included in the list of possible tags for that word. Default is zero (all tags are included in the list). A non-zero value (e.g. 0.0001, 0.001) is recommended.
 
     *   Named Entity Recognition
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--ner [bio|basic|none]` | `NERecognition=(bio|basic|none)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--ner [bio|basic|none]` | `NERecognition=(bio|basic|none)` |
 
     Whether to perform NE recognition and which recognizer to use: ``bio'' for AdaBoost based NER, ``basic'' for a simple heuristic NE recognizer and ``none'' to perform no NE recognition . Deactivating this feature will cause the NE Classification module to have no effect.
 
     *   Named Entity Recognition
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--ner`, `--noner` | `NERecognition=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--ner`, `--noner` | `NERecognition=(yes|y|on|no|n|off)` |
 
     Whether to perform NE recognition.
 
     *   Named Entity Recognizer File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-N &lt;filename&gt;`, `--fnp &lt;filename&gt;` | `NPDataFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-N <filename>`, `--fnp <filename>` | `NPDataFile=<filename>` |
 
     Configuration data file for NE recognizer.
 
@@ -654,17 +647,17 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Named Entity Classification
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--nec`, `--nonec` | `NEClassification=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--nec`, `--nonec` | `NEClassification=(yes|y|on|no|n|off)` |
 
     Whether to perform NE classification.
 
     *   Named Entity Classifier File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--fnec &lt;filename&gt;` | `NECFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--fnec <filename>` | `NECFile=<filename>` |
 
     Configuration file for Named Entity Classifier module
 
@@ -676,17 +669,17 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Phonetic Encoding
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--phon`, `--nophon` | `Phonetics=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--phon`, `--nophon` | `Phonetics=(yes|y|on|no|n|off)` |
 
     Whether to add phonetic transcription to each word.
 
     *   Phonetic Encoder File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--fphon &lt;filename&gt;` | `PhoneticsFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--fphon <filename>` | `PhoneticsFile=<filename>` |
 
     Configuration file for phonetic encoding module
 
@@ -698,9 +691,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Sense Annotation
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-s &lt;string&gt;`, `--sense &lt;string&gt;` | `SenseAnnotation=&lt;string&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-s <string>`, `--sense <string>` | `SenseAnnotation=<string>` |
 
     Kind of sense annotation to perform
 
@@ -715,9 +708,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Sense Annotation Configuration File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-W &lt;filename&gt;`, `--fsense &lt;filename&gt;` | `SenseConfigFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-W <filename>`, `--fsense <filename>` | `SenseConfigFile=<filename>` |
 
     Word sense annotator configuration file. See section
 
@@ -727,9 +720,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   UKB Word Sense Disambiguator Configuration File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-U &lt;filename&gt;`, `--fukb &lt;filename&gt;` | `UKBConfigFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-U <filename>`, `--fukb <filename>` | `UKBConfigFile=<filename>` |
 
     UKB configuration file. See section
 
@@ -739,9 +732,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Tagger algorithm
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-t &lt;string&gt;`, `--tag &lt;string&gt;` | `Tagger=&lt;string&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-t <string>`, `--tag <string>` | `Tagger=<string>` |
 
     Algorithm to use for PoS tagging
 
@@ -750,9 +743,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   HMM Tagger configuration File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-H &lt;filename&gt;`, `--hmm &lt;filename&gt;` | `TaggerHMMFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-H <filename>`, `--hmm <filename>` | `TaggerHMMFile=<filename>` |
 
     Parameters file for HMM tagger. See section
 
@@ -762,9 +755,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Relaxation labelling tagger constraints file
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-R &lt;filename&gt;`, `--rlx &lt;filename&gt;` | `TaggerRelaxFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-R <filename>`, `--rlx <filename>` | `TaggerRelaxFile=<filename>` |
 
     File containing the constraints to apply to solve the PoS tagging. See section
 
@@ -774,33 +767,33 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Relaxation labelling tagger iteration limit
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-i &lt;int&gt;`, `--iter &lt;int&gt;` | `TaggerRelaxMaxIter=&lt;int&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-i <int>`, `--iter <int>` | `TaggerRelaxMaxIter=<int>` |
 
     Maximum numbers of iterations to perform in case relaxation does not converge.
 
     *   Relaxation labelling tagger scale factor
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-r &lt;float&gt;`, `--sf &lt;float&gt;` | `TaggerRelaxScaleFactor=&lt;float&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-r <float>`, `--sf <float>` | `TaggerRelaxScaleFactor=<float>` |
 
     Scale factor to normalize supports inside RL algorithm. It is comparable to the step lenght in a hill-climbing algorithm: The larger scale factor, the smaller step.
 
     *   Relaxation labelling tagger epsilon value
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--eps &lt;float&gt;` | `TaggerRelaxEpsilon=&lt;float&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `--eps <float>` | `TaggerRelaxEpsilon=<float>` |
 
     Real value used to determine when a relaxation labelling iteration has produced no significant changes. The algorithm stops when no weight has changed above the specified epsilon.
 
     *   Retokenize contractions in dictionary
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--rtkcon`, `--nortkcon` | `RetokContractions=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--rtkcon`, `--nortkcon` | `RetokContractions=(yes|y|on|no|n|off)` |
 
     Specifies whether the dictionary must retokenize contractions when found, or leave the decision to the `TaggerRetokenize` option.
 
@@ -808,9 +801,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Retokenize after tagging
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--rtk`, `--nortk` | `TaggerRetokenize=(yes|y|on|no|n|off)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--rtk`, `--nortk` | `TaggerRetokenize=(yes|y|on|no|n|off)` |
 
     Determine whether the tagger must perform retokenization after the appropriate analysis has been selected for each word. This is closely related to affix analysis and PoS taggers, see sections
 
@@ -824,9 +817,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Force the selection of one unique tag
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `--force &lt;string&gt;` | `TaggerForceSelect=(none,tagger,retok)` |
+| Command line | Configuration file |
+| --- | --- |
+| `--force <string>` | `TaggerForceSelect=(none,tagger,retok)` |
 
     Determine whether the tagger must be forced to (probably randomly) make a unique choice and when.
 
@@ -842,9 +835,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Chart Parser Grammar File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-G &lt;filename&gt;`, `--grammar &lt;filename&gt;` | `GrammarFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-G <filename>`, `--grammar <filename>` | `GrammarFile=<filename>` |
 
     This file contains a CFG grammar for the chart parser, and some directives to control which chart edges are selected to build the final tree. See section
 
@@ -854,9 +847,9 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Dependency Parser Rule File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-T &lt;filename&gt;`, `--txala &lt;filename&gt;` | `DepTxalaFile==&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-T <filename>`, `--txala <filename>` | `DepTxalaFile==<filename>` |
 
     Rules to be used to perform rule-based dependency analysis. See section
 
@@ -866,25 +859,25 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     *   Statistical Dependency Parser File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-E &lt;filename&gt;`, `--treeler &lt;filename&gt;` | `DepTreelerFile==&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-E <filename>`, `--treeler <filename>` | `DepTreelerFile==<filename>` |
 
     Configuration file for statistical dependency parser and SRL module
 
     *   Dependency Parser Selection
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-d &lt;string&gt;`, `--dep &lt;string&gt;` | `DependencyParser==&lt;string&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-d <string>`, `--dep <string>` | `DependencyParser==<string>` |
 
     Which dependency parser to use: <tt>txala</tt> (rule-based) or <tt>treeler</tt> (statistical, may have SRL also).
 
     *   Coreference Resolution File
 
-    | Command line | Configuration file |
-    | --- | --- |
-    | `-C &lt;filename&gt;`, `--fcorf &lt;filename&gt;` | `CorefFile=&lt;filename&gt;` |
+| Command line | Configuration file |
+| --- | --- |
+| `-C <filename>`, `--fcorf <filename>` | `CorefFile=<filename>` |
 
     Configuration file for coreference resolution module.
 
