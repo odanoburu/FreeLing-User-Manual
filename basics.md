@@ -22,7 +22,7 @@ FreeLing is not a user-oriented text analysis tool. That is, it is not designed 
 
 FreeLing results are linguistic analysis in a data structure. Each end-user application (e.g. anything from a simple syntactic-tree drawing plugin to a complete machine translation system) can access those data and process them as needed.
 
-Nevertheless, FreeLing package provides a quite complete application program `analyzer` that enables an end user with no programming skills to obtain the analysis of a text. See [this chapter](#using-the-sample-main-program-to-process-corpora) for details.
+Nevertheless, FreeLing package provides a quite complete application program `analyzer` that enables an end user with no programming skills to obtain the analysis of a text. See chapter about [<tt>analyzer</tt>](user-application.md) for details.
 
 This program offers a set of options that cover most of FreeLing capabilities. Nevertheless, much more advantadge can be taken of FreeLing, and more information can be accessed if you call FreeLing from your own application program.
 
@@ -64,7 +64,7 @@ FreeLing also includes WordNet-based sense dictionaries for some of the covered 
 
 See the [Linguistic Data](http://nlp.lsi.upc.edu/freeling/linguistic-data) section on FreeLing webpage to find out more about the size and origin the linguistic resources for these languages.
 
-See file [`COPYING`](https://github.com/TALP-UPC/FreeLing/blob/master/COPYING) in the distribution packages to find out the license of each third-party linguistic resource included in FreeLing packages.
+See file [<tt>COPYING</tt>](https://github.com/TALP-UPC/FreeLing/blob/master/COPYING) in the distribution packages to find out the license of each third-party linguistic resource included in FreeLing packages.
 
 ## License {#license}
 
@@ -72,7 +72,7 @@ FreeLing code is licensed under Affero GNU General Public License ([AGPL](http:/
 
 The linguistic data collections are distributed under diverse licenses, depending on their original sources.
 
-Find the details in the [`COPYING`](https://github.com/TALP-UPC/FreeLing/blob/master/COPYING) file in the tarball, or in the [License](http://nlp.lsi.upc.edu/freeling/node/6) section in [FreeLing webpage](http://nlp.lsi.upc.edu/freeling).
+Find the details in the [<tt>COPYING</tt>](https://github.com/TALP-UPC/FreeLing/blob/master/COPYING) file in the tarball, or in the [License](http://nlp.lsi.upc.edu/freeling/node/6) section in [FreeLing webpage](http://nlp.lsi.upc.edu/freeling).
 
 ## Contributions {#contributions}
 

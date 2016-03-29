@@ -9,7 +9,7 @@ However, quite complete APIs are provided for Java, Perl, Python, PHP, and Ruby.
 ## Basic Classes {#basic-classes}
 
 This section briefs the basic C++ classes any application needs to know. 
-For detailed API definition, consult the technical documentation in <tt>doc/html</tt> and <tt>doc/latex</tt> directories, or chapters about [Linguistic Data Classes](#linguistic-information-storage-classes) or [Language Processing Modules](#language-processing-modules)
+For detailed API definition, consult the technical documentation in <tt>doc/html</tt> and <tt>doc/latex</tt> directories, or chapters about [Linguistic Data Classes]((language-classes.md)) or [Language Processing Modules](processing-classes.md)
 
 ### Linguistic Data Classes
 
