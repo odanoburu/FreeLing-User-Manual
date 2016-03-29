@@ -108,8 +108,49 @@ int main (int argc, char **argv) {
   // create chunker
   chart_parser parser(path+L"chunker/grammar-chunk.dat");
   // create dependency parser
-  dep_txala dep(path+L"dep_txala/dependences.dat", parser.get_start_symbol() );
+  dep_txala dep(path+L"dep_txala/dependences.dat" );
   
+  // get plain text input lines while not EOF.
+  wstring text;
+  list<word> lw;
+  list<sentence> ls;
+  while (getline(wcin,text)) {
+
+    // tokenize input line into a list of words
+    lw=tk.tokenize(text);
+    
+    // accumulate list of words in splitter buffer, returning a list of sentences.
+    // The resulting list of sentences may be empty if the splitter has still not 
+    // enough evidence to decide that a complete sentence has been found. The list
+    // may contain more than one sentence (since a single input line may consist 
+    // of several complete sentences).
+    ls=sp.split(sid, lw, false);
+    
+    // perform and output morphosyntactic analysis, Pos Tagging and parsing
+    morfo.analyze(ls);
+    tagger.analyze(ls);
+    parser.analyze(ls);
+    dep.analyze(ls);
+
+    // 'ls' contains a list of analyzed sentences.  Do whatever is needed
+    ProcessResults(ls);    
+    // clear temporary lists;
+    lw.clear(); ls.clear();    
+  }
+
+  // No more lines to read. Make sure the splitter doesn't retain anything  
+  sp.split(sid, lw, true, ls);   
+  sp.close_session(sid);
+ 
+  // analyze sentence(s) which might be lingering in the buffer, if any.
+  morfo.analyze(ls);
+  tagger.analyze(ls);
+  parser.analyze(ls);
+  dep.analyze(ls);
+
+  // 'ls' contains a list of analyzed sentences.  Do whatever is needed
+  ProcessResults(ls);
+
 }
 ```
 
