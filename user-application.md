@@ -2,13 +2,16 @@
 
 The library may be used to develop your own NLP application (e.g. a machine translation system, an intelligent indexation module for a search engine, etc.)
 
-To achieve this goal you have to link your application to the library, and access it via the provided API. Currently, the library provides a complete C++ API, a quite-complete Java API, and half-complete perl and python APIs.
+To achieve this goal you have to link your application to the library, and access it via the provided API. 
+Since the library is C++, using C++ in your program provides full access to all library functionalities.
+However, quite complete APIs are provided for Java, Perl, Python, PHP, and Ruby.
 
-# Basic Classes {#basic-classes}
+## Basic Classes {#basic-classes}
 
-This section briefs the basic C++ classes any application needs to know. For detailed API definition, consult the technical documentation in <tt>doc/html</tt> and <tt>doc/latex</tt> directories.
+This section briefs the basic C++ classes any application needs to know. 
+For detailed API definition, consult the technical documentation in <tt>doc/html</tt> and <tt>doc/latex</tt> directories, or chapters about [Linguistic Data Classes](#linguistic-information-storage-classes) or [Language Processing Modules](#language-processing-modules)
 
-## Linguistic Data Classes {#linguistic-data-classes}
+### Linguistic Data Classes
 
 The different processing modules work on objects containing linguistic data (such as a word, a PoS tag, a sentence...).
 
@@ -21,8 +24,13 @@ The linguistic classes are:
 *   <tt>sentence</tt>: A list of words known to be a complete sentence. A sentence may have associated a <tt>parse_tree</tt> object and a <tt>dependency_tree</tt>.
 *   <tt>parse_tree</tt>: An n-ary tree where each node contains either a non-terminal label, or -if the node is a leaf- a pointer to the appropriate <tt>word</tt> object in the sentence the tree belongs to.
 *   <tt>dep_tree</tt>: An n-ary tree where each node contains a reference to a node in a <tt>parse_tree</tt>. The structure of the <tt>dep_tree</tt> establishes syntactic dependency relationships between sentence constituents.
+*   <tt>paragraph</tt>: A list of <tt>sentence</tt> objects that form a paragraph.
+*   <tt>document</tt>: A list of <tt>paragraph</tt> objects that form the document. A document may have associated a set of coreference groups and a semantic graph. 
+*   <tt>mention</tt>: A mention of an entity in the document. A group of mentions referring to the same entity form a coreference group.
+*   <tt>semantic_graph</tt>: An entity-relationship graph describing the main actions reported in the text and the principal actors involved in each.
 
-## Processing modules {#processing-modules}
+
+### Processing modules
 
 The main processing classes in the library are:
 
@@ -42,123 +50,119 @@ You may create as many instances of each as you need. Constructors for each of t
 
 ## Sample programs {#sample-programs}
 
-The directory <tt>src/main/simple_examples</tt> in the tarball contains some example programs to illustrate how to call the library.
+The directory `src/main/simple_examples` in the tarball contains some example programs to illustrate how to call the library.
 
 See the README file in that directory for details on what does each of the programs.
 
-The most complete program in that directory is <tt>sample.cc</tt>, which is very similar to the program depicted below, which reads text from stdin, morphologically analyzes it, and processes the obtained results.
+The most complete program in that directory is <tt>sample.cc</tt>, which is a simple version of the <tt>analyzer</tt> program described in section [Using the <tt>analyzer</tt> Program to Process Corpora](#using-the-sample-main-program-to-process-corpora) with a fixed set of options.
 
 Note that depending on the application, the input text could be obtained from a speech recongnition system, or from a XML parser, or from any source suiting the application goals. Similarly, the obtained analysis, instead of being output, could be used in a translation system, or sent to a dialogue control module, etc.
 
-<pre>int main() {
-  wstring text;
-  list&lt;word&gt; lw;
-  list&lt;sentence&gt; ls;
-
-  /// set locale to an UTF8 compatible locale
+<pre>int main (int argc, char **argv) {
+  /// set locale to an UTF8 comaptible locale
   util::init_locale(L"default");
 
-  // if FreeLing was compiled with --enable-traces, you can activate
-  // the required trace verbosity for the desired modules.
-  //   traces::TraceLevel=4;
-  //   traces::TraceModule=0xFFFFF;
-
-  // ====== instantiate analyzers as needed =====
-
-  wstring path=L"/usr/local/share/freeling/es/";
+  /// path where data files reside
+  wstring path=L"/usr/local/share/freeling/es";
+  
+  // create analyzers
   tokenizer tk(path+L"tokenizer.dat"); 
   splitter sp(path+L"splitter.dat");
+  splitter::session_id sid=sp.open_session();
 
-  // morphological analysis has a lot of options, and for simplicity they 
-  // are packed up in a maco_options object. First, create the maco_options
-  // object with default values.
+  // morphological analysis has a lot of options, and for simplicity they are packed up
+  // in a maco_options object. First, create the maco_options object with default values.
   maco_options opt(L"es");  
-
-  // then, set required options on/off  
-  opt.UserMap=false;                 opt.AffixAnalysis = true;
-  opt.MultiwordsDetection = true;    opt.NumbersDetection = true; 
-  opt.PunctuationDetection = true;   opt.DatesDetection = true;
-  opt.QuantitiesDetection = false;   opt.DictionarySearch = true; 
-  opt.ProbabilityAssignment = true;  opt.NERecognition = true;   
-  // alternatively, you can set active modules in a single call:
-  // opt.set_active_modules(false,true,true,true,true,true,false,true,true,true);
-
   // and provide files for morphological submodules. Note that it is not necessary
   // to set opt.QuantitiesFile, since Quantities module was deactivated.
-  opt.UserMapFile=L"";              opt.ProbabilityFile=path+L"probabilitats.dat";
-  opt.AffixFile=path+L"afixos.dat"; opt.LocutionsFile=path+L"locucions.dat";
-  opt.NPdataFile=path+L"np.dat";    opt.DictionaryFile=path+L"dicc.src"; 
-  opt.PunctuationFile=path+L"../common/punct.dat"; 
+  opt.UserMapFile=L"";
+  opt.LocutionsFile=path+L"locucions.dat"; opt.AffixFile=path+L"afixos.dat";
+  opt.ProbabilityFile=path+L"probabilitats.dat"; opt.DictionaryFile=path+L"dicc.src";
+  opt.NPdataFile=path+L"np.dat"; opt.PunctuationFile=path+L"../common/punct.dat"; 
   // alternatively, you can set the files in a single call:
-  // opt.set_data_files(L"", path+L"locucions.dat", L"", path+L"afixos.dat",
-  //                 path+L"probabilitats.dat", opt.DictionaryFile=path+L"maco.db",
-  //                 path+L"np.dat", path+L"../common/punct.dat");
+  // opt.set_data_files("", path+"locucions.dat", "", path+"afixos.dat",
+  //                   path+"probabilitats.dat", opt.DictionaryFile=path+"maco.db",
+  //                   path+"np.dat", path+"../common/punct.dat");
 
   // create the analyzer with the just build set of maco_options
   maco morfo(opt); 
+  // then, set required options on/off  
+  morfo.set_active_options (false,// UserMap
+                             true, // NumbersDetection,
+                             true, //  PunctuationDetection,
+                             true, //  DatesDetection,
+                             true, //  DictionarySearch,
+                             true, //  AffixAnalysis,
+                             false, //  CompoundAnalysis,
+                             true, //  RetokContractions,
+                             true, //  MultiwordsDetection,
+                             true, //  NERecognition,
+                             false, //  QuantitiesDetection,
+                             true);  //  ProbabilityAssignment
+
   // create a hmm tagger for spanish (with retokenization ability, and forced 
   // to choose only one tag per word)
-  hmm_tagger tagger(L"es", path+L"tagger.dat", true, true); 
+  hmm_tagger tagger(path+L"tagger.dat", true, FORCE_TAGGER); 
   // create chunker
-  chart_parser parser(path+L"grammar-dep.dat");
+  chart_parser parser(path+L"chunker/grammar-chunk.dat");
   // create dependency parser 
-  dep_txala dep(path+L"dep/dependences.dat", parser.get_start_symbol());
-
-  // ====== Start text processing =====
-
+  dep_txala dep(path+L"dep_txala/dependences.dat", parser.get_start_symbol());
+  
   // get plain text input lines while not EOF.
+  wstring text;
+  list<word> lw;
+  list<sentence> ls;
   while (getline(wcin,text)) {
 
     // tokenize input line into a list of words
     lw=tk.tokenize(text);
-
+    
     // accumulate list of words in splitter buffer, returning a list of sentences.
     // The resulting list of sentences may be empty if the splitter has still not 
     // enough evidence to decide that a complete sentence has been found. The list
     // may contain more than one sentence (since a single input line may consist 
     // of several complete sentences).
-    ls=sp.split(lw, false);
-
-    // perform  morphosyntactic analysis, disambiguation, and parsing
+    ls=sp.split(sid, lw, false);
+    
+    // perform and output morphosyntactic analysis, Pos Tagging and parsing
     morfo.analyze(ls);
     tagger.analyze(ls);
     parser.analyze(ls);
     dep.analyze(ls);
 
-    // Do application-side processing with analysis results so far.
-    ProcessResults(ls);
-
+    // 'ls' contains a list of analyzed sentences.  Do whatever is needed
+    ProcessResults(ls);    
     // clear temporary lists;
     lw.clear(); ls.clear();    
   }
 
   // No more lines to read. Make sure the splitter doesn't retain anything  
-  sp.split(lw, true, ls);   
-
+  sp.split(sid, lw, true, ls);   
+  sp.close_session(sid);
+ 
   // analyze sentence(s) which might be lingering in the buffer, if any.
   morfo.analyze(ls);
   tagger.analyze(ls);
   parser.analyze(ls);
   dep.analyze(ls);
 
-  // process remaining sentences, if any.
+  // 'ls' contains a list of analyzed sentences.  Do whatever is needed
   ProcessResults(ls);
-
 }
 </pre>
 
 The processing performed on the obtained results would obviously depend on the goal of the application (translation, indexation, etc.). In order to illustrate the structure of the linguistic data objects, a simple procedure is presented below, in which the processing consists of merely printing the results to stdout in XML format.
 
-<pre>void ProcessResults(const list&lt;sentence&gt; &ls) {
+<pre>void ProcessResults(const list<sentence> &ls) {
 
-  list&lt;sentence&gt;::const_iterator is;
+  list<sentence>::const_iterator is;
   word::const_iterator a;   //iterator over all analysis of a word
   sentence::const_iterator w;
 
   // for each sentence in list
   for (is=ls.begin(); is!=ls.end(); is++) {
 
-    wcout<<L"&lt;SENT&gt;"<<endl;
+    wcout<<L"<SENT>"<<endl;
     // for each word in sentence
     for (w=is->begin(); w!=is->end(); w++) {
 
@@ -179,21 +183,21 @@ The processing performed on the obtained results would obviously depend on the g
       }
 
       // close word XML tag after list of analysis
-      wcout<<L"  &lt;/WORD&gt;"<<endl;
+      wcout<<L"  </WORD>"<<endl;
     }
 
     // close sentence XML tag
-    wcout<<L"&lt;/SENT&gt;"<<endl;
+    wcout<<L"</SENT>"<<endl;
   }
 }
 </pre>
 
-The above sample program may be found in <tt>/src/main/simple_examples/sample.cc</tt> in FreeLing tarball. The actual program also outputs tree structures resulting from parsing, which is ommitted here for simplicity.
+The above sample program may be found in `/src/main/simple_examples/sample.cc<` in FreeLing tarball. The actual program also outputs tree structures resulting from parsing, which is ommitted here for simplicity.
 
-Once you have compiled and installed FreeLing, you can build this sample program (or any other you may want to write) with the command: <tt>g++ -o sample sample.cc -lfreeling</tt>
+Once you have compiled and installed FreeLing, you can build this sample program (or any other you may want to write) with the command: `g++ -o sample sample.cc -lfreeling`
 
-Option <tt>-lfreeling</tt> links with libfreeling library, which is the final result of the FreeLing compilation process. Check the README file in the directory to learn more about compiling and using the sample programs.
+Option `-lfreeling` links with libfreeling library, which is the final result of the FreeLing compilation process. Check the README file in the directory to learn more about compiling and using the sample programs.
 
-You may need to add some <tt>-I</tt> and/or <tt>-L</tt> options to the compilation command depending on where the headers and code of required libraries are located. For instance, if you installed some of the libraries in <tt>/usr/local/mylib</tt> instead of the default place <tt>/usr/local</tt>, you'll have to add the options <tt>-I/usr/local/mylib/include -L/usr/local/mylib/lib</tt> to the command above.
+You may need to add some `-I` and/or `-L` options to the compilation command depending on where the headers and code of required libraries are located. For instance, if you installed some of the libraries in `/usr/local/mylib` instead of the default place `/usr/local`, you'll have to add the options `-I/usr/local/mylib/include -L/usr/local/mylib/lib` to the command above.
 
-Issuing <tt>make</tt> in <tt>/src/main/simple_examples</tt> will compile all sample programs in that directory. Make sure that the paths to FreeLing installation directory in <tt>Makefile</tt> are the right ones.
+Executing `make` in `/src/main/simple_examples` will compile all sample programs in that directory. Make sure that the paths to FreeLing installation directory in `Makefile` are the right ones.
