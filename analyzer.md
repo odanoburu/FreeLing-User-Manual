@@ -178,8 +178,8 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 | -----------  | ------------------ |
 | `-h`, `--help`, `--help-cf` | <tt>N/A</tt>       |
 
-
-*   Help
+<ul>
+<li>   Help
 
     | Command line | Configuration file |
     | ------------ | ------------------ |
@@ -191,13 +191,15 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     `--help-cf` provides information about configuration file options.
 
-*   Version number
+<li>   Version number
 
     | Command line | Configuration file |
     | --- | --- |
     | `-v`, `--version` | <tt>N/A</tt> |
 
     Prints the version number of currently installed FreeLing library.
+
+</ul>
 
 *   Configuration file
 
