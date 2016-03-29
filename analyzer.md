@@ -199,7 +199,7 @@ Prints the version number of currently installed FreeLing library.
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--server` | `ServerMode=(yes|y|on|no|n|off)` |
+| `--server` | `ServerMode=(yes/y/on/no/n/off)` |
 
 Activate server mode. Requires that option `--port` is also provided.  
 Default value is `off`.
@@ -311,7 +311,7 @@ Locale to be used to interpret both input text and data files. Usually, the valu
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--flush`, `--noflush` | `AlwaysFlush=(yes|y|on|no|n|off)` |
+| `--flush`, `--noflush` | `AlwaysFlush=(yes/y/on/no/n/off)` |
 
 When this option is inactive (most usual choice) sentence splitter buffers lines until a sentence marker is found. Then, it outputs a complete sentence.
 
@@ -410,7 +410,7 @@ File of splitter rules.
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--afx`, `--noafx` | `AffixAnalysis=(yes|y|on|no|n|off)` |
+| `--afx`, `--noafx` | `AffixAnalysis=(yes/y/on/no/n/off)` |
 
 Whether to perform affix analysis on unknown words. Affix analysis applies a set of affixation rules to the word to check whether it is a derived form of a known word.
 
@@ -426,7 +426,7 @@ Affix rules file, used by dictionary module.
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--usr`, `--nousr` | `UserMap=(yes|y|on|no|n|off)` |
+| `--usr`, `--nousr` | `UserMap=(yes/y/on/no/n/off)` |
 
 Whether to apply or not a file of customized word-tag mappings.
 
@@ -442,7 +442,7 @@ User Map file to be used.
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--loc`, `--noloc` | `MultiwordsDetection=(yes|y|on|no|n|off)` |
+| `--loc`, `--noloc` | `MultiwordsDetection=(yes/y/on/no/n/off)` |
 
 Whether to perform multiword detection. This option requires that a multiword file is provided.
 
@@ -458,7 +458,7 @@ Multiword definition file.
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--numb`, `--nonumb` | `NumbersDetection=(yes|y|on|no|n|off)` |
+| `--numb`, `--nonumb` | `NumbersDetection=(yes/y/on/no/n/off)` |
 
 Whether to perform nummerical expression detection. Deactivating this feature will affect the behaviour of date/time and ratio/currency detection modules.
 
@@ -482,7 +482,7 @@ Specify thousand point character for the number detection module (for instance, 
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--punt`, `--nopunt` | `PunctuationDetection=(yes|y|on|no|n|off)` |
+| `--punt`, `--nopunt` | `PunctuationDetection=(yes/y/on/no/n/off)` |
 
 Whether to assign PoS tag to punctuation signs.
 
@@ -498,7 +498,7 @@ Punctuation symbols file.
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--date`, `--nodate` | `DatesDetection=(yes|y|on|no|n|off)` |
+| `--date`, `--nodate` | `DatesDetection=(yes/y/on/no/n/off)` |
 
 Whether to perform date and time expression detection.
 
@@ -506,7 +506,7 @@ Whether to perform date and time expression detection.
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--quant`, `--noquant` | `QuantitiesDetection=(yes|y|on|no|n|off)` |
+| `--quant`, `--noquant` | `QuantitiesDetection=(yes/y/on/no/n/off)` |
 
 Whether to perform currency amounts, physical magnitudes, and ratio detection.
 
@@ -522,7 +522,7 @@ Quantitiy recognition configuration file.
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--dict`, `--nodict` | `DictionarySearch=(yes|y|on|no|n|off)` |
+| `--dict`, `--nodict` | `DictionarySearch=(yes/y/on/no/n/off)` |
 
 Whether to search word forms in dictionary. Deactivating this feature also deactivates AffixAnalysis option.
 
@@ -539,7 +539,7 @@ Dictionary database.
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--prob`, `--noprob` | `ProbabilityAssignment=(yes|y|on|no|n|off)` |
+| `--prob`, `--noprob` | `ProbabilityAssignment=(yes/y/on/no/n/off)` |
 
 Whether to compute a lexical probability for each tag of each word. Deactivating this feature will affect the behaviour of the PoS tagger.
 
@@ -563,7 +563,7 @@ Threshold that must be reached by the probability of a tag given the suffix of a
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--ner [bio|basic|none]` | `NERecognition=(bio|basic|none)` |
+| `--ner [bio|basic|none]` | `NERecognition=(bio/basic/none)` |
 
 Whether to perform NE recognition and which recognizer to use: ``bio'' for AdaBoost based NER, ``basic'' for a simple heuristic NE recognizer and ``none'' to perform no NE recognition . Deactivating this feature will cause the NE Classification module to have no effect.
 
@@ -571,7 +571,7 @@ Whether to perform NE recognition and which recognizer to use: ``bio'' for AdaBo
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--ner`, `--noner` | `NERecognition=(yes|y|on|no|n|off)` |
+| `--ner`, `--noner` | `NERecognition=(yes/y/on/no/n/off)` |
 
 Whether to perform NE recognition.
 
@@ -587,7 +587,7 @@ Configuration data file for NE recognizer.
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--nec`, `--nonec` | `NEClassification=(yes|y|on|no|n|off)` |
+| `--nec`, `--nonec` | `NEClassification=(yes/y/on/no/n/off)` |
 
 Whether to perform NE classification.
 
@@ -603,7 +603,7 @@ Configuration file for Named Entity Classifier module
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--phon`, `--nophon` | `Phonetics=(yes|y|on|no|n|off)` |
+| `--phon`, `--nophon` | `Phonetics=(yes/y/on/no/n/off)` |
 
 Whether to add phonetic transcription to each word.
 
@@ -703,7 +703,7 @@ Real value used to determine when a relaxation labelling iteration has produced 
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--rtkcon`, `--nortkcon` | `RetokContractions=(yes|y|on|no|n|off)` |
+| `--rtkcon`, `--nortkcon` | `RetokContractions=(yes/y/on/no/n/off)` |
 
 Specifies whether the dictionary must retokenize contractions when found, or leave the decision to the `TaggerRetokenize` option.
 
@@ -713,7 +713,7 @@ Note that if this option is active, contractions will be retokenized even if the
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--rtk`, `--nortk` | `TaggerRetokenize=(yes|y|on|no|n|off)` |
+| `--rtk`, `--nortk` | `TaggerRetokenize=(yes/y/on/no/n/off)` |
 
 Determine whether the tagger must perform retokenization after the appropriate analysis has been selected for each word. This is closely related to affix analysis and PoS taggers.
 
@@ -721,7 +721,7 @@ Determine whether the tagger must perform retokenization after the appropriate a
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--force <string>` | `TaggerForceSelect=(none,tagger,retok)` |
+| `--force <string>` | `TaggerForceSelect=(none/tagger/retok)` |
 
 Determine whether the tagger must be forced to (probably randomly) make a unique choice and when.
 
