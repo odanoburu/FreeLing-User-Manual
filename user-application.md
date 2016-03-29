@@ -85,6 +85,34 @@ int main (int argc, char **argv) {
   //                   path+"probabilitats.dat", opt.DictionaryFile=path+"maco.db",
   //                   path+"np.dat", path+"../common/punct.dat");
 
+  // create the analyzer with the just build set of maco_options
+  maco morfo(opt); 
+  // then, set required options on/off  
+  morfo.set_active_options (false,// UserMap
+                             true, // NumbersDetection,
+                             true, //  PunctuationDetection,
+                             true, //  DatesDetection,
+                             true, //  DictionarySearch,
+                             true, //  AffixAnalysis,
+                             false, //  CompoundAnalysis,
+                             true, //  RetokContractions,
+                             true, //  MultiwordsDetection,
+                             true, //  NERecognition,
+                             false, //  QuantitiesDetection,
+                             true);  //  ProbabilityAssignment
+
+  // create a hmm tagger for spanish (with retokenization ability, and forced 
+  // to choose only one tag per word)
+  hmm_tagger tagger(path+L"tagger.dat", true, FORCE_TAGGER); 
+  // create chunker
+  chart_parser parser(path+L"chunker/grammar-chunk.dat");
+  // create dependency parser 
+  dep_txala dep(path+L"dep_txala/dependences.dat", parser.get_start_symbol());
+  
+  // get plain text input lines while not EOF.
+  wstring text;
+  list<word> lw;
+  list<sentence> ls;
 
   // No more lines to read. Make sure the splitter doesn't retain anything  
   sp.split(sid, lw, true, ls);   
