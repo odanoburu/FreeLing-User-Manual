@@ -101,6 +101,20 @@ int main (int argc, char **argv) {
                              false, //  QuantitiesDetection,
                              true); //  ProbabilityAssignment
 
+
+  // create a hmm tagger for spanish (with retokenization ability, and forced 
+  // to choose only one tag per word)
+  hmm_tagger tagger(path+L"tagger.dat", true, FORCE_TAGGER); 
+  // create chunker
+  chart_parser parser(path+L"chunker/grammar-chunk.dat");
+  // create dependency parser 
+  dep_txala dep(path+L"dep_txala/dependences.dat", parser.get_start_symbol());
+  
+  // get plain text input lines while not EOF.
+  wstring text;
+  list<word> lw;
+  list<sentence> ls;
+
 }
 ```
 
