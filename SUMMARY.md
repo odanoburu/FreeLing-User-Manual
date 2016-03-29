@@ -7,3 +7,4 @@
 * [Using the library from your own application](user-application.md)
 * [Using `analyzer` Program to Process Corpora](analyzer.md)
 * [Adding Support for New Languages](new-languages.md)
+* [References](references.md)
