@@ -174,7 +174,7 @@ FreeLing package includes default configuration files. They can be found at the 
 
 This section presents the options that can be given to the <tt>analyzer</tt> program (and thus, also to the <tt>analyzer_server</tt> program and to the <tt>analyze</tt> script). All options can be written in the configuration file as well as in the command line. The later has always precedence over the former.
 
-*   Help
+* Help
 
 | Command line | Configuration file |
 | ------------ | ------------------ |
@@ -186,7 +186,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     `--help-cf` provides information about configuration file options.
 
-*   Version number
+* Version number
 
 | Command line | Configuration file |
 | --- | --- |
@@ -194,7 +194,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Prints the version number of currently installed FreeLing library.
 
-*   Configuration file
+* Configuration file
 
 | Command line | Configuration file |
 | --- | --- |
@@ -202,7 +202,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Specify configuration file to use (default: analyzer.cfg).
 
-*   Server mode
+* Server mode
 
 | Command line | Configuration file |
 | --- | --- |
@@ -212,7 +212,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Default value is `off`.
 
-*   Server Port Number
+* Server Port Number
 
 | Command line | Configuration file |
 | --- | --- |
@@ -220,7 +220,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Specify port where server will be listening for requests. This option must be specified if server mode is active, and it is ignored if server mode is off.
 
-*   Maximum Number of Server Workers
+* Maximum Number of Server Workers
 
 | Command line | Configuration file |
 | --- | --- |
@@ -232,7 +232,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     When the maximum number of workers is reached, new incoming requests are queued until a worker finishes.
 
-*   Maximum Size of Server Queue
+* Maximum Size of Server Queue
 
 | Command line | Configuration file |
 | --- | --- |
@@ -246,7 +246,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     When the pending queue is full, new incoming requests get a connection error.
 
-*   Trace Level
+* Trace Level
 
 | Command line | Configuration file |
 | --- | --- |
@@ -256,7 +256,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     This will work only if the library was compiled with tracing information, using <tt>./configure -enable-traces</tt>. Note that the code with tracing information is slower than the code compiled without it, even when traces are not active.
 
-*   Trace Module
+* Trace Module
 
 | Command line | Configuration file |
 | --- | --- |
@@ -297,21 +297,17 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 | Omlet | 0x08000000 |
 | Phonetics | 0x10000000 |
 
-*   Language of input text
+* Language of input text
 
 | Command line | Configuration file |
 | --- | --- |
 | `--lang <language>` | `Lang=<language>` |
 
-    Code for language of input text. Though it is not required, the convention is to use two-letter ISO codes (as: Asturian, es: Spanish, ca: Catalan, en: English, cy: Welsh, it: Italian, gl: Galician, pt: Portuguese, ru: Russian, old-es: old Spanish).
+    Code for language of input text. Though it is not required, the convention is to use two-letter ISO codes (as: Asturian, es: Spanish, ca: Catalan, en: English, cy: Welsh, it: Italian, gl: Galician, pt: Portuguese, ru: Russian, old-es: old Spanish, etc).
 
-    Other languages may be added to the library. See chapter 
+    Other languages may be added to the library. See chapter [Adding Support for New Languages](new-languages.md) for details.
 
-    8
-
-    for details.
-
-*   Locale
+* Locale
 
 | Command line | Configuration file |
 | --- | --- |
@@ -319,7 +315,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Locale to be used to interpret both input text and data files. Usually, the value will match the locale of the `Lang` option (e.g. `es_ES.utf8` for spanish, `ca_ES.utf8` for Catalan, etc.). The values `default` (stands for `en_US.utf8`) and `system` (stands for currently active system locale) may also be used.
 
-    *   Splitter Buffer Flushing
+* Splitter Buffer Flushing
 
 | Command line | Configuration file |
 | --- | --- |
@@ -329,7 +325,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     When this option is active, the splitter never buffers any token, and considers each newline as a sentence end, thus processing each line as an independent sentence.
 
-    *   Input Format
+* Input Format
 
 | Command line | Configuration file |
 | --- | --- |
@@ -339,11 +335,11 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Valid values are:
 
-    *   <tt>text</tt>: Plain text.
-    *   <tt>freeling</tt>: pseudo-column format produced by freeling with output level <tt>morfo</tt> or <tt>tagged</tt>.
-    *   <tt>conll</tt>: CoNLL-like column format.
+    * <tt>text</tt>: Plain text.
+    * <tt>freeling</tt>: pseudo-column format produced by freeling with output level <tt>morfo</tt> or <tt>tagged</tt>.
+    * <tt>conll</tt>: CoNLL-like column format.
 
-    *   Output Format
+* Output Format
 
 | Command line | Configuration file |
 | --- | --- |
@@ -353,14 +349,14 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Valid values are:
 
-    *   <tt>freeling</tt>: Classical freeling format. It may be a pseudo-column for with output levels <tt>morfo</tt> or <tt>tagged</tt>, parenthesized trees for parsing output, or other human-readable output for coreferences or semantic graph output.
-    *   <tt>conll</tt>: CoNLL-like column format.
-    *   <tt>xml</tt>: FreeLing-specific XML format.
-    *   <tt>json</tt>: JSON format
-    *   <tt>naf</tt>: XML format following NAF conventions (see <small class="SMALL"><tt>[https://github.com/newsreader/NAF](https://github.com/newsreader/NAF)</tt></small>)
-    *   <tt>train</tt>: Produce freeling pseudo-column format suitable to train PoS taggers. This option can be used to annotate a corpus, correct the output manually, and use it to retrain the taggers with the script <tt>src/utilities/train-tagger/bin/TRAIN.sh</tt> provided in FreeLing package. See <tt>src/utilities/train-tagger/README</tt> for details about how to use it.
+    * <tt>freeling</tt>: Classical freeling format. It may be a pseudo-column for with output levels <tt>morfo</tt> or <tt>tagged</tt>, parenthesized trees for parsing output, or other human-readable output for coreferences or semantic graph output.
+    * <tt>conll</tt>: CoNLL-like column format.
+    * <tt>xml</tt>: FreeLing-specific XML format.
+    * <tt>json</tt>: JSON format
+    * <tt>naf</tt>: XML format following NAF conventions (see <small class="SMALL"><tt>[https://github.com/newsreader/NAF](https://github.com/newsreader/NAF)</tt></small>)
+    * <tt>train</tt>: Produce freeling pseudo-column format suitable to train PoS taggers. This option can be used to annotate a corpus, correct the output manually, and use it to retrain the taggers with the script <tt>src/utilities/train-tagger/bin/TRAIN.sh</tt> provided in FreeLing package. See <tt>src/utilities/train-tagger/README</tt> for details about how to use it.
 
-    *   Input Level
+* Input Level
 
 | Command line | Configuration file |
 | --- | --- |
@@ -368,16 +364,16 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Analysis level of input data (plain, token, splitted, morfo, tagged, shallow, dep, coref).
 
-    *   plain: plain text.
-    *   token: tokenized text (one token per line).
-    *   splitted : tokenized and sentence-splitted text (one token per line, sentences separated with one blank line).
-    *   morfo: tokenized, sentence-splitted, and morphologically analyzed text. One token per line, sentences separated with one blank line. Each line has the format: <tt>word (lemma tag prob)<sup>+</sup></tt>
-    *   tagged: tokenized, sentence-splitted, morphologically analyzed, and PoS-tagged text. One token per line, sentences separated with one blank line. Each line has the format: <tt>word lemma tag</tt>.
-    *   shallow: the previous plus constituency parsing. Only valid with <tt>InputFormat=conll</tt>.
-    *   dep: the previous plus dependency parsing (may include constituents or not. May include also SRL). Only valid with <tt>InputFormat=conll</tt>.
-    *   coref: the previous plus coreference. Only valid with <tt>InputFormat=conll</tt>.
+    * plain: plain text.
+    * token: tokenized text (one token per line).
+    * splitted : tokenized and sentence-splitted text (one token per line, sentences separated with one blank line).
+    * morfo: tokenized, sentence-splitted, and morphologically analyzed text. One token per line, sentences separated with one blank line. Each line has the format: <tt>word (lemma tag prob)<sup>+</sup></tt>
+    * tagged: tokenized, sentence-splitted, morphologically analyzed, and PoS-tagged text. One token per line, sentences separated with one blank line. Each line has the format: <tt>word lemma tag</tt>.
+    * shallow: the previous plus constituency parsing. Only valid with <tt>InputFormat=conll</tt>.
+    * dep: the previous plus dependency parsing (may include constituents or not. May include also SRL). Only valid with <tt>InputFormat=conll</tt>.
+    * coref: the previous plus coreference. Only valid with <tt>InputFormat=conll</tt>.
 
-    *   Output Level
+* Output Level
 
 | Command line | Configuration file |
 | --- | --- |
@@ -385,53 +381,41 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Analysis level of output data (token, splitted, morfo, tagged, shallow, dep, coref, semgraph).
 
-    *   token: tokenized text (one token per line).
-    *   splitted : tokenized and sentence-splitted text (one token per line, sentences separated with one blank line).
-    *   morfo: tokenized, sentence-splitted, and morphologically analyzed text. One token per line, sentences separated with one blank line. Each line has the format: <tt>word (lemma tag prob)<sup>+</sup></tt> or (if sense tagging has been activated): <tt>word (lemma tag prob sense<sub>1</sub>:...:sense<sub>N</sub>)<sup>+</sup></tt>
-    *   tagged: tokenized, sentence-splitted, morphologically analyzed, and PoS-tagged text. One token per line, sentences separated with one blank line. Each line has the format: <tt>word lemma tag prob</tt> or, if sense tagging has been activated: <tt>word lemma tag prob sense<sub>1</sub>:...:sense<sub>N</sub></tt>
-    *   shallow: tokenized, sentence-splitted, morphologically analyzed, PoS-tagged, optionally sense-annotated, and shallow-parsed text, as output by the `chart_parser` module.
-    *   parsed: tokenized, sentence-splitted, morphologically analyzed, PoS-tagged, optionally sense-annotated, and full-parsed text, as output by the first stage (tree completion) of the dependency parser.
-    *   dep: tokenized, sentence-splitted, morphologically analyzed, PoS-tagged, optionally sense-annotated, and dependency-parsed text, as output by the second stage (transformation to dependencies and function labelling) of the dependency parser. May include also SRL.
-    *   coref: the previous plus coreference.
-    *   semgraph: the previous plus semantic graph. Only valid with <tt>OutputFormat=xml|json|freeling</tt>.
+    * token: tokenized text (one token per line).
+    * splitted : tokenized and sentence-splitted text (one token per line, sentences separated with one blank line).
+    * morfo: tokenized, sentence-splitted, and morphologically analyzed text. One token per line, sentences separated with one blank line. Each line has the format: <tt>word (lemma tag prob)<sup>+</sup></tt> or (if sense tagging has been activated): <tt>word (lemma tag prob sense<sub>1</sub>:...:sense<sub>N</sub>)<sup>+</sup></tt>
+    * tagged: tokenized, sentence-splitted, morphologically analyzed, and PoS-tagged text. One token per line, sentences separated with one blank line. Each line has the format: <tt>word lemma tag prob</tt> or, if sense tagging has been activated: <tt>word lemma tag prob sense<sub>1</sub>:...:sense<sub>N</sub></tt>
+    * shallow: tokenized, sentence-splitted, morphologically analyzed, PoS-tagged, optionally sense-annotated, and shallow-parsed text, as output by the `chart_parser` module.
+    * parsed: tokenized, sentence-splitted, morphologically analyzed, PoS-tagged, optionally sense-annotated, and full-parsed text, as output by the first stage (tree completion) of the dependency parser.
+    * dep: tokenized, sentence-splitted, morphologically analyzed, PoS-tagged, optionally sense-annotated, and dependency-parsed text, as output by the second stage (transformation to dependencies and function labelling) of the dependency parser. May include also SRL.
+    * coref: the previous plus coreference.
+    * semgraph: the previous plus semantic graph. Only valid with <tt>OutputFormat=xml|json|freeling</tt>.
 
-    *   Language Identification Configuration File
+* Language Identification Configuration File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-I <filename>`, `--fidn <filename>` | `N/A` |
 
-    Configuration file for language identifier. See section 
+    Configuration file for language identifier. 
 
-    4.1
-
-    for details.
-
-    *   Tokenizer File
+* Tokenizer File
 
 | Command line | Configuration file |
 | --- | --- |
 | `--abrev <filename>` | `TokenizerFile=<filename>` |
 
-    File of tokenization rules. See section 
+    File of tokenization rules. 
 
-    4.2
-
-    for details.
-
-    *   Splitter File
+* Splitter File
 
 | Command line | Configuration file |
 | --- | --- |
 | `--fsplit <filename>` | `SplitterFile=<filename>` |
 
-    File of splitter options rules. See section 
+    File of splitter rules.
 
-    4.3
-
-    for details.
-
-    *   Affix Analysis
+* Affix Analysis
 
 | Command line | Configuration file |
 | --- | --- |
@@ -439,19 +423,15 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to perform affix analysis on unknown words. Affix analysis applies a set of affixation rules to the word to check whether it is a derived form of a known word.
 
-    *   Affixation Rules File
+* Affixation Rules File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-S <filename>`, `--fafx <filename>` | `AffixFile=<filename>` |
 
-    Affix rules file. See section
+    Affix rules file, used by dictionary module.
 
-    4.9.2
-
-    for details.
-
-    *   User Map
+* User Map
 
 | Command line | Configuration file |
 | --- | --- |
@@ -459,19 +439,15 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to apply or not a file of customized word-tag mappings.
 
-    *   User Map File
+* User Map File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-M <filename>`, `--fmap <filename>` | `UserMapFile=<filename>` |
 
-    User Map file to be used. See section
+    User Map file to be used. 
 
-    4.7
-
-    for details.
-
-    *   Multiword Detection
+* Multiword Detection
 
 | Command line | Configuration file |
 | --- | --- |
@@ -479,19 +455,15 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to perform multiword detection. This option requires that a multiword file is provided.
 
-    *   Multiword File
+* Multiword File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-L <filename>`, `--floc <filename>` | `LocutionsFile=<filename>` |
 
-    Multiword definition file. See section
+    Multiword definition file. 
 
-    4.10
-
-    for details.
-
-    *   Number Detection
+* Number Detection
 
 | Command line | Configuration file |
 | --- | --- |
@@ -499,7 +471,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to perform nummerical expression detection. Deactivating this feature will affect the behaviour of date/time and ratio/currency detection modules.
 
-    *   Decimal Point
+* Decimal Point
 
 | Command line | Configuration file |
 | --- | --- |
@@ -507,7 +479,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Specify decimal point character for the number detection module (for instance, in English is a dot, but in Spanish is a comma).
 
-    *   Thousand Point
+* Thousand Point
 
 | Command line | Configuration file |
 | --- | --- |
@@ -515,7 +487,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Specify thousand point character for the number detection module (for instance, in English is a comma, but in Spanish is a dot).
 
-    *   Punctuation Detection
+* Punctuation Detection
 
 | Command line | Configuration file |
 | --- | --- |
@@ -523,19 +495,15 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to assign PoS tag to punctuation signs.
 
-    *   Punctuation Detection File
+* Punctuation Detection File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-F <filename>`, `--fpunct <filename>` | `PunctuationFile=<filename>` |
 
-    Punctuation symbols file. See section
+    Punctuation symbols file. 
 
-    4.6
-
-    for details.
-
-    *   Date Detection
+* Date Detection
 
 | Command line | Configuration file |
 | --- | --- |
@@ -543,7 +511,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to perform date and time expression detection.
 
-    *   Quantities Detection
+* Quantities Detection
 
 | Command line | Configuration file |
 | --- | --- |
@@ -551,19 +519,15 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to perform currency amounts, physical magnitudes, and ratio detection.
 
-    *   Quantity Recognition File
+* Quantity Recognition File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-Q <filename>`, `--fqty <filename>` | `QuantitiesFile=<filename>` |
 
-    Quantitiy recognition configuration file. See section
+    Quantitiy recognition configuration file.
 
-    4.12
-
-    for details.
-
-    *   Dictionary Search
+* Dictionary Search
 
 | Command line | Configuration file |
 | --- | --- |
@@ -571,23 +535,16 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to search word forms in dictionary. Deactivating this feature also deactivates AffixAnalysis option.
 
-    *   Dictionary File
+* Dictionary File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-D <filename>`, `--fdict <filename>` | `DictionaryFile=<filename>` |
 
-    Dictionary database. See section
+    Dictionary database.
 
-    4.9
 
-    and chapter
-
-    8
-
-    for details.
-
-    *   Probability Assignment
+* Probability Assignment
 
 | Command line | Configuration file |
 | --- | --- |
@@ -595,19 +552,15 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to compute a lexical probability for each tag of each word. Deactivating this feature will affect the behaviour of the PoS tagger.
 
-    *   Lexical Probabilities File
+* Lexical Probabilities File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-P <filename>`, `--fprob <filename>` | `ProbabilityFile=<filename>` |
 
-    Lexical probabilities file. The probabilities in this file are used to compute the most likely tag for a word, as well to estimate the likely tags for unknown words. See section
+    Lexical probabilities file. The probabilities in this file are used to compute the most likely tag for a word, as well to estimate the likely tags for unknown words. 
 
-    4.13
-
-    for details.
-
-    *   Unknown Words Probability Threshold.
+* Unknown Words Probability Threshold.
 
 | Command line | Configuration file |
 | --- | --- |
@@ -615,7 +568,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Threshold that must be reached by the probability of a tag given the suffix of an unknown word in order to be included in the list of possible tags for that word. Default is zero (all tags are included in the list). A non-zero value (e.g. 0.0001, 0.001) is recommended.
 
-    *   Named Entity Recognition
+* Named Entity Recognition
 
 | Command line | Configuration file |
 | --- | --- |
@@ -623,7 +576,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to perform NE recognition and which recognizer to use: ``bio'' for AdaBoost based NER, ``basic'' for a simple heuristic NE recognizer and ``none'' to perform no NE recognition . Deactivating this feature will cause the NE Classification module to have no effect.
 
-    *   Named Entity Recognition
+* Named Entity Recognition
 
 | Command line | Configuration file |
 | --- | --- |
@@ -631,7 +584,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to perform NE recognition.
 
-    *   Named Entity Recognizer File
+* Named Entity Recognizer File
 
 | Command line | Configuration file |
 | --- | --- |
@@ -639,13 +592,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Configuration data file for NE recognizer.
 
-    See section
-
-    4.11
-
-    for details.
-
-    *   Named Entity Classification
+* Named Entity Classification
 
 | Command line | Configuration file |
 | --- | --- |
@@ -653,7 +600,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to perform NE classification.
 
-    *   Named Entity Classifier File
+* Named Entity Classifier File
 
 | Command line | Configuration file |
 | --- | --- |
@@ -661,13 +608,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Configuration file for Named Entity Classifier module
 
-    See section
-
-    4.19
-
-    for details.
-
-    *   Phonetic Encoding
+* Phonetic Encoding
 
 | Command line | Configuration file |
 | --- | --- |
@@ -675,7 +616,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Whether to add phonetic transcription to each word.
 
-    *   Phonetic Encoder File
+* Phonetic Encoder File
 
 | Command line | Configuration file |
 | --- | --- |
@@ -683,13 +624,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Configuration file for phonetic encoding module
 
-    See section
-
-    4.18
-
-    for details.
-
-    *   Sense Annotation
+* Sense Annotation
 
 | Command line | Configuration file |
 | --- | --- |
@@ -697,40 +632,32 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Kind of sense annotation to perform
 
-    *   no, none: Deactivate sense annotation.
-    *   all: annotate with all possible senses in sense dictionary.
-    *   mfs: annotate with most frequent sense.
-    *   ukb: annotate all senses, ranked by UKB algorithm.
+    * no, none: Deactivate sense annotation.
+    * all: annotate with all possible senses in sense dictionary.
+    * mfs: annotate with most frequent sense.
+    * ukb: annotate all senses, ranked by UKB algorithm.
 
     Whether to perform sense anotation.
 
     If active, the PoS tag selected by the tagger for each word is enriched with a list of all its possible WN synsets. The sense repository used depends on the options ``Sense Annotation Configuration File'' and ``UKB Word Sense Disambiguator Configuration File'' described below.
 
-    *   Sense Annotation Configuration File
+* Sense Annotation Configuration File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-W <filename>`, `--fsense <filename>` | `SenseConfigFile=<filename>` |
 
-    Word sense annotator configuration file. See section
+    Word sense annotator configuration file. 
 
-    4.15
-
-    for details.
-
-    *   UKB Word Sense Disambiguator Configuration File
+* UKB Word Sense Disambiguator Configuration File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-U <filename>`, `--fukb <filename>` | `UKBConfigFile=<filename>` |
 
-    UKB configuration file. See section
+    UKB configuration file. 
 
-    4.16
-
-    for details.
-
-    *   Tagger algorithm
+* Tagger algorithm
 
 | Command line | Configuration file |
 | --- | --- |
@@ -738,34 +665,26 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Algorithm to use for PoS tagging
 
-    *   hmm: Hidden Markov Model tagger, based on [Bra00].
-    *   relax: Relaxation Labelling tagger, based on [Pad98].
+    * hmm: Hidden Markov Model tagger, based on [Bra00].
+    * relax: Relaxation Labelling tagger, based on [Pad98].
 
-    *   HMM Tagger configuration File
+* HMM Tagger configuration File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-H <filename>`, `--hmm <filename>` | `TaggerHMMFile=<filename>` |
 
-    Parameters file for HMM tagger. See section
+    Parameters file for HMM tagger.
 
-    4.17.1
-
-    for details.
-
-    *   Relaxation labelling tagger constraints file
+* Relaxation labelling tagger constraints file
 
 | Command line | Configuration file |
 | --- | --- |
 | `-R <filename>`, `--rlx <filename>` | `TaggerRelaxFile=<filename>` |
 
-    File containing the constraints to apply to solve the PoS tagging. See section
+    File containing the constraints to apply to solve the PoS tagging. 
 
-    4.17.2
-
-    for details.
-
-    *   Relaxation labelling tagger iteration limit
+* Relaxation labelling tagger iteration limit
 
 | Command line | Configuration file |
 | --- | --- |
@@ -773,7 +692,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Maximum numbers of iterations to perform in case relaxation does not converge.
 
-    *   Relaxation labelling tagger scale factor
+* Relaxation labelling tagger scale factor
 
 | Command line | Configuration file |
 | --- | --- |
@@ -781,7 +700,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Scale factor to normalize supports inside RL algorithm. It is comparable to the step lenght in a hill-climbing algorithm: The larger scale factor, the smaller step.
 
-    *   Relaxation labelling tagger epsilon value
+* Relaxation labelling tagger epsilon value
 
 | Command line | Configuration file |
 | --- | --- |
@@ -789,7 +708,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Real value used to determine when a relaxation labelling iteration has produced no significant changes. The algorithm stops when no weight has changed above the specified epsilon.
 
-    *   Retokenize contractions in dictionary
+* Retokenize contractions in dictionary
 
 | Command line | Configuration file |
 | --- | --- |
@@ -799,23 +718,15 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Note that if this option is active, contractions will be retokenized even if the `TaggerRetokenize` option is not active. If this option is not active, contractions will be retokenized depending on the value of the `TaggerRetokenize` option.
 
-    *   Retokenize after tagging
+* Retokenize after tagging
 
 | Command line | Configuration file |
 | --- | --- |
 | `--rtk`, `--nortk` | `TaggerRetokenize=(yes|y|on|no|n|off)` |
 
-    Determine whether the tagger must perform retokenization after the appropriate analysis has been selected for each word. This is closely related to affix analysis and PoS taggers, see sections
+    Determine whether the tagger must perform retokenization after the appropriate analysis has been selected for each word. This is closely related to affix analysis and PoS taggers.
 
-    4.9.2
-
-    and
-
-    4.17
-
-    for details.
-
-    *   Force the selection of one unique tag
+* Force the selection of one unique tag
 
 | Command line | Configuration file |
 | --- | --- |
@@ -823,41 +734,28 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Determine whether the tagger must be forced to (probably randomly) make a unique choice and when.
 
-    *   <tt>none</tt>: Do not force the tagger, allow ambiguous output.
-    *   <tt>tagger</tt>: Force the tagger to choose before retokenization (i.e. if retokenization introduces any ambiguity, it will be present in the final output).
-    *   <tt>retok</tt>: Force the tagger to choose after retokenization (no remaining ambiguity)
+    * <tt>none</tt>: Do not force the tagger, allow ambiguous output.
+    * <tt>tagger</tt>: Force the tagger to choose before retokenization (i.e. if retokenization introduces any ambiguity, it will be present in the final output).
+    * <tt>retok</tt>: Force the tagger to choose after retokenization (no remaining ambiguity)
 
-    See
 
-    4.17
-
-    for more information.
-
-    *   Chart Parser Grammar File
+* Chart Parser Grammar File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-G <filename>`, `--grammar <filename>` | `GrammarFile=<filename>` |
 
-    This file contains a CFG grammar for the chart parser, and some directives to control which chart edges are selected to build the final tree. See section
+    This file contains a CFG grammar for the chart parser, and some directives to control which chart edges are selected to build the final tree. 
 
-    4.20.1
-
-    for details.
-
-    *   Dependency Parser Rule File
+* Dependency Parser Rule File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-T <filename>`, `--txala <filename>` | `DepTxalaFile==<filename>` |
 
-    Rules to be used to perform rule-based dependency analysis. See section
+    Rules to be used to perform rule-based dependency analysis. 
 
-    4.21.1
-
-    for details.
-
-    *   Statistical Dependency Parser File
+* Statistical Dependency Parser File
 
 | Command line | Configuration file |
 | --- | --- |
@@ -865,7 +763,7 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Configuration file for statistical dependency parser and SRL module
 
-    *   Dependency Parser Selection
+* Dependency Parser Selection
 
 | Command line | Configuration file |
 | --- | --- |
@@ -873,13 +771,15 @@ This section presents the options that can be given to the <tt>analyzer</tt> pro
 
     Which dependency parser to use: <tt>txala</tt> (rule-based) or <tt>treeler</tt> (statistical, may have SRL also).
 
-    *   Coreference Resolution File
+* Coreference Resolution File
 
 | Command line | Configuration file |
 | --- | --- |
 | `-C <filename>`, `--fcorf <filename>` | `CorefFile=<filename>` |
 
     Configuration file for coreference resolution module.
+
+
 
 ### Sample Configuration File {#sample-configuration-file}
 
