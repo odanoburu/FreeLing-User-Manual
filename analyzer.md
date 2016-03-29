@@ -174,15 +174,15 @@ FreeLing package includes default configuration files. They can be found at the 
 
 This section presents the options that can be given to the <tt>analyzer</tt> program (and thus, also to the <tt>analyzer_server</tt> program and to the <tt>analyze</tt> script). All options can be written in the configuration file as well as in the command line. The later has always precedence over the former.
 
-| Command line                | Configuration file |
-| --------------------------- | ------------------ |
+| Command line | Configuration file |
+| -----------  | ------------------ |
 | `-h`, `--help`, `--help-cf` | <tt>N/A</tt>       |
 
 
 *   Help
 
-| Command line                | Configuration file |
-| --------------------------- | ------------------ |
+| Command line | Configuration file |
+| ------------ | ------------------ |
 | `-h`, `--help`, `--help-cf` | <tt>N/A</tt>       |
 
     Prints to stdout a help screen with valid options and exits.
