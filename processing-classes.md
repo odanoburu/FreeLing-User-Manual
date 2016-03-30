@@ -576,7 +576,8 @@ casa casa NCFS000 casar VMIP3S0 casar VMM02S0
 backs back NNS back VBZ
 ```
 
-Lines corresponding to words that are contractions may have an alternative format if the contraction is to be splitted. The format is <tt>form form1+form2+... PoS1+PoS2+...</tt> where <tt>form1,form2,...</tt> are the forms (not the lemmas) of the contracted words. For instance: `del de+el SP+DA`
+Lines corresponding to words that are contractions may have an alternative format if the contraction is to be splitted. The format is <tt>form form1+form2+... PoS1+PoS2+...</tt> where <tt>form1,form2,...</tt> are the forms (not the lemmas) of the contracted words. For instance:  
+`del de+el SP+DA`
 
 This line expresses that whenever the form *del* is found, it is replaced with two words: *de* and *el*. Each of the new two word forms are searched in the dictionary, and assigned any tag matching their correspondig tag in the third field. So, *de* will be assigned all tags starting with <tt>SP</tt> that this entry may have in the dictionary, and *el* will get any tag starting with <tt>DA</tt>.
 
@@ -610,16 +611,16 @@ Both kinds of rules have the same format, and only differ in whether the affix i
 
 Each rule has to be written in a different line, and has 10 fields:
 
-1.  Affix to erase form word form (e.g: crucecita - cecita = cru)
-2.  Affix (* for emtpy string) to add to the resulting root to rebuild the lemma that must be searched in dictionary (e.g. cru + z = cruz)
-3.  Condition on the tag of found dictionary entry (e.g. cruz is NCFS). The condition is a perl RegExp
-4.  Tag for suffixed word (* = keep tag in dictionary entry)
+1.  Affix to erase form word form (e.g: _crucecita - cecita = cru_)
+2.  Affix (`*` for emtpy string) to add to the resulting root to rebuild the lemma that must be searched in dictionary (e.g. _cru + z = cruz_)
+3.  Condition on the tag of found dictionary entry (e.g. _cruz_ has tag <tt>NCFS</tt> in the dictionary). The condition is a perl RegExp
+4.  Tag for suffixed word (`*` = keep tag in dictionary entry)
 5.  Check lemma adding accents
 6.  Enclitic suffix (special accent behaviour in Spanish)
 7.  Prevent later modules (e.g. probabilities) from assigning additional tags to the word
 8.  Lemma to assign: Any combination of: <tt>F</tt>, <tt>R</tt>, <tt>L</tt>, <tt>A</tt>, or a string literal separated with a <tt>+</tt> sign. For instance: <tt>R+A</tt>, <tt>A+L</tt>, <tt>R+mente</tt>, etc.
 
-    <tt>F</tt> stands for the original form (before affix removal, e.g. crucecitas), <tt>R</tt> stands for root found in dictionary (after affix removal and root reconstruction, e.g. cruces), <tt>L</tt> stands for lemma in matching dictionary entry (e.g. _cruz_), <tt>A</tt> stands for the affix that the rule removed
+    <tt>F</tt> stands for the original form (before affix removal, e.g. _crucecitas_), <tt>R</tt> stands for root found in dictionary (after affix removal and root reconstruction, e.g. _cruces_), <tt>L</tt> stands for lemma in matching dictionary entry (e.g. _cruz_), <tt>A</tt> stands for the affix that the rule removed
 
 9.  Try the affix always, not only for unknown words.
 10.  Retokenization info, explained below (```-`'' for none)
