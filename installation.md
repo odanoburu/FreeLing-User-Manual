@@ -181,7 +181,7 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 *   Use MacPorts to install required developer tools:  
     `sudo port install automake`  
     `sudo port install libtoool`  
-    `sudo port install subversion`
+    `sudo port install git`
 
 *   Use MacPorts to install required dependencies:  
     `sudo port install boost`
