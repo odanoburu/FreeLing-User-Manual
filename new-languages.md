@@ -62,11 +62,13 @@ This program reads all dictionary entry lists given as parameter, and builds a u
 
 The input files are expected to contain one word form per line, each line with the format: <tt>form lemma1 tag</tt>   
 E.g.:  
-`abalanzará abalanzar VMIC1S0`  
-`abalanzará abalanzar VMIC3S0`  
-`bajo bajar VMIP1S0`  
-`bajo bajo AQ0MS0`  
-`...` 
+```
+abalanzará abalanzar VMIC1S0
+abalanzará abalanzar VMIC3S0
+bajo bajar VMIP1S0
+bajo bajo AQ0MS0
+...
+```
 
 ### Affixed forms search {#affixed-forms-search}
 
