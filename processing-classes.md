@@ -623,27 +623,33 @@ Each rule has to be written in a different line, and has 10 fields:
     <tt>F</tt> stands for the original form (before affix removal, e.g. _crucecitas_), <tt>R</tt> stands for root found in dictionary (after affix removal and root reconstruction, e.g. _cruces_), <tt>L</tt> stands for lemma in matching dictionary entry (e.g. _cruz_), <tt>A</tt> stands for the affix that the rule removed
 
 9.  Try the affix always, not only for unknown words.
-10.  Retokenization info, explained below (```-`'' for none)
+10.  Retokenization info, explained below ("`-`" for none)
 
-Example of prefix rule `anti * ^NC AQ0CN0 0 0 1 A+L 0 -`
+Example of prefix rule:  
+`anti * ^NC AQ0CN0 0 0 1 A+L 0 -`
 
-This prefix rule states that <tt>anti</tt> should be removed from the beggining of the word, nothing (<tt>*</tt>) should be added, and the resulting root should be found in the dictionary with a NC PoS tag. If that is satisfied, the word will receive the <tt>AQ0CN0</tt> tag and its lemma will be set to the affix (<tt>anti</tt>) plus the lemma of the root found in the dictionary. For instance, the word <tt>antimisiles</tt> would match this rule: <tt>misiles</tt> would be found in the dictionary with lema <tt>misil</tt> and PoS <tt>NCMP000</tt>. Then, the word will be assigned the lemma <tt>antimisil</tt> (<tt>A+L = anti+misil</tt>) and the tag AQ0CN0.
+This prefix rule states that <tt>anti</tt> should be removed from the beggining of the word, nothing (`*`) should be added, and the resulting root should be found in the dictionary with a <tt>NC</tt> PoS tag. If that is satisfied, the word will receive the <tt>AQ0CN0</tt> tag and its lemma will be set to the affix (<tt>anti</tt>) plus the lemma of the root found in the dictionary. For instance, the word <tt>antimisiles</tt> would match this rule: <tt>misiles</tt> would be found in the dictionary with lema <tt>misil</tt> and PoS <tt>NCMP000</tt>. Then, the word will be assigned the lemma <tt>antimisil</tt> (<tt>A+L = anti+misil</tt>) and the tag <tt>AQ0CN0</tt>.
 
-Examples of sufix rules `cecita z|za ^NCFS NCFS00A 0 0 1 L 0 -` `les * ^V * 0 1 0 L 1 $$+les:$$+PP`
+Examples of sufix rules:
+```
+cecita z|za ^NCFS NCFS00A 0 0 1 L 0 -
+les * ^V * 0 1 0 L 1 $$+les:$$+PP
+```
 
-The first suffix rule above (<tt>cecita</tt>) states a suffix rule that will be applied to unknown words, to see whether a valid feminine singular noun is obtained when substituting the suffix <tt>cecita</tt> with <tt>z</tt> ot <tt>za</tt>. This is the case of <tt>crucecita</tt> (diminutive of <tt>cruz</tt>). If such a base form is found, the original word is analyzed as diminutive suffixed form. No retokenization is performed.
+The first suffix rule above (<tt>cecita</tt>) states a suffix rule that will be applied to unknown words, to see whether a valid feminine singular noun is obtained when substituting the suffix <tt>cecita</tt> with <tt>z</tt> or <tt>za</tt>. This is the case of <tt>crucecita</tt> (diminutive of <tt>cruz</tt>). If such a base form is found, the original word is analyzed as diminutive suffixed form. No retokenization is performed.
 
 The second rule (<tt>les</tt>) applies to all words and tries to check whether a valid verb form is obtained when removing the suffix <tt>les</tt>. This is the case of words such as <tt>viles</tt> (which may mean I saw them, but also is the plural of the adjective <tt>vil</tt>).
 
-In this case, the retokenization info states that if eventually the verb tag is selected for this word, it may be retokenized in two words: The base verb form (referred to as <tt>$</tt>, <tt>vi</tt> in the example) plus the word <tt>les</tt>. The tags for these new words are expressed after the colon: The base form must keep its PoS tag (this is what the second <tt>$</tt> means) and the second word may take any tag starting with PP it may have in the dictionary. Prefixing a tag in the retokenization information with a ``<tt>!</tt>'' sign will assign that tag withour performing any dictionary check. (E.g. if the rule was `$$+les:$$+!XYZ`, the word <tt>les</tt> would get the tag <tt>XYZ</tt> regardless of whether either the word or the tag are found in the dictionary.
+In this case, the retokenization info states that if eventually the verb tag is selected for this word, it may be retokenized in two words: The base verb form (referred to as <tt>$</tt>, <tt>vi</tt> in the example) plus the word <tt>les</tt>. The tags for these new words are expressed after the colon: The base form must keep its PoS tag (this is what the second <tt>$</tt> means) and the second word may take any tag starting with PP the word may have in the dictionary. Prefixing a tag in the retokenization information with a `!` sign will assign that tag without performing any dictionary check. (E.g. if the rule was `$+les:$+!XYZ`, the word <tt>les</tt> would get the tag <tt>XYZ</tt> regardless of whether either the word or the tag are found in the dictionary.
 
 So, for word <tt>viles</tt>, we would obtain its adjective analysis from the dictionary, plus its verb + clitic pronoun from the suffix rule: `viles vil AQ0CP0 ver+les VMIS1S0+PP3CD00`
 
 The second analysis will carry the retokenization information, so if eventually the PoS tagger selects the <tt>VMI</tt> analysis (and the TaggerRetokenize option is set), the word will be retokenized into:
 
-<pre>   vi ver VMIS1S0
-   les ellos PP3CPD00
-</pre>
+```
+vi ver VMIS1S0
+les ellos PP3CPD00
+```
 
 ## Compound rules file {#compound-rules-file}
 
