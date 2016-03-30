@@ -17,7 +17,7 @@ The `analyze` (no final "<tt>r</tt>") script described below handles all these d
 
 ## The easy way: Using the <tt>analyze</tt> script {#the-easy-way-using-the-analyze-script}
 
-To ease the invocation of the program, a script named <tt>analyze</tt> (no final <tt>r</tt>) is provided. This is script is able to locate default configuration files, define library search paths, and handle whether you want the client-server or the straight version.
+To ease the invocation of the program, a script named `analyze` (no final "<tt>r</tt>") is provided. This is script is able to locate default configuration files, define library search paths, and handle whether you want the client-server or the straight version.
 
 The sample main program is called with the command:
 
@@ -270,34 +270,38 @@ Valid masks are defined in file `src/include/freeling/morfo/traces.h`, and are t
 
 | Module | Mask |
 |:--- |:--- |
-| Splitter | <tt>0x00000001</tt> |
-| Tokenizer | <tt>0x00000002</tt> |
+| Splitter        | <tt>0x00000001</tt> |
+| Tokenizer       | <tt>0x00000002</tt> |
 | Morphological analyzer | <tt>0x00000004</tt> |
-| Options management | <tt>0x00000008</tt> |
-| Number detection | <tt>0x00000010</tt> |
-| Date identification | <tt>0x00000020</tt> |
-| Punctuation detection | <tt>0x00000040</tt> |
-| Dictionary search | <tt>0x00000080</tt> |
-| Affixation rules | <tt>0x00000100</tt> |
-| Multiword detection | <tt>0x00000200</tt> |
-| Named entity detection | <tt>0x00000400</tt> |
-| Probability assignment | <tt>0x00000800</tt> |
+| Language Identifier    | <tt>0x00000008</tt> |
+| Numbers detection      | <tt>0x00000010</tt> |
+| Date/time detection    | <tt>0x00000020</tt> |
+| Punctuation        | <tt>0x00000040</tt> |
+| Dictionary         | <tt>0x00000080</tt> |
+| Affixes            | <tt>0x00000100</tt> |
+| Multiwords         | <tt>0x00000200</tt> |
+| NE Recognition     | <tt>0x00000400</tt> |
+| Probabilities      | <tt>0x00000800</tt> |
 | Quantities detection | <tt>0x00001000</tt> |
-| Named entity classification | <tt>0x00002000</tt> |
-| Automata (abstract) | <tt>0x00004000</tt> |
-| Sense annotation | <tt>0x00010000</tt> |
-| Chart parser | <tt>0x00020000</tt> |
-| Parser grammar | <tt>0x00040000</tt> |
-| Dependency parser | <tt>0x00080000</tt> |
-| Correference resolution | <tt>0x00100000</tt> |
-| Utilities | <tt>0x00200000</tt> |
-| Word sense disambiguation | <tt>0x00400000</tt> |
-| Ortographic correction | <tt>0x00800000</tt> |
-| Database storage | <tt>0x01000000</tt> |
-| Feature extraction | <tt>0x02000000</tt> |
-| Language identifier | <tt>0x04000000</tt> |
-| Omlet | <tt>0x08000000</tt> |
-| Phonetics | <tt>0x10000000</tt> |
+| NE Classification    | <tt>0x00002000</tt> |
+| Automat (abstract)   | <tt>0x00004000</tt> |
+| PoS Tagger         | <tt>0x00008000</tt> |
+| Sense annotation   | <tt>0x00010000</tt> |
+| Chart parser       | <tt>0x00020000</tt> |
+| Chart grammar      | <tt>0x00040000</tt> |
+| Dependency parser  | <tt>0x00080000</tt> |
+| Coreference resolution  | <tt>0x00100000</tt> |
+| Basic utilities    | <tt>0x00200000</tt> |
+| WSD                | <tt>0x00400000</tt> |
+| Alternatives       | <tt>0x00800000</tt> |
+| Database access    | <tt>0x01000000</tt> |
+| Feature Extraction | <tt>0x02000000</tt> |
+| Machine Learning modules | <tt>0x04000000</tt> |
+| Phonetic encoding   | <tt>0x08000000</tt> |
+| Mention detection   | <tt>0x10000000</tt> |
+| Input/Output       | <tt>0x20000000</tt> |
+| Semantic graph extraction   | <tt>0x40000000</tt> |
+| Summarizer         | <tt>0x80000000</tt> |
 
 ----------------------------------
 ##### Language of input text
