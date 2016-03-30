@@ -395,11 +395,11 @@ Analysis level of output data (token, splitted, morfo, tagged, shallow, dep, cor
 
 * token: tokenized text (one token per line).
 * splitted : tokenized and sentence-splitted text (one token per line, sentences separated with one blank line).
-* morfo: tokenized, sentence-splitted, and morphologically analyzed text. One token per line, sentences separated with one blank line. Each line has the format: <tt>word (lemma tag prob)<sup>+</sup></tt> or (if sense tagging has been activated): <tt>word (lemma tag prob sense<sub>1</sub>:...:sense<sub>N</sub>)<sup>+</sup></tt>
-* tagged: tokenized, sentence-splitted, morphologically analyzed, and PoS-tagged text. One token per line, sentences separated with one blank line. Each line has the format: <tt>word lemma tag prob</tt> or, if sense tagging has been activated: <tt>word lemma tag prob sense<sub>1</sub>:...:sense<sub>N</sub></tt>
-* shallow: tokenized, sentence-splitted, morphologically analyzed, PoS-tagged, optionally sense-annotated, and shallow-parsed text, as output by the `chart_parser` module.
-* parsed: tokenized, sentence-splitted, morphologically analyzed, PoS-tagged, optionally sense-annotated, and full-parsed text, as output by the first stage (tree completion) of the dependency parser.
-* dep: tokenized, sentence-splitted, morphologically analyzed, PoS-tagged, optionally sense-annotated, and dependency-parsed text, as output by the second stage (transformation to dependencies and function labelling) of the dependency parser. May include also SRL.
+* morfo: tokenized, sentence-splitted, and morphologically analyzed text. One token per line, sentences separated with one blank line. 
+* tagged: tokenized, sentence-splitted, morphologically analyzed, and PoS-tagged text. One token per line, sentences separated with one blank line. 
+* shallow: tokenized, sentence-splitted, morphologically analyzed, PoS-tagged, optionally sense-annotated, and shallow-parsed text, produced by the `chart_parser` module.
+* parsed: tokenized, sentence-splitted, morphologically analyzed, PoS-tagged, optionally sense-annotated, and full-parsed text, as output by the first stage (tree completion) of the rule-based dependency parser.
+* dep: tokenized, sentence-splitted, morphologically analyzed, PoS-tagged, optionally sense-annotated, and dependency-parsed text, as output by the second stage (transformation to dependencies and function labelling) of the dependency parser. May include also SRL if the statistical parser is used (and SRL is available for the input language).
 * coref: the previous plus coreference.
 * semgraph: the previous plus semantic graph. Only valid with <tt>OutputFormat=xml|json|freeling</tt>.
 
@@ -417,7 +417,7 @@ Configuration file for language identifier.
 
 | Command line | Configuration file |
 |:--- |:--- |
-| `--abrev <filename>` | `TokenizerFile=<filename>` |
+| `--ftok <filename>` | `TokenizerFile=<filename>` |
 
 File of tokenization rules. 
 
@@ -601,14 +601,6 @@ Lexical probabilities file. The probabilities in this file are used to compute t
 
 Threshold that must be reached by the probability of a tag given the suffix of an unknown word in order to be included in the list of possible tags for that word. Default is zero (all tags are included in the list). A non-zero value (e.g. 0.0001, 0.001) is recommended.
 
-----------------------------------
-##### Named Entity Recognition
-
-| Command line | Configuration file |
-|:--- |:--- |
-| `--ner [bio|basic|none]` | `NERecognition=(bio/basic/none)` |
-
-Whether to perform NE recognition and which recognizer to use: ``bio'' for AdaBoost based NER, ``basic'' for a simple heuristic NE recognizer and ``none'' to perform no NE recognition . Deactivating this feature will cause the NE Classification module to have no effect.
 
 ----------------------------------
 ##### Named Entity Recognition
@@ -825,7 +817,9 @@ Configuration file for statistical dependency parser and SRL module
 |:--- |:--- |
 | `-d <string>`, `--dep <string>` | `DependencyParser==<string>` |
 
-Which dependency parser to use: <tt>txala</tt> (rule-based) or <tt>treeler</tt> (statistical, may have SRL also).
+Which dependency parser to use. Valid values are:
+* <tt>txala</tt> (rule-based)
+* <tt>treeler</tt> (statistical, may have SRL also).
 
 ----------------------------------
 ##### Coreference Resolution File
