@@ -182,12 +182,11 @@ void ProcessResults(const list<sentence> &ls) {
 
       // for each possible analysis in word, output lemma, tag and probability
       for (a=w->analysis_begin(); a!=w->analysis_end(); ++a) {
-
-	// print analysis info
-	wcout<<L"    <ANALYSIS lemma=\""<<a->get_lemma();
-	wcout<<L"\" pos=\""<<a->get_tag();
-	wcout<<L"\" prob=\""<<a->get_prob();
-	wcout<<L"\"/>"<<endl;
+         // print analysis info
+         wcout<<L"    <ANALYSIS lemma=\""<<a->get_lemma();
+         wcout<<L"\" pos=\""<<a->get_tag();
+         wcout<<L"\" prob=\""<<a->get_prob();
+         wcout<<L"\"/>"<<endl;
       }
 
       // close word XML tag after list of analysis
@@ -200,7 +199,7 @@ void ProcessResults(const list<sentence> &ls) {
 }
 ```
 
-The above sample program may be found in `/src/main/simple_examples/sample.cc<` in FreeLing tarball. The actual program also outputs tree structures resulting from parsing, which is ommitted here for simplicity.
+The above sample program may be found in `src/main/simple_examples/sample.cc<` in FreeLing tarball. The actual program also outputs tree structures resulting from parsing, which is ommitted here for simplicity.
 
 Once you have compiled and installed FreeLing, you can build this sample program (or any other you may want to write) with the command: `g++ -o sample sample.cc -lfreeling`
 
