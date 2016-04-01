@@ -26,7 +26,7 @@ Nevertheless, FreeLing package provides a quite complete application program `an
 
 This program offers a set of options that cover most of FreeLing capabilities. Nevertheless, much more advantadge can be taken of FreeLing, and more information can be accessed if you call FreeLing from your own application program.
 
-FreeLing library also includes some classes that are able to dump FreeLing data structures into some common formats, such as XML or CoNLL-like column format. These classes are limited and may not be able to generate any desired output format as they are out-of-the box, but can be adjusted to your needs or used as a starting poit to write your own dumper to your preferred output format.
+FreeLing library also includes some classes that are able to dump FreeLing data tructures into some common formats, such as XML or CoNLL-like column format. These classes are limited and may not be able to generate any desired output format as they are out-of-the box, but can be adjusted to your needs or used as a starting poit to write your own dumper to your preferred output format.
 
 ## Supported Languages {#supported-languages}
 
@@ -40,17 +40,17 @@ The current version supports the following languages(to different extents and ac
 |Sentence splitting           | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
 |Number detection             |     | X   |     |     | X   | X   |     | X   |     | X   |     | X   | X   |     |
 |Date detection               |     | X   |     |     | X   | X   |     | X   |     |     |     | X   | X   |     |
-|Morphological dictionary     | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
+|Morphological dictionary     | X   | X   | X   | X   | X   | X   | X   | X   |     | X   | X   | X   | X   | X   |
 |Affix rules                  | X   | X   | X   | X   | X   | X   | X   | X   |     | X   | X   | X   |     |     |
 |Multiword detection          | X   | X   | X   |     | X   | X   | X   | X   |     | X   |     | X   |     |     |
 |Basic named entity detection | X   | X   | X   |     | X   | X   | X   | X   |     | X   |     | X   | X   | X   |
 |B-I-O named entity detection |     | X   |     |     | X   | X   |     | X   |     |     |     | X   |     |     |
 |Named Entity Classification  |     | X   |     |     | X   | X   |     |     |     |     |     | X   |     |     | 
 |Quantity detection           |     | X   |     |     | X   | X   |     | X   |     |     |     | X   | X   |     | 
-|PoS tagging                  | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | 
+|PoS tagging                  | X   | X   | X   | X   | X   | X   | X   | X   |     | X   | X   | X   | X   | X   | 
 |Phonetic encoding            |     |     |     |     | X   | X   |     |     |     |     |     |     |     |     | 
-|WN sense annotation          |     | X   |     |     | X   | X   | X   | X   |     |     |     |     |     | X   |
-|UKB sense disambiguation     |     | X   |     |     | X   | X   | X   | X   |     |     |     |     |     | X   |
+|WN sense annotation          |     | X   |     |     | X   | X   | X   | X   | X   |     |     |     |     | X   |
+|UKB sense disambiguation     |     | X   |     |     | X   | X   | X   | X   | X   |     |     |     |     | X   |
 |Shallow parsing              | X   | X   |     |     | X   | X   |     | X   |     |     |     | X   |     |     | 
 |Full/dependency parsing      | X   | X   |     |     | X   | X   |     | X   | X   |     |     |     |     | X   |
 |Semantic Role Labelling      |     | X   |     | X   | X   | X   |     |     |     |     |     |     |     |     |
