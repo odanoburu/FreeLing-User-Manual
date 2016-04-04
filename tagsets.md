@@ -1,9 +1,14 @@
-# FreeLing Tagsets Description
+# FreeLing Tagset Description
 
 FreeLing morphological analyzers and taggser encode morphological information in PoS tags which are based on the proposals by [EAGLES](http://www.ilc.cnr.it/EAGLES96/annotate/node9.html).
 
  EAGLES intends to be able to encode all existing morphological features for most European languages. 
  Note that attributes which are not relevant or not used in a particular language are either not included in the tagset for that language.
+ 
+ EAGLES PoS tags consist of a variable-length tag where each character corresponds to a morphological feature.
+ First character in the tag is always the category (PoS). The category determines the length of the tag and the interpretation of each position.
+ 
+ 
  Present attributes that are underspecified for a given word, get 0 (zero) as value.
 
  Next sections contain valid Part-of-Speech tags and attributes with their values for each language supported in FreeLing:
