@@ -1,4 +1,4 @@
-## Tagset for (it)
+## Tagset for (../freeling-git/data/it/tagset.dat)
 
 
 ### Part of Speech: `adjective`
@@ -90,3 +90,32 @@
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **I**:_interjection_ |
+
+
+## Non-positional tags
+
+### Part of Speech: `punctuation`
+| Tag  | Attributes |
+|:---- |:----       |
+| Fd | **pos**:_punctuation_;   **type**:_colon_|
+| Fc | **pos**:_punctuation_;   **type**:_comma_|
+| Flt | **pos**:_punctuation_;  **type**:_curlybracket_;   **punctenclose**:_close_|
+| Fla | **pos**:_punctuation_;  **type**:_curlybracket_;   **punctenclose**:_open_|
+| Fs | **pos**:_punctuation_;   **type**:_etc_|
+| Fat | **pos**:_punctuation_;  **type**:_exclamationmark_;   **punctenclose**:_close_|
+| Faa | **pos**:_punctuation_;  **type**:_exclamationmark_;   **punctenclose**:_open_|
+| Fg | **pos**:_punctuation_;   **type**:_hyphen_|
+| Fz | **pos**:_punctuation_;   **type**:_other_|
+| Fpt | **pos**:_punctuation_;  **type**:_parenthesis_;   **punctenclose**:_close_|
+| Fpa | **pos**:_punctuation_;  **type**:_parenthesis_;   **punctenclose**:_open_|
+| Ft | **pos**:_punctuation_;   **type**:_percentage_|
+| Fp | **pos**:_punctuation_;   **type**:_period_|
+| Fit | **pos**:_punctuation_;  **type**:_questionmark_;   **punctenclose**:_close_|
+| Fia | **pos**:_punctuation_;  **type**:_questionmark_;   **punctenclose**:_open_|
+| Fe | **pos**:_punctuation_;   **type**:_quotation_|
+| Frc | **pos**:_punctuation_;  **type**:_quotation_;   **punctenclose**:_close_|
+| Fra | **pos**:_punctuation_;  **type**:_quotation_;   **punctenclose**:_open_|
+| Fx | **pos**:_punctuation_;   **type**:_semicolon_|
+| Fh | **pos**:_punctuation_;   **type**:_slash_|
+| Fct | **pos**:_punctuation_;  **type**:_squarebracket_;   **punctenclose**:_close_|
+| Fca | **pos**:_punctuation_;  **type**:_squarebracket_;   **punctenclose**:_open_|
