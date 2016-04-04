@@ -4,8 +4,8 @@ FreeLing morphological analyzers and taggser encode morphological information in
 
  EAGLES intends to be able to encode all existing morphological features for most European languages. 
  
- EAGLES PoS tags consist of a variable-length tag where each character corresponds to a morphological feature.
- First character in the tag is always the category (PoS). The category determines the length of the tag and the interpretation of each character in the tag.
+ EAGLES PoS tags consist of variable-length labels where each character corresponds to a morphological feature.
+ First character in the tag is always the category (PoS). The category determines the length of the tag and the interpretation of each character in the label.
  
  For instance, for category `noun` we could have the definition: 
  
@@ -16,11 +16,11 @@ FreeLing morphological analyzers and taggser encode morphological information in
 | 2 | gen |   **F**:_f_;   **M**:_m_;   **C**:_c_|
 | 3 | num |   **S**:_s_;   **P**:_p_;   **N**:_n_|
 
-That would allow PoS tags such as `NCMS` (standing for _noun-common-masculine-singular_)
+That would allow PoS tags such as `NCMS` (standing for _noun/common/masculine/singular_)
 
 Features that are not applicable or underspecified for a particular word are set to `0` (zero). For instance the tag `NC00` stands for _noun/common/underspecified-gender/underspecified-number_.
 
-Note that the interpretation of a character at a certain position of a tag depends on the PoS (indicated by the first character) and on the tagset definition for the target language.
+Note that the interpretation of a character at a certain position of a tag depends on the PoS (indicated by the first character) and on the target language.
 
 For instance, in a language where nouns can have additional features (e.g. case) the tag definition would include one additional position for case feature. E.g.:
 
