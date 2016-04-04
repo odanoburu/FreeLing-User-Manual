@@ -7,12 +7,11 @@ FreeLing morphological analyzers and taggser encode morphological information in
 
  For each language supported in FreeLing, the valid Part-of-Speech tags and attributes with their values is detailed below:
 
-
-../freeling-git/data/as
+/freeling-git/data/as
 <table>
-<theader><tr><th colspan="5">
+<tr><th colspan="5">
 Part of Speech: adjective
-</th></tr></theader>
+</th></tr>
 <tbody>
 <tr>
 <td>Category<br/><strong>A</strong></td>
