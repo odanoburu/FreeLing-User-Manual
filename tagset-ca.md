@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/ca/tagset.dat)
+## Tagset for (ca)
 
 ### Part of Speech: `adjective`
 | Position | Atribute | Values |
