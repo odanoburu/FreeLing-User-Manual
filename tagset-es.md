@@ -3,77 +3,77 @@
 ### Part of Speech: `adjective`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | _**A**: adjective_ |
-| 1 | type |   _**O**_: _ordinal_   _**Q**_: _qualificative_   _**P**_: _possessive_ |
-| 2 | degree |   _**S**_: _superlative_   _**V**_: _evaluative_ |
-| 3 | gen |   _**F**_: _f_   _**M**_: _m_   _**C**_: _c_ |
-| 4 | num |   _**S**_: _s_   _**P**_: _p_   _**N**_: _n_ |
-| 5 | possessorpers |   _**1**_: _1_   _**2**_: _2_   _**3**_: _3_ |
-| 6 | possessornum |   _**S**_: _s_   _**P**_: _p_   _**N**_: _n_ |
+| 0        | category | **A**:_adjective_ |
+| 1 | type |   **O**:_ordinal_   **Q**:_qualificative_   **P**:_possessive_ |
+| 2 | degree |   **S**:_superlative_   **V**:_evaluative_ |
+| 3 | gen |   **F**:_f_   **M**:_m_   **C**:_c_ |
+| 4 | num |   **S**:_s_   **P**:_p_   **N**:_n_ |
+| 5 | possessorpers |   **1**:_1_   **2**:_2_   **3**:_3_ |
+| 6 | possessornum |   **S**:_s_   **P**:_p_   **N**:_n_ |
 ### Part of Speech: `conjunction`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | _**C**: conjunction_ |
-| 1 | type |   _**C**_: _coordinating_   _**S**_: _subordinating_ |
+| 0        | category | **C**:_conjunction_ |
+| 1 | type |   **C**:_coordinating_   **S**:_subordinating_ |
 ### Part of Speech: `determiner`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | _**D**: determiner_ |
-| 1 | type |   _**A**_: _article_   _**D**_: _demonstrative_   _**I**_: _indefinite_   _**P**_: _possessive_   _**T**_: _interrogative_   _**E**_: _exclamative_ |
-| 2 | person |   _**1**_: _1_   _**2**_: _2_   _**3**_: _3_ |
-| 3 | gen |   _**F**_: _f_   _**M**_: _m_   _**C**_: _c_ |
-| 4 | num |   _**S**_: _s_   _**P**_: _p_   _**N**_: _n_ |
-| 5 | possessornum |   _**S**_: _s_   _**P**_: _p_   _**N**_: _n_ |
+| 0        | category | **D**:_determiner_ |
+| 1 | type |   **A**:_article_   **D**:_demonstrative_   **I**:_indefinite_   **P**:_possessive_   **T**:_interrogative_   **E**:_exclamative_ |
+| 2 | person |   **1**:_1_   **2**:_2_   **3**:_3_ |
+| 3 | gen |   **F**:_f_   **M**:_m_   **C**:_c_ |
+| 4 | num |   **S**:_s_   **P**:_p_   **N**:_n_ |
+| 5 | possessornum |   **S**:_s_   **P**:_p_   **N**:_n_ |
 ### Part of Speech: `noun`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | _**N**: noun_ |
-| 1 | type |   _**C**_: _common_   _**P**_: _proper_ |
-| 2 | gen |   _**F**_: _f_   _**M**_: _m_   _**C**_: _c_ |
-| 3 | num |   _**S**_: _s_   _**P**_: _p_   _**N**_: _n_ |
-| 4 | neclass |   _**S**_: _person_   _**G**_: _location_   _**O**_: _organization_   _**V**_: _other_ |
-| 5 | nesubclass |   _**0**_: _0_   _**P**_: _0_ |
-| 6 | degree |   _**V**_: _evaluative_ |
+| 0        | category | **N**:_noun_ |
+| 1 | type |   **C**:_common_   **P**:_proper_ |
+| 2 | gen |   **F**:_f_   **M**:_m_   **C**:_c_ |
+| 3 | num |   **S**:_s_   **P**:_p_   **N**:_n_ |
+| 4 | neclass |   **S**:_person_   **G**:_location_   **O**:_organization_   **V**:_other_ |
+| 5 | nesubclass |   **0**:_0_   **P**:_0_ |
+| 6 | degree |   **V**:_evaluative_ |
 ### Part of Speech: `pronoun`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | _**P**: pronoun_ |
-| 1 | type |   _**D**_: _demonstrative_   _**E**_: _exclamative_   _**I**_: _indefinite_   _**P**_: _personal_   _**R**_: _relative_   _**T**_: _interrogative_ |
-| 2 | person |   _**1**_: _1_   _**2**_: _2_   _**3**_: _3_ |
-| 3 | gen |   _**F**_: _f_   _**M**_: _m_   _**C**_: _c_ |
-| 4 | num |   _**S**_: _s_   _**P**_: _p_   _**N**_: _n_ |
-| 5 | case |   _**N**_: _nominative_   _**A**_: _accusative_   _**D**_: _dative_   _**O**_: _oblique_ |
-| 6 | polite |   _**P**_: _yes_ |
+| 0        | category | **P**:_pronoun_ |
+| 1 | type |   **D**:_demonstrative_   **E**:_exclamative_   **I**:_indefinite_   **P**:_personal_   **R**:_relative_   **T**:_interrogative_ |
+| 2 | person |   **1**:_1_   **2**:_2_   **3**:_3_ |
+| 3 | gen |   **F**:_f_   **M**:_m_   **C**:_c_ |
+| 4 | num |   **S**:_s_   **P**:_p_   **N**:_n_ |
+| 5 | case |   **N**:_nominative_   **A**:_accusative_   **D**:_dative_   **O**:_oblique_ |
+| 6 | polite |   **P**:_yes_ |
 ### Part of Speech: `adverb`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | _**R**: adverb_ |
-| 1 | type |   _**N**_: _negative_   _**G**_: _0_ |
+| 0        | category | **R**:_adverb_ |
+| 1 | type |   **N**:_negative_   **G**:_0_ |
 ### Part of Speech: `adposition`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | _**S**: adposition_ |
-| 1 | type |   _**P**_: _preposition_ |
+| 0        | category | **S**:_adposition_ |
+| 1 | type |   **P**:_preposition_ |
 ### Part of Speech: `verb`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | _**V**: verb_ |
-| 1 | type |   _**M**_: _main_   _**A**_: _auxiliary_   _**S**_: _semiauxiliary_ |
-| 2 | mood |   _**I**_: _indicative_   _**S**_: _subjunctive_   _**M**_: _imperative_   _**P**_: _participle_   _**G**_: _gerund_   _**N**_: _infinitive_ |
-| 3 | tense |   _**P**_: _present_   _**I**_: _imperfect_   _**F**_: _future_   _**S**_: _past_   _**C**_: _conditional_ |
-| 4 | person |   _**1**_: _1_   _**2**_: _2_   _**3**_: _3_ |
-| 5 | num |   _**S**_: _s_   _**P**_: _p_ |
-| 6 | gen |   _**F**_: _f_   _**M**_: _m_   _**C**_: _c_ |
+| 0        | category | **V**:_verb_ |
+| 1 | type |   **M**:_main_   **A**:_auxiliary_   **S**:_semiauxiliary_ |
+| 2 | mood |   **I**:_indicative_   **S**:_subjunctive_   **M**:_imperative_   **P**:_participle_   **G**:_gerund_   **N**:_infinitive_ |
+| 3 | tense |   **P**:_present_   **I**:_imperfect_   **F**:_future_   **S**:_past_   **C**:_conditional_ |
+| 4 | person |   **1**:_1_   **2**:_2_   **3**:_3_ |
+| 5 | num |   **S**:_s_   **P**:_p_ |
+| 6 | gen |   **F**:_f_   **M**:_m_   **C**:_c_ |
 ### Part of Speech: `number`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | _**Z**: number_ |
-| 1 | type |   _**d**_: _partitive_   _**m**_: _currency_   _**p**_: _percentage_   _**u**_: _unit_ |
+| 0        | category | **Z**:_number_ |
+| 1 | type |   **d**:_partitive_   **m**:_currency_   **p**:_percentage_   **u**:_unit_ |
 ### Part of Speech: `date`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | _**W**: date_ |
+| 0        | category | **W**:_date_ |
 ### Part of Speech: `interjection`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | _**I**: interjection_ |
+| 0        | category | **I**:_interjection_ |
