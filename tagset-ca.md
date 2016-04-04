@@ -1,31 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-  <title>ETIQUETES EAGLES</title>
-  <meta name="description" content="L'analitzador morfològic per al català utilitza un conjunt d'etiquetes per representar la informació morfològica de les paraules. Aquest conjunt d'etiquetes es basa en les etiquetes proposades pel grup EAGLES per a l'anotació morfosintàctica de lexicons i corpus per a totes les llengües europees.">
-  <meta name="Keywords" lang="ca" content="Universitat de Barcelona, Universitat Politècnica de Catalunya, analitzador morfològic, flexionador, lematitzador, etiquetador morfològic, anàlisi sintàctica, categories PAROLE, categories EAGLES, etiquetes PAROLE, etiquetes EAGLES">
-  <meta name="Keywords" lang="es" content="Universidad de Barcelona, Universidad Politécnica de Cataluña, analizador morfológico, flexionador, lematizador, etiquetador morfológico, análisis sintáctico, categorías PAROLE, categorías EAGLES, etiquetes PAROLE, etiquetas EAGLES">
- 	<STYLE type="text/css">
-	  ol.nested { counter-reset: item }
-	  li.nested { display: block }
- 	  li.nested:before { content: counters(item, ".") ". "; counter-increment: item }
-	  div.examples {text-indent:3em; line-height: 300%; vertical-align: middle;}
-	  span.title0 {font-size: 120%; font-weight: bold; line-height: 300%; vertical-align: middle; }
-          span.title1 {font-weight: bold; line-height: 300%; vertical-align: middle; }
-	</STYLE>
-<body>
-<h3>INTRODUCCIÓ A LES ETIQUETES EAGLES</h3>
-<p align="justify">L'<b>analitzador morfològic per al català</b> utilitza un
+# Tagset Descriptions
+  
+ L'analitzador morfològic per al català utilitza un conjunt d'etiquetes per representar la informació morfològica de les paraules. Aquest conjunt d'etiquetes es basa en les etiquetes proposades pel grup EAGLES per a l'anotació morfosintàctica de lexicons i corpus per a totes les llengües europees.
+ 
+## INTRODUCCIÓ A LES ETIQUETES EAGLES
+L'*analitzador morfològic per al català<* utilitza un
 conjunt d'etiquetes per representar la informació morfològica
-de les paraules. Aquest conjunt d'etiquetes es basa en les etiquetes
-proposades pel grup <a href="http://www.ilc.cnr.it/EAGLES96/home.html" target="_blank">EAGLES</a> per a l'anotació
+de les paraules. Aquest conjunt d'etiquetes es basa en les etiquetes proposades pel grup [EAGLES](http://www.ilc.cnr.it/EAGLES96/home.html) </per a l'anotació
 morfosintàctica de lexicons i corpus per a totes les
 llengües europees. Així, està previst que recullin
 els accidents gramaticals existents en les llengües europees.
 És per això que depenent de la llengua hi ha atributs que
-poden no especificar-se. Si un atribut no s'especifica significa que o
-bé expressa un tipus d'informació que no existeix en la
+poden no especificar-se. Si un atribut no s'especifica significa que o bé expressa un tipus d'informació que no existeix en la
 llengua o bé la informació no es considera rellevant. La
 infraespecificació d'un atribut es marca amb el 0. </p>
 
