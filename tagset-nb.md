@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/nb/tagset.dat)
+## Tagset for Norwegian (nb)
 
 
 ### Part of Speech: `adjective`

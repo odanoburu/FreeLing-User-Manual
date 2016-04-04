@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/en/tagset.dat)
+## Tagset for English (en)
 
 
 ### Part of Speech: `number`

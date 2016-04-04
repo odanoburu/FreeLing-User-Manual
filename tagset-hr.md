@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/hr/tagset.dat)
+## Tagset for Croatian (hr)
 
 
 ### Part of Speech: `noun`

@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/es/tagset.dat)
+## Tagset for Spanish (es)
 
 
 ### Part of Speech: `adjective`

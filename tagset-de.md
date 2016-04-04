@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/de/tagset.dat)
+## Tagset for German (de)
 
 
 ### Part of Speech: `noun`

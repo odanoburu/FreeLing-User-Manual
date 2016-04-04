@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/ru/tagset.dat)
+## Tagset for Russian (ru)
 
 
 ### Part of Speech: `adjective`

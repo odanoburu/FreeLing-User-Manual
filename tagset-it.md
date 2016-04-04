@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/it/tagset.dat)
+## Tagset for Italian (it)
 
 
 ### Part of Speech: `adjective`

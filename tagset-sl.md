@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/sl/tagset.dat)
+## Tagset for Slovene (sl)
 
 
 ### Part of Speech: `noun`

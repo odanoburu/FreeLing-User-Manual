@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/ca/tagset.dat)
+## Tagset for Catalan (ca)
 
 
 ### Part of Speech: `adjective`

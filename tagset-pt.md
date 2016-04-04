@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/pt/tagset.dat)
+## Tagset for Portuguese (pt)
 
 
 ### Part of Speech: `adjective`

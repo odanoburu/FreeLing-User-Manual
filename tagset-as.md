@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/as/tagset.dat)
+## Tagset for Asturian (as)
 
 
 ### Part of Speech: `adjective`

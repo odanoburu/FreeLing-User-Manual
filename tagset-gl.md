@@ -1,4 +1,4 @@
-## Tagset for (../freeling-git/data/gl/tagset.dat)
+## Tagset for Galician (gl)
 
 
 ### Part of Speech: `adjective`
