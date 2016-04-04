@@ -8,10 +8,8 @@ FreeLing morphological analyzers and taggser encode morphological information in
  For each language supported in FreeLing, the valid Part-of-Speech tags and attributes with their values is detailed below:
 
 /freeling-git/data/as
+<h3>Part of Speech: adjective</h3>
 <table>
-<tr><th colspan="5">
-Part of Speech: adjective
-</th></tr>
 <tbody>
 <tr>
 <td>Category<br/><strong>A</strong></td>
@@ -34,9 +32,11 @@ Part of Speech: adjective
 </td>
 </tr>
 </tbody>
-<theader><tr><th colspan="2">
+</table>
+<table>
+<tr><th colspan="2">
 Part of Speech: conjunction
-</th></tr></theader>
+</th></tr>
 <tbody>
 <tr>
 <td>Category<br/><strong>C</strong></td>
