@@ -9,7 +9,6 @@
 | Category | type |
 | :----  | :---- | :---- |
  | *C*: _conjunction_ | *C*: _coordinating_ |
- |  | *S*: _subordinating_ |
 ### Part of Speech: `determiner`
 | Category | type | person | gen | num | possessornum |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -24,8 +23,6 @@
  | *N*: _noun_ | *C*: _common_ | *F*: _f_ | *S*: _s_ | *S*: _person_ | *0*: _0_ | *V*: _evaluative_ |
  |  | *P*: _proper_ | *M*: _m_ | *P*: _p_ | *G*: _location_ | *P*: _0_ |  |
  |  |  | *C*: _c_ | *N*: _n_ | *O*: _organization_ |  |  |
- |  |  |  |  | *V*: _other_ |  |  |
- |  |  |  |  |  |  |  |
 ### Part of Speech: `pronoun`
 | Category | type | person | gen | num | case | polite |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -38,18 +35,9 @@
 | Category | type |
 | :----  | :---- | :---- |
  | *R*: _adverb_ | *N*: _negative_ |
- |  | *G*: _0_ |
- |  |  |
- |  |  |
- |  |  |
 ### Part of Speech: `adposition`
 | Category | type |
 | :----  | :---- | :---- |
- | *S*: _adposition_ | *P*: _preposition_ |
- |  |  |
- |  |  |
- |  |  |
- |  |  |
 ### Part of Speech: `verb`
 | Category | type | mood | tense | person | num | gen |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -64,21 +52,9 @@
  | *Z*: _number_ | *d*: _partitive_ |
  |  | *m*: _currency_ |
  |  | *p*: _percentage_ |
- |  | *u*: _unit_ |
- |  |  |
 ### Part of Speech: `date`
 | Category |
 | :----  | :---- |
- | *W*: _date_ |
- |  |
- |  |
- |  |
- |  |
 ### Part of Speech: `interjection`
 | Category |
 | :----  | :---- |
- | *I*: _interjection_ |
- |  |
- |  |
- |  |
- |  |

@@ -43,51 +43,26 @@
  | *R*: _adverb_ | *G*: _general_ |
  |  | *N*: _negative_ |
  |  | *V*: _particle_ |
- |  | *P*: _pronominal_ |
- |  |  |
- |  |  |
 ### Part of Speech: `adposition`
 | Category | type | case | gen | num |
 | :----  | :---- | :---- | :---- | :---- | :---- |
  | *S*: _adposition_ | *P*: _preposition_ | *N*: _nominative_ | *F*: _f_ | *S*: _s_ |
  |  | *S*: _postposition_ | *A*: _accusative_ | *M*: _m_ | *P*: _p_ |
  |  | *C*: _circumposition_ | *D*: _dative_ | *N*: _n_ |  |
- |  | *Z*: _particle_ | *G*: _genitive_ |  |  |
- |  |  |  |  |  |
- |  |  |  |  |  |
 ### Part of Speech: `conjunction`
 | Category | type |
 | :----  | :---- | :---- |
  | *C*: _conjunction_ | *S*: _subordinating_ |
  |  | *C*: _coordinating_ |
- |  | *M*: _comparative_ |
- |  |  |
- |  |  |
- |  |  |
 ### Part of Speech: `number`
 | Category | type |
 | :----  | :---- | :---- |
  | *Z*: _number_ | *d*: _partitive_ |
  |  | *m*: _currency_ |
  |  | *p*: _percentage_ |
- |  | *u*: _unit_ |
- |  |  |
- |  |  |
 ### Part of Speech: `date`
 | Category |
 | :----  | :---- |
- | *W*: _date_ |
- |  |
- |  |
- |  |
- |  |
- |  |
 ### Part of Speech: `interjection`
 | Category |
 | :----  | :---- |
- | *I*: _interjection_ |
- |  |
- |  |
- |  |
- |  |
- |  |

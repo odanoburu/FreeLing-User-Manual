@@ -17,7 +17,6 @@
  |  | *O*: _modal_ | *C*: _conditional_ | *F*: _future_ | *3*: _3_ |  | *N*: _n_ |  |  |
  |  | *C*: _copula_ | *N*: _infinitive_ | *S*: _past_ |  |  |  |  |  |
  |  |  | *P*: _participle_ | *L*: _pluperfect_ |  |  |  |  |  |
- |  |  |  | *A*: _aorist_ |  |  |  |  |  |
 ### Part of Speech: `adjective`
 | Category | type | degree | gen | num | case | definite | animate |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -41,10 +40,6 @@
 | :----  | :---- | :---- | :---- |
  | *R*: _adverb_ | *G*: _general_ | *P*: _positive_ |
  |  |  | *C*: _comparative_ |
- |  |  | *S*: _superlative_ |
- |  |  |  |
- |  |  |  |
- |  |  |  |
 ### Part of Speech: `adposition`
 | Category | type | formation | case |
 | :----  | :---- | :---- | :---- | :---- |
@@ -52,17 +47,10 @@
  |  |  | *C*: _compound_ | *D*: _dative_ |
  |  |  |  | *A*: _accusative_ |
  |  |  |  | *L*: _locative_ |
- |  |  |  | *I*: _instrumental_ |
- |  |  |  |  |
 ### Part of Speech: `conjunction`
 | Category | type | formation |
 | :----  | :---- | :---- | :---- |
  | *C*: _conjunction_ | *C*: _coordinating_ | *S*: _simple_ |
- |  | *S*: _subordinating_ | *C*: _compound_ |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
 ### Part of Speech: `numeral`
 | Category | type | gen | num | case | form | animate |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -78,18 +66,10 @@
  | *Q*: _particle_ | *Z*: _negative_ |
  |  | *Q*: _interrogative_ |
  |  | *O*: _modal_ |
- |  | *R*: _affirmative_ |
- |  |  |
- |  |  |
 ### Part of Speech: `interjection`
 | Category | formation |
 | :----  | :---- | :---- |
  | *I*: _interjection_ | *S*: _simple_ |
- |  | *C*: _compound_ |
- |  |  |
- |  |  |
- |  |  |
- |  |  |
 ### Part of Speech: `abbreviation`
 | Category | syntactic | gen | num | case |
 | :----  | :---- | :---- | :---- | :---- | :---- |
@@ -98,31 +78,15 @@
  |  |  | *N*: _n_ | *P*: _p_ | *D*: _dative_ |
  |  |  |  |  | *A*: _accusative_ |
  |  |  |  |  | *L*: _locative_ |
- |  |  |  |  | *I*: _instrumental_ |
 ### Part of Speech: `residual`
 | Category |
 | :----  | :---- |
- | *X*: _residual_ |
- |  |
- |  |
- |  |
- |  |
- |  |
 ### Part of Speech: `number`
 | Category | type |
 | :----  | :---- | :---- |
  | *Z*: _number_ | *d*: _partitive_ |
  |  | *m*: _currency_ |
  |  | *p*: _percentage_ |
- |  | *u*: _unit_ |
- |  |  |
- |  |  |
 ### Part of Speech: `date`
 | Category |
 | :----  | :---- |
- | *W*: _date_ |
- |  |
- |  |
- |  |
- |  |
- |  |

@@ -25,16 +25,11 @@
  |  | *P*: _participle_ | *S*: _superlative_ | *N*: _n_ | *P*: _p_ | *D*: _dative_ |  |
  |  |  |  |  |  | *A*: _accusative_ |  |
  |  |  |  |  |  | *L*: _locative_ |  |
- |  |  |  |  |  | *I*: _instrumental_ |  |
 ### Part of Speech: `adverb`
 | Category | type | degree |
 | :----  | :---- | :---- | :---- |
  | *R*: _adverb_ | *G*: _general_ | *P*: _positive_ |
  |  | *R*: _participle_ | *C*: _comparative_ |
- |  |  | *S*: _superlative_ |
- |  |  |  |
- |  |  |  |
- |  |  |  |
 ### Part of Speech: `pronoun`
 | Category | type | person | gen | num | case | possessornum | possessorgen | clitic |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -54,9 +49,6 @@
  |  | *L*: _letter_ | *P*: _pronomial_ | *N*: _n_ | *P*: _p_ | *D*: _dative_ |  |
  |  |  | *S*: _special_ |  |  | *A*: _accusative_ |  |
  |  |  |  |  |  | *L*: _locative_ |  |
- |  |  |  |  |  | *I*: _instrumental_ |  |
- |  |  |  |  |  |  |  |
- |  |  |  |  |  |  |  |
 ### Part of Speech: `preposition`
 | Category | case |
 | :----  | :---- | :---- |
@@ -65,83 +57,30 @@
  |  | *D*: _dative_ |
  |  | *A*: _accusative_ |
  |  | *L*: _locative_ |
- |  | *I*: _instrumental_ |
- |  |  |
- |  |  |
 ### Part of Speech: `conjunction`
 | Category | type |
 | :----  | :---- | :---- |
  | *C*: _conjunction_ | *C*: _coordinating_ |
- |  | *S*: _subordinating_ |
- |  |  |
- |  |  |
- |  |  |
- |  |  |
- |  |  |
- |  |  |
 ### Part of Speech: `particle`
 | Category |
 | :----  | :---- |
- | *Q*: _particle_ |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |
 ### Part of Speech: `interjection`
 | Category |
 | :----  | :---- |
- | *I*: _interjection_ |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |
 ### Part of Speech: `abbreviation`
 | Category |
 | :----  | :---- |
- | *Y*: _abbreviation_ |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |
 ### Part of Speech: `residual`
 | Category | type |
 | :----  | :---- | :---- |
  | *X*: _residual_ | *F*: _foreign_ |
  |  | *T*: _typo_ |
- |  | *P*: _program_ |
- |  |  |
- |  |  |
- |  |  |
- |  |  |
- |  |  |
 ### Part of Speech: `number`
 | Category | type |
 | :----  | :---- | :---- |
  | *Z*: _number_ | *d*: _partitive_ |
  |  | *m*: _currency_ |
  |  | *p*: _percentage_ |
- |  | *u*: _unit_ |
- |  |  |
- |  |  |
- |  |  |
- |  |  |
 ### Part of Speech: `date`
 | Category |
 | :----  | :---- |
- | *W*: _date_ |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |

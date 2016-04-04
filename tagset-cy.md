@@ -9,7 +9,6 @@
 | Category | type |
 | :----  | :---- | :---- |
  | *C*: _conjunction_ | *C*: _coordinating_ |
- |  | *S*: _subordinating_ |
 ### Part of Speech: `determiner`
 | Category | type | person | gen | num | possessornum |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -25,18 +24,12 @@
  | *G*: _particle_ | *N*: _negative_ |
  |  | *A*: _article_ |
  |  | *I*: _indefinite_ |
- |  | *V*: _verbal_ |
- |  |  |
- |  |  |
 ### Part of Speech: `noun`
 | Category | type | gen | num | neclass | degree |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- |
  | *N*: _noun_ | *C*: _common_ | *F*: _f_ | *S*: _s_ | *S*: _person_ | *A*: _augmentative_ |
  |  | *P*: _proper_ | *M*: _m_ | *P*: _p_ | *G*: _location_ | *D*: _diminutive_ |
  |  |  | *C*: _c_ | *N*: _c_ | *O*: _organization_ |  |
- |  |  |  |  | *V*: _other_ |  |
- |  |  |  |  |  |  |
- |  |  |  |  |  |  |
 ### Part of Speech: `pronoun`
 | Category | type | person | gen | num | case | possessornum | polite |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -50,23 +43,10 @@
 ### Part of Speech: `adverb`
 | Category | type |
 | :----  | :---- | :---- |
- | *R*: _adverb_ | *N*: _negative_ |
- |  |  |
- |  |  |
- |  |  |
- |  |  |
- |  |  |
- |  |  |
 ### Part of Speech: `adposition`
 | Category | type | contracted | gen | num |
 | :----  | :---- | :---- | :---- | :---- | :---- |
  | *S*: _adposition_ | *P*: _preposition_ | *S*: _0_ | *M*: _m_ | *S*: _s_ |
- |  |  | *C*: _yes_ |  |  |
- |  |  |  |  |  |
- |  |  |  |  |  |
- |  |  |  |  |  |
- |  |  |  |  |  |
- |  |  |  |  |  |
 ### Part of Speech: `verb`
 | Category | type | mood | tense | person | num | gen |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -75,35 +55,15 @@
  |  | *S*: _semiauxiliary_ | *M*: _imperative_ | *F*: _future_ | *3*: _3_ |  |  |
  |  |  | *P*: _pastparticiple_ | *S*: _past_ |  |  |  |
  |  |  | *G*: _gerund_ | *C*: _conditional_ |  |  |  |
- |  |  | *N*: _infinitive_ |  |  |  |  |
- |  |  |  |  |  |  |  |
 ### Part of Speech: `number`
 | Category | type |
 | :----  | :---- | :---- |
  | *Z*: _number_ | *d*: _partitive_ |
  |  | *m*: _currency_ |
  |  | *p*: _ratio_ |
- |  | *u*: _unit_ |
- |  |  |
- |  |  |
- |  |  |
 ### Part of Speech: `date`
 | Category |
 | :----  | :---- |
- | *W*: _date_ |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |
 ### Part of Speech: `interjection`
 | Category |
 | :----  | :---- |
- | *I*: _interjection_ |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |

@@ -21,7 +21,6 @@
  |  | *I*: _spoken_ |
  |  | *A*: _uncommon_ |
  |  | *B*: _abbreviation_ |
- |  | *E*: _outdated_ |
 ### Part of Speech: `conjunction`
 | Category | other |
 | :----  | :---- | :---- |
@@ -32,7 +31,6 @@
  |  | *I*: _spoken_ |
  |  | *A*: _uncommon_ |
  |  | *B*: _abbreviation_ |
- |  | *E*: _outdated_ |
 ### Part of Speech: `adverb`
 | Category | degree | other | obscene |
 | :----  | :---- | :---- | :---- | :---- |
@@ -43,7 +41,6 @@
  |  |  | *I*: _spoken_ |  |
  |  |  | *A*: _uncommon_ |  |
  |  |  | *B*: _abbreviation_ |  |
- |  |  | *E*: _outdated_ |  |
 ### Part of Speech: `pronoun`
 | Category | case | num | gen | animate | person | other |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -65,7 +62,6 @@
  |  | *I*: _spoken_ |  |
  |  | *A*: _uncommon_ |  |
  |  | *B*: _abbreviation_ |  |
- |  | *E*: _outdated_ |  |
 ### Part of Speech: `compound`
 | Category | other |
 | :----  | :---- | :---- |
@@ -76,7 +72,6 @@
  |  | *I*: _spoken_ |
  |  | *A*: _uncommon_ |
  |  | *B*: _abbreviation_ |
- |  | *E*: _outdated_ |
 ### Part of Speech: `noun`
 | Category | type | case | num | gen | animate | info | other | obscene | neclass |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -98,7 +93,6 @@
  |  | *I*: _spoken_ |
  |  | *A*: _uncommon_ |
  |  | *B*: _abbreviation_ |
- |  | *E*: _outdated_ |
 ### Part of Speech: `participle`
 | Category | mood | num | gen | tense | person | aspect | voice | transitive | other | obscene |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -109,7 +103,6 @@
  |  |  |  |  |  |  |  |  |  | *I*: _spoken_ |  |
  |  |  |  |  |  |  |  |  |  | *A*: _uncommon_ |  |
  |  |  |  |  |  |  |  |  |  | *B*: _abbreviation_ |  |
- |  |  |  |  |  |  |  |  |  | *E*: _outdated_ |  |
 ### Part of Speech: `pronominal-adj`
 | Category | case | num | gen | animate | other |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -131,7 +124,6 @@
  |  | *I*: _spoken_ |
  |  | *A*: _uncommon_ |
  |  | *B*: _abbreviation_ |
- |  | *E*: _outdated_ |
 ### Part of Speech: `verb`
 | Category | mood | num | gen | tense | person | aspect | voice | transitive | other | obscene |
 | :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -142,7 +134,6 @@
  |  |  |  |  |  |  |  |  |  | *I*: _spoken_ |  |
  |  |  |  |  |  |  |  |  |  | *A*: _uncommon_ |  |
  |  |  |  |  |  |  |  |  |  | *B*: _abbreviation_ |  |
- |  |  |  |  |  |  |  |  |  | *E*: _outdated_ |  |
 ### Part of Speech: `ordinal`
 | Category | case | num | gen | animate |
 | :----  | :---- | :---- | :---- | :---- | :---- |
@@ -168,22 +159,6 @@
 ### Part of Speech: `date`
 | Category |
 | :----  | :---- |
- | *W*: _date_ |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |
 ### Part of Speech: `interjection`
 | Category |
 | :----  | :---- |
- | *I*: _interjection_ |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |
- |  |
