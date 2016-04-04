@@ -11,8 +11,8 @@ FreeLing morphological analyzers and taggser encode morphological information in
 <h3>Part of Speech: adjective</h3>
 <table>
 <tbody>
-<tr>
-<td valign="top">Category<br/><strong>A</strong>: adjective</td>
+<tr valign="top">
+<td>Category<br/><strong>A</strong>: adjective</td>
 <td valign="top">type<br/>
 <strong>O</strong>: <em>ordinal</em><br/>
 <strong>Q</strong>: <em>qualificative</em><br/>
