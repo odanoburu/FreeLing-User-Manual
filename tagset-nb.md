@@ -1,5 +1,6 @@
 ## Tagset for (nb)
 
+
 ### Part of Speech: `adjective`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -11,11 +12,13 @@
 | 5 | function |   **P**:_participle_;   **R**:_preparticiple_|
 | 6 | case |   **G**:_genitive_|
 | 7 | definite |   **D**:_yes_;   **U**:_no_|
+
 ### Part of Speech: `conjunction`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **C**:_conjunction_ |
 | 1 | type |   **C**:_coordinating_;   **S**:_subordinating_;   **A**:_adverbial_|
+
 ### Part of Speech: `determiner`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -26,6 +29,7 @@
 | 4 | num |   **S**:_s_;   **P**:_p_|
 | 5 | definite |   **D**:_yes_;   **U**:_no_|
 | 6 | other |   **P**:_polite_;   **R**:_reciprocal_|
+
 ### Part of Speech: `noun`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -37,6 +41,7 @@
 | 5 | nesubclass |   **0**:_0_;   **P**:_0_|
 | 6 | case |   **N**:_nominative_;   **G**:_genitive_|
 | 7 | definite |   **D**:_yes_;   **U**:_no_|
+
 ### Part of Speech: `pronoun`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -48,11 +53,13 @@
 | 5 | case |   **N**:_nominative_;   **A**:_accusative_|
 | 6 | polite |   **P**:_yes_|
 | 7 | human |   **H**:_yes_|
+
 ### Part of Speech: `adverb`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **R**:_adverb_ |
 | 1 | type |   **N**:_negative_;   **G**:_0_|
+
 ### Part of Speech: `adposition`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -61,6 +68,7 @@
 | 2 | contracted |   **S**:_0_|
 | 3 | gen |   **M**:_m_;   **F**:_f_|
 | 4 | num |   **S**:_s_;   **P**:_p_|
+
 ### Part of Speech: `verb`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -68,15 +76,18 @@
 | 1 | type |   **M**:_main_;   **A**:_auxiliary_;   **S**:_semiauxiliary_;   **V**:_sverb_;   **P**:_passive_|
 | 2 | mood |   **I**:_indicative_;   **M**:_imperative_;   **P**:_participle_;   **N**:_infinitive_|
 | 3 | tense |   **P**:_present_;   **S**:_past_|
+
 ### Part of Speech: `number`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **Z**:_number_ |
 | 1 | type |   **d**:_partitive_;   **m**:_currency_;   **p**:_percentage_;   **u**:_unit_|
+
 ### Part of Speech: `date`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **W**:_date_ |
+
 ### Part of Speech: `interjection`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |

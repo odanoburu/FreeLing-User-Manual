@@ -1,5 +1,6 @@
 ## Tagset for (sl)
 
+
 ### Part of Speech: `noun`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -9,6 +10,7 @@
 | 3 | num |   **S**:_s_;   **D**:_d_;   **P**:_p_|
 | 4 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **L**:_locative_;   **I**:_instrumental_|
 | 5 | animate |   **N**:_no_;   **Y**:_yes_|
+
 ### Part of Speech: `verb`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -20,6 +22,7 @@
 | 5 | num |   **S**:_s_;   **D**:_d_;   **P**:_p_|
 | 6 | gen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
 | 7 | negative |   **N**:_no_;   **Y**:_yes_|
+
 ### Part of Speech: `adjective`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -30,12 +33,14 @@
 | 4 | num |   **S**:_s_;   **D**:_d_;   **P**:_p_|
 | 5 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **L**:_locative_;   **I**:_instrumental_|
 | 6 | definite |   **N**:_no_;   **Y**:_yes_|
+
 ### Part of Speech: `adverb`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **R**:_adverb_ |
 | 1 | type |   **G**:_general_;   **R**:_participle_|
 | 2 | degree |   **P**:_positive_;   **C**:_comparative_;   **S**:_superlative_|
+
 ### Part of Speech: `pronoun`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -48,6 +53,7 @@
 | 6 | possessornum |   **S**:_s_;   **D**:_d_;   **P**:_p_|
 | 7 | possessorgen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
 | 8 | clitic |   **Y**:_yes_;   **B**:_bound_|
+
 ### Part of Speech: `number`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -58,38 +64,46 @@
 | 4 | num |   **S**:_s_;   **D**:_d_;   **P**:_p_|
 | 5 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **L**:_locative_;   **I**:_instrumental_|
 | 6 | definite |   **N**:_no_;   **Y**:_yes_|
+
 ### Part of Speech: `preposition`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **S**:_preposition_ |
 | 1 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **L**:_locative_;   **I**:_instrumental_|
+
 ### Part of Speech: `conjunction`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **C**:_conjunction_ |
 | 1 | type |   **C**:_coordinating_;   **S**:_subordinating_|
+
 ### Part of Speech: `particle`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **Q**:_particle_ |
+
 ### Part of Speech: `interjection`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **I**:_interjection_ |
+
 ### Part of Speech: `abbreviation`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **Y**:_abbreviation_ |
+
 ### Part of Speech: `residual`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **X**:_residual_ |
 | 1 | type |   **F**:_foreign_;   **T**:_typo_;   **P**:_program_|
+
 ### Part of Speech: `number`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **Z**:_number_ |
 | 1 | type |   **d**:_partitive_;   **m**:_currency_;   **p**:_percentage_;   **u**:_unit_|
+
 ### Part of Speech: `date`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |

@@ -1,5 +1,6 @@
 ## Tagset for (as)
 
+
 ### Part of Speech: `adjective`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -8,11 +9,13 @@
 | 2 | degree |   **S**:_superlative_|
 | 3 | gen |   **F**:_f_;   **M**:_m_;   **C**:_c_|
 | 4 | num |   **S**:_s_;   **P**:_p_;   **N**:_c_|
+
 ### Part of Speech: `conjunction`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **C**:_conjunction_ |
 | 1 | type |   **C**:_coordinating_;   **S**:_subordinating_|
+
 ### Part of Speech: `determiner`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -22,6 +25,7 @@
 | 3 | gen |   **F**:_f_;   **M**:_m_;   **C**:_c_|
 | 4 | num |   **S**:_s_;   **P**:_p_;   **N**:_c_|
 | 5 | possessornum |   **S**:_s_;   **P**:_p_|
+
 ### Part of Speech: `noun`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -31,6 +35,7 @@
 | 3 | num |   **S**:_s_;   **P**:_p_;   **N**:_c_|
 | 4 | neclass |   **S**:_person_;   **G**:_location_;   **O**:_organization_;   **V**:_other_|
 | 5 | degree |   **A**:_augmentative_;   **D**:_diminutive_|
+
 ### Part of Speech: `pronoun`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -42,11 +47,13 @@
 | 5 | case |   **N**:_nominative_;   **A**:_accusative_;   **D**:_dative_;   **O**:_oblique_|
 | 6 | possessornum |   **S**:_s_;   **P**:_p_|
 | 7 | polite |   **P**:_yes_|
+
 ### Part of Speech: `adverb`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **R**:_adverb_ |
 | 1 | type |   **N**:_negative_|
+
 ### Part of Speech: `adposition`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -55,6 +62,7 @@
 | 2 | contracted |   **S**:_0_;   **C**:_yes_|
 | 3 | gen |   **M**:_m_|
 | 4 | num |   **S**:_s_|
+
 ### Part of Speech: `verb`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
@@ -65,15 +73,18 @@
 | 4 | person |   **1**:_1_;   **2**:_2_;   **3**:_3_|
 | 5 | num |   **S**:_s_;   **P**:_p_|
 | 6 | gen |   **F**:_f_;   **M**:_m_|
+
 ### Part of Speech: `number`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **Z**:_number_ |
 | 1 | type |   **d**:_partitive_;   **m**:_currency_;   **p**:_ratio_;   **u**:_unit_|
+
 ### Part of Speech: `date`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **W**:_date_ |
+
 ### Part of Speech: `interjection`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
