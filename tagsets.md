@@ -24,7 +24,7 @@ Note that the interpretation of a character at a certain position of a tag depen
 
 For instance, in a language where nouns can have additional features (e.g. case) the tag definition would include one additional position for case feature. E.g.:
 
-| Position | Atribute | Values |
+| Position | Attribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **N**:_noun_ |
 | 1 | type |   **C**:_common_;   **P**:_proper_|
@@ -32,6 +32,7 @@ For instance, in a language where nouns can have additional features (e.g. case)
 | 3 | gen  |   **F**:_f_;   **M**:_m_;   **C**:_c_|
 | 4 | num  |   **S**:_s_;   **P**:_p_;   **N**:_n_|
 
+The order of the features is decided by the tagset designer, although EAGLES guidelines recommend that most general and most informative features are placed at the beginning of the label.  In this way, labels can be shortened to a prefix that will always keep the essence of the PoS tag (being the extreme case the reduction to one single character that would be the category).
 
 
  Next sections contain valid Part-of-Speech tags and attributes with their values for each language supported in FreeLing:
