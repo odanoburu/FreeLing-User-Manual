@@ -1,380 +1,128 @@
 ## Tagset for (../freeling-git/data/hr/tagset.dat)
 
-<h3>Part of Speech: noun</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>N</strong>: noun</td>
-<td valign="top">type<br/>
-<strong>C</strong>: <em>common</em><br/>
-<strong>P</strong>: <em>proper</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>s</em><br/>
-<strong>P</strong>: <em>p</em><br/>
-</td>
-<td valign="top">case<br/>
-<strong>N</strong>: <em>nominative</em><br/>
-<strong>G</strong>: <em>genitive</em><br/>
-<strong>D</strong>: <em>dative</em><br/>
-<strong>A</strong>: <em>accusative</em><br/>
-<strong>V</strong>: <em>vocative</em><br/>
-<strong>L</strong>: <em>locative</em><br/>
-<strong>I</strong>: <em>instrumental</em><br/>
-</td>
-<td valign="top">animate<br/>
-<strong>N</strong>: <em>no</em><br/>
-<strong>Y</strong>: <em>yes</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: verb</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>V</strong>: verb</td>
-<td valign="top">type<br/>
-<strong>M</strong>: <em>main</em><br/>
-<strong>A</strong>: <em>auxiliary</em><br/>
-<strong>O</strong>: <em>modal</em><br/>
-<strong>C</strong>: <em>copula</em><br/>
-</td>
-<td valign="top">vform<br/>
-<strong>I</strong>: <em>indicative</em><br/>
-<strong>M</strong>: <em>imperative</em><br/>
-<strong>C</strong>: <em>conditional</em><br/>
-<strong>N</strong>: <em>infinitive</em><br/>
-<strong>P</strong>: <em>participle</em><br/>
-</td>
-<td valign="top">tense<br/>
-<strong>P</strong>: <em>present</em><br/>
-<strong>I</strong>: <em>imperfect</em><br/>
-<strong>F</strong>: <em>future</em><br/>
-<strong>S</strong>: <em>past</em><br/>
-<strong>L</strong>: <em>pluperfect</em><br/>
-<strong>A</strong>: <em>aorist</em><br/>
-</td>
-<td valign="top">person<br/>
-<strong>1</strong>: <em>1</em><br/>
-<strong>2</strong>: <em>2</em><br/>
-<strong>3</strong>: <em>3</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>s</em><br/>
-<strong>P</strong>: <em>p</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-</td>
-<td valign="top">voice<br/>
-<strong>A</strong>: <em>active</em><br/>
-<strong>P</strong>: <em>passive</em><br/>
-</td>
-<td valign="top">negative<br/>
-<strong>N</strong>: <em>no</em><br/>
-<strong>Y</strong>: <em>yes</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: adjective</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>A</strong>: adjective</td>
-<td valign="top">type<br/>
-<strong>F</strong>: <em>qualificative</em><br/>
-<strong>S</strong>: <em>possessive</em><br/>
-<strong>O</strong>: <em>ordinal</em><br/>
-</td>
-<td valign="top">degree<br/>
-<strong>P</strong>: <em>positive</em><br/>
-<strong>C</strong>: <em>comparative</em><br/>
-<strong>S</strong>: <em>superlative</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>s</em><br/>
-<strong>P</strong>: <em>p</em><br/>
-</td>
-<td valign="top">case<br/>
-<strong>N</strong>: <em>nominative</em><br/>
-<strong>G</strong>: <em>genitive</em><br/>
-<strong>D</strong>: <em>dative</em><br/>
-<strong>A</strong>: <em>accusative</em><br/>
-<strong>V</strong>: <em>vocative</em><br/>
-<strong>L</strong>: <em>locative</em><br/>
-<strong>I</strong>: <em>instrumental</em><br/>
-</td>
-<td valign="top">definite<br/>
-<strong>N</strong>: <em>no</em><br/>
-<strong>Y</strong>: <em>yes</em><br/>
-</td>
-<td valign="top">animate<br/>
-<strong>N</strong>: <em>no</em><br/>
-<strong>Y</strong>: <em>yes</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: pronoun</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>P</strong>: pronoun</td>
-<td valign="top">type<br/>
-<strong>P</strong>: <em>personal</em><br/>
-<strong>D</strong>: <em>demonstrative</em><br/>
-<strong>I</strong>: <em>indefinite</em><br/>
-<strong>S</strong>: <em>possessive</em><br/>
-<strong>R</strong>: <em>relative</em><br/>
-<strong>X</strong>: <em>reflexive</em><br/>
-</td>
-<td valign="top">person<br/>
-<strong>1</strong>: <em>1</em><br/>
-<strong>2</strong>: <em>2</em><br/>
-<strong>3</strong>: <em>3</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>s</em><br/>
-<strong>P</strong>: <em>p</em><br/>
-</td>
-<td valign="top">case<br/>
-<strong>N</strong>: <em>nominative</em><br/>
-<strong>G</strong>: <em>genitive</em><br/>
-<strong>D</strong>: <em>dative</em><br/>
-<strong>A</strong>: <em>accusative</em><br/>
-<strong>V</strong>: <em>vocative</em><br/>
-<strong>L</strong>: <em>locative</em><br/>
-<strong>I</strong>: <em>instrumental</em><br/>
-</td>
-<td valign="top">definite<br/>
-<strong>N</strong>: <em>no</em><br/>
-<strong>Y</strong>: <em>yes</em><br/>
-</td>
-<td valign="top">possessornum<br/>
-<strong>S</strong>: <em>s</em><br/>
-<strong>P</strong>: <em>p</em><br/>
-</td>
-<td valign="top">possessorgen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-</td>
-<td valign="top">clitic<br/>
-<strong>Y</strong>: <em>yes</em><br/>
-<strong>N</strong>: <em>no</em><br/>
-</td>
-<td valign="top">referent<br/>
-<strong>P</strong>: <em>personal</em><br/>
-<strong>S</strong>: <em>possessive</em><br/>
-</td>
-<td valign="top">syntactic<br/>
-<strong>N</strong>: <em>nominal</em><br/>
-<strong>A</strong>: <em>adjectival</em><br/>
-</td>
-<td valign="top">animate<br/>
-<strong>N</strong>: <em>no</em><br/>
-<strong>Y</strong>: <em>yes</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: adverb</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>R</strong>: adverb</td>
-<td valign="top">type<br/>
-<strong>G</strong>: <em>general</em><br/>
-</td>
-<td valign="top">degree<br/>
-<strong>P</strong>: <em>positive</em><br/>
-<strong>C</strong>: <em>comparative</em><br/>
-<strong>S</strong>: <em>superlative</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: adposition</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>S</strong>: adposition</td>
-<td valign="top">type<br/>
-<strong>P</strong>: <em>preposition</em><br/>
-</td>
-<td valign="top">formation<br/>
-<strong>S</strong>: <em>simple</em><br/>
-<strong>C</strong>: <em>compound</em><br/>
-</td>
-<td valign="top">case<br/>
-<strong>G</strong>: <em>genitive</em><br/>
-<strong>D</strong>: <em>dative</em><br/>
-<strong>A</strong>: <em>accusative</em><br/>
-<strong>L</strong>: <em>locative</em><br/>
-<strong>I</strong>: <em>instrumental</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: conjunction</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>C</strong>: conjunction</td>
-<td valign="top">type<br/>
-<strong>C</strong>: <em>coordinating</em><br/>
-<strong>S</strong>: <em>subordinating</em><br/>
-</td>
-<td valign="top">formation<br/>
-<strong>S</strong>: <em>simple</em><br/>
-<strong>C</strong>: <em>compound</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: numeral</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>M</strong>: numeral</td>
-<td valign="top">type<br/>
-<strong>C</strong>: <em>cardinal</em><br/>
-<strong>O</strong>: <em>ordinal</em><br/>
-<strong>M</strong>: <em>multiple</em><br/>
-<strong>S</strong>: <em>special</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>s</em><br/>
-<strong>P</strong>: <em>p</em><br/>
-</td>
-<td valign="top">case<br/>
-<strong>N</strong>: <em>nominative</em><br/>
-<strong>G</strong>: <em>genitive</em><br/>
-<strong>D</strong>: <em>dative</em><br/>
-<strong>A</strong>: <em>accusative</em><br/>
-<strong>V</strong>: <em>vocative</em><br/>
-<strong>L</strong>: <em>locative</em><br/>
-<strong>I</strong>: <em>instrumental</em><br/>
-</td>
-<td valign="top">form<br/>
-<strong>D</strong>: <em>digit</em><br/>
-<strong>R</strong>: <em>roman</em><br/>
-<strong>L</strong>: <em>letter</em><br/>
-</td>
-<td valign="top">animate<br/>
-<strong>N</strong>: <em>no</em><br/>
-<strong>Y</strong>: <em>yes</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: particle</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>Q</strong>: particle</td>
-<td valign="top">type<br/>
-<strong>Z</strong>: <em>negative</em><br/>
-<strong>Q</strong>: <em>interrogative</em><br/>
-<strong>O</strong>: <em>modal</em><br/>
-<strong>R</strong>: <em>affirmative</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: interjection</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>I</strong>: interjection</td>
-<td valign="top">formation<br/>
-<strong>S</strong>: <em>simple</em><br/>
-<strong>C</strong>: <em>compound</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: abbreviation</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>Y</strong>: abbreviation</td>
-<td valign="top">syntactic<br/>
-<strong>N</strong>: <em>nominal</em><br/>
-<strong>A</strong>: <em>adjectival</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>s</em><br/>
-<strong>D</strong>: <em>d</em><br/>
-<strong>P</strong>: <em>p</em><br/>
-</td>
-<td valign="top">case<br/>
-<strong>N</strong>: <em>nominative</em><br/>
-<strong>G</strong>: <em>genitive</em><br/>
-<strong>D</strong>: <em>dative</em><br/>
-<strong>A</strong>: <em>accusative</em><br/>
-<strong>L</strong>: <em>locative</em><br/>
-<strong>I</strong>: <em>instrumental</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: residual</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>X</strong>: residual</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: number</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>Z</strong>: number</td>
-<td valign="top">type<br/>
-<strong>d</strong>: <em>partitive</em><br/>
-<strong>m</strong>: <em>currency</em><br/>
-<strong>p</strong>: <em>percentage</em><br/>
-<strong>u</strong>: <em>unit</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: date</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>W</strong>: date</td>
-</tr>
-</tbody>
-</table>
+### Part of Speech: `noun`
+| Category | type | gen | num | case | animate |
+| :----  | :---- | :---- | :---- | :---- | :---- | :---- |
+ | *N*: _noun_ | *C*: _common_ | *M*: _m_ | *S*: _s_ | *N*: _nominative_ | *N*: _no_ |
+ |  | *P*: _proper_ | *F*: _f_ | *P*: _p_ | *G*: _genitive_ | *Y*: _yes_ |
+ |  |  | *N*: _n_ |  | *D*: _dative_ |  |
+ |  |  |  |  | *A*: _accusative_ |  |
+ |  |  |  |  | *V*: _vocative_ |  |
+ |  |  |  |  | *L*: _locative_ |  |
+### Part of Speech: `verb`
+| Category | type | vform | tense | person | num | gen | voice | negative |
+| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+ | *V*: _verb_ | *M*: _main_ | *I*: _indicative_ | *P*: _present_ | *1*: _1_ | *S*: _s_ | *M*: _m_ | *A*: _active_ | *N*: _no_ |
+ |  | *A*: _auxiliary_ | *M*: _imperative_ | *I*: _imperfect_ | *2*: _2_ | *P*: _p_ | *F*: _f_ | *P*: _passive_ | *Y*: _yes_ |
+ |  | *O*: _modal_ | *C*: _conditional_ | *F*: _future_ | *3*: _3_ |  | *N*: _n_ |  |  |
+ |  | *C*: _copula_ | *N*: _infinitive_ | *S*: _past_ |  |  |  |  |  |
+ |  |  | *P*: _participle_ | *L*: _pluperfect_ |  |  |  |  |  |
+ |  |  |  | *A*: _aorist_ |  |  |  |  |  |
+### Part of Speech: `adjective`
+| Category | type | degree | gen | num | case | definite | animate |
+| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+ | *A*: _adjective_ | *F*: _qualificative_ | *P*: _positive_ | *M*: _m_ | *S*: _s_ | *N*: _nominative_ | *N*: _no_ | *N*: _no_ |
+ |  | *S*: _possessive_ | *C*: _comparative_ | *F*: _f_ | *P*: _p_ | *G*: _genitive_ | *Y*: _yes_ | *Y*: _yes_ |
+ |  | *O*: _ordinal_ | *S*: _superlative_ | *N*: _n_ |  | *D*: _dative_ |  |  |
+ |  |  |  |  |  | *A*: _accusative_ |  |  |
+ |  |  |  |  |  | *V*: _vocative_ |  |  |
+ |  |  |  |  |  | *L*: _locative_ |  |  |
+### Part of Speech: `pronoun`
+| Category | type | person | gen | num | case | definite | possessornum | possessorgen | clitic | referent | syntactic | animate |
+| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+ | *P*: _pronoun_ | *P*: _personal_ | *1*: _1_ | *M*: _m_ | *S*: _s_ | *N*: _nominative_ | *N*: _no_ | *S*: _s_ | *M*: _m_ | *Y*: _yes_ | *P*: _personal_ | *N*: _nominal_ | *N*: _no_ |
+ |  | *D*: _demonstrative_ | *2*: _2_ | *F*: _f_ | *P*: _p_ | *G*: _genitive_ | *Y*: _yes_ | *P*: _p_ | *F*: _f_ | *N*: _no_ | *S*: _possessive_ | *A*: _adjectival_ | *Y*: _yes_ |
+ |  | *I*: _indefinite_ | *3*: _3_ | *N*: _n_ |  | *D*: _dative_ |  |  | *N*: _n_ |  |  |  |  |
+ |  | *S*: _possessive_ |  |  |  | *A*: _accusative_ |  |  |  |  |  |  |  |
+ |  | *R*: _relative_ |  |  |  | *V*: _vocative_ |  |  |  |  |  |  |  |
+ |  | *X*: _reflexive_ |  |  |  | *L*: _locative_ |  |  |  |  |  |  |  |
+### Part of Speech: `adverb`
+| Category | type | degree |
+| :----  | :---- | :---- | :---- |
+ | *R*: _adverb_ | *G*: _general_ | *P*: _positive_ |
+ |  |  | *C*: _comparative_ |
+ |  |  | *S*: _superlative_ |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+### Part of Speech: `adposition`
+| Category | type | formation | case |
+| :----  | :---- | :---- | :---- | :---- |
+ | *S*: _adposition_ | *P*: _preposition_ | *S*: _simple_ | *G*: _genitive_ |
+ |  |  | *C*: _compound_ | *D*: _dative_ |
+ |  |  |  | *A*: _accusative_ |
+ |  |  |  | *L*: _locative_ |
+ |  |  |  | *I*: _instrumental_ |
+ |  |  |  |  |
+### Part of Speech: `conjunction`
+| Category | type | formation |
+| :----  | :---- | :---- | :---- |
+ | *C*: _conjunction_ | *C*: _coordinating_ | *S*: _simple_ |
+ |  | *S*: _subordinating_ | *C*: _compound_ |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+### Part of Speech: `numeral`
+| Category | type | gen | num | case | form | animate |
+| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+ | *M*: _numeral_ | *C*: _cardinal_ | *M*: _m_ | *S*: _s_ | *N*: _nominative_ | *D*: _digit_ | *N*: _no_ |
+ |  | *O*: _ordinal_ | *F*: _f_ | *P*: _p_ | *G*: _genitive_ | *R*: _roman_ | *Y*: _yes_ |
+ |  | *M*: _multiple_ | *N*: _n_ |  | *D*: _dative_ | *L*: _letter_ |  |
+ |  | *S*: _special_ |  |  | *A*: _accusative_ |  |  |
+ |  |  |  |  | *V*: _vocative_ |  |  |
+ |  |  |  |  | *L*: _locative_ |  |  |
+### Part of Speech: `particle`
+| Category | type |
+| :----  | :---- | :---- |
+ | *Q*: _particle_ | *Z*: _negative_ |
+ |  | *Q*: _interrogative_ |
+ |  | *O*: _modal_ |
+ |  | *R*: _affirmative_ |
+ |  |  |
+ |  |  |
+### Part of Speech: `interjection`
+| Category | formation |
+| :----  | :---- | :---- |
+ | *I*: _interjection_ | *S*: _simple_ |
+ |  | *C*: _compound_ |
+ |  |  |
+ |  |  |
+ |  |  |
+ |  |  |
+### Part of Speech: `abbreviation`
+| Category | syntactic | gen | num | case |
+| :----  | :---- | :---- | :---- | :---- | :---- |
+ | *Y*: _abbreviation_ | *N*: _nominal_ | *M*: _m_ | *S*: _s_ | *N*: _nominative_ |
+ |  | *A*: _adjectival_ | *F*: _f_ | *D*: _d_ | *G*: _genitive_ |
+ |  |  | *N*: _n_ | *P*: _p_ | *D*: _dative_ |
+ |  |  |  |  | *A*: _accusative_ |
+ |  |  |  |  | *L*: _locative_ |
+ |  |  |  |  | *I*: _instrumental_ |
+### Part of Speech: `residual`
+| Category |
+| :----  | :---- |
+ | *X*: _residual_ |
+ |  |
+ |  |
+ |  |
+ |  |
+ |  |
+### Part of Speech: `number`
+| Category | type |
+| :----  | :---- | :---- |
+ | *Z*: _number_ | *d*: _partitive_ |
+ |  | *m*: _currency_ |
+ |  | *p*: _percentage_ |
+ |  | *u*: _unit_ |
+ |  |  |
+ |  |  |
+### Part of Speech: `date`
+| Category |
+| :----  | :---- |
+ | *W*: _date_ |
+ |  |
+ |  |
+ |  |
+ |  |
+ |  |

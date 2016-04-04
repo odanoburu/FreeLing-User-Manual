@@ -1,557 +1,189 @@
 ## Tagset for (../freeling-git/data/ru/tagset.dat)
 
-<h3>Part of Speech: adjective</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>A</strong>: adjective</td>
-<td valign="top">case<br/>
-<strong>N</strong>: <em>nominative</em><br/>
-<strong>G</strong>: <em>genitive</em><br/>
-<strong>D</strong>: <em>dative</em><br/>
-<strong>F</strong>: <em>accusative</em><br/>
-<strong>C</strong>: <em>instrumental</em><br/>
-<strong>O</strong>: <em>prepositional</em><br/>
-<strong>P</strong>: <em>partitive</em><br/>
-<strong>L</strong>: <em>locative</em><br/>
-<strong>V</strong>: <em>vocative</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>singular</em><br/>
-<strong>P</strong>: <em>plural</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-<strong>C</strong>: <em>c</em><br/>
-</td>
-<td valign="top">animate<br/>
-<strong>A</strong>: <em>yes</em><br/>
-<strong>I</strong>: <em>no</em><br/>
-</td>
-<td valign="top">form<br/>
-<strong>F</strong>: <em>full</em><br/>
-<strong>S</strong>: <em>short</em><br/>
-</td>
-<td valign="top">degree<br/>
-<strong>E</strong>: <em>superlative</em><br/>
-<strong>C</strong>: <em>comparative</em><br/>
-<strong>P</strong>: <em>positive</em><br/>
-</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-<td valign="top">obscene<br/>
-<strong>H</strong>: <em>yes</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: preposition</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>B</strong>: preposition</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: conjunction</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>C</strong>: conjunction</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: adverb</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>D</strong>: adverb</td>
-<td valign="top">degree<br/>
-<strong>E</strong>: <em>superlative</em><br/>
-<strong>C</strong>: <em>comparative</em><br/>
-<strong>P</strong>: <em>positive</em><br/>
-</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-<td valign="top">obscene<br/>
-<strong>H</strong>: <em>yes</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: pronoun</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>E</strong>: pronoun</td>
-<td valign="top">case<br/>
-<strong>N</strong>: <em>nominative</em><br/>
-<strong>G</strong>: <em>genitive</em><br/>
-<strong>D</strong>: <em>dative</em><br/>
-<strong>F</strong>: <em>accusative</em><br/>
-<strong>C</strong>: <em>instrumental</em><br/>
-<strong>O</strong>: <em>prepositional</em><br/>
-<strong>P</strong>: <em>partitive</em><br/>
-<strong>L</strong>: <em>locative</em><br/>
-<strong>V</strong>: <em>vocative</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>singular</em><br/>
-<strong>P</strong>: <em>plural</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-<strong>C</strong>: <em>c</em><br/>
-</td>
-<td valign="top">animate<br/>
-<strong>A</strong>: <em>yes</em><br/>
-<strong>I</strong>: <em>no</em><br/>
-</td>
-<td valign="top">person<br/>
-<strong>1</strong>: <em>1</em><br/>
-<strong>2</strong>: <em>2</em><br/>
-<strong>3</strong>: <em>3</em><br/>
-</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: interjection</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>J</strong>: interjection</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-<td valign="top">obscene<br/>
-<strong>H</strong>: <em>yes</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: compound</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>M</strong>: compound</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: noun</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>N</strong>: noun</td>
-<td valign="top">type<br/>
-<strong>C</strong>: <em>common</em><br/>
-<strong>P</strong>: <em>proper</em><br/>
-</td>
-<td valign="top">case<br/>
-<strong>N</strong>: <em>nominative</em><br/>
-<strong>G</strong>: <em>genitive</em><br/>
-<strong>D</strong>: <em>dative</em><br/>
-<strong>F</strong>: <em>accusative</em><br/>
-<strong>C</strong>: <em>instrumental</em><br/>
-<strong>O</strong>: <em>prepositional</em><br/>
-<strong>P</strong>: <em>partitive</em><br/>
-<strong>L</strong>: <em>locative</em><br/>
-<strong>V</strong>: <em>vocative</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>singular</em><br/>
-<strong>P</strong>: <em>plural</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-<strong>C</strong>: <em>c</em><br/>
-</td>
-<td valign="top">animate<br/>
-<strong>A</strong>: <em>yes</em><br/>
-<strong>I</strong>: <em>no</em><br/>
-</td>
-<td valign="top">info<br/>
-<strong>G</strong>: <em>geographical</em><br/>
-<strong>N</strong>: <em>name</em><br/>
-<strong>S</strong>: <em>patronymic</em><br/>
-<strong>F</strong>: <em>surname</em><br/>
-</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-<td valign="top">obscene<br/>
-<strong>H</strong>: <em>yes</em><br/>
-</td>
-<td valign="top">neclass<br/>
-<strong>S</strong>: <em>person</em><br/>
-<strong>G</strong>: <em>location</em><br/>
-<strong>O</strong>: <em>organization</em><br/>
-<strong>V</strong>: <em>other</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: pronominal-adv</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>P</strong>: pronominal-adv</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: participle</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>Q</strong>: participle</td>
-<td valign="top">mood<br/>
-<strong>G</strong>: <em>gerund</em><br/>
-<strong>I</strong>: <em>infinitive</em><br/>
-<strong>D</strong>: <em>indicative</em><br/>
-<strong>M</strong>: <em>imperative</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>singular</em><br/>
-<strong>P</strong>: <em>plural</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-<strong>C</strong>: <em>c</em><br/>
-</td>
-<td valign="top">tense<br/>
-<strong>P</strong>: <em>present</em><br/>
-<strong>F</strong>: <em>future</em><br/>
-<strong>S</strong>: <em>past</em><br/>
-</td>
-<td valign="top">person<br/>
-<strong>1</strong>: <em>1</em><br/>
-<strong>2</strong>: <em>2</em><br/>
-<strong>3</strong>: <em>3</em><br/>
-</td>
-<td valign="top">aspect<br/>
-<strong>F</strong>: <em>perfective</em><br/>
-<strong>N</strong>: <em>imperfective</em><br/>
-</td>
-<td valign="top">voice<br/>
-<strong>A</strong>: <em>active</em><br/>
-<strong>P</strong>: <em>passive</em><br/>
-</td>
-<td valign="top">transitive<br/>
-<strong>M</strong>: <em>yes</em><br/>
-<strong>A</strong>: <em>no</em><br/>
-</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-<td valign="top">obscene<br/>
-<strong>H</strong>: <em>yes</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: pronominal-adj</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>R</strong>: pronominal-adj</td>
-<td valign="top">case<br/>
-<strong>N</strong>: <em>nominative</em><br/>
-<strong>G</strong>: <em>genitive</em><br/>
-<strong>D</strong>: <em>dative</em><br/>
-<strong>F</strong>: <em>accusative</em><br/>
-<strong>C</strong>: <em>instrumental</em><br/>
-<strong>O</strong>: <em>prepositional</em><br/>
-<strong>P</strong>: <em>partitive</em><br/>
-<strong>L</strong>: <em>locative</em><br/>
-<strong>V</strong>: <em>vocative</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>singular</em><br/>
-<strong>P</strong>: <em>plural</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-<strong>C</strong>: <em>c</em><br/>
-</td>
-<td valign="top">animate<br/>
-<strong>A</strong>: <em>yes</em><br/>
-<strong>I</strong>: <em>no</em><br/>
-</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: particle</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>T</strong>: particle</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: verb</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>V</strong>: verb</td>
-<td valign="top">mood<br/>
-<strong>G</strong>: <em>gerund</em><br/>
-<strong>I</strong>: <em>infinitive</em><br/>
-<strong>D</strong>: <em>indicative</em><br/>
-<strong>M</strong>: <em>imperative</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>singular</em><br/>
-<strong>P</strong>: <em>plural</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-<strong>C</strong>: <em>c</em><br/>
-</td>
-<td valign="top">tense<br/>
-<strong>P</strong>: <em>present</em><br/>
-<strong>F</strong>: <em>future</em><br/>
-<strong>S</strong>: <em>past</em><br/>
-</td>
-<td valign="top">person<br/>
-<strong>1</strong>: <em>1</em><br/>
-<strong>2</strong>: <em>2</em><br/>
-<strong>3</strong>: <em>3</em><br/>
-</td>
-<td valign="top">aspect<br/>
-<strong>F</strong>: <em>perfective</em><br/>
-<strong>N</strong>: <em>imperfective</em><br/>
-</td>
-<td valign="top">voice<br/>
-<strong>A</strong>: <em>active</em><br/>
-<strong>P</strong>: <em>passive</em><br/>
-</td>
-<td valign="top">transitive<br/>
-<strong>M</strong>: <em>yes</em><br/>
-<strong>A</strong>: <em>no</em><br/>
-</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-<td valign="top">obscene<br/>
-<strong>H</strong>: <em>yes</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: ordinal</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>Y</strong>: ordinal</td>
-<td valign="top">case<br/>
-<strong>N</strong>: <em>nominative</em><br/>
-<strong>G</strong>: <em>genitive</em><br/>
-<strong>D</strong>: <em>dative</em><br/>
-<strong>F</strong>: <em>accusative</em><br/>
-<strong>C</strong>: <em>instrumental</em><br/>
-<strong>O</strong>: <em>prepositional</em><br/>
-<strong>P</strong>: <em>partitive</em><br/>
-<strong>L</strong>: <em>locative</em><br/>
-<strong>V</strong>: <em>vocative</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>singular</em><br/>
-<strong>P</strong>: <em>plural</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-<strong>C</strong>: <em>c</em><br/>
-</td>
-<td valign="top">animate<br/>
-<strong>A</strong>: <em>yes</em><br/>
-<strong>I</strong>: <em>no</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: number</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>Z</strong>: number</td>
-<td valign="top">case<br/>
-<strong>N</strong>: <em>nominative</em><br/>
-<strong>G</strong>: <em>genitive</em><br/>
-<strong>D</strong>: <em>dative</em><br/>
-<strong>F</strong>: <em>accusative</em><br/>
-<strong>C</strong>: <em>instrumental</em><br/>
-<strong>O</strong>: <em>prepositional</em><br/>
-<strong>P</strong>: <em>partitive</em><br/>
-<strong>L</strong>: <em>locative</em><br/>
-<strong>V</strong>: <em>vocative</em><br/>
-</td>
-<td valign="top">num<br/>
-<strong>S</strong>: <em>singular</em><br/>
-<strong>P</strong>: <em>plural</em><br/>
-</td>
-<td valign="top">gen<br/>
-<strong>M</strong>: <em>m</em><br/>
-<strong>F</strong>: <em>f</em><br/>
-<strong>N</strong>: <em>n</em><br/>
-<strong>C</strong>: <em>c</em><br/>
-</td>
-<td valign="top">animate<br/>
-<strong>A</strong>: <em>yes</em><br/>
-<strong>I</strong>: <em>no</em><br/>
-</td>
-<td valign="top">other<br/>
-<strong>P</strong>: <em>transition</em><br/>
-<strong>D</strong>: <em>difficult</em><br/>
-<strong>V</strong>: <em>corrupted</em><br/>
-<strong>R</strong>: <em>predicative</em><br/>
-<strong>I</strong>: <em>spoken</em><br/>
-<strong>A</strong>: <em>uncommon</em><br/>
-<strong>B</strong>: <em>abbreviation</em><br/>
-<strong>E</strong>: <em>outdated</em><br/>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: date</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>W</strong>: date</td>
-</tr>
-</tbody>
-</table>
-<h3>Part of Speech: interjection</h3>
-<table>
-<tbody>
-<tr>
-<td valign="top">Category<br/><strong>I</strong>: interjection</td>
-</tr>
-</tbody>
-</table>
+### Part of Speech: `adjective`
+| Category | case | num | gen | animate | form | degree | other | obscene |
+| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+ | *A*: _adjective_ | *N*: _nominative_ | *S*: _singular_ | *M*: _m_ | *A*: _yes_ | *F*: _full_ | *E*: _superlative_ | *P*: _transition_ | *H*: _yes_ |
+ |  | *G*: _genitive_ | *P*: _plural_ | *F*: _f_ | *I*: _no_ | *S*: _short_ | *C*: _comparative_ | *D*: _difficult_ |  |
+ |  | *D*: _dative_ |  | *N*: _n_ |  |  | *P*: _positive_ | *V*: _corrupted_ |  |
+ |  | *F*: _accusative_ |  | *C*: _c_ |  |  |  | *R*: _predicative_ |  |
+ |  | *C*: _instrumental_ |  |  |  |  |  | *I*: _spoken_ |  |
+ |  | *O*: _prepositional_ |  |  |  |  |  | *A*: _uncommon_ |  |
+ |  | *P*: _partitive_ |  |  |  |  |  | *B*: _abbreviation_ |  |
+ |  | *L*: _locative_ |  |  |  |  |  | *E*: _outdated_ |  |
+### Part of Speech: `preposition`
+| Category | other |
+| :----  | :---- | :---- |
+ | *B*: _preposition_ | *P*: _transition_ |
+ |  | *D*: _difficult_ |
+ |  | *V*: _corrupted_ |
+ |  | *R*: _predicative_ |
+ |  | *I*: _spoken_ |
+ |  | *A*: _uncommon_ |
+ |  | *B*: _abbreviation_ |
+ |  | *E*: _outdated_ |
+### Part of Speech: `conjunction`
+| Category | other |
+| :----  | :---- | :---- |
+ | *C*: _conjunction_ | *P*: _transition_ |
+ |  | *D*: _difficult_ |
+ |  | *V*: _corrupted_ |
+ |  | *R*: _predicative_ |
+ |  | *I*: _spoken_ |
+ |  | *A*: _uncommon_ |
+ |  | *B*: _abbreviation_ |
+ |  | *E*: _outdated_ |
+### Part of Speech: `adverb`
+| Category | degree | other | obscene |
+| :----  | :---- | :---- | :---- | :---- |
+ | *D*: _adverb_ | *E*: _superlative_ | *P*: _transition_ | *H*: _yes_ |
+ |  | *C*: _comparative_ | *D*: _difficult_ |  |
+ |  | *P*: _positive_ | *V*: _corrupted_ |  |
+ |  |  | *R*: _predicative_ |  |
+ |  |  | *I*: _spoken_ |  |
+ |  |  | *A*: _uncommon_ |  |
+ |  |  | *B*: _abbreviation_ |  |
+ |  |  | *E*: _outdated_ |  |
+### Part of Speech: `pronoun`
+| Category | case | num | gen | animate | person | other |
+| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+ | *E*: _pronoun_ | *N*: _nominative_ | *S*: _singular_ | *M*: _m_ | *A*: _yes_ | *1*: _1_ | *P*: _transition_ |
+ |  | *G*: _genitive_ | *P*: _plural_ | *F*: _f_ | *I*: _no_ | *2*: _2_ | *D*: _difficult_ |
+ |  | *D*: _dative_ |  | *N*: _n_ |  | *3*: _3_ | *V*: _corrupted_ |
+ |  | *F*: _accusative_ |  | *C*: _c_ |  |  | *R*: _predicative_ |
+ |  | *C*: _instrumental_ |  |  |  |  | *I*: _spoken_ |
+ |  | *O*: _prepositional_ |  |  |  |  | *A*: _uncommon_ |
+ |  | *P*: _partitive_ |  |  |  |  | *B*: _abbreviation_ |
+ |  | *L*: _locative_ |  |  |  |  | *E*: _outdated_ |
+### Part of Speech: `interjection`
+| Category | other | obscene |
+| :----  | :---- | :---- | :---- |
+ | *J*: _interjection_ | *P*: _transition_ | *H*: _yes_ |
+ |  | *D*: _difficult_ |  |
+ |  | *V*: _corrupted_ |  |
+ |  | *R*: _predicative_ |  |
+ |  | *I*: _spoken_ |  |
+ |  | *A*: _uncommon_ |  |
+ |  | *B*: _abbreviation_ |  |
+ |  | *E*: _outdated_ |  |
+### Part of Speech: `compound`
+| Category | other |
+| :----  | :---- | :---- |
+ | *M*: _compound_ | *P*: _transition_ |
+ |  | *D*: _difficult_ |
+ |  | *V*: _corrupted_ |
+ |  | *R*: _predicative_ |
+ |  | *I*: _spoken_ |
+ |  | *A*: _uncommon_ |
+ |  | *B*: _abbreviation_ |
+ |  | *E*: _outdated_ |
+### Part of Speech: `noun`
+| Category | type | case | num | gen | animate | info | other | obscene | neclass |
+| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+ | *N*: _noun_ | *C*: _common_ | *N*: _nominative_ | *S*: _singular_ | *M*: _m_ | *A*: _yes_ | *G*: _geographical_ | *P*: _transition_ | *H*: _yes_ | *S*: _person_ |
+ |  | *P*: _proper_ | *G*: _genitive_ | *P*: _plural_ | *F*: _f_ | *I*: _no_ | *N*: _name_ | *D*: _difficult_ |  | *G*: _location_ |
+ |  |  | *D*: _dative_ |  | *N*: _n_ |  | *S*: _patronymic_ | *V*: _corrupted_ |  | *O*: _organization_ |
+ |  |  | *F*: _accusative_ |  | *C*: _c_ |  | *F*: _surname_ | *R*: _predicative_ |  | *V*: _other_ |
+ |  |  | *C*: _instrumental_ |  |  |  |  | *I*: _spoken_ |  |  |
+ |  |  | *O*: _prepositional_ |  |  |  |  | *A*: _uncommon_ |  |  |
+ |  |  | *P*: _partitive_ |  |  |  |  | *B*: _abbreviation_ |  |  |
+ |  |  | *L*: _locative_ |  |  |  |  | *E*: _outdated_ |  |  |
+### Part of Speech: `pronominal-adv`
+| Category | other |
+| :----  | :---- | :---- |
+ | *P*: _pronominal-adv_ | *P*: _transition_ |
+ |  | *D*: _difficult_ |
+ |  | *V*: _corrupted_ |
+ |  | *R*: _predicative_ |
+ |  | *I*: _spoken_ |
+ |  | *A*: _uncommon_ |
+ |  | *B*: _abbreviation_ |
+ |  | *E*: _outdated_ |
+### Part of Speech: `participle`
+| Category | mood | num | gen | tense | person | aspect | voice | transitive | other | obscene |
+| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+ | *Q*: _participle_ | *G*: _gerund_ | *S*: _singular_ | *M*: _m_ | *P*: _present_ | *1*: _1_ | *F*: _perfective_ | *A*: _active_ | *M*: _yes_ | *P*: _transition_ | *H*: _yes_ |
+ |  | *I*: _infinitive_ | *P*: _plural_ | *F*: _f_ | *F*: _future_ | *2*: _2_ | *N*: _imperfective_ | *P*: _passive_ | *A*: _no_ | *D*: _difficult_ |  |
+ |  | *D*: _indicative_ |  | *N*: _n_ | *S*: _past_ | *3*: _3_ |  |  |  | *V*: _corrupted_ |  |
+ |  | *M*: _imperative_ |  | *C*: _c_ |  |  |  |  |  | *R*: _predicative_ |  |
+ |  |  |  |  |  |  |  |  |  | *I*: _spoken_ |  |
+ |  |  |  |  |  |  |  |  |  | *A*: _uncommon_ |  |
+ |  |  |  |  |  |  |  |  |  | *B*: _abbreviation_ |  |
+ |  |  |  |  |  |  |  |  |  | *E*: _outdated_ |  |
+### Part of Speech: `pronominal-adj`
+| Category | case | num | gen | animate | other |
+| :----  | :---- | :---- | :---- | :---- | :---- | :---- |
+ | *R*: _pronominal-adj_ | *N*: _nominative_ | *S*: _singular_ | *M*: _m_ | *A*: _yes_ | *P*: _transition_ |
+ |  | *G*: _genitive_ | *P*: _plural_ | *F*: _f_ | *I*: _no_ | *D*: _difficult_ |
+ |  | *D*: _dative_ |  | *N*: _n_ |  | *V*: _corrupted_ |
+ |  | *F*: _accusative_ |  | *C*: _c_ |  | *R*: _predicative_ |
+ |  | *C*: _instrumental_ |  |  |  | *I*: _spoken_ |
+ |  | *O*: _prepositional_ |  |  |  | *A*: _uncommon_ |
+ |  | *P*: _partitive_ |  |  |  | *B*: _abbreviation_ |
+ |  | *L*: _locative_ |  |  |  | *E*: _outdated_ |
+### Part of Speech: `particle`
+| Category | other |
+| :----  | :---- | :---- |
+ | *T*: _particle_ | *P*: _transition_ |
+ |  | *D*: _difficult_ |
+ |  | *V*: _corrupted_ |
+ |  | *R*: _predicative_ |
+ |  | *I*: _spoken_ |
+ |  | *A*: _uncommon_ |
+ |  | *B*: _abbreviation_ |
+ |  | *E*: _outdated_ |
+### Part of Speech: `verb`
+| Category | mood | num | gen | tense | person | aspect | voice | transitive | other | obscene |
+| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+ | *V*: _verb_ | *G*: _gerund_ | *S*: _singular_ | *M*: _m_ | *P*: _present_ | *1*: _1_ | *F*: _perfective_ | *A*: _active_ | *M*: _yes_ | *P*: _transition_ | *H*: _yes_ |
+ |  | *I*: _infinitive_ | *P*: _plural_ | *F*: _f_ | *F*: _future_ | *2*: _2_ | *N*: _imperfective_ | *P*: _passive_ | *A*: _no_ | *D*: _difficult_ |  |
+ |  | *D*: _indicative_ |  | *N*: _n_ | *S*: _past_ | *3*: _3_ |  |  |  | *V*: _corrupted_ |  |
+ |  | *M*: _imperative_ |  | *C*: _c_ |  |  |  |  |  | *R*: _predicative_ |  |
+ |  |  |  |  |  |  |  |  |  | *I*: _spoken_ |  |
+ |  |  |  |  |  |  |  |  |  | *A*: _uncommon_ |  |
+ |  |  |  |  |  |  |  |  |  | *B*: _abbreviation_ |  |
+ |  |  |  |  |  |  |  |  |  | *E*: _outdated_ |  |
+### Part of Speech: `ordinal`
+| Category | case | num | gen | animate |
+| :----  | :---- | :---- | :---- | :---- | :---- |
+ | *Y*: _ordinal_ | *N*: _nominative_ | *S*: _singular_ | *M*: _m_ | *A*: _yes_ |
+ |  | *G*: _genitive_ | *P*: _plural_ | *F*: _f_ | *I*: _no_ |
+ |  | *D*: _dative_ |  | *N*: _n_ |  |
+ |  | *F*: _accusative_ |  | *C*: _c_ |  |
+ |  | *C*: _instrumental_ |  |  |  |
+ |  | *O*: _prepositional_ |  |  |  |
+ |  | *P*: _partitive_ |  |  |  |
+ |  | *L*: _locative_ |  |  |  |
+### Part of Speech: `number`
+| Category | case | num | gen | animate | other |
+| :----  | :---- | :---- | :---- | :---- | :---- | :---- |
+ | *Z*: _number_ | *N*: _nominative_ | *S*: _singular_ | *M*: _m_ | *A*: _yes_ | *P*: _transition_ |
+ |  | *G*: _genitive_ | *P*: _plural_ | *F*: _f_ | *I*: _no_ | *D*: _difficult_ |
+ |  | *D*: _dative_ |  | *N*: _n_ |  | *V*: _corrupted_ |
+ |  | *F*: _accusative_ |  | *C*: _c_ |  | *R*: _predicative_ |
+ |  | *C*: _instrumental_ |  |  |  | *I*: _spoken_ |
+ |  | *O*: _prepositional_ |  |  |  | *A*: _uncommon_ |
+ |  | *P*: _partitive_ |  |  |  | *B*: _abbreviation_ |
+ |  | *L*: _locative_ |  |  |  | *E*: _outdated_ |
+### Part of Speech: `date`
+| Category |
+| :----  | :---- |
+ | *W*: _date_ |
+ |  |
+ |  |
+ |  |
+ |  |
+ |  |
+ |  |
+ |  |
+### Part of Speech: `interjection`
+| Category |
+| :----  | :---- |
+ | *I*: _interjection_ |
+ |  |
+ |  |
+ |  |
+ |  |
+ |  |
+ |  |
+ |  |
