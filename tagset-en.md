@@ -1,14 +1,15 @@
 ## Tagset for (../freeling-git/data/en/tagset.dat)
 
 ### Part of Speech: `number`
-| Category | type |
-| :----  | :---- | :---- |
- | *Z*: _number_ | *d*: _partitive_ |
- |  | *m*: _currency_ |
- |  | *p*: _percentage_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *Z*: _number_ |
+| 1 | type | d:partitive;m:currency;p:percentage;u:unit |
 ### Part of Speech: `date`
-| Category |
-| :----  | :---- |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *W*: _date_ |
 ### Part of Speech: `interjection`
-| Category |
-| :----  | :---- |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *I*: _interjection_ |

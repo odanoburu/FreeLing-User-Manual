@@ -1,68 +1,78 @@
 ## Tagset for (../freeling-git/data/de/tagset.dat)
 
 ### Part of Speech: `noun`
-| Category | type | case | gen | num | neclass |
-| :----  | :---- | :---- | :---- | :---- | :---- | :---- |
- | *N*: _noun_ | *C*: _common_ | *N*: _nominative_ | *F*: _f_ | *S*: _s_ | *S*: _person_ |
- |  | *P*: _proper_ | *A*: _accusative_ | *M*: _m_ | *P*: _p_ | *G*: _location_ |
- |  |  | *D*: _dative_ | *N*: _n_ |  | *O*: _organization_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *N*: _noun_ |
+| 1 | type | C:common;P:proper |
+| 2 | case | N:nominative;A:accusative;D:dative;G:genitive |
+| 3 | gen | F:f;M:m;N:n |
+| 4 | num | S:s;P:p |
+| 5 | neclass | S:person;G:location;O:organization;V:other |
 ### Part of Speech: `adjective`
-| Category | type | case | gen | num | degree |
-| :----  | :---- | :---- | :---- | :---- | :---- | :---- |
- | *A*: _adjective_ | *Q*: _qualificative_ | *N*: _nominative_ | *F*: _f_ | *S*: _s_ | *S*: _superlative_ |
- |  | *P*: _predicative_ | *A*: _accusative_ | *M*: _m_ | *P*: _p_ | *C*: _comparative_ |
- |  |  | *D*: _dative_ | *N*: _n_ |  |  |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *A*: _adjective_ |
+| 1 | type | Q:qualificative;P:predicative |
+| 2 | case | N:nominative;A:accusative;D:dative;G:genitive |
+| 3 | gen | F:f;M:m;N:n |
+| 4 | num | S:s;P:p |
+| 5 | degree | S:superlative;C:comparative |
 ### Part of Speech: `determiner`
-| Category | type | case | gen | num |
-| :----  | :---- | :---- | :---- | :---- | :---- |
- | *D*: _determiner_ | *A*: _definite_ | *N*: _nominative_ | *F*: _f_ | *S*: _s_ |
- |  | *I*: _indefinite_ | *A*: _accusative_ | *M*: _m_ | *P*: _p_ |
- |  | *X*: _possessive_ | *D*: _dative_ | *N*: _n_ |  |
- |  | *D*: _demostrative_ | *G*: _genitive_ |  |  |
- |  | *R*: _relative_ |  |  |  |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *D*: _determiner_ |
+| 1 | type | A:definite;I:indefinite;X:possessive;D:demostrative;R:relative;T:interrogative |
+| 2 | case | N:nominative;A:accusative;D:dative;G:genitive |
+| 3 | gen | F:f;M:m;N:n |
+| 4 | num | S:s;P:p |
 ### Part of Speech: `verb`
-| Category | type | mood | tense | person | num |
-| :----  | :---- | :---- | :---- | :---- | :---- | :---- |
- | *V*: _verb_ | *V*: _full_ | *N*: _infinitive_ | *P*: _present_ | *1*: _1_ | *S*: _s_ |
- |  | *A*: _auxiliary_ | *P*: _participle_ | *S*: _past_ | *2*: _2_ | *P*: _p_ |
- |  | *M*: _modal_ | *Z*: _zuinf_ |  | *3*: _3_ |  |
- |  |  | *M*: _imperative_ |  |  |  |
- |  |  | *S*: _subjunctive_ |  |  |  |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *V*: _verb_ |
+| 1 | type | V:full;A:auxiliary;M:modal |
+| 2 | mood | N:infinitive;P:participle;Z:zuinf;M:imperative;S:subjunctive;I:indicative |
+| 3 | tense | P:present;S:past |
+| 4 | person | 1:1;2:2;3:3 |
+| 5 | num | S:s;P:p |
 ### Part of Speech: `pronoun`
-| Category | type | case | gen | num | person | politeness |
-| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
- | *P*: _pronoun_ | *D*: _demonstrative_ | *N*: _nominative_ | *F*: _f_ | *S*: _s_ | *1*: _1_ | *P*: _polite_ |
- |  | *R*: _relative_ | *A*: _accusative_ | *M*: _m_ | *P*: _p_ | *2*: _2_ | *F*: _familiar_ |
- |  | *T*: _interrogative_ | *D*: _dative_ | *N*: _n_ |  | *3*: _3_ |  |
- |  | *P*: _personal_ | *G*: _genitive_ |  |  |  |  |
- |  | *F*: _reflexive_ |  |  |  |  |  |
- |  | *X*: _possessive_ |  |  |  |  |  |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *P*: _pronoun_ |
+| 1 | type | D:demonstrative;R:relative;T:interrogative;P:personal;F:reflexive;X:possessive;I:indefinite |
+| 2 | case | N:nominative;A:accusative;D:dative;G:genitive |
+| 3 | gen | F:f;M:m;N:n |
+| 4 | num | S:s;P:p |
+| 5 | person | 1:1;2:2;3:3 |
+| 6 | politeness | P:polite;F:familiar |
 ### Part of Speech: `adverb`
-| Category | type |
-| :----  | :---- | :---- |
- | *R*: _adverb_ | *G*: _general_ |
- |  | *N*: _negative_ |
- |  | *V*: _particle_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *R*: _adverb_ |
+| 1 | type | G:general;N:negative;V:particle;P:pronominal |
 ### Part of Speech: `adposition`
-| Category | type | case | gen | num |
-| :----  | :---- | :---- | :---- | :---- | :---- |
- | *S*: _adposition_ | *P*: _preposition_ | *N*: _nominative_ | *F*: _f_ | *S*: _s_ |
- |  | *S*: _postposition_ | *A*: _accusative_ | *M*: _m_ | *P*: _p_ |
- |  | *C*: _circumposition_ | *D*: _dative_ | *N*: _n_ |  |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *S*: _adposition_ |
+| 1 | type | P:preposition;S:postposition;C:circumposition;Z:particle |
+| 2 | case | N:nominative;A:accusative;D:dative;G:genitive |
+| 3 | gen | F:f;M:m;N:n |
+| 4 | num | S:s;P:p |
 ### Part of Speech: `conjunction`
-| Category | type |
-| :----  | :---- | :---- |
- | *C*: _conjunction_ | *S*: _subordinating_ |
- |  | *C*: _coordinating_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *C*: _conjunction_ |
+| 1 | type | S:subordinating;C:coordinating;M:comparative |
 ### Part of Speech: `number`
-| Category | type |
-| :----  | :---- | :---- |
- | *Z*: _number_ | *d*: _partitive_ |
- |  | *m*: _currency_ |
- |  | *p*: _percentage_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *Z*: _number_ |
+| 1 | type | d:partitive;m:currency;p:percentage;u:unit |
 ### Part of Speech: `date`
-| Category |
-| :----  | :---- |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *W*: _date_ |
 ### Part of Speech: `interjection`
-| Category |
-| :----  | :---- |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *I*: _interjection_ |

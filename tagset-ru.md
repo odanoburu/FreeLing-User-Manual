@@ -1,164 +1,137 @@
 ## Tagset for (../freeling-git/data/ru/tagset.dat)
 
 ### Part of Speech: `adjective`
-| Category | case | num | gen | animate | form | degree | other | obscene |
-| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
- | *A*: _adjective_ | *N*: _nominative_ | *S*: _singular_ | *M*: _m_ | *A*: _yes_ | *F*: _full_ | *E*: _superlative_ | *P*: _transition_ | *H*: _yes_ |
- |  | *G*: _genitive_ | *P*: _plural_ | *F*: _f_ | *I*: _no_ | *S*: _short_ | *C*: _comparative_ | *D*: _difficult_ |  |
- |  | *D*: _dative_ |  | *N*: _n_ |  |  | *P*: _positive_ | *V*: _corrupted_ |  |
- |  | *F*: _accusative_ |  | *C*: _c_ |  |  |  | *R*: _predicative_ |  |
- |  | *C*: _instrumental_ |  |  |  |  |  | *I*: _spoken_ |  |
- |  | *O*: _prepositional_ |  |  |  |  |  | *A*: _uncommon_ |  |
- |  | *P*: _partitive_ |  |  |  |  |  | *B*: _abbreviation_ |  |
- |  | *L*: _locative_ |  |  |  |  |  | *E*: _outdated_ |  |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *A*: _adjective_ |
+| 1 | case | N:nominative;G:genitive;D:dative;F:accusative;C:instrumental;O:prepositional;P:partitive;L:locative;V:vocative |
+| 2 | num | S:singular;P:plural |
+| 3 | gen | M:m;F:f;N:n;C:c |
+| 4 | animate | A:yes;I:no |
+| 5 | form | F:full;S:short |
+| 6 | degree | E:superlative;C:comparative;P:positive |
+| 7 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
+| 8 | obscene | H:yes |
 ### Part of Speech: `preposition`
-| Category | other |
-| :----  | :---- | :---- |
- | *B*: _preposition_ | *P*: _transition_ |
- |  | *D*: _difficult_ |
- |  | *V*: _corrupted_ |
- |  | *R*: _predicative_ |
- |  | *I*: _spoken_ |
- |  | *A*: _uncommon_ |
- |  | *B*: _abbreviation_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *B*: _preposition_ |
+| 1 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
 ### Part of Speech: `conjunction`
-| Category | other |
-| :----  | :---- | :---- |
- | *C*: _conjunction_ | *P*: _transition_ |
- |  | *D*: _difficult_ |
- |  | *V*: _corrupted_ |
- |  | *R*: _predicative_ |
- |  | *I*: _spoken_ |
- |  | *A*: _uncommon_ |
- |  | *B*: _abbreviation_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *C*: _conjunction_ |
+| 1 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
 ### Part of Speech: `adverb`
-| Category | degree | other | obscene |
-| :----  | :---- | :---- | :---- | :---- |
- | *D*: _adverb_ | *E*: _superlative_ | *P*: _transition_ | *H*: _yes_ |
- |  | *C*: _comparative_ | *D*: _difficult_ |  |
- |  | *P*: _positive_ | *V*: _corrupted_ |  |
- |  |  | *R*: _predicative_ |  |
- |  |  | *I*: _spoken_ |  |
- |  |  | *A*: _uncommon_ |  |
- |  |  | *B*: _abbreviation_ |  |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *D*: _adverb_ |
+| 1 | degree | E:superlative;C:comparative;P:positive |
+| 2 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
+| 3 | obscene | H:yes |
 ### Part of Speech: `pronoun`
-| Category | case | num | gen | animate | person | other |
-| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
- | *E*: _pronoun_ | *N*: _nominative_ | *S*: _singular_ | *M*: _m_ | *A*: _yes_ | *1*: _1_ | *P*: _transition_ |
- |  | *G*: _genitive_ | *P*: _plural_ | *F*: _f_ | *I*: _no_ | *2*: _2_ | *D*: _difficult_ |
- |  | *D*: _dative_ |  | *N*: _n_ |  | *3*: _3_ | *V*: _corrupted_ |
- |  | *F*: _accusative_ |  | *C*: _c_ |  |  | *R*: _predicative_ |
- |  | *C*: _instrumental_ |  |  |  |  | *I*: _spoken_ |
- |  | *O*: _prepositional_ |  |  |  |  | *A*: _uncommon_ |
- |  | *P*: _partitive_ |  |  |  |  | *B*: _abbreviation_ |
- |  | *L*: _locative_ |  |  |  |  | *E*: _outdated_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *E*: _pronoun_ |
+| 1 | case | N:nominative;G:genitive;D:dative;F:accusative;C:instrumental;O:prepositional;P:partitive;L:locative;V:vocative |
+| 2 | num | S:singular;P:plural |
+| 3 | gen | M:m;F:f;N:n;C:c |
+| 4 | animate | A:yes;I:no |
+| 5 | person | 1:1;2:2;3:3 |
+| 6 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
 ### Part of Speech: `interjection`
-| Category | other | obscene |
-| :----  | :---- | :---- | :---- |
- | *J*: _interjection_ | *P*: _transition_ | *H*: _yes_ |
- |  | *D*: _difficult_ |  |
- |  | *V*: _corrupted_ |  |
- |  | *R*: _predicative_ |  |
- |  | *I*: _spoken_ |  |
- |  | *A*: _uncommon_ |  |
- |  | *B*: _abbreviation_ |  |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *J*: _interjection_ |
+| 1 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
+| 2 | obscene | H:yes |
 ### Part of Speech: `compound`
-| Category | other |
-| :----  | :---- | :---- |
- | *M*: _compound_ | *P*: _transition_ |
- |  | *D*: _difficult_ |
- |  | *V*: _corrupted_ |
- |  | *R*: _predicative_ |
- |  | *I*: _spoken_ |
- |  | *A*: _uncommon_ |
- |  | *B*: _abbreviation_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *M*: _compound_ |
+| 1 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
 ### Part of Speech: `noun`
-| Category | type | case | num | gen | animate | info | other | obscene | neclass |
-| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
- | *N*: _noun_ | *C*: _common_ | *N*: _nominative_ | *S*: _singular_ | *M*: _m_ | *A*: _yes_ | *G*: _geographical_ | *P*: _transition_ | *H*: _yes_ | *S*: _person_ |
- |  | *P*: _proper_ | *G*: _genitive_ | *P*: _plural_ | *F*: _f_ | *I*: _no_ | *N*: _name_ | *D*: _difficult_ |  | *G*: _location_ |
- |  |  | *D*: _dative_ |  | *N*: _n_ |  | *S*: _patronymic_ | *V*: _corrupted_ |  | *O*: _organization_ |
- |  |  | *F*: _accusative_ |  | *C*: _c_ |  | *F*: _surname_ | *R*: _predicative_ |  | *V*: _other_ |
- |  |  | *C*: _instrumental_ |  |  |  |  | *I*: _spoken_ |  |  |
- |  |  | *O*: _prepositional_ |  |  |  |  | *A*: _uncommon_ |  |  |
- |  |  | *P*: _partitive_ |  |  |  |  | *B*: _abbreviation_ |  |  |
- |  |  | *L*: _locative_ |  |  |  |  | *E*: _outdated_ |  |  |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *N*: _noun_ |
+| 1 | type | C:common;P:proper |
+| 2 | case | N:nominative;G:genitive;D:dative;F:accusative;C:instrumental;O:prepositional;P:partitive;L:locative;V:vocative |
+| 3 | num | S:singular;P:plural |
+| 4 | gen | M:m;F:f;N:n;C:c |
+| 5 | animate | A:yes;I:no |
+| 6 | info | G:geographical;N:name;S:patronymic;F:surname |
+| 7 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
+| 8 | obscene | H:yes |
+| 9 | neclass | S:person;G:location;O:organization;V:other |
 ### Part of Speech: `pronominal-adv`
-| Category | other |
-| :----  | :---- | :---- |
- | *P*: _pronominal-adv_ | *P*: _transition_ |
- |  | *D*: _difficult_ |
- |  | *V*: _corrupted_ |
- |  | *R*: _predicative_ |
- |  | *I*: _spoken_ |
- |  | *A*: _uncommon_ |
- |  | *B*: _abbreviation_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *P*: _pronominal-adv_ |
+| 1 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
 ### Part of Speech: `participle`
-| Category | mood | num | gen | tense | person | aspect | voice | transitive | other | obscene |
-| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
- | *Q*: _participle_ | *G*: _gerund_ | *S*: _singular_ | *M*: _m_ | *P*: _present_ | *1*: _1_ | *F*: _perfective_ | *A*: _active_ | *M*: _yes_ | *P*: _transition_ | *H*: _yes_ |
- |  | *I*: _infinitive_ | *P*: _plural_ | *F*: _f_ | *F*: _future_ | *2*: _2_ | *N*: _imperfective_ | *P*: _passive_ | *A*: _no_ | *D*: _difficult_ |  |
- |  | *D*: _indicative_ |  | *N*: _n_ | *S*: _past_ | *3*: _3_ |  |  |  | *V*: _corrupted_ |  |
- |  | *M*: _imperative_ |  | *C*: _c_ |  |  |  |  |  | *R*: _predicative_ |  |
- |  |  |  |  |  |  |  |  |  | *I*: _spoken_ |  |
- |  |  |  |  |  |  |  |  |  | *A*: _uncommon_ |  |
- |  |  |  |  |  |  |  |  |  | *B*: _abbreviation_ |  |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *Q*: _participle_ |
+| 1 | mood | G:gerund;I:infinitive;D:indicative;M:imperative |
+| 2 | num | S:singular;P:plural |
+| 3 | gen | M:m;F:f;N:n;C:c |
+| 4 | tense | P:present;F:future;S:past |
+| 5 | person | 1:1;2:2;3:3 |
+| 6 | aspect | F:perfective;N:imperfective |
+| 7 | voice | A:active;P:passive |
+| 8 | transitive | M:yes;A:no |
+| 9 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
+| 10 | obscene | H:yes |
 ### Part of Speech: `pronominal-adj`
-| Category | case | num | gen | animate | other |
-| :----  | :---- | :---- | :---- | :---- | :---- | :---- |
- | *R*: _pronominal-adj_ | *N*: _nominative_ | *S*: _singular_ | *M*: _m_ | *A*: _yes_ | *P*: _transition_ |
- |  | *G*: _genitive_ | *P*: _plural_ | *F*: _f_ | *I*: _no_ | *D*: _difficult_ |
- |  | *D*: _dative_ |  | *N*: _n_ |  | *V*: _corrupted_ |
- |  | *F*: _accusative_ |  | *C*: _c_ |  | *R*: _predicative_ |
- |  | *C*: _instrumental_ |  |  |  | *I*: _spoken_ |
- |  | *O*: _prepositional_ |  |  |  | *A*: _uncommon_ |
- |  | *P*: _partitive_ |  |  |  | *B*: _abbreviation_ |
- |  | *L*: _locative_ |  |  |  | *E*: _outdated_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *R*: _pronominal-adj_ |
+| 1 | case | N:nominative;G:genitive;D:dative;F:accusative;C:instrumental;O:prepositional;P:partitive;L:locative;V:vocative |
+| 2 | num | S:singular;P:plural |
+| 3 | gen | M:m;F:f;N:n;C:c |
+| 4 | animate | A:yes;I:no |
+| 5 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
 ### Part of Speech: `particle`
-| Category | other |
-| :----  | :---- | :---- |
- | *T*: _particle_ | *P*: _transition_ |
- |  | *D*: _difficult_ |
- |  | *V*: _corrupted_ |
- |  | *R*: _predicative_ |
- |  | *I*: _spoken_ |
- |  | *A*: _uncommon_ |
- |  | *B*: _abbreviation_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *T*: _particle_ |
+| 1 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
 ### Part of Speech: `verb`
-| Category | mood | num | gen | tense | person | aspect | voice | transitive | other | obscene |
-| :----  | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
- | *V*: _verb_ | *G*: _gerund_ | *S*: _singular_ | *M*: _m_ | *P*: _present_ | *1*: _1_ | *F*: _perfective_ | *A*: _active_ | *M*: _yes_ | *P*: _transition_ | *H*: _yes_ |
- |  | *I*: _infinitive_ | *P*: _plural_ | *F*: _f_ | *F*: _future_ | *2*: _2_ | *N*: _imperfective_ | *P*: _passive_ | *A*: _no_ | *D*: _difficult_ |  |
- |  | *D*: _indicative_ |  | *N*: _n_ | *S*: _past_ | *3*: _3_ |  |  |  | *V*: _corrupted_ |  |
- |  | *M*: _imperative_ |  | *C*: _c_ |  |  |  |  |  | *R*: _predicative_ |  |
- |  |  |  |  |  |  |  |  |  | *I*: _spoken_ |  |
- |  |  |  |  |  |  |  |  |  | *A*: _uncommon_ |  |
- |  |  |  |  |  |  |  |  |  | *B*: _abbreviation_ |  |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *V*: _verb_ |
+| 1 | mood | G:gerund;I:infinitive;D:indicative;M:imperative |
+| 2 | num | S:singular;P:plural |
+| 3 | gen | M:m;F:f;N:n;C:c |
+| 4 | tense | P:present;F:future;S:past |
+| 5 | person | 1:1;2:2;3:3 |
+| 6 | aspect | F:perfective;N:imperfective |
+| 7 | voice | A:active;P:passive |
+| 8 | transitive | M:yes;A:no |
+| 9 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
+| 10 | obscene | H:yes |
 ### Part of Speech: `ordinal`
-| Category | case | num | gen | animate |
-| :----  | :---- | :---- | :---- | :---- | :---- |
- | *Y*: _ordinal_ | *N*: _nominative_ | *S*: _singular_ | *M*: _m_ | *A*: _yes_ |
- |  | *G*: _genitive_ | *P*: _plural_ | *F*: _f_ | *I*: _no_ |
- |  | *D*: _dative_ |  | *N*: _n_ |  |
- |  | *F*: _accusative_ |  | *C*: _c_ |  |
- |  | *C*: _instrumental_ |  |  |  |
- |  | *O*: _prepositional_ |  |  |  |
- |  | *P*: _partitive_ |  |  |  |
- |  | *L*: _locative_ |  |  |  |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *Y*: _ordinal_ |
+| 1 | case | N:nominative;G:genitive;D:dative;F:accusative;C:instrumental;O:prepositional;P:partitive;L:locative;V:vocative |
+| 2 | num | S:singular;P:plural |
+| 3 | gen | M:m;F:f;N:n;C:c |
+| 4 | animate | A:yes;I:no |
 ### Part of Speech: `number`
-| Category | case | num | gen | animate | other |
-| :----  | :---- | :---- | :---- | :---- | :---- | :---- |
- | *Z*: _number_ | *N*: _nominative_ | *S*: _singular_ | *M*: _m_ | *A*: _yes_ | *P*: _transition_ |
- |  | *G*: _genitive_ | *P*: _plural_ | *F*: _f_ | *I*: _no_ | *D*: _difficult_ |
- |  | *D*: _dative_ |  | *N*: _n_ |  | *V*: _corrupted_ |
- |  | *F*: _accusative_ |  | *C*: _c_ |  | *R*: _predicative_ |
- |  | *C*: _instrumental_ |  |  |  | *I*: _spoken_ |
- |  | *O*: _prepositional_ |  |  |  | *A*: _uncommon_ |
- |  | *P*: _partitive_ |  |  |  | *B*: _abbreviation_ |
- |  | *L*: _locative_ |  |  |  | *E*: _outdated_ |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *Z*: _number_ |
+| 1 | case | N:nominative;G:genitive;D:dative;F:accusative;C:instrumental;O:prepositional;P:partitive;L:locative;V:vocative |
+| 2 | num | S:singular;P:plural |
+| 3 | gen | M:m;F:f;N:n;C:c |
+| 4 | animate | A:yes;I:no |
+| 5 | other | P:transition;D:difficult;V:corrupted;R:predicative;I:spoken;A:uncommon;B:abbreviation;E:outdated |
 ### Part of Speech: `date`
-| Category |
-| :----  | :---- |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *W*: _date_ |
 ### Part of Speech: `interjection`
-| Category |
-| :----  | :---- |
+| Position | Atribute | Values |
+|:----     |:----     |:----   |
+| 0        | Category | *I*: _interjection_ |
