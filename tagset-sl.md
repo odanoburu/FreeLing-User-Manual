@@ -3,94 +3,94 @@
 ### Part of Speech: `noun`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *N*: _noun_ |
-| 1 | type | C: common;  P: proper |
-| 2 | gen | M: m;  F: f;  N: n |
-| 3 | num | S: s;  D: d;  P: p |
-| 4 | case | N: nominative;  G: genitive;  D: dative;  A: accusative;  L: locative;  I: instrumental |
-| 5 | animate | N: no;  Y: yes |
+| 0        | category | _**N**: noun_ |
+| 1 | type |   _**C**_: _common_   _**P**_: _proper_ |
+| 2 | gen |   _**M**_: _m_   _**F**_: _f_   _**N**_: _n_ |
+| 3 | num |   _**S**_: _s_   _**D**_: _d_   _**P**_: _p_ |
+| 4 | case |   _**N**_: _nominative_   _**G**_: _genitive_   _**D**_: _dative_   _**A**_: _accusative_   _**L**_: _locative_   _**I**_: _instrumental_ |
+| 5 | animate |   _**N**_: _no_   _**Y**_: _yes_ |
 ### Part of Speech: `verb`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *V*: _verb_ |
-| 1 | type | M: main;  A: auxiliary |
-| 2 | aspect | E: perfective;  P: progressive;  B: biaspectual |
-| 3 | vform | N: infinitive;  U: supine;  P: participle;  R: present;  F: future;  C: conditional;  M: imperative |
-| 4 | person | 1: 1;  2: 2;  3: 3 |
-| 5 | num | S: s;  D: d;  P: p |
-| 6 | gen | M: m;  F: f;  N: n |
-| 7 | negative | N: no;  Y: yes |
+| 0        | category | _**V**: verb_ |
+| 1 | type |   _**M**_: _main_   _**A**_: _auxiliary_ |
+| 2 | aspect |   _**E**_: _perfective_   _**P**_: _progressive_   _**B**_: _biaspectual_ |
+| 3 | vform |   _**N**_: _infinitive_   _**U**_: _supine_   _**P**_: _participle_   _**R**_: _present_   _**F**_: _future_   _**C**_: _conditional_   _**M**_: _imperative_ |
+| 4 | person |   _**1**_: _1_   _**2**_: _2_   _**3**_: _3_ |
+| 5 | num |   _**S**_: _s_   _**D**_: _d_   _**P**_: _p_ |
+| 6 | gen |   _**M**_: _m_   _**F**_: _f_   _**N**_: _n_ |
+| 7 | negative |   _**N**_: _no_   _**Y**_: _yes_ |
 ### Part of Speech: `adjective`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *A*: _adjective_ |
-| 1 | type | G: general;  S: possessive;  P: participle |
-| 2 | degree | P: positive;  C: comparative;  S: superlative |
-| 3 | gen | M: m;  F: f;  N: n |
-| 4 | num | S: s;  D: d;  P: p |
-| 5 | case | N: nominative;  G: genitive;  D: dative;  A: accusative;  L: locative;  I: instrumental |
-| 6 | definite | N: no;  Y: yes |
+| 0        | category | _**A**: adjective_ |
+| 1 | type |   _**G**_: _general_   _**S**_: _possessive_   _**P**_: _participle_ |
+| 2 | degree |   _**P**_: _positive_   _**C**_: _comparative_   _**S**_: _superlative_ |
+| 3 | gen |   _**M**_: _m_   _**F**_: _f_   _**N**_: _n_ |
+| 4 | num |   _**S**_: _s_   _**D**_: _d_   _**P**_: _p_ |
+| 5 | case |   _**N**_: _nominative_   _**G**_: _genitive_   _**D**_: _dative_   _**A**_: _accusative_   _**L**_: _locative_   _**I**_: _instrumental_ |
+| 6 | definite |   _**N**_: _no_   _**Y**_: _yes_ |
 ### Part of Speech: `adverb`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *R*: _adverb_ |
-| 1 | type | G: general;  R: participle |
-| 2 | degree | P: positive;  C: comparative;  S: superlative |
+| 0        | category | _**R**: adverb_ |
+| 1 | type |   _**G**_: _general_   _**R**_: _participle_ |
+| 2 | degree |   _**P**_: _positive_   _**C**_: _comparative_   _**S**_: _superlative_ |
 ### Part of Speech: `pronoun`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *P*: _pronoun_ |
-| 1 | type | P: personal;  S: possessive;  D: demonstrative;  R: relative;  X: reflexive;  C: General;  Q: interrogative;  I: indefinite;  Z: negative |
-| 2 | person | 1: 1;  2: 2;  3: 3 |
-| 3 | gen | M: m;  F: f;  N: n |
-| 4 | num | S: s;  D: d;  P: p |
-| 5 | case | N: nominative;  G: genitive;  D: dative;  A: accusative;  L: locative;  I: instrumental |
-| 6 | possessornum | S: s;  D: d;  P: p |
-| 7 | possessorgen | M: m;  F: f;  N: n |
-| 8 | clitic | Y: yes;  B: bound |
+| 0        | category | _**P**: pronoun_ |
+| 1 | type |   _**P**_: _personal_   _**S**_: _possessive_   _**D**_: _demonstrative_   _**R**_: _relative_   _**X**_: _reflexive_   _**C**_: _General_   _**Q**_: _interrogative_   _**I**_: _indefinite_   _**Z**_: _negative_ |
+| 2 | person |   _**1**_: _1_   _**2**_: _2_   _**3**_: _3_ |
+| 3 | gen |   _**M**_: _m_   _**F**_: _f_   _**N**_: _n_ |
+| 4 | num |   _**S**_: _s_   _**D**_: _d_   _**P**_: _p_ |
+| 5 | case |   _**N**_: _nominative_   _**G**_: _genitive_   _**D**_: _dative_   _**A**_: _accusative_   _**L**_: _locative_   _**I**_: _instrumental_ |
+| 6 | possessornum |   _**S**_: _s_   _**D**_: _d_   _**P**_: _p_ |
+| 7 | possessorgen |   _**M**_: _m_   _**F**_: _f_   _**N**_: _n_ |
+| 8 | clitic |   _**Y**_: _yes_   _**B**_: _bound_ |
 ### Part of Speech: `number`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *M*: _number_ |
-| 1 | form | D: digit;  R: roman;  L: letter |
-| 2 | type | C: cardinal;  O: ordinal;  P: pronomial;  S: special |
-| 3 | gen | M: m;  F: f;  N: n |
-| 4 | num | S: s;  D: d;  P: p |
-| 5 | case | N: nominative;  G: genitive;  D: dative;  A: accusative;  L: locative;  I: instrumental |
-| 6 | definite | N: no;  Y: yes |
+| 0        | category | _**M**: number_ |
+| 1 | form |   _**D**_: _digit_   _**R**_: _roman_   _**L**_: _letter_ |
+| 2 | type |   _**C**_: _cardinal_   _**O**_: _ordinal_   _**P**_: _pronomial_   _**S**_: _special_ |
+| 3 | gen |   _**M**_: _m_   _**F**_: _f_   _**N**_: _n_ |
+| 4 | num |   _**S**_: _s_   _**D**_: _d_   _**P**_: _p_ |
+| 5 | case |   _**N**_: _nominative_   _**G**_: _genitive_   _**D**_: _dative_   _**A**_: _accusative_   _**L**_: _locative_   _**I**_: _instrumental_ |
+| 6 | definite |   _**N**_: _no_   _**Y**_: _yes_ |
 ### Part of Speech: `preposition`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *S*: _preposition_ |
-| 1 | case | N: nominative;  G: genitive;  D: dative;  A: accusative;  L: locative;  I: instrumental |
+| 0        | category | _**S**: preposition_ |
+| 1 | case |   _**N**_: _nominative_   _**G**_: _genitive_   _**D**_: _dative_   _**A**_: _accusative_   _**L**_: _locative_   _**I**_: _instrumental_ |
 ### Part of Speech: `conjunction`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *C*: _conjunction_ |
-| 1 | type | C: coordinating;  S: subordinating |
+| 0        | category | _**C**: conjunction_ |
+| 1 | type |   _**C**_: _coordinating_   _**S**_: _subordinating_ |
 ### Part of Speech: `particle`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *Q*: _particle_ |
+| 0        | category | _**Q**: particle_ |
 ### Part of Speech: `interjection`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *I*: _interjection_ |
+| 0        | category | _**I**: interjection_ |
 ### Part of Speech: `abbreviation`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *Y*: _abbreviation_ |
+| 0        | category | _**Y**: abbreviation_ |
 ### Part of Speech: `residual`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *X*: _residual_ |
-| 1 | type | F: foreign;  T: typo;  P: program |
+| 0        | category | _**X**: residual_ |
+| 1 | type |   _**F**_: _foreign_   _**T**_: _typo_   _**P**_: _program_ |
 ### Part of Speech: `number`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *Z*: _number_ |
-| 1 | type | d: partitive;  m: currency;  p: percentage;  u: unit |
+| 0        | category | _**Z**: number_ |
+| 1 | type |   _**d**_: _partitive_   _**m**_: _currency_   _**p**_: _percentage_   _**u**_: _unit_ |
 ### Part of Speech: `date`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
-| 0        | category | *W*: _date_ |
+| 0        | category | _**W**: date_ |
