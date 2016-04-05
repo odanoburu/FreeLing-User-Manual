@@ -6,8 +6,8 @@
 |:----     |:----     |:----   |
 | 0        | category | **N**:_noun_ |
 | 1 | type |   **C**:_common_;   **P**:_proper_|
-| 2 | gen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
-| 3 | num |   **S**:_s_;   **P**:_p_|
+| 2 | gen |   **M**:_masculine_;   **F**:_feminine_;   **N**:_neuter_|
+| 3 | num |   **S**:_singular_;   **P**:_plural_|
 | 4 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **V**:_vocative_;   **L**:_locative_;   **I**:_instrumental_|
 | 5 | animate |   **N**:_no_;   **Y**:_yes_|
 
@@ -19,8 +19,8 @@
 | 2 | vform |   **I**:_indicative_;   **M**:_imperative_;   **C**:_conditional_;   **N**:_infinitive_;   **P**:_participle_|
 | 3 | tense |   **P**:_present_;   **I**:_imperfect_;   **F**:_future_;   **S**:_past_;   **L**:_pluperfect_;   **A**:_aorist_|
 | 4 | person |   **1**:_1_;   **2**:_2_;   **3**:_3_|
-| 5 | num |   **S**:_s_;   **P**:_p_|
-| 6 | gen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
+| 5 | num |   **S**:_singular_;   **P**:_plural_|
+| 6 | gen |   **M**:_masculine_;   **F**:_feminine_;   **N**:_neuter_|
 | 7 | voice |   **A**:_active_;   **P**:_passive_|
 | 8 | negative |   **N**:_no_;   **Y**:_yes_|
 
@@ -30,8 +30,8 @@
 | 0        | category | **A**:_adjective_ |
 | 1 | type |   **F**:_qualificative_;   **S**:_possessive_;   **O**:_ordinal_|
 | 2 | degree |   **P**:_positive_;   **C**:_comparative_;   **S**:_superlative_|
-| 3 | gen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
-| 4 | num |   **S**:_s_;   **P**:_p_|
+| 3 | gen |   **M**:_masculine_;   **F**:_feminine_;   **N**:_neuter_|
+| 4 | num |   **S**:_singular_;   **P**:_plural_|
 | 5 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **V**:_vocative_;   **L**:_locative_;   **I**:_instrumental_|
 | 6 | definite |   **N**:_no_;   **Y**:_yes_|
 | 7 | animate |   **N**:_no_;   **Y**:_yes_|
@@ -42,11 +42,11 @@
 | 0        | category | **P**:_pronoun_ |
 | 1 | type |   **P**:_personal_;   **D**:_demonstrative_;   **I**:_indefinite_;   **S**:_possessive_;   **R**:_relative_;   **X**:_reflexive_|
 | 2 | person |   **1**:_1_;   **2**:_2_;   **3**:_3_|
-| 3 | gen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
-| 4 | num |   **S**:_s_;   **P**:_p_|
+| 3 | gen |   **M**:_masculine_;   **F**:_feminine_;   **N**:_neuter_|
+| 4 | num |   **S**:_singular_;   **P**:_plural_|
 | 5 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **V**:_vocative_;   **L**:_locative_;   **I**:_instrumental_|
 | 6 | definite |   **N**:_no_;   **Y**:_yes_|
-| 7 | possessornum |   **S**:_s_;   **P**:_p_|
+| 7 | possessornum |   **S**:_singular_;   **P**:_plural_|
 | 8 | possessorgen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
 | 9 | clitic |   **Y**:_yes_;   **N**:_no_|
 | 10 | referent |   **P**:_personal_;   **S**:_possessive_|
@@ -80,8 +80,8 @@
 |:----     |:----     |:----   |
 | 0        | category | **M**:_numeral_ |
 | 1 | type |   **C**:_cardinal_;   **O**:_ordinal_;   **M**:_multiple_;   **S**:_special_|
-| 2 | gen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
-| 3 | num |   **S**:_s_;   **P**:_p_|
+| 2 | gen |   **M**:_masculine_;   **F**:_feminine_;   **N**:_neuter_|
+| 3 | num |   **S**:_singular_;   **P**:_plural_|
 | 4 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **V**:_vocative_;   **L**:_locative_;   **I**:_instrumental_|
 | 5 | form |   **D**:_digit_;   **R**:_roman_;   **L**:_letter_|
 | 6 | animate |   **N**:_no_;   **Y**:_yes_|
@@ -103,8 +103,8 @@
 |:----     |:----     |:----   |
 | 0        | category | **Y**:_abbreviation_ |
 | 1 | syntactic |   **N**:_nominal_;   **A**:_adjectival_|
-| 2 | gen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
-| 3 | num |   **S**:_s_;   **D**:_d_;   **P**:_p_|
+| 2 | gen |   **M**:_masculine_;   **F**:_feminine_;   **N**:_neuter_|
+| 3 | num |   **S**:_singular_;   **D**:_dual_;   **P**:_plural_|
 | 4 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **L**:_locative_;   **I**:_instrumental_|
 
 ### Part of Speech: `residual`

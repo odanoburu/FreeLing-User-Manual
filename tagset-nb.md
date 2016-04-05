@@ -7,8 +7,8 @@
 | 0        | category | **A**:_adjective_ |
 | 1 | type |   **O**:_ordinal_;   **Q**:_qualificative_|
 | 2 | degree |   **S**:_superlative_;   **A**:_comparative_;   **P**:_positive_|
-| 3 | gen |   **F**:_f_;   **M**:_m_;   **C**:_c_;   **N**:_n_|
-| 4 | num |   **S**:_s_;   **P**:_p_|
+| 3 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_;   **N**:_neuter_|
+| 4 | num |   **S**:_singular_;   **P**:_plural_|
 | 5 | function |   **P**:_participle_;   **R**:_preparticiple_|
 | 6 | case |   **G**:_genitive_|
 | 7 | definite |   **D**:_yes_;   **U**:_no_|
@@ -25,8 +25,8 @@
 | 0        | category | **D**:_determiner_ |
 | 1 | type |   **D**:_demonstrative_;   **P**:_possessive_;   **T**:_interrogative_;   **M**:_amplifier_;   **Q**:_quantifier_|
 | 2 | person |   **1**:_1_;   **2**:_2_;   **3**:_3_|
-| 3 | gen |   **F**:_f_;   **M**:_m_;   **C**:_c_;   **N**:_n_|
-| 4 | num |   **S**:_s_;   **P**:_p_|
+| 3 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_;   **N**:_neuter_|
+| 4 | num |   **S**:_singular_;   **P**:_plural_|
 | 5 | definite |   **D**:_yes_;   **U**:_no_|
 | 6 | other |   **P**:_polite_;   **R**:_reciprocal_|
 
@@ -35,8 +35,8 @@
 |:----     |:----     |:----   |
 | 0        | category | **N**:_noun_ |
 | 1 | type |   **C**:_common_;   **P**:_proper_|
-| 2 | gen |   **F**:_f_;   **M**:_m_;   **C**:_c_;   **N**:_n_|
-| 3 | num |   **S**:_s_;   **P**:_p_|
+| 2 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_;   **N**:_neuter_|
+| 3 | num |   **S**:_singular_;   **P**:_plural_|
 | 4 | neclass |   **S**:_person_;   **G**:_location_;   **O**:_organization_;   **V**:_other_|
 | 5 | nesubclass |   **0**:_0_;   **P**:_0_|
 | 6 | case |   **N**:_nominative_;   **G**:_genitive_|
@@ -48,8 +48,8 @@
 | 0        | category | **P**:_pronoun_ |
 | 1 | type |   **D**:_demonstrative_;   **Q**:_quantifier_;   **T**:_interrogative_;   **P**:_personal_;   **X**:_possessive_;   **R**:_relative_;   **C**:_reciprocal_;   **F**:_reflexive_|
 | 2 | person |   **1**:_1_;   **2**:_2_;   **3**:_3_|
-| 3 | gen |   **F**:_f_;   **M**:_m_;   **C**:_c_;   **N**:_n_|
-| 4 | num |   **S**:_s_;   **P**:_p_|
+| 3 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_;   **N**:_neuter_|
+| 4 | num |   **S**:_singular_;   **P**:_plural_|
 | 5 | case |   **N**:_nominative_;   **A**:_accusative_|
 | 6 | polite |   **P**:_yes_|
 | 7 | human |   **H**:_yes_|
@@ -66,8 +66,8 @@
 | 0        | category | **S**:_adposition_ |
 | 1 | type |   **P**:_preposition_|
 | 2 | contracted |   **S**:_0_|
-| 3 | gen |   **M**:_m_;   **F**:_f_|
-| 4 | num |   **S**:_s_;   **P**:_p_|
+| 3 | gen |   **M**:_masculine_;   **F**:_feminine_|
+| 4 | num |   **S**:_singular_;   **P**:_plural_|
 
 ### Part of Speech: `verb`
 | Position | Atribute | Values |

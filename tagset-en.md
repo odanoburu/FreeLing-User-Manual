@@ -60,8 +60,8 @@
 ### Part of Speech: `noun`
 | Tag  | Attributes |
 |:---- |:----       |
-| NNS | **pos**:_noun_;  **type**:_common_;   **num**:_p_|
-| NN | **pos**:_noun_;  **type**:_common_;   **num**:_s_|
+| NNS | **pos**:_noun_;  **type**:_common_;   **num**:_plural_|
+| NN | **pos**:_noun_;  **type**:_common_;   **num**:_singular_|
 | NNP | **pos**:_noun_;   **type**:_proper_|
 | NP00000 | **pos**:_noun_;   **type**:_proper_|
 | NP | **pos**:_noun_;   **type**:_proper_|
@@ -69,7 +69,7 @@
 | NP00O00 | **pos**:_noun_;  **type**:_proper_;   **neclass**:_organization_|
 | NP00V00 | **pos**:_noun_;  **type**:_proper_;   **neclass**:_other_|
 | NP00SP0 | **pos**:_noun_;  **type**:_proper_;   **neclass**:_person_|
-| NNPS | **pos**:_noun_;  **type**:_proper_;   **num**:_p_|
+| NNPS | **pos**:_noun_;  **type**:_proper_;   **num**:_plural_|
 
 ### Part of Speech: `particle`
 | Tag  | Attributes |

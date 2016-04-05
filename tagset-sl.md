@@ -6,8 +6,8 @@
 |:----     |:----     |:----   |
 | 0        | category | **N**:_noun_ |
 | 1 | type |   **C**:_common_;   **P**:_proper_|
-| 2 | gen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
-| 3 | num |   **S**:_s_;   **D**:_d_;   **P**:_p_|
+| 2 | gen |   **M**:_masculine_;   **F**:_feminine_;   **N**:_neuter_|
+| 3 | num |   **S**:_singular_;   **D**:_dual_;   **P**:_plural_|
 | 4 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **L**:_locative_;   **I**:_instrumental_|
 | 5 | animate |   **N**:_no_;   **Y**:_yes_|
 
@@ -19,8 +19,8 @@
 | 2 | aspect |   **E**:_perfective_;   **P**:_progressive_;   **B**:_biaspectual_|
 | 3 | vform |   **N**:_infinitive_;   **U**:_supine_;   **P**:_participle_;   **R**:_present_;   **F**:_future_;   **C**:_conditional_;   **M**:_imperative_|
 | 4 | person |   **1**:_1_;   **2**:_2_;   **3**:_3_|
-| 5 | num |   **S**:_s_;   **D**:_d_;   **P**:_p_|
-| 6 | gen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
+| 5 | num |   **S**:_singular_;   **D**:_dual_;   **P**:_plural_|
+| 6 | gen |   **M**:_masculine_;   **F**:_feminine_;   **N**:_neuter_|
 | 7 | negative |   **N**:_no_;   **Y**:_yes_|
 
 ### Part of Speech: `adjective`
@@ -29,8 +29,8 @@
 | 0        | category | **A**:_adjective_ |
 | 1 | type |   **G**:_general_;   **S**:_possessive_;   **P**:_participle_|
 | 2 | degree |   **P**:_positive_;   **C**:_comparative_;   **S**:_superlative_|
-| 3 | gen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
-| 4 | num |   **S**:_s_;   **D**:_d_;   **P**:_p_|
+| 3 | gen |   **M**:_masculine_;   **F**:_feminine_;   **N**:_neuter_|
+| 4 | num |   **S**:_singular_;   **D**:_dual_;   **P**:_plural_|
 | 5 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **L**:_locative_;   **I**:_instrumental_|
 | 6 | definite |   **N**:_no_;   **Y**:_yes_|
 
@@ -47,10 +47,10 @@
 | 0        | category | **P**:_pronoun_ |
 | 1 | type |   **P**:_personal_;   **S**:_possessive_;   **D**:_demonstrative_;   **R**:_relative_;   **X**:_reflexive_;   **C**:_General_;   **Q**:_interrogative_;   **I**:_indefinite_;   **Z**:_negative_|
 | 2 | person |   **1**:_1_;   **2**:_2_;   **3**:_3_|
-| 3 | gen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
-| 4 | num |   **S**:_s_;   **D**:_d_;   **P**:_p_|
+| 3 | gen |   **M**:_masculine_;   **F**:_feminine_;   **N**:_neuter_|
+| 4 | num |   **S**:_singular_;   **D**:_dual_;   **P**:_plural_|
 | 5 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **L**:_locative_;   **I**:_instrumental_|
-| 6 | possessornum |   **S**:_s_;   **D**:_d_;   **P**:_p_|
+| 6 | possessornum |   **S**:_singular_;   **D**:_dual_;   **P**:_plural_|
 | 7 | possessorgen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
 | 8 | clitic |   **Y**:_yes_;   **B**:_bound_|
 
@@ -60,8 +60,8 @@
 | 0        | category | **M**:_number_ |
 | 1 | form |   **D**:_digit_;   **R**:_roman_;   **L**:_letter_|
 | 2 | type |   **C**:_cardinal_;   **O**:_ordinal_;   **P**:_pronomial_;   **S**:_special_|
-| 3 | gen |   **M**:_m_;   **F**:_f_;   **N**:_n_|
-| 4 | num |   **S**:_s_;   **D**:_d_;   **P**:_p_|
+| 3 | gen |   **M**:_masculine_;   **F**:_feminine_;   **N**:_neuter_|
+| 4 | num |   **S**:_singular_;   **D**:_dual_;   **P**:_plural_|
 | 5 | case |   **N**:_nominative_;   **G**:_genitive_;   **D**:_dative_;   **A**:_accusative_;   **L**:_locative_;   **I**:_instrumental_|
 | 6 | definite |   **N**:_no_;   **Y**:_yes_|
 
