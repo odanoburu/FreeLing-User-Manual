@@ -40,7 +40,7 @@
 | 2 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_|
 | 3 | num |   **S**:_singular_;   **P**:_plural_;   **N**:_invariable_|
 | 4 | neclass |   **S**:_person_;   **G**:_location_;   **O**:_organization_;   **V**:_other_|
-| 5 | nesubclass |   **0**:_0_;   **P**:_0_|
+| 5 | nesubclass | _Not used_|
 | 6 | degree |   **A**:_augmentative_;   **D**:_diminutive_|
 
 ### Part of Speech: `pronoun`

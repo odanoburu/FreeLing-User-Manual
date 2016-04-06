@@ -38,7 +38,7 @@
 | 2 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_;   **N**:_neuter_|
 | 3 | num |   **S**:_singular_;   **P**:_plural_|
 | 4 | neclass |   **S**:_person_;   **G**:_location_;   **O**:_organization_;   **V**:_other_|
-| 5 | nesubclass |   **0**:_0_;   **P**:_0_|
+| 5 | nesubclass | _Not used_|
 | 6 | case |   **N**:_nominative_;   **G**:_genitive_|
 | 7 | definite |   **D**:_yes_;   **U**:_no_|
 
@@ -65,7 +65,7 @@
 |:----     |:----     |:----   |
 | 0        | category | **S**:_adposition_ |
 | 1 | type |   **P**:_preposition_|
-| 2 | contracted |   **S**:_0_|
+| 2 | contracted | _Not used_|
 | 3 | gen |   **M**:_masculine_;   **F**:_feminine_|
 | 4 | num |   **S**:_singular_;   **P**:_plural_|
 

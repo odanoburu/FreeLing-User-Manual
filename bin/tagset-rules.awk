@@ -24,13 +24,19 @@
         split($i,a,"/");
         printf "| %d | %s | ",i-3, a[1];
         n = split(a[2],b,";")
+        v = "";
         for (j=1; j<n; j++) {
             split(b[j],c,":");
-            printf "  **%s**:_%s_; ",c[1],c[2];
+            if (c[2]!="0")
+                v = v "  **"c[1]"**:_"c[2]"_; ";
         }
+        
         split(b[n],c,":");
-        printf "  **%s**:_%s_",c[1],c[2];
-        printf "|\n";
+        if (c[2]!="0")
+            v = v "  **"c[1]"**:_"c[2]"_";
+        
+        if (v=="") v="_Not used_";
+        printf "%s|\n",v;
      }    
    }
 }
