@@ -36,7 +36,8 @@
 | 2 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_;   **N**:_neuter_|
 | 3 | num |   **S**:_singular_;   **P**:_plural_;   **N**:_invariable_|
 | 4 | neclass |   **S**:_person_;   **G**:_location_;   **O**:_organization_;   **V**:_other_|
-| 5 | degree |   **A**:_augmentative_;   **D**:_diminutive_|
+| 5 | nesubclass |   **0**:_0_|
+| 6 | degree |   **A**:_augmentative_;   **D**:_diminutive_|
 
 ### Part of Speech: `pronoun`
 | Position | Atribute | Values |
@@ -53,7 +54,7 @@
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **R**:_adverb_ |
-| 1 | type |   **N**:_negative_|
+| 1 | type |   **N**:_negative_;   **G**:_general_|
 
 ### Part of Speech: `adposition`
 | Position | Atribute | Values |

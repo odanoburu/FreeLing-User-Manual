@@ -54,16 +54,13 @@
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **R**:_adverb_ |
-| 1 | type |   **N**:_negative_|
+| 1 | type |   **N**:_negative_;   **G**:_general_|
 
 ### Part of Speech: `adposition`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **S**:_adposition_ |
 | 1 | type |   **P**:_preposition_|
-| 2 | contracted |   **S**:_0_;   **C**:_yes_|
-| 3 | gen |   **M**:_masculine_|
-| 4 | num |   **S**:_singular_|
 
 ### Part of Speech: `verb`
 | Position | Atribute | Values |

@@ -54,7 +54,7 @@
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **R**:_adverb_ |
-| 1 | type |   **N**:_negative_;   **G**:_0_|
+| 1 | type |   **N**:_negative_;   **G**:_general_|
 
 ### Part of Speech: `adposition`
 | Position | Atribute | Values |

@@ -9,12 +9,14 @@
 | 2 | degree |   **S**:_superlative_|
 | 3 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_|
 | 4 | num |   **S**:_singular_;   **P**:_plural_;   **N**:_invariable_|
+| 5 | possessorpers |   **1**:_1_;   **2**:_2_;   **3**:_3_|
+| 6 | possessornum |   **S**:_singular_;   **P**:_plural_;   **N**:_invariable_|
 
 ### Part of Speech: `conjunction`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **C**:_conjunction_ |
-| 1 | type |   **C**:_coordinating_;   **S**:_subordinating_|
+| 1 | type |   **C**:_coordinating_;   **S**:_subordinating_;   **A**:_adversative_|
 
 ### Part of Speech: `determiner`
 | Position | Atribute | Values |
@@ -34,7 +36,8 @@
 | 2 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_|
 | 3 | num |   **S**:_singular_;   **P**:_plural_;   **N**:_invariable_|
 | 4 | neclass |   **S**:_person_;   **G**:_location_;   **O**:_organization_;   **V**:_other_|
-| 5 | degree |   **A**:_augmentative_;   **D**:_diminutive_|
+| 5 | nesubclass |   **0**:_0_;   **P**:_0_|
+| 6 | degree |   **V**:_evaluative_|
 
 ### Part of Speech: `pronoun`
 | Position | Atribute | Values |
@@ -52,16 +55,13 @@
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **R**:_adverb_ |
-| 1 | type |   **N**:_negative_|
+| 1 | type |   **N**:_negative_;   **G**:_general_|
 
 ### Part of Speech: `adposition`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **S**:_adposition_ |
 | 1 | type |   **P**:_preposition_|
-| 2 | contracted |   **S**:_0_;   **C**:_yes_|
-| 3 | gen |   **M**:_masculine_|
-| 4 | num |   **S**:_singular_|
 
 ### Part of Speech: `verb`
 | Position | Atribute | Values |

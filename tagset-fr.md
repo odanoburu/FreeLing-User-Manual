@@ -5,10 +5,12 @@
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **A**:_adjective_ |
-| 1 | type |   **O**:_ordinal_;   **Q**:_qualificative_|
-| 2 | degree |   **S**:_superlative_;   **A**:_augmentative_;   **D**:_diminutive_|
-| 3 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_;   **N**:_neuter_|
+| 1 | type |   **O**:_ordinal_;   **Q**:_qualificative_;   **P**:_possessive_|
+| 2 | degree |   **S**:_superlative_;   **V**:_evaluative_|
+| 3 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_|
 | 4 | num |   **S**:_singular_;   **P**:_plural_;   **N**:_invariable_|
+| 5 | possessorpers |   **1**:_1_;   **2**:_2_;   **3**:_3_|
+| 6 | possessornum |   **S**:_singular_;   **P**:_plural_;   **N**:_invariable_|
 
 ### Part of Speech: `conjunction`
 | Position | Atribute | Values |
@@ -46,23 +48,19 @@
 | 3 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_;   **N**:_neuter_|
 | 4 | num |   **S**:_singular_;   **P**:_plural_;   **N**:_invariable_|
 | 5 | case |   **N**:_nominative_;   **A**:_accusative_;   **D**:_dative_;   **O**:_oblique_|
-| 6 | possessornum |   **S**:_singular_;   **P**:_plural_;   **C**:_common_|
-| 7 | polite |   **P**:_yes_|
+| 6 | polite |   **P**:_yes_|
 
 ### Part of Speech: `adverb`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **R**:_adverb_ |
-| 1 | type |   **N**:_negative_;   **G**:_0_|
+| 1 | type |   **N**:_negative_;   **G**:_general_|
 
 ### Part of Speech: `adposition`
 | Position | Atribute | Values |
 |:----     |:----     |:----   |
 | 0        | category | **S**:_adposition_ |
 | 1 | type |   **P**:_preposition_|
-| 2 | contracted |   **S**:_0_;   **C**:_yes_|
-| 3 | gen |   **M**:_masculine_|
-| 4 | num |   **S**:_singular_;   **P**:_plural_|
 
 ### Part of Speech: `verb`
 | Position | Atribute | Values |
@@ -115,7 +113,7 @@
 | Fe | **pos**:_punctuation_;   **type**:_quotation_|
 | Frc | **pos**:_punctuation_;  **type**:_quotation_;   **punctenclose**:_close_|
 | Fra | **pos**:_punctuation_;  **type**:_quotation_;   **punctenclose**:_open_|
-| Fx | **pos**:_punctuation_;   **type**:_semicolon_|
+| Fx | **pos**:_punctuation_;   **type**:_semicolonk_|
 | Fh | **pos**:_punctuation_;   **type**:_slash_|
 | Fct | **pos**:_punctuation_;  **type**:_squarebracket_;   **punctenclose**:_close_|
 | Fca | **pos**:_punctuation_;  **type**:_squarebracket_;   **punctenclose**:_open_|
