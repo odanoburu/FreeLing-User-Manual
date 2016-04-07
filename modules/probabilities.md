@@ -58,7 +58,6 @@ The probabilities file has the following sections:
 *   Optional section `<PoSPreferences>` and contains a list of pairs of PoS tags. The meaning of each pair is that the first element is prefereble to the second in case the tagger can not decide between them and is forced to. The POS preference is only used when the tie can not be solved using lemma preferences.
 
     For instance, the section
-    
     ```XML
     <PosPreferences>
     VMII3S0 VMII1S0
@@ -82,8 +81,10 @@ The probabilities file has the following sections:
 
     If the word is not found in the `<FormTagFreq>`, frequencies for its ambiguity class are used.
 
-    The list consists of class per line, each line with format: `class tag1 #observ1 tag2 #observ2 ...`  
-    E.g.: `AQ-NC AQ 2361 NC 2077`
+    The list consists of class per line, each line with format:  
+    `class tag1 #observ1 tag2 #observ2 ...`  
+    E.g.:  
+    `AQ-NC AQ 2361 NC 2077`
 
     Class probabilities are smoothed to avoid zero-probabilities.
 
@@ -91,8 +92,10 @@ The probabilities file has the following sections:
 
     If the ambiguity class is not found in the `<ClassTagFreq>`, individual frequencies for its possible tags are used.
 
-    One tag per line, each line with format: `tag #observ`   
-    E.g.: `AQ 7462`
+    One tag per line, each line with format:  
+    `tag #observ`   
+    E.g.:  
+    `AQ 7462`
 
     Tag probabilities are smoothed to avoid zero-probabilities.
 
@@ -128,14 +131,18 @@ The probabilities file has the following sections:
 
 *   Section `<Suffixes>`: List of suffixes obtained from a train corpus, with information about which tags were assigned to the word with that suffix.
 
-    The list has one suffix per line, each line with format: `suffix #observ tag1 #observ1 tag2 #observ2 ...`  
-    E.g.  `orada 133 AQ0FSP 17 VMP00SF 8 NCFS000 108` 
+    The list has one suffix per line, each line with format:  
+    `suffix #observ tag1 #observ1 tag2 #observ2 ...`  
+    E.g.  
+    `orada 133 AQ0FSP 17 VMP00SF 8 NCFS000 108` 
 
 *   Section `<UnknownTags>`: List of open-category tags to consider as possible candidates for any unknown word.
 
-    One tag per line, each line with format: `tag #observ`  
+    One tag per line, each line with format:  
+    `tag #observ`   
     The tag is the complete label. The count is the number of occurrences in a training corpus.  
-    E.g. `NCMS000 33438`
+    E.g.  
+    `NCMS000 33438`
 
 *   Section `<LidstoneLambdaLexical>`: specifies the _λ_ parameter for Lidstone's Law smoothing of seen words
 
