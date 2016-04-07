@@ -117,7 +117,7 @@ Installing from GitHub is very similar to installing from source, but you'll hav
 
 *  Install packaged requirements
 
-    Follow the same procedure described in section about [Source Installation](#install-from-tag-gz-source-packages) for this step.
+    Follow the same procedure described in section about [Source Installation](#install-from-tar-gz-source-packages) for this step.
 
 *   Checkout FreeLing sources
 
