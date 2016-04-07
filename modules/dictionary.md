@@ -197,7 +197,7 @@ Thus, you may want to extend you dictionary to include such words. There are two
 
 *   Extend your dictionary: Dictionaries are created at installation time from sources in the directory `data/XX/dictionary` (where `XX` is the language code). Those files contain one triplet `word lemma tag` per line, and are fused in a single dictionary at installation time.
 
-    The script in `src/utilities/dicc-management/bin/build-dict.sh` will read the given files and build a dictionary with all them.
+    The script in `src/utilities/dicc-management/bin/build-dict.sh` will read the given files and build a dictionary with all them (check the file `src/utilities/dicc-management/README` for details).
 
     Thus, if you have a domain dictionary with a list of triplets `word lemma tag`, you can build a new dictionary fusing the original FreeLing entries with your domain entries. The resulting file can be given to the constructor of the dictionary class.
 

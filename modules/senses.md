@@ -30,21 +30,18 @@ class senses {
 
 The constructor of this class receives the name of a configuration file which is expected to contain the following sections:
 
-*   A section `<WNposMap>` with the mapping rules of FreeLing PoS tags to sense dictionary PoS tags.
-
+*   A section `<WNposMap>` with the mapping rules of FreeLing PoS tags to sense dictionary PoS tags.  
     The format of the mapping rules is described in section [Semantic Database](semdb.md).
 
 *   A section `<DataFiles>` containing the following pairs `keyword value`:
 
     * `SenseDictFile filename`  
        Sense dictionary to use. E.g.
-
        ```XML
        <DataFiles>
        SenseDictFile  ./senses30.src
        </DataFiles>
        ```
-
       The format of the sense dictionary is described in section [Semantic Database](semdb.md).
 
     * `formDictFile filename`  
@@ -59,16 +56,13 @@ The constructor of this class receives the name of a configuration file which is
     crane VB  0.083
     crane VBP 0.083
     ```
-
     If the list of senses is simply added to each of them (that is, `DuplicateAnalysis` is set to `false`), you will get:
     ```
     crane NN  0.833  02516101:01524724
     crane VB  0.083  00019686
     crane VBP 0.083  00019686
     ```
-
     But if you set `DuplicateAnalysis` to true, the <tt>NN</tt> analysis will be duplicated for each of its possible senses:
-
     ```
     crane NN  0.416  02516101
     crane NN  0.416  01524724
