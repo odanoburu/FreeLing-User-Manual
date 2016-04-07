@@ -6,7 +6,8 @@ It is based on [Treeler](http://devel.cpl.upc.edu/treeler) machine learning libr
 
 The API of the class is the following:
 
-<pre>class dep_treeler : public dependency_parser {
+```C++
+class dep_treeler : public dependency_parser {
  public:   
    /// constructor
    dep_treeler(const std::string &cfgfile);
