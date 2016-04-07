@@ -47,7 +47,6 @@ The probabilities file has the following sections:
 *   Optional section `<LemmaPreferences>` and contains a list of pairs of lemmas. The meaning of each pair is that the first element is prefereble to the second in case the tagger can not decide between them and is forced to.
 
     For instance, the section:
-
     ```XML
     <LemmaPreferences>
     salir salgar
