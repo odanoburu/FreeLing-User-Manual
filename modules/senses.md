@@ -30,53 +30,48 @@ class senses {
 
 The constructor of this class receives the name of a configuration file which is expected to contain the following sections:
 
-*   A section `<WNposMap>` with the mapping rules of FreeLing PoS tags to sense dictionary PoS tags. See details in section
+*   A section `<WNposMap>` with the mapping rules of FreeLing PoS tags to sense dictionary PoS tags.
 
-    5.2
+    The format of the mapping rules is described in section [Semantic Database](semdb.md).
 
-    .
-*   A section `<DataFiles>` containing at least the keyword `SenseDictFile` defined to a valid sense dictionary file name. E.g.:
+*   A section `<DataFiles>` containing the following pairs `keyword value`:
 
-    <pre>    <DataFiles>
-        SenseDictFile  ./senses30.src
-        </DataFiles>
-    </pre>
+    * `SenseDictFile filename`  
+       Sense dictionary to use. E.g.
 
-    The sense dictionary must follow the format described in section
+       ```XML
+       <DataFiles>
+       SenseDictFile  ./senses30.src
+       </DataFiles>
+       ```
 
-    5.2.2
+      The format of the sense dictionary is described in section [Semantic Database](semdb.md).
 
-    .
+    * `formDictFile filename`  
+       Form dictionary to use if mapping rules in `WNposMap` require the use of a form dictionary.
 
-    If the mapping rules `<WNposMap>` require a form dictionary, a keyword `formDictFile` with the dictionary to use must be provided in this section. More details are given in section
-
-    5.2
-
-    .
 
 *   A section `<DuplicateAnalysis>` containing a single line with either `yes` or `no`, stating whether the analysis with more than one senses must be duplicated. If this section is ommitted, `no` is used as default value. The effect of activating this option is described in the following example:
 
     For instance, the word crane has the follwing analysis:
+    ```
+    crane NN  0.833
+    crane VB  0.083
+    crane VBP 0.083
+    ```
 
-    <pre>    crane 
-           crane NN  0.833
-           crane VB  0.083
-           crane VBP 0.083
-    </pre>
+    If the list of senses is simply added to each of them (that is, `DuplicateAnalysis` is set to `false`), you will get:
+    ```
+    crane NN  0.833  02516101:01524724
+    crane VB  0.083  00019686
+    crane VBP 0.083  00019686
+    ```
 
-    If the list of senses is simply added to each of them (that is, <tt>DuplicateAnalysis</tt> is set to <tt>false</tt>), you will get:
+    But if you set `DuplicateAnalysis` to true, the <tt>NN</tt> analysis will be duplicated for each of its possible senses:
 
-    <pre>    crane 
-           crane NN  0.833  02516101:01524724
-           crane VB  0.083  00019686
-           crane VBP 0.083  00019686
-    </pre>
-
-    But if you set <tt>DuplicateAnalysis</tt> to true, the <tt>NN</tt> analysis will be duplicated for each of its possible senses:
-
-    <pre>    crane 
-           crane NN  0.416  02516101
-           crane NN  0.416  01524724
-           crane VB  0.083  00019686
-           crane VBP 0.083  00019686
-    </pre>
+    ```
+    crane NN  0.416  02516101
+    crane NN  0.416  01524724
+    crane VB  0.083  00019686
+    crane VBP 0.083  00019686
+    ```
