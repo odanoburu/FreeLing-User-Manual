@@ -12,7 +12,7 @@ All modules are thread-safe (though some such as the sentence splitter need a se
 
 If an application needs to process more than one language, it can instantiate the needed modules for each language simply calling the constructors with different data files as a parameter.
 
-Main processing classes in FreeLing are:
+### Main processing classes in FreeLing
 
 * [Language Identifier](modules/lang_ident.md)
 * [Tokenizer](modules/tokenizer.md)
@@ -38,12 +38,14 @@ Main processing classes in FreeLing are:
 * [Statistical Dependency Parser and SRL](modules/dep_treeler.md)
 * [Coreference Resolution](modules/coreference.md)
 * [Semantic Graph Extraction](modules/semgraph.md)
-* Other Useful Modules  
+
+### Other Useful Modules  
+
   FreeLing contains some internal classes used by the analysis modules described above, as well as other utility classes (e.g. to handle input/output formats). Some applications may be interested in directly accessing these lower-level utilities, the most relevant of which are:
-    * [Analyzer Metamodule](modules/analyzer.md)
-    * [Tagset Management](modules/tagset.md)
-    * [Semantic Database](modules/semdb.md)
-    * [Approximate Search Dictionary](modules/foma.md)
-    * [Feature Extractor](modules/fex.md)
-    * [Input/Output Formats](modules/io.md)
+* [Analyzer Metamodule](modules/analyzer.md)
+* [Tagset Management](modules/tagset.md)
+* [Semantic Database](modules/semdb.md)
+* [Approximate Search Dictionary](modules/foma.md)
+* [Feature Extractor](modules/fex.md)
+* [Input/Output Formats](modules/io.md)
 
