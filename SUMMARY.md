@@ -3,10 +3,12 @@
 * [Basic Concepts](basics.md)
 * [Getting it to Work](installation.md)
 * [Linguistic Data Classes](language-classes.md)
+
 * [Language Processing Modules](processing-classes.md)
     * [Language Identifier](modules/lang_ident.md)
     * [Tokenizer](modules/tokenizer.md)
     * [Sentence Splitter](modules/splitter.md)
+
     * [Morphological Analyzer](modules/maco.md)
         * [Punctuation Detection](modules/punct.md)
         * [Number Detection](modules/numbers.md)
@@ -28,6 +30,7 @@
     * [Statistical Dependency Parser and SRL](modules/dep_treeler.md)
     * [Coreference Resolution](modules/coreference.md)
     * [Semantic Graph Extraction](modules/semgraph.md)
+
 * Other Useful modules
     * [Analyzer Metamodule](modules/analyzer.md)
     * [Tagset Management](modules/tagset.md)
@@ -35,9 +38,11 @@
     * [Approximate Search Dictionary](modules/foma.md)
     * [Feature Extractor](modules/fex.md)
     * [Input/Output Formats](modules/io.md)
+
 * [Using the library from your own application](user-application.md)
 * [Using `analyzer` Program to Process Corpora](analyzer.md)
 * [Adding Support for New Languages](new-languages.md)
+
 * [FreeLing Tagset Description](tagsets.md)
     * [(as) Asturian](tagsets/tagset-as.md)
     * [(ca) Catalan](tagsets/tagset-ca.md)
@@ -53,4 +58,5 @@
     * [(pt) Portuguese](tagsets/tagset-pt.md)
     * [(ru) Russian](tagsets/tagset-ru.md)
     * [(sl) Slovene](tagsets/tagset-sl.md)
+
 * [References](references.md)
