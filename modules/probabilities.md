@@ -72,8 +72,10 @@ The probabilities file has the following sections:
 
     If the word is found in this list, lexical probabilities are computed using data in `<FormTagFreq>` section.
 
-    The list consists of one form per line, each line with format: `form ambiguity-class, tag1 #observ1 tag2 #observ2 ...`  
-    E.g.: `japonesas AQ-NC AQ 1 NC 0` 
+    The list consists of one form per line, each line with format:  
+    `form ambiguity-class, tag1 #observ1 tag2 #observ2 ...`  
+    E.g.:  
+    `japonesas AQ-NC AQ 1 NC 0` 
 
     Form probabilities are smoothed to avoid zero-probabilities.
 
