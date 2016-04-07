@@ -39,7 +39,7 @@ The file contains a list of multiwords to be recognized.
 
 The file consists of three sections `<TagSetFile>`, `<OnlySelected>`, and `<Multiwords>`. All of them are optional (though an empty or unexisting `<Multiwords>` section will result in never detecting any multiword).
 
-*   Section `<TagSetFile>`. This section contains a single line with the path to a [tagset description file](modules/tagset.md) to be used when computing short versions for PoS tags. If the path is relative, the location of the multiwords file is used as the base directory.
+*   Section `<TagSetFile>`. This section contains a single line with the path to a [tagset description file](tagset.md) to be used when computing short versions for PoS tags. If the path is relative, the location of the multiwords file is used as the base directory.
 *   Section `<OnlySelected>` contains a single line with the one of the words `yes`, `true`, `no`, or `false`. If the section is ommited, or contains any unknown value, the value defaults to `false`.
 
     This flag controls the analysis that the multiword detector will consider when matching a multiwords pattern that contains lemmas or PoS descriptions. If `OnlySelected=` is set to `false` (the default) all possible analysis for each word will matched against the pattern. If `OnlySelected` is set to `true`, only selected analysis will be checked. Note that setting `OnlySelected` to `true` only makes sense if the multiwords module is applied after the PoS tagger, since otherwise no analysis will be selected.
