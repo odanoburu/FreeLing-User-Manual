@@ -93,6 +93,7 @@ Installing from source is slower and harder, but it will work in any Linux box, 
     Download source package `freeling-4.0.tar.gz` from FreeLing webpage download section, and then execute:   
     `tar xzvf freeling-4.0.tar.gz`  
     `cd freeling-4.0`  
+    `autoreconf --install`
     `./configure`  
     `make`  
     `sudo make install`
