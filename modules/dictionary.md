@@ -169,7 +169,7 @@ les ellos PP3CPD00
 
 The dictionary may be configured to check whether a word is a compound formed by the concatenation of several dictionary words.
 
-The compounds will be detected if they are formed strictly by words in the dictionary, either glued toghether (e.g. ghostbusters,underworld), or separated with a character especified to be a compound joint (e.g. a dash middle-aged). In the current version, if a component of the compound is a form derived via affixation (e.g. extremely-complex) it will not be detected, even if the base form (extreme) is in the dictionary.
+The compounds will be detected if they are formed strictly by words in the dictionary, either glued toghether (e.g. _ghostbusters_, _underworld_), or separated with a character especified to be a compound joint (e.g. a dash: _middle-aged_, self-sustained_). In the current version, if a component of the compound is a form derived via affixation (e.g. _extremely-complex_) it will not be detected, even if the base form for the affixed word (_extreme_ in this case) is in the dictionary.
 
 The submodule of the dictionary handler that deals with compounds requires a set of valid compound patterns. The configuration file for the compound detection module consists of three sections: `<UnknownWordsOnly>`, `<JoinChars>`, and `<CompoundPatterns>`.
 
@@ -183,7 +183,7 @@ There are two possible formats for specifying a pattern:
 
 *   `headed_PoS_pattern` This pattern consists of a sequence of PoS tag prefixes separated by underscores. Exactly one of the tags must be preceeded with a plus sign (`+`) that indicates it is the head of the compound, and thus its PoS tag will be used as the tag of the compound.
 
-    For instance, the pattern `JJ_+NN` will recognize a compound such as lightweight or lightweights, since their components match the categories in the pattern. The compound will receive the PoS tag of the second component, producing the analyses (light_weight,NN) and (light_weight,NNS) respectively.
+    For instance, the pattern `JJ_+NN` will recognize compounds such as _lightweight_ or _lightweights_, since their components match the categories in the pattern. The compound will receive the PoS tag of the second component, producing the analyses <tt>(light_weight,NN)</tt> and <tt>(light_weight,NNS)</tt> respectively.
 
 *   `PoS_pattern compound_PoS` Patterns specified in this way behave like described above, but no head marker is expected in the `PoS_pattern`. Instead of using the head PoS, the PoS tag for the compound is straightforwardly set to the value of `compound_PoS`.
 
@@ -195,12 +195,10 @@ In many NLP applications you want to deal with text in a particular domain, whic
 
 Thus, you may want to extend you dictionary to include such words. There are two main ways of doing this:
 
-*   Extend your dictionary: Dictionaries are created at installation time from sources in the directory <tt>data/XX/dictionary</tt> (where XX is the language code). Those files contain one triplet word-lemma-tag per line, and are fused in a single dictionary at installation time.
+*   Extend your dictionary: Dictionaries are created at installation time from sources in the directory `data/XX/dictionary` (where `XX` is the language code). Those files contain one triplet `word lemma tag` per line, and are fused in a single dictionary at installation time.
 
-    The script in <tt>src/utilities/dicc-management/bin/build-dict.sh</tt> will read the given files and build a dictionary with all them.
+    The script in `src/utilities/dicc-management/bin/build-dict.sh` will read the given files and build a dictionary with all them.
 
-    <sup><span class="arabic">4</span>.<span class="arabic">1</span></sup>
-
-    Thus, if you have a domain dictionary with a list of triplets word-lemma-tag, you can build a new dictionary fusing the original FreeLing entries with your domain entries. The resulting file can be given to the constructor of the dictionary class.
+    Thus, if you have a domain dictionary with a list of triplets `word lemma tag`, you can build a new dictionary fusing the original FreeLing entries with your domain entries. The resulting file can be given to the constructor of the dictionary class.
 
 *   Instantiate more than one dictionary module: Another option is to instatiate several dictionary modules (creating each one with a different dictionary file), and run the text through each of them sequentially. When the word is found in one dictionary along the chain, the following dictionary modules will ignore it and will not attempt to look it up.
