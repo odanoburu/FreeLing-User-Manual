@@ -1,0 +1,81 @@
+# Multiword Recognition Module {#multiword-recognition-module}
+
+This module aggregates input tokens in a single word object if they are found in a given list of multiwords.
+
+The API for this class is:
+
+```C++
+class locutions: public automat {
+  public:
+    /// Constructor, receives the name of the file
+    /// containing the multiwords to recognize.
+    locutions(const std::string &cfgfile);
+
+    /// Detect multiwords starting at given sentence position
+    bool matching(sentence &s, sentence::iterator &p);
+
+    /// set "OnlySelected" flag on/off
+    void set_OnlySelected(bool b);
+
+    /// analyze given sentence.
+    void analyze(sentence &s) const;
+
+    /// analyze given sentences.
+    void analyze(std::list<sentence> &ls) const;
+
+    /// return analyzed copy of given sentence
+    sentence analyze(const sentence &s) const;
+
+    /// return analyzed copy of given sentences
+    std::list<sentence> analyze(const std::list<sentence> &ls) const;
+};
+```
+
+Class <tt>automat</tt> implements a generic ATN. The <tt>locutions</tt> class is a derived class which implements an ATN to recognize the word patterns listed in the file given to the constructor.
+
+## Multiword Definition File {#multiword-definition-file}
+
+The file contains a list of multiwords to be recognized.
+
+The file consists of three sections `<TagSetFile>`, `<OnlySelected>`, and `<Multiwords>`. All of them are optional (though an empty or unexisting `<Multiwords>` section will result in never detecting any multiword).
+
+*   Section `<TagSetFile>`. This section contains a single line with the path to a tagset description file (see section
+
+    5.1
+
+    ) to be used when computing short versions for PoS tags. If the path is relative, the location of the multiwords file is used as the base directory.
+*   Section `<OnlySelected>` contains a single line with the one of the words `yes`, `true`, `no`, or `false`. If the section is ommited, or contains any unknown value, the value defaults to `false`.
+
+    This flag controls the analysis that the multiword detector will consider when matching a multiwords pattern that contains lemmas or PoS descriptions. If `OnlySelected==false` (the default) all possible analysis for each word will matched against the pattern. If `OnlySelected==true`, only selected analysis will be checked. Note that `OnlySelected==true` only makes sense if the multiwords module is applied after the PoS tagger, since otherwise no analysis will be selected.
+
+*   Section `<Multiwords>` contains one multiword pattern per line. Each line has the format: `form lemma1 pos1 lemma2 pos2 ... [A|I]`
+
+    The multiword form may contain lemmas in angle brackets, meaning that any form with that lemma will be considered a valid component for the multiword.
+
+    The form may also contain PoS tags. Any uppercase component in the form will be treated as a PoS tag.
+
+    Any number of pairs lemma-tag may be assigned to the multiword. The PoS tagger will select the most probable given the context, as with any other word.
+
+    For instance:
+
+    <pre>a_buenas_horas a_buenas_horas RG A
+    a_causa_de a_causa_de SPS00 I
+    <accidente>_de_trabajo accidente_de_trabajo $1:NC I
+    <acabar>_de_VMN0000 acabar_de_$L3 $1:VMI I
+    Z_<vez> TIMES:$L1 Zu I
+    NC_SP_NC $L1_$L2_$L3 $1:NC I
+    </pre>
+
+    The tag may be specified directly, or as a reference to the tag of some of the multiword components. In the previous example, the third multiword specification will build a multiword with any of the forms <tt>accidente de trabajo</tt> or <tt>accidentes de trabajo</tt>. The tag of the multiword will be that of its first form (<tt>$1</tt>) which starts with <tt>NC</tt>. This will assign the right singular/plural tag to the multiword, depending on whether the form was ``accidente'' or ``accidentes''.
+
+    The lemma of the multiword may be specified directly, or as a reference to the form of lemma of some of the multiword components. In the previous example, the fourth multiword specification will build a multiword with phrases such as <tt>acabo de comer</tt>, <tt>acababa de salir</tt>, etc. The lemma will be <tt>acabar_de_XXX</tt> where <tt>XXX</tt> will be replaced with the lemma of the third multiword component (<tt>$L3</tt>).
+
+    The pattern can also depict PoS values for some components of the multiword. For instance, the second-to-last multiword above will detect any combination where the first word has PoS `Z`, and the second word has lemma `vez` (e.g <tt>una_vez</tt>, <tt>6_veces</tt>, <tt>cuarenta_y_dos_veces</tt>, etc.)
+
+    The last example pattern will capture any trigram where the first and third words are nouns (<tt>NC</tt>) and the middle word is a preposition (<tt>SP</tt>), e.g. <tt>base_de_datos</tt>, <tt>compuesto_de_penicilina</tt>, etc.
+
+    Note that patterns that specify lemmas or PoS will behave different depending on the value of the flag `OnlySelected` described above.
+
+    Lemma replacement strings can be <tt>$F1</tt>, <tt>$F2</tt>, <tt>$F3</tt>, etc. to select the lowercased form of any component, or <tt>$L1</tt>, <tt>$L2</tt>, <tt>$L3</tt>, etc. to select the lemma of any component. Component numbers can range from 1 to 9.
+
+    The last field states whether the multiword is ambiguous <tt>A</tt> or not <tt>I</tt> with respect to its segmentation (i.e. that it may be a multiword or not, depending on the context). The multiword is built in any case, but the ambiguity information is stored in the <tt>word</tt> object, so the calling applicacion can consult it and take the necessary decisions (e.g. un-glue the multiword) if needed.
