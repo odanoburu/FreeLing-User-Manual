@@ -86,6 +86,6 @@ one_dollar CUR_USD:1 Zm
 two_hundred_fifty_feet_per_second SP_ft/s:250 Zu
 ```
 
-Quantity multiwords will be recognized only when following a number, that is, in the sentence _They got a lot of french francs_, the multiword <tt>french_francs</tt> won't be recognized since the sentence is not assigning units to a determined quantity.
+Quantity multiwords will be recognized only when following a number, that is, in the sentence _They got a lot of french francs_, the multiword <tt>french_francs</tt> won't be recognized since the sentence is specifying determined quantity of that measure unit.
 
 It is important to note that the lemmatized multiword expressions (the ones that containt angle brackets) will only be recognized if the lemma is present in the dictionary with its corresponding inflected forms.
