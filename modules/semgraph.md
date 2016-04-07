@@ -18,9 +18,9 @@ class semgraph_extract {
   };
 ```
 
-This module will enrich the document with an object <tt>semantic_graph</tt> containing a pseudo entity-relationship model of the events described in the text.
+This module will enrich the document with an object `semantic_graph` containing a pseudo entity-relationship model of the events described in the text.
 
-For instance, for the text: Mary says that Peter Smith bought a car that runs fast. Peter loves Mary. FreeLing would produce the following graph:
+For instance, for the text: _Mary says that Peter Smith bought a car that runs fast. Peter loves Mary._ FreeLing would produce the following graph:
 
 ```XML
 <semantic_graph>
@@ -98,13 +98,13 @@ For instance, for the text: Mary says that Peter Smith bought a car that runs fa
 </semantic_graph>
 ```
 
-The graph encodes that there are three entities in the text (``Peter'', ``Mary'', and ``a car''). Some of them are mentioned more than once (and so, they participate in different events described in the text). Some of them have a class (e.g. ``person'') or a link to an external ontology (such as WN, SUMO, or OpenCYC).
+The graph encodes that there are three entities in the text (_Peter_, _Mary_, and _a car_). Some of them are mentioned more than once (and so, they participate in different events described in the text). Some of them have a class (e.g. <tt>person</tt>) or a link to an external ontology (such as WN, SUMO, or OpenCYC).
 
-Then, there are some events (or ``frames'') described in the text. Those frames have arguments, which are the involved actors. External URIs for the semantic of those actions are also provided.
+Then, there are some events (or `frames`) described in the text. Those frames have arguments, which are the actors involved in each event. External URIs for the semantic of those actions are also provided.
 
-So the main relations in this graph are:
+So the main relations depicted in this example graph are:
 
-*   Frame <tt>F9</tt> describes a <tt>love.01</tt> event experienced by entity <tt>E2</tt> (Mary) due to the stimulus of entity <tt>E1</tt> (Peter).
-*   Frame <tt>F5</tt> describes a <tt>run.00</tt> event performed by entity <tt>W6</tt> (a car). This event has a manner argument that is <tt>W8</tt> (fast).
-*   Frame <tt>F4</tt> describes a <tt>purchase.01|buy.01</tt> event performed by <tt>E2</tt> (Peter) on <tt>W6</tt> (a car).
-*   Frame <tt>F3</tt> describes a <tt>say.00</tt> event where <tt>E1</tt> (Mary) states that event <tt>F4</tt> (Peter buying a car) happened.
+*   Frame <tt>F9</tt> describes a <tt>love.01</tt> event experienced by entity <tt>E2</tt> (_Mary_) due to the stimulus of entity <tt>E1</tt> (_Peter_).
+*   Frame <tt>F5</tt> describes a <tt>run.00</tt> event performed by entity <tt>W6</tt> (_a car_). This event has a manner argument that is <tt>W8</tt> (_fast_).
+*   Frame <tt>F4</tt> describes a <tt>purchase.01|buy.01</tt> event performed by <tt>E2</tt> (_Peter_) on <tt>W6</tt> (_a car_).
+*   Frame <tt>F3</tt> describes a <tt>say.00</tt> event where <tt>E1</tt> (_Mary_) states that event <tt>F4</tt> (Peter buying a car) happened.

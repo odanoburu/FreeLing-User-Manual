@@ -1,5 +1,5 @@
 
-# R<small>ELAX</small>C<small>OR</small> Coreference Resolution Module {#relaxcor-coreference-resolution-module}
+# RelaxCor Coreference Resolution Module {#relaxcor-coreference-resolution-module}
 
 This module offers coreference resolution capabilities.
 
