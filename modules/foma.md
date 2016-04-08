@@ -39,9 +39,9 @@ The constructor of the module requests one parameter stating the file to load, s
 
 The automata file may have extension `.src` or `.bin`. If the extension is `.src`, the file is intepreted as a text file with one word per line. The FSM is built to recognize the vocabulary contained in the file.
 
-If the extension is `.bin`, the file is intepreted as a binary <tt>libfoma</tt> FSM. To compile such a binary file, FOMA command line front-end must be used. The front-end is not included in FreeLing. You will need to install FOMA if you want to create binary FSM files. See <small class="SMALL"><tt>[http://code.google.com/p/foma](http://code.google.com/p/foma)</tt></small> for details.
+If the extension is `.bin`, the file is intepreted as a binary <tt>libfoma</tt> FSM. To compile such a binary file, FOMA command line front-end must be used. The front-end is not included in FreeLing. You will need to install FOMA if you want to create binary FSM files. See [FOMA documentation](http://code.google.com/p/foma) for details.
 
-A cost matrix for SED operations may be specified only for text FSMs (i.e., for `.src` files). To use a cost matrix with a `.bin` file, you can compile it into the automata using FOMA front-end.
+A cost matrix for SED operations may be specified only for text FSMs (i.e., for `.src` files). To use a cost matrix with a `.bin` file, you need to compile it into the automata using FOMA front-end.
 
 The format of the cost matrix must comply with FOMA formats. See FOMA documentation, or examples provided in `data/common/alternatives` in FreeLing tarball.
 

@@ -3,7 +3,7 @@
 
 FreeLing package includes a few classes that can convert between FreeLing analyzed documents and an output representantion. New classes can be created by the user to meet specific needs.
 
-The I/O handlers are derived from two top abstract classes: <tt>input_handler</tt> and <tt>output_handler</tt>.
+The I/O handlers are derived from two top abstract classes: `input_handler` and `output_handler`.
 
 Derived classes handle a particular I/O format, and must implement the appropriate methods.
 
@@ -58,9 +58,11 @@ class output_handler {
 
 ## Output handlers {#output-handlers}
 
-Currently, the following output handlers are implemented. All of them are derived from <tt>output_handler</tt>.
+Currently, the following output handlers are implemented. All of them are derived from `output_handler`.
 
-The module <tt>output_freeling</tt> produces the classical FreeLing output (column-like for lower analysis levels, and parenthesized trees for higher levels). The desired output can be configured by the calling application activating or deactivating print levels.
+### FreeLing Output
+
+The module `output_freeling` produces the classical FreeLing output (column-like for lower analysis levels, and parenthesized trees for higher levels). The desired output can be configured by the calling application activating or deactivating print levels.
 
 ```C++
 class output_freeling : public output_handler {
@@ -113,11 +115,43 @@ class output_freeling : public output_handler {
 };
 ```
 
-The module <tt>output_conll</tt> produces a CoNLL-like column format. The default format is not exactly any of the CoNLL competitions, but an adapted version.
+### CoNLL Output
+
+The module `output_conll` produces a CoNLL-like column format. The default format is not exactly any of the CoNLL competitions, but an adapted version.
 
 The module will always print all information avaliable in the document (i.e. if the document is parsed, a column for the parse tree will be generated).
 
 The constructor may be called with a configuration file stating which columns should be printed and in which order.
+The configuration file should contain a section `<TagsetFile>` pointing which [tagset definition](tagset.md) file should be used, and a section `<Columns>` which contains the list of columns to output.
+
+The default behaviour of this module (that is, if no configuration file is provided), is the same than with the configuration file:
+```XML
+<TagsetFile>
+./tagset.dat
+</TagsetFile>
+<Columns>
+ID FORM LEMMA TAG SHORT_TAG MSD NEC SENSE SYNTAX DEPHEAD DEPREL COREF SRL
+</Columns>
+```
+
+Valid column names are:
+* `ID`: token id (position of word in the sentence)
+* `SPAN_BEGIN`: character position of the word in the original text.
+* `SPAN_END`:  character position of the end of word in the original text.
+* `FORM`: word form
+* `LEMMA`: word lemma
+* `TAG`: Complete PoS tag
+* `SHORT_TAG`: Short Pos tag (as shortened by the [Tagset definition](tagset.md) file)
+* `MSD`: Morphosyntactic features (as produced by the [Tagset definition](tagset.md) file)
+* `NEC`: Named Entity Classifier output in B-I-O format
+* `SENSE`: Sense selected by the used WSD module (or first sense if no disambiguation was used)
+* `ALL_SENSES`: List of all possible senses for the word
+* `SYNTAX`: Information about constituents opening/closing in this word
+* `DEPHEAD`: Head of the word in the dependency tree
+* `DEPREL`: Syntactic function of the word with regard to its head.
+* `COREF`: Coreference groups opening/closing in this word
+* `SRL`: Semantic Role Labelling predicates and arguments in CoNLL format. This may take more than one column, and must always be the last field in the list.
+
 
 ```C++
 class output_conll : public output_handler {
@@ -145,7 +179,9 @@ class output_conll : public output_handler {
 };
 ```
 
-The module <tt>output_xml</tt> produces an XML representation of the analyzed document.
+### XML Output
+
+The module `output_xml` produces an XML representation of the analyzed document.
 
 The module will always print all information avaliable in the document (i.e. if the document is parsed, an XML tag for the parse tree will be generated).
 
@@ -175,7 +211,9 @@ class output_xml : public output_handler {
 };
 ```
 
-The module <tt>output_json</tt> produces a JSON object for the analyzed document.
+### JSON Output
+
+The module `output_json` produces a JSON object for the analyzed document.
 
 The module will always print all information avaliable in the document (i.e. if the document is parsed, an JSON object for the parse tree will be included in the document object).
 
@@ -200,7 +238,9 @@ class output_json : public output_handler {
 };
 ```
 
-The module <tt>output_naf</tt> produces a NAF [FSB<sup>+</sup>14] representation for the analyzed document.
+### NAF Output
+
+The module `output_naf` produces a NAF [FSB+14](references.md) representation for the analyzed document.
 
 The desired output can be configured by the calling application activating or deactivating annotation layers.
 
@@ -232,7 +272,7 @@ class output_naf : public output_handler {
 };
 ```
 
-The module <tt>output_train</tt> produces a FreeLing specific format suitable to be used to retrain the PoS tagger (tipically after hand correction of the tagger errors).
+The module `output_train` produces a FreeLing specific format suitable to be used to retrain the PoS tagger (tipically after hand correction of the tagger errors).
 
 ```C++
 class output_train : public output_handler {
@@ -255,4 +295,67 @@ class output_train : public output_handler {
    /// inherit other methods
    using output_handler::PrintResults;
 };
+```
+
+
+## Input handlers {#output-handlers}
+
+Currently, the following output handlers are implemented. All of them are derived from `input_handler`.
+
+### FreeLing Input
+
+  This class will load output produced by FreeLing with `--outlv morfo` or `--outlv tagged`. 
+
+```C++
+class input_freeling : public input_handler {      
+ public:   
+  // constructor. 
+  input_freeling ();
+  // destructor. 
+  ~input_freeling ();
+
+  /// load partially analyzed sentences from 'lines' into a list of sentences
+  virtual void input_sentences(const std::wstring &lines, 
+                               std::list<freeling::sentence> &ls) const;
+
+  /// load partially analyzed sentences from 'lines' into a document
+  virtual void input_document(const std::wstring &lines, 
+                               freeling::document &doc) const;
+
+};
+```
+
+
+### CoNLL  Input
+
+  This class will load output produced by `output_conll` (see above).
+
+  A configuration file can be provided to the constructor. 
+  The configuration file format is the same than for `output_conll`.
+
+```C++
+class input_conll : public input_handler, public conll_handler {
+
+ public:   
+  // default constructor. 
+  input_conll();
+  // constructor from config file
+  input_conll(const std::wstring &fcfg);
+  // destructor. 
+  ~input_conll();
+
+  void input_sentences(const std::wstring &lines, std::list<freeling::sentence> &ls) const;
+  void input_document(const std::wstring &lines, freeling::document &doc) const;
+};
+```
+
+The default behaviour of this module (that is, if no configuration file is provided), is the same than with the configuration file:
+
+```XML
+<TagsetFile>
+./tagset.dat
+</TagsetFile>
+<Columns>
+ID FORM LEMMA TAG SHORT_TAG MSD NEC SENSE SYNTAX DEPHEAD DEPREL COREF SRL
+</Columns>
 ```
