@@ -30,6 +30,7 @@ class POS_tagger {
     /// return analyzed copy of given sentences
     virtual std::list<sentence> analyze(const std::list<sentence> &ls) const;
 };
+```
 
 Other PoS methods can be added deriving new classes from `POS_tagger`
 
