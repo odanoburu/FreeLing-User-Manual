@@ -1,7 +1,7 @@
 
 # Rule-based Dependency Parser Module {#rule-based-dependency-parser-module}
 
-The Txala dependency parser [ACM05] gets parsed sentences -that is, <tt>sentence</tt> objects which have been enriched with a <tt>parse_tree</tt> by the <tt>chart_parser</tt> (or by any other means).
+The Txala dependency parser [ACM05] gets constituency parsed sentences -that is, `sentence` objects which have been enriched with a `parse_tree` by the `chart_parser` (or by any other means).  The input parsing may be shallow. The dependency parser will complete the parse tree if needed, convert it to a dependency tree, and assign a syntactic function to each edge in the dependency tree.
 
 ```C++
 class dep_txala : public dependency_parser {
@@ -23,25 +23,21 @@ class dep_txala : public dependency_parser {
 };
 ```
 
-The constructor receives two strings: the name of the file containging the dependency rules to be used, and the start symbol of the grammar used by the <tt>chart_parser</tt> to parse the sentence.
+The constructor receives two strings: the name of the file containging the dependency rules to be used, and the start symbol of the grammar used by the `chart_parser` to parse the sentence.
 
 The dependency parser works in three stages:
+*   At the first stage, the `<GRPAR>` rules are used to complete the shallow parsing produced by the chart into a complete parsing tree. The rules are applied to a pair of adjacent chunks. At each step, the selected pair is fused in a single chunk. The process stops when only one chunk remains.
+*   The next step is an automatic conversion of the complete parse tree to a dependency tree. Since the parsing grammar encodes information about the head of each rule, the conversion is straighforward.
+*   The last step is the labeling. Each edge in the dependeny tree is labeled with a syntactic function, using the `<GRLAB>` rules.
 
-*   At the first stage, the `<GRPAR>` rules are used to complete the shallow parsing produced by the chart into a complete parsing tree. The rules are applied to a pair of adjacent chunks. At each step, the selected pair is fused in a single chunk. The process stops when only one chunk remains
-*   The next step is an automatic conversion of the complete parse tree to a dependency tree. Since the parsing grammar encodes information about the head of each rule, the conversion is straighforward
-*   The last step is the labeling. Each edge in the dependeny tree is labeled with a syntactic function, using the `<GRLAB>` rules
+The syntax and semantics of `<GRPAR>` and `<GRLAB>` rules are described below.
 
-The syntax and semantics of `<GRPAR>` and `<GRLAB>` rules are described in section
-
-4.21.1
-
-.
 
 ## Dependency Parsing Rule File {#dependency-parsing-rule-file}
 
 The dependency rules file contains a set of rules to perform dependency parsing.
 
-The file consists of five sections: sections: `<GRPAR>`, `<GRLAB>`, `<SEMDB>`, `<CLASS>`, and `<PAIRS>`, respectively closed by tags `</GRPAR>`, `</GRLAB>`, `</SEMDB>`, `</CLASS>`, and `</PAIRS>`.
+The file consists of five sections: sections: `<GRPAR>`, `<GRLAB>`, `<SEMDB>`, `<CLASS>`, and `<PAIRS>`.
 
 ### Parse-tree completion rules {#parse-tree-completion-rules}
 
@@ -49,53 +45,41 @@ Section `<GRPAR>` contains rules to complete the partial parsing provided by the
 
 The rules can be enabled/disabled via the activation of global flags. Each rule may be stated to be enabled only if certain flags are on. If none of its enabling flags are on, the rule is not applied. Each rule may also state which flags have to be toggled on/off after its application, thus enabling/disabling other rule subsets.
 
-Each line contains a rule, with the format:
-
-<pre>  priority flags context (lchunk,rchunk) pair-constraints operation op-params flag-ops
-</pre>
+Each line in section `<GRPAR>` contains a rule, with the format:  
+`priority flags context (lchunk,rchunk) pair-constraints operation op-params flag-ops`
 
 where:
-
 *   `priority` is a number stating the priority of a rule (the lower the number, the higher the priority).
-*   `flags` is a list of strings separated by vertical bars (```|`''). Each string is the name of a flag that will cause the rule to be enabled. If `enabling_flags` equals ```-`'', the rule will be always enabled.
-*   `context` is a context limiting the application of the rule only to chunk pairs that are surrounded by the appropriate context (```-`'' means no limitations, and the rule is applied to any matching chunk pair) (see below).
-*   `(lchunk,rchunk)` are the labels of the adjacent pair of chunks the rule will be applied to. The labels are either assigned by the chunk parser, or by a `RELABEL` operation on some other completion rule. The pair must be enclosed in parenthesis, separated by a comma, and contain NO whitespaces.
+*   `flags` is a list of strings separated by vertical bars (`|`). Each string is the name of a flag that will cause the rule to be enabled. If this field is `-`, the rule will be always enabled.
+*   `context` is a context limiting the application of the rule only to chunk pairs that are surrounded by the appropriate context. A dash (`-`) means no restrictions, and the rule is applied to any matching chunk pair.
+*   `(lchunk,rchunk)` are the labels of the adjacent pair of chunks the rule may be applied to. The labels are either assigned by the chunk parser, or by a `RELABEL` operation on some other completion rule. The pair must be enclosed in parenthesis, separated by a comma, and contain NO whitespaces.
 
     The chunk labels may be suffixed with one extra condition of the form: `(form)`, `<lemma>`, `[class]`, or `{PoS_regex}`.
 
-    For instance,
-
+    For instance,  
     | The label: | Would match: |
-    | --- | --- |
-    | `np` | any chunk labeled `np` by the chunker |
+    |:--- |: --- |
+    | `np`       | any chunk labeled `np` by the chunker |
     | `np(cats)` | any chunk labeled `np` by the chunker |
-    |   | with a head word with form `cats` |
-    | `np<cat>` | any chunk labeled `np` by the chunker |
-    |   | with a head word with lemma `cat` |
+    |            | with a head word with form `cats` |
+    | `np<cat>`  | any chunk labeled `np` by the chunker |
+    |            | with a head word with lemma `cat` |
     | `np[animal]` | any chunk labeled `np` by the chunker |
-    |   | with a head word with a lemma in `animal` |
-    |   | category (see `CLASS` section below) |
-    | `np{^N.M}` | any chunk labeled `np` by the chunker |
-    |   | with a head word with a PoS tag matching |
-    |   | the `^N.M` regular expression |
+    |              | with a head word with a lemma in `animal` |
+    |              | category (see `CLASS` section below) |
+    | `np{^N.M[PS]}` | any chunk labeled `np` by the chunker |
+    |            | with a head word with a PoS tag matching |
+    |            | the `^N.M[PS]` regular expression |
 
 *   `pair-constraits` expresses a constraint that must be satisfied by the `(lchunk,rchunk)` chunks. If no constraints are required, this field must be a dash: ```-`''. The format of the constraint is `pairclass::(value1,value2)`, where:
-    *   `pairclass` is the name of a pair class defined in the `<PAIRS>` section (see subsection
-
-        4.21.1
-
-        ).
+    *   `pairclass` is the name of a pair class defined in the `<PAIRS>` section (see below).
     *   `value1` and `value2` are the two values that must belong to the pair class.
 
         Each `value` specifies whether the value is to be extracted from `lchunk` (`L`) or `rchunk` (`R`), the path to or a node below them (if target is not the root), and the attribute to extract.
 
         For instance, `L.lemma` specifies the lemma of the head word of `lchunk`. `R:sn.pos` specifies the PoS tag of the head word of a node with label `sn` located under `rchunk`. `R:sp:sn.semfile` specifies the semantic file of the head word of a node with label `sn` located under a node with label `sp` located under `rchunk`.
 
-        Valid attributes are: `lemma`, `pos`, `semfile`, `tonto`, `synon`, `asynon`. Their meaning is the same than for dependency labeling rules, and is described in subsection
-
-        4.21.1
-
-        .
+        Valid attributes are: `lemma`, `pos`, `semfile`, `tonto`, `synon`, `asynon`. Their meaning is the same than for dependency labeling rules, and is described below.
 
 *   `operation` is the way in which `lchunk` and `rchunk` nodes are to be combined (see below).*   The `op-params` component has two meanings, depending on the `operation` field: `top_left` and `top_right` operations must be followed by the literal `RELABEL` plus the new label(s) to assign to the chunks. Other operations must be followed by the literal `MATCHING` plus the label to be matched.
 
