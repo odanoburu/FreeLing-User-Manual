@@ -56,20 +56,16 @@ where:
 
     The chunk labels may be suffixed with one extra condition of the form: `(form)`, `<lemma>`, `[class]`, or `{PoS_regex}`.
 
-    For instance,  
-    | The label: | Would match: |
+    For instance,
+
+| The label: | Would match: |
     |:--- |: --- |
     | `np`       | any chunk labeled `np` by the chunker |
-    | `np(cats)` | any chunk labeled `np` by the chunker |
-    |            | with a head word with form `cats` |
-    | `np<cat>`  | any chunk labeled `np` by the chunker |
-    |            | with a head word with lemma `cat` |
-    | `np[animal]` | any chunk labeled `np` by the chunker |
-    |              | with a head word with a lemma in `animal` |
-    |              | category (see `CLASS` section below) |
-    | `np{^N.M[PS]}` | any chunk labeled `np` by the chunker |
-    |            | with a head word with a PoS tag matching |
-    |            | the `^N.M[PS]` regular expression |
+    | `np(cats)` | any chunk labeled `np` by the chunker with a head word with form `cats` |
+    | `np<cat>`  | any chunk labeled `np` by the chunker with a head word with lemma `cat` |
+    | `np[animal]` | any chunk labeled `np` by the chunker with a head word with a lemma in `animal` category (see `CLASS` section below)|
+    | `np{^N.M[PS]}` | any chunk labeled `np` by the chunker with a head word with a PoS tag matching the regular expression `^N.M[PS]`  |
+  
 
 *   `pair-constraits` expresses a constraint that must be satisfied by the `(lchunk,rchunk)` chunks. If no constraints are required, this field must be a dash: ```-`''. The format of the constraint is `pairclass::(value1,value2)`, where:
     *   `pairclass` is the name of a pair class defined in the `<PAIRS>` section (see below).
