@@ -95,6 +95,10 @@ E.g.
 
 Sense codes can be anything (assuming your later processes know what to do with them) provided they are unambiguous (there are not two lines with the same sense code). The files provided in FreeLing contain WordNet 3.0 synset codes.
 
+Words in the line can be multiwords, provided they are lowercased and glued toghether with underscores (see example above). Note that a multiword will only be found in the sense dictionary if it has been previously glued toghether by the [multiwords](locutions.md) module
+
+
+
 ## WordNet file {#wordnet-file}
 
 This source file (e.g. `wn30.src` provided with FreeLing) must contain at each line the information relative to a sense, with the following format:  
