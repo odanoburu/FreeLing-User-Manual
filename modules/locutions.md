@@ -76,3 +76,6 @@ The file consists of three sections `<TagSetFile>`, `<OnlySelected>`, and `<Mult
     Lemma replacement strings can be <tt>$F1</tt>, <tt>$F2</tt>, <tt>$F3</tt>, etc. to select the lowercased form of any component, or <tt>$L1</tt>, <tt>$L2</tt>, <tt>$L3</tt>, etc. to select the lemma of any component. Component numbers can range from 1 to 9.
 
     The last field states whether the multiword is ambiguous <tt>A</tt> or not <tt>I</tt> with respect to its segmentation (i.e. that it may be a multiword or not, depending on the context). The multiword is built in any case, but the ambiguity information is stored in the `word` object, so the calling applicacion can consult it and take the necessary decisions (e.g. un-glue the multiword) if needed.
+    
+    
+    Note that the described format allows only to encode multiwords whose components are adjacent.  Non-adjacent multiwords are not supported.
