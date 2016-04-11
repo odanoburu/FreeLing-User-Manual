@@ -222,7 +222,7 @@ The second rule states that a `pp` daughter under a `verb-phr` parent will be la
 ### Semantic database location {#semantic-database-location}
 
 Section `<SEMDB>` is only necessary if the dependency labeling rules in section `<GRLAB>` use conditions on semantic values (that is, any of `tonto`, `semfile`, `synon`, or `asynon`). Since it is needed by `<GRLAB>` rules, section `<SEMDB>` must be defined before section `<GRLAB>`. The section must contain a single line specifying a configuration file for a semanticDB object. The filename may be absolute or relative to the location of the dependency rules file.
-```
+```XML
 <SEMDB>
 ../semdb.dat
 </SEMDB>
@@ -242,13 +242,15 @@ class-name  "filename"   comments
 For instance, the following lines assign to the class `mov` the four listed verbs, and to the class `animal` all lemmas found in `animals.dat` file. In the later case, if the file name is not an absolute path, it is interpreted as a relative path based at the location of the rule file.
 
 Anything to the right of the second field is considered a comment and ignored.
-```
-mov     go      prep= to,towards
-mov     come    prep= from
-mov     walk    prep= through
-mov     run     prep= to,towards   D.Obj.
+```XML
+<CLASS>
+mov     go      %%prep= to,towards  (note that "%%" is not required for comments)
+mov     come    %%prep= from        (anything after 2nd field is ignored)
+mov     walk    %%prep= through
+mov     run     %%prep= to,towards   D.Obj.
 
 animal "animals.dat"
+</CLASS>
 ```
 
 ### Pair-class definitions {#pair-class-definitions}
@@ -264,13 +266,15 @@ class-name  "filename"
 For instance, the following lines assign to the class `material` the two first pairs, to the class `location` the third and fourth pair, and to class `food"` all pairs found in `food.dat` file. In the later case, if the file name is not an absolute path, it is interpreted as a relative path based at the location of the rule file. The contents of the file must be a list of pairs (one per line).
 
 No comments are allowed in the same line than a pair.
-```
+```XML
+<PAIRS>
 material   table wood
 material   knife steel
 location   tree forest
 location   car road
 
 food    "food.dat"
+</PAIRS>
 ```
 
 These pair classes may be used by tree-completion rules to set constraints to check whether two chunks must be joined or not, and by labeling rules to check whether a head and its dependant have a certain type of relation.
