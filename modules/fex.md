@@ -132,7 +132,7 @@ Single conditions consist of a word property, an operation, and an argument. Ava
 *   `pt`: List of all possible short PoS tags for the word.
 *   `pT`: List of all possible full PoS tags for the word.
 *   `na`: Number of analysis of the word.
-*   `u._i_`: _i_-th element of the word `user` field (see description of [`word` class](../language-classes.md).)
+*   `u.`_i_: _i_-th element of the word `user` field (see description of [`word` class](../language-classes.md).)
 
 Note that all word properties (including `na`) are either strings or lists of strings.
 
