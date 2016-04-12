@@ -51,3 +51,9 @@ The first rule will recognize tokens such as `@john` or `@peter4`, and assign th
 The second rule will recognize tokens starting with `<` and ending with `>` (such as `<HTML>` or `<br/>`) and assign them the literal `XMLTAG` as lemma and the tag `Fz` (punctuation:others) as PoS.
 
 The third rule will assign the two pairs lemma-tag to each occurrence of the word *hulabee*. This is just an example, and if you want to add a word to your dictionary, the dictionary module is the right place to do so.
+
+Examples of possible configuration files for this module can be found in FreeLing data directory:
+* `ca/twitter/usermap.dat`
+* `es/twitter/usermap.dat`
+* `en/twitter/usermap.dat`
+
