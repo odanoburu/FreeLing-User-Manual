@@ -159,7 +159,7 @@ FreeLing packages include linguistic data for all supported languages, which tot
 
 It is possible to safely remove data for languages that are not needed, saving that space.
 
-* If installing from a `.deb` package, you can simply remove the unneeded directories from `/usr/share/freeling/XX`. Make sure to keep 
+* If installing from a `.deb` package, you can simply remove the unneeded language directories from `/usr/share/freeling/XX`. Make sure to keep 
 `/usr/share/freeling/common`, `/usr/share/freeling/config`, and `/usr/share/freeling/XX` for any language XX you want to process.
 
 * If installing from source (either from source package or from git repository) you can remove the unneeded data after installing, but it may be easier to remove it from source:
