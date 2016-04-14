@@ -153,6 +153,20 @@ If you keep the source directories, you will be able to update to newer versions
 
 Depending on what changed in the repository, you may need to issue `autoreconf --install` after `git pull`. You may also need to issue `make distclean` and repeat the process from `./configure` onwards.
 
+## Reducing needed disk space
+
+FreeLing packages include linguistic data for all supported languages, which total up over 1Gb of disk space.
+
+It is possible to safely remove data for languages that are not needed, saving that space.
+
+* If installing from a `.deb` package, you can simply remove the unneeded directories from `/usr/share/freeling/XX`. Make sure to keep 
+`/usr/share/freeling/common`, `/usr/share/freeling/config`, and `/usr/share/freeling/XX` for any language XX you want to process.
+
+* If installing from source (either from source package or from git repository) you can remove the unneeded data after installing, but it may be easier to remove it from source:
+     * Remove the directories `data/XX` for any unneeded language. Make sure to keep directories `data/common`, `data/config`, and `data/XX` for any language XX you want to process.
+     * After removing the unneeded directories, install normaly.
+
+
 ## Locale-related problems when installing {#locale-related-problems-when-installing}
 
 If you get an error about <tt>bad locale</tt> when you enter `make install` or when you try to execute the `analyzer` sample program, you probably need to generate some locales in your system.
