@@ -1,48 +1,45 @@
 # References
 
-* \[ACM05\] Jordi Atserias, Elisabet Comelles, and Aingeru Mayor.  
-  Txala: un analizador libre de dependencias para el castellano. 
+* __\[ACM05\]__ Jordi Atserias, Elisabet Comelles, and Aingeru Mayor.  
+  __Txala: un analizador libre de dependencias para el castellano.__  
   _Procesamiento del Lenguaje Natural_, (35):455-456, September 2005.
 
-* \[AS09\]\ Eneko Agirre and Aitor Soroa.  
-  Personalizing pagerank for word sense disambiguation.  
-  In _Proceedings of the 12th conference of the European chapter of the Association for Computational Linguistics (EACL-2009)_,  
-  Athens, Greece, 2009.
+* __\[AS09\]__ Eneko Agirre and Aitor Soroa.  
+  __Personalizing pagerank for word sense disambiguation.__  
+  In _Proceedings of the 12th conference of the European chapter of the Association for Computational Linguistics (EACL-2009)_, Athens, Greece, 2009.
 
-* \[Bra00\] Thorsten Brants.  
-  Tnt: A statistical part-of-speech tagger.  
-  In _Proceedings of the 6th Conference on Applied Natural Language Processing, ANLP_.  
-  ACL, 2000.
+* __\[Bra00\]__ Thorsten Brants.  
+  __Tnt: A statistical part-of-speech tagger.__  
+  In _Proceedings of the 6th Conference on Applied Natural Language Processing, ANLP_, 2000.
 
-* \[CL11\] Chih-Chung Chang and Chih-Jen Lin.  
-  LIBSVM: A library for support vector machines.  
+* __\[CL11\]__ Chih-Chung Chang and Chih-Jen Lin.  
+  __LIBSVM: A library for support vector machines.__  
   _ACM Transactions on Intelligent Systems and Technology_, 2:27:1-27:27, 2011.  
    Software available at <tt>http://www.csie.ntu.edu.tw/˜ cjlin/libsvm</tt>.
 
-* \[CMP03\] Xavier Carreras, Lluıs Màrquez, and Lluís Padró.  
-  A simple named entity extractor using adaboost.  
+* __\[CMP03\]__ Xavier Carreras, Lluıs Màrquez, and Lluís Padró.  
+  __A simple named entity extractor using adaboost.__  
   In _Proceedings of CoNLL-2003 Shared Task_,  
   Edmonton, Canada, June 2003.
 
-* \[Fel98\] Christiane Fellbaum, editor.  
-  _WordNet. An Electronic Lexical Database_.  
-  Language, Speech, and Communication.  
+* __\[Fel98\]__ Christiane Fellbaum, editor.  
+  __WordNet. An Electronic Lexical Database.__    
+  _Language, Speech, and Communication._  
   The MIT Press, 1998.
 
-* \[FSB+14\] Antske Fokkens, Aitor Soroa, Zuhaitz Beloki, Niels Ockeloen, German Rigau, Willem Robert van Hage, and Piek Vossen.  
-  NAF and GAF: Linking linguistic annotations.  
-  In _Proceedings 10th Joint ISO-ACL SIGSEM Workshop on Interoperable Semantic Annotation_,  
-  Reykjavik, Iceland, May 2014.
+* __\[FSB+14\]__ Antske Fokkens, Aitor Soroa, Zuhaitz Beloki, Niels Ockeloen, German Rigau, Willem Robert van Hage, and Piek Vossen.  
+  __NAF and GAF: Linking linguistic annotations.__  
+  In _Proceedings 10th Joint ISO-ACL SIGSEM Workshop on Interoperable Semantic Annotation_, Reykjavik, Iceland, May 2014.
 
-* \[KVHA95\] F. Karlsson, Atro Voutilainen, J. Heikkila, and A. Anttila, editors.  
-  _Constraint Grammar: A Language-Independent System for Parsing Unrestricted Text_.  
+* __\[KVHA95\]__ F. Karlsson, Atro Voutilainen, J. Heikkila, and A. Anttila, editors.  
+  __Constraint Grammar: A Language-Independent System for Parsing Unrestricted Text__.  
   Mouton de Gruyter, Berlin and New York, 1995.
 
-* \[Pad98\] Lluís Padró.  
-  _A Hybrid Environment for Syntax-Semantic Tagging_.  
-  PhD thesis, Dept. Llenguatges i Sistemes Informàtics. Universitat Politècnica de Catalunya  
-  February 1998. 
+* __\[Pad98\]__ Lluís Padró.  
+  __A Hybrid Environment for Syntax-Semantic Tagging__.  
+  PhD thesis, Dept. Llenguatges i Sistemes Informàtics. Universitat Politècnica de Catalunya. February 1998. 
 
-* \[Vos98\] Piek Vossen, editor.   
-  _EuroWordNet: A Multilingual Database with Lexical Semantic Networks_.   
+* __\[Vos98\]__ Piek Vossen, editor.   
+  __EuroWordNet: A Multilingual Database with Lexical Semantic Networks__.   
   Kluwer Academic Publishers, Dordrecht, 1998.
+
