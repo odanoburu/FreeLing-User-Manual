@@ -15,7 +15,7 @@
 * __\[CL11\]__ Chih-Chung Chang and Chih-Jen Lin.  
   __LIBSVM: A library for support vector machines.__  
   _ACM Transactions on Intelligent Systems and Technology_, 2:27:1-27:27, 2011.  
-   Software available at [`http://www.csie.ntu.edu.tw/˜cjlin/libsvm`](http://www.csie.ntu.edu.tw/˜cjlin/libsvm).
+   Software available at [`https://www.csie.ntu.edu.tw/~cjlin/libsvm/`](https://www.csie.ntu.edu.tw/~cjlin/libsvm/).
 
 * __\[CMP03\]__ Xavier Carreras, Lluıs Màrquez, and Lluís Padró.  
   __A simple named entity extractor using adaboost.__  
