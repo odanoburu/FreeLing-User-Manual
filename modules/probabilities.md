@@ -1,4 +1,4 @@
-# Probability Assignment and Unkown Word Guesser Module {#probability-assignment-and-unkown-word-guesser-module}
+# Probability Assignment and Unknown Word Guesser Module {#probability-assignment-and-unkown-word-guesser-module}
 
 This class ends the morphological analysis subchain, and has two functions: first, it assigns an a priori probability to each analysis of each word. These probablities will be needed for the PoS tagger later. Second, if a word has no analysis (none of the previously applied modules succeeded to analyze it), this module tries to guess which are its possible PoS tags, based on the word ending.
 
