@@ -2,9 +2,9 @@
 
 There are two different modules able to perform PoS tagging. The application should decide which method is to be used, and instantiate the right class.
 
-The first PoS tagger is the `hmm_tagger` class, which is a classical trigam Markovian tagger, following [Bra00].
+The first PoS tagger is the `hmm_tagger` class, which is a classical trigam Markovian tagger, following [\[Bra00\]](../references.md).
 
-The second module, named `relax_tagger`, is a hybrid system capable to integrate statistical and hand-coded knowledge, following [Pad98].
+The second module, named `relax_tagger`, is a hybrid system capable to integrate statistical and hand-coded knowledge, following [\[Pad98\]](../references.md).
 
 The `hmm_tagger` module is somewhat faster than `relax_tagger`, but the later allows you to add manual constraints to the model. Its API is the following:
 
@@ -213,12 +213,12 @@ The `relax_tagger` constructor receives the following parameters:
 *   A boolean `retok` stating whether words that carry retokenization information (e.g. set by the dictionary or affix handling modules) must be retokenized (that is, splitted in two or more words) after the tagging.
 *   An integer stating whether and when the tagger must select only one analysis in case of ambiguity. Possbile values are: `FORCE_NONE` (or 0): no selection forced, words ambiguous after the tagger, remain ambiguous. `FORCE_TAGGER` (or 1): force selection immediately after tagging, and before retokenization. `FORCE_RETOK` (or 2): force selection after retokenization.
 
-The iteration number, scale factor, and threshold parameters are very specific of the relaxation labelling algorithm. Refer to [Pad98] for details.
+The iteration number, scale factor, and threshold parameters are very specific of the relaxation labelling algorithm. Refer to [\[Pad98\]](../references.md) for details.
 
 
 ### Relaxation-Labelling Constraint Grammar File {#relaxation-labelling-constraint-grammar-file}
 
-The syntax of the file is based on that of Constraint Grammars [KVHA95], but simplified in many aspects, and modified to include weighted constraints.
+The syntax of the file is based on that of Constraint Grammars [\[KVHA95\]](../references.md), but simplified in many aspects, and modified to include weighted constraints.
 
 An initial file based on statistical constraints may be generated from a tagged corpus using the `src/utilities/train-tagger/bin/TRAIN.sh` script provided with FreeLing. Later, hand written constraints can be added to the file to improve the tagger behaviour.
 

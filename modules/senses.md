@@ -6,7 +6,7 @@ Note that this is not disambiguation, all senses for the lemma are returned.
 
 The module receives a file containing several configuration options, which specify the sense dictionary to be used, and some mapping rules that can be used to adapt FreeLing PoS tags to those used in the sense dictionary.
 
-FreeLing provides WordNet-based [Fel98,Vos98] dictionaries, but the results of this module can be changed to any other sense catalogue simply providing a different sense dictionary file.
+FreeLing provides WordNet-based [\[Fel98,Vos98\]](../references.md) dictionaries, but the results of this module can be changed to any other sense catalogue simply providing a different sense dictionary file.
 
 ```C++
 class senses {

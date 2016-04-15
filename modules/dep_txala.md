@@ -1,7 +1,7 @@
 
 # Rule-based Dependency Parser Module {#rule-based-dependency-parser-module}
 
-The Txala dependency parser [ACM05] gets constituency parsed sentences -that is, `sentence` objects which have been enriched with a `parse_tree` by the `chart_parser` (or by any other means).  The input parsing may be shallow. The dependency parser will complete the parse tree if needed, convert it to a dependency tree, and assign a syntactic function to each edge in the dependency tree.
+The Txala dependency parser [\[ACM05\]](../references.md) gets constituency parsed sentences -that is, `sentence` objects which have been enriched with a `parse_tree` by the `chart_parser` (or by any other means).  The input parsing may be shallow. The dependency parser will complete the parse tree if needed, convert it to a dependency tree, and assign a syntactic function to each edge in the dependency tree.
 
 ```C++
 class dep_txala : public dependency_parser {

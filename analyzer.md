@@ -701,8 +701,8 @@ UKB configuration file.
 
 Algorithm to use for PoS tagging
 
-* hmm: Hidden Markov Model tagger, based on [Bra00].
-* relax: Relaxation Labelling tagger, based on [Pad98].
+* hmm: Hidden Markov Model tagger, based on [\[Bra00\]](references.md).
+* relax: Relaxation Labelling tagger, based on [\[Pad98\]](references.md).
 
 ----------------------------------
 ##### HMM Tagger configuration File

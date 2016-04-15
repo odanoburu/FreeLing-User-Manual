@@ -839,7 +839,7 @@ The schema for the output produced by this module is:
 
 ### NAF Output
 
-The module `output_naf` produces a NAF [FSB+14](references.md) representation for the analyzed document.
+The module `output_naf` produces a NAF [\[FSB+14\]](../references.md) representation for the analyzed document.
 
 The desired output can be configured by the calling application activating or deactivating annotation layers.
 

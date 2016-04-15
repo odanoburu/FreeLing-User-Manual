@@ -3,7 +3,7 @@
 
 This module performs word-sense-disambiguation on content words in given sentences. This module is to be used if word sense disambiguation (WSD) is desired. If no disambiguation (or basic most-frequent-sense disambiguation) is needed, the [senses module](senses.md) is a lighter and faster option.
 
-The module is an implementation of UKB algorithm [AS09]. UKB relies on a semantic relation network (in this case, WN and XWN) to disambiguate the most likely senses for words in a text using PageRank algorithm. See [AS09] for details on the algorithm.
+The module is an implementation of UKB algorithm [\[AS09\]](../references.md). UKB relies on a semantic relation network (in this case, WN and XWN) to disambiguate the most likely senses for words in a text using PageRank algorithm. See [\[AS09\]](../references.md) for details on the algorithm.
 
 The module expects the input words to have been annotated with a list of candidate senses by the [senses module](senses.md), and
 will rank the candidate senses according to the PageRank for each sense. The rank value is also provided in the result. 
