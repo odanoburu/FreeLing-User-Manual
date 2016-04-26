@@ -56,7 +56,7 @@ If that doesn't work, you can install it by hand (in Ubuntu or Debian) with the 
   
     The following commands should install *both* header packages and binary libraries. If they don't, use your package manager to install all required packages as described in section [Requirements](#orientative-package-names).    
     `sudo apt-get install libboost-regex-dev libicu-dev zlib1g-dev`    
-    `sudo apt-get install libboost-system-dev libboost-program-options-dev`
+    `sudo apt-get install libboost-system-dev libboost-program-options-dev libboost-thread-dev`
 
 *   Install freeling package  
     `sudo dpkg -i freeling-4.0.deb`
@@ -72,7 +72,7 @@ Installing from source is slower and harder, but it will work in any Linux box, 
 1.  Install development tools
 
     You'll need to install the C++ compiler and other developer tools:  
-    `sudo apt-get install build-essential automake autoconf`
+    `sudo apt-get install build-essential automake autoconf libtool`
 
     In Debian, use the same command as root, without `sudo`. In other distributions, check the distribution package manager to install a working C++ compiler and autotools.
 
@@ -93,7 +93,7 @@ Installing from source is slower and harder, but it will work in any Linux box, 
     Download source package `freeling-4.0.tar.gz` from FreeLing webpage download section, and then execute:   
     `tar xzvf freeling-4.0.tar.gz`  
     `cd freeling-4.0`  
-    `autoreconf --install`  
+    `libtoolize; aclocal; autoconf; automake -a;`  
     `./configure`  
     `make`  
     `sudo make install`
@@ -137,7 +137,7 @@ Installing from GitHub is very similar to installing from source, but you'll hav
     
 *   Prepare local repositories for compilation  
      `cd mysrc`  
-     `autoreconf --install`
+     `libtoolize; aclocal; autoconf; automake -a;`  
 
 *   Build and install FreeLing  
     `./configure`  
