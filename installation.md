@@ -93,7 +93,7 @@ Installing from source is slower and harder, but it will work in any Linux box, 
     Download source package `freeling-4.0.tar.gz` from FreeLing webpage download section, and then execute:   
     `tar xzvf freeling-4.0.tar.gz`  
     `cd freeling-4.0`  
-    `libtoolize; aclocal; autoconf; automake -a;`  
+    `autoreconf --install`  
     `./configure`  
     `make`  
     `sudo make install`
@@ -137,7 +137,7 @@ Installing from GitHub is very similar to installing from source, but you'll hav
     
 *   Prepare local repositories for compilation  
      `cd mysrc`  
-     `libtoolize; aclocal; autoconf; automake -a;`  
+     `autoreconf --install`  
 
 *   Build and install FreeLing  
     `./configure`  
