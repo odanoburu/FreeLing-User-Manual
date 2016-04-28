@@ -3,8 +3,7 @@
 
 This module offers coreference resolution capabilities.
 
-It is based on the research described in 
-
+It is based on the research described in [\[Sap13\]](../references.md), the second-ranked system at CoNLL 2011 shared task.
 
 The API to this module is:
 
