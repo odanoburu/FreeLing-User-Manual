@@ -38,8 +38,7 @@ The current version supports the following languages(to different extents and ac
 |-----------------------------|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 |Tokenization                 | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
 |Sentence splitting           | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   | X   |
-|Number detection             |     | X   |     |     | X   | X   |     | X   |     | X   |     | X   | X   |     |
-|Date detection               |     | X   |     |     | X   | X   |     | X   |     |     |     | X   | X   |     |
+|Number detection             |     | X   |     | X   | X   | X   | X   | X   |     | X   |     | X   | X   |     |
 |Morphological dictionary     | X   | X   | X   | X   | X   | X   | X   | X   |     | X   | X   | X   | X   | X   |
 |Affix rules                  | X   | X   | X   | X   | X   | X   | X   | X   |     | X   | X   | X   |     |     |
 |Multiword detection          | X   | X   | X   |     | X   | X   | X   | X   |     | X   |     | X   |     |     |
