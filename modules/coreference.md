@@ -3,6 +3,9 @@
 
 This module offers coreference resolution capabilities.
 
+It is based on the research described in 
+
+
 The API to this module is:
 
 ```C++
