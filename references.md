@@ -39,6 +39,10 @@
   __A Hybrid Environment for Syntax-Semantic Tagging__.  
   PhD thesis, Dept. Llenguatges i Sistemes Informàtics. Universitat Politècnica de Catalunya. February 1998. 
 
+* __\[Sap13\]__ Emili Sapena, Lluís Padró, Jordi Turmo.  
+  __A Constraint-Based Hypergraph Partitioning Approach to Coreference Resolution__.  
+  _Computational Linguistics_ vol. 39, n. 4, pg. 847-884. December, 2013.
+
 * __\[Vos98\]__ Piek Vossen, editor.   
   __EuroWordNet: A Multilingual Database with Lexical Semantic Networks__.   
   Kluwer Academic Publishers, Dordrecht, 1998.
