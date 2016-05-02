@@ -12,6 +12,11 @@
   __Tnt: A statistical part-of-speech tagger.__  
   In _Proceedings of the 6th Conference on Applied Natural Language Processing, ANLP_, 2000.
 
+* __\[Car07\]__ Xavier Carreras.  
+  _Experiments with a Higher-Order Projective Dependency Parser._
+  In Proceedings of the EMNLP-CoNLL 2007 Shared Task.
+  Prague, Czech Republic, 2007
+
 * __\[CL11\]__ Chih-Chung Chang and Chih-Jen Lin.  
   __LIBSVM: A library for support vector machines.__  
   _ACM Transactions on Intelligent Systems and Technology_, 2:27:1-27:27, 2011.  
