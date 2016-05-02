@@ -4,6 +4,8 @@
 As an alternative to rule-based Txala dependency parser, a statistical dependency parsing module is also available. 
 It is based on [Treeler](http://devel.cpl.upc.edu/treeler) machine learning library.
 
+The dependency parser is based on the paper [\[Car07\]](../references.md), and the Semantic Role Labelling module follows the proposal by [\[LCM\]](../references.md).
+
 The API of the class is the following:
 
 ```C++
