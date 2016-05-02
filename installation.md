@@ -191,7 +191,16 @@ The procedure to install a locale in your system varies depending on your distri
 
 Installing on MacOS is very similar to installing on Linux. The main difference is how to install the dependencies and required development tools, which is greatly eased by MacPorts.
 
-*   Download and install MacPorts following the instructions in [http://www.macports.org/install.php]. Note that you will need to install Apple XCode too, as described in the same page.
+*   Install `XCode`.
+    * Download and install `XCode` from Apple AppStore
+    * Configure it with
+      `xcodebuild -license`  
+      `xcodebuild --install`  ???  
+
+*   Install `MacPorts` 
+    * Download `MacPorts` from [http://www.macports.org/install.php].
+    * Update and configure:
+      `sudo port -v selfupdate`
 
 *   Use MacPorts to install required developer tools:  
     `sudo port install automake`  
