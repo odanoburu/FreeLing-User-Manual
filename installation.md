@@ -195,11 +195,11 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
     * Download and install `XCode` from Apple AppStore
     * Configure it with
       `sudo xcodebuild -license`  
-      `xcode-select --install` 
+      `sudo xcode-select --install` 
 
 *   Install `MacPorts` 
-    * Download `MacPorts` from [http://www.macports.org/install.php].
-    * Update and configure:
+    * Download and install `MacPorts` from [http://www.macports.org/install.php]
+    * Update and configure:  
       `sudo port -v selfupdate`
 
 *   Use MacPorts to install required developer tools:  
