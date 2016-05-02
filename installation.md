@@ -204,6 +204,7 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 
 *   Use MacPorts to install required developer tools:  
     `sudo port install automake`  
+    `sudo port install autoconf`  
     `sudo port install libtool`  
     `sudo port install git`
 
@@ -217,7 +218,7 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
     Important: libraries in MacOS are installed in `/opt/local` instead of `/usr/local`. So, when running `configure`, you need to specify the right library paths.
 
     In summary, you need to run `./configure` with the command:  
-    `./configure --enable-boost-locale CPPFLAGS="-I/opt/local/include" LDFLAGS="-L/opt/local/lib"`
+    `./configure CPPFLAGS="-I/opt/local/include" LDFLAGS="-L/opt/local/lib"`
 
     You can add to this command any extra options you wish (`-enable-traces`, `-prefix`, etc). Use `./configure -help` to find out available options.
 
