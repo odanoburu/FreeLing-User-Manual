@@ -194,8 +194,8 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 *   Install `XCode`.
     * Download and install `XCode` from Apple AppStore
     * Configure it with
-      `xcodebuild -license`  
-      `xcodebuild --install`  ???  
+      `sudo xcodebuild -license`  
+      `xcode-select --install` 
 
 *   Install `MacPorts` 
     * Download `MacPorts` from [http://www.macports.org/install.php].
@@ -210,7 +210,7 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 *   Use MacPorts to install required dependencies:  
     `sudo port install boost`
 
-    This will install also `libicu`. Note that `zlib` is already installed in MacOS. If configure complains about it not being there, you can install it with `sudo port install zlib`.
+    This will install also `libicu` and `zlib`. If configure complains about it not being there, you can install it with `sudo port install zlib`.
 
 *   Compile and install FreeLing using the procedures described above (either [install from source](installation.md#install-from-tar-gz-source-packages) or [install from GitHub](installation.md#install-from-github-repositories)), but skipping the steps about installing development tools and dependencies.
 
