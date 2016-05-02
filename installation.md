@@ -214,7 +214,7 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 
 *   Compile and install FreeLing using the procedures described above (either [install from source](installation.md#install-from-tar-gz-source-packages) or [install from GitHub](installation.md#install-from-github-repositories)), but skipping the steps about installing development tools and dependencies.
 
-    Important: libraries in MacOS are installed in `/opt/local` instead of `/usr/local`. So, when running `configure`, you need to specify the right library paths. Also, locales need some specific handling which requires the use of `libboost-locale`
+    Important: libraries in MacOS are installed in `/opt/local` instead of `/usr/local`. So, when running `configure`, you need to specify the right library paths.
 
     In summary, you need to run `./configure` with the command:  
     `./configure --enable-boost-locale CPPFLAGS="-I/opt/local/include" LDFLAGS="-L/opt/local/lib"`
