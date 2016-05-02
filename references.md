@@ -13,8 +13,8 @@
   In _Proceedings of the 6th Conference on Applied Natural Language Processing, ANLP_, 2000.
 
 * __\[Car07\]__ Xavier Carreras.  
-  _Experiments with a Higher-Order Projective Dependency Parser._
-  In Proceedings of the EMNLP-CoNLL 2007 Shared Task.
+  _Experiments with a Higher-Order Projective Dependency Parser._  
+  In Proceedings of the EMNLP-CoNLL 2007 Shared Task.  
   Prague, Czech Republic, 2007
 
 * __\[CL11\]__ Chih-Chung Chang and Chih-Jen Lin.  
@@ -40,6 +40,9 @@
   __Constraint Grammar: A Language-Independent System for Parsing Unrestricted Text__.  
   Mouton de Gruyter, Berlin and New York, 1995.
 
+* __\[LCM13\]__ Xavier Lluís, Xavier Carreras, and Lluís Màrquez.  
+  _Joint Arc-factored Parsing of Syntactic and Semantic Dependencies._  
+  In Transactions of the Association for Computational Linguistics (TACL), volume 1. Also presented at ACL-2013 (Sofia, Bulgaria).
 * __\[Pad98\]__ Lluís Padró.  
   __A Hybrid Environment for Syntax-Semantic Tagging__.  
   PhD thesis, Dept. Llenguatges i Sistemes Informàtics. Universitat Politècnica de Catalunya. February 1998. 
