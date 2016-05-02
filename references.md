@@ -43,6 +43,7 @@
 * __\[LCM13\]__ Xavier Lluís, Xavier Carreras, and Lluís Màrquez.  
   _Joint Arc-factored Parsing of Syntactic and Semantic Dependencies._  
   In Transactions of the Association for Computational Linguistics (TACL), volume 1. Also presented at ACL-2013 (Sofia, Bulgaria).
+
 * __\[Pad98\]__ Lluís Padró.  
   __A Hybrid Environment for Syntax-Semantic Tagging__.  
   PhD thesis, Dept. Llenguatges i Sistemes Informàtics. Universitat Politècnica de Catalunya. February 1998. 
