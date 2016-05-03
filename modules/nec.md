@@ -9,7 +9,9 @@ This module depends on a NER module being applied previously. If no entities are
 
 Models provided with FreeLing distinguish four classes: Person (tag <tt>NP00SP0</tt>), Geographical location (<tt>NP00G00</tt>), Organization (<tt>NP00O00</tt>), and Others (<tt>NP00V00</tt>).
 
-If you have an anotated corpus, the models can be trained using the scripts in `src/utilities/nerc`. See the `README` there and the comments inside the script for details.
+The models can be retrained using an annotated corpus and the scripts in `src/utilities/nerc`.
+
+See file [`src/utilities/train-nerc/README`](https://github.com/TALP-UPC/FreeLing/blob/master/src/utilities/train-nerc/README) and the comments inside the script for details on how to retrain the models or about the meaning of each file.
 
 The most important file in the set is the `.rgf` file, which contains a definition of the context features that must be extracted for each named entity. The feature rule language is described in section [Feature Extractor](fex.md).
 
@@ -90,4 +92,3 @@ The machine-learning based Named Entity Classification module reads a configurat
     NP00000
     </NE_Tag>
     ```
-https://github.com/TALP-UPC/FreeLing/blob/master/src/utilities/train-nerc/README
