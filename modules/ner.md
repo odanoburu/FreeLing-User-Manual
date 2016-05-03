@@ -198,7 +198,8 @@ class bioner: public ner_module {
 ```
 
 The configuration file sets the required model and lexicon files, which may be generated from a training corpus using the scripts provided with FreeLing.  
-Check file `src/utilities/train-nerc/README` and comments in the scripts to find out how to retrain the models and what is the meaning of each file.
+
+Check file [`src/utilities/train-nerc/README`](https://github.com/TALP-UPC/FreeLing/blob/master/src/utilities/train-nerc/README) and comments in the scripts to find out how to retrain the models and what is the meaning of each file.
 
 The most important file in the set is the `.rgf` file, which contains a definition of the context features that must be extracted for each named entity. The feature rule language is described in the [Feature Extractor](fex.md) section.
 
