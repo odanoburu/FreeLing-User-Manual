@@ -90,3 +90,4 @@ The machine-learning based Named Entity Classification module reads a configurat
     NP00000
     </NE_Tag>
     ```
+https://github.com/TALP-UPC/FreeLing/blob/master/src/utilities/train-nerc/README
