@@ -7,6 +7,7 @@ Developers can find more information in the [Technical Reference Manual](http://
 
 Non-developer users can also find useful information here: 
 * Installation instructions
-* Format descriptions for configuration and data files that FreeLing modules expect
+* Available modules and functionalities
+* Format descriptions for configuration and data files
 * Information about how to use FreeLing `analyzer` front-end, and available options
 
