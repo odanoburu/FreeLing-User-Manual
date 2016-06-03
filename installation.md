@@ -213,7 +213,7 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 
     This will install also `libicu` and `zlib`. If configure complains about it not being there, you can install it with `sudo port install zlib`.
 
-*   Compile and install FreeLing using the procedures described above (either [install from source](installation.md#install-from-tar-gz-source-packages) or [install from GitHub](installation.md#install-from-github-repositories)), but since we we just did the equivalent steps in MacOSX, you must skip the steps 1 (install development tools) and 2 (install packaged requirements) and start directly at step 3.
+*   Compile and install FreeLing using the procedures described above (either [install from source](installation.md#install-from-tar-gz-source-packages) or [install from GitHub](installation.md#install-from-github-repositories)), but since we we just did the equivalent steps in MacOSX, you must skip steps "1. Install development tools" and "2. Install packaged requirements" and start directly at step 3.
 
     Important: libraries in MacOS are installed in `/opt/local` instead of `/usr/local`. So, when running `configure` command in step 3, you need to specify the right library paths, running `./configure` with the command:  
     `./configure CPPFLAGS="-I/opt/local/include" LDFLAGS="-L/opt/local/lib"`
