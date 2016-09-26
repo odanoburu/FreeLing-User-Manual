@@ -357,7 +357,7 @@ Valid values are:
 
 Configuration file for input CoNLL format.
 Defines which columns --and in which order-- must be read.
-See section [Input/Output Handling Modules](#input-output-handling-modules) for details on the file format.
+See section [Input/Output Handling Modules](modules/io.md) for details on the file format.
 
 This option is valid only when `InputFormat=conll`. Otherwise, it is ignored.
 
@@ -389,7 +389,7 @@ Valid values are:
 
 Configuration file for out CoNLL format.
 Defines which columns --and in which order-- must be written.
-See section [Input/Output Handling Modules](#input-output-handling-modules) for details on the file format.
+See section [Input/Output Handling Modules](modules/io.md) for details on the file format.
 
 This option is valid only when `OutputFormat=conll`. Otherwise, it is ignored.
 
