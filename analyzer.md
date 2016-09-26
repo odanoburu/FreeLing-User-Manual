@@ -359,7 +359,7 @@ Configuration file for input CoNLL format.
 Defines which columns --and in which order-- must be read.
 See section [Input/Output Handling Modules](#input-output-handling-modules) for details on the file format.
 
-This option only makes sense when input format is set to `conll`. Otherwise, it is ignored.
+This option is valid only when `InputFormat=conll`. Otherwise, it is ignored.
 
 
 ----------------------------------
@@ -391,7 +391,7 @@ Configuration file for out CoNLL format.
 Defines which columns --and in which order-- must be written.
 See section [Input/Output Handling Modules](#input-output-handling-modules) for details on the file format.
 
-This option only makes sense when output format is set to `conll`. Otherwise, it is ignored.
+This option is valid only when `OutputFormat=conll`. Otherwise, it is ignored.
 
 
 ----------------------------------
