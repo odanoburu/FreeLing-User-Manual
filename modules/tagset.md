@@ -11,22 +11,35 @@ The API of the module is:
 class tagset {
 
   public:
-    /// constructor: load a tag set description file
-    tagset(const std::wstring &f);
-    /// destructor
-    ~tagset();
+     /// constructor: load a tag set description file
+     tagset(const std::wstring &f);
+     /// destructor
+     ~tagset();
 
-    /// get short version of given tag
-    std::wstring get_short_tag(const std::wstring &tag) const;
+     /// get short version of given tag
+     std::wstring get_short_tag(const std::wstring &tag) const;
+     /// get map of <feature,value> pairs with morphologica information for given tag
+     std::map<std::wstring,std::wstring> 
+                 get_msd_features_map(const std::wstring &tag) const;
+     /// get list of <feature,value> pairs with morphologica information for given tag
+     std::list<std::pair<std::wstring,std::wstring> > 
+           get_msd_features(const std::wstring &tag) const;
+     /// get a string with <feature,value> pairs with morphologica information for given tag
+     std::wstring get_msd_string(const std::wstring &tag) const;
+    
+     /// convert list of <feature,value> pairs to a PoS tag. 
+     /// if the list does not contain a value for feature 'pos', the category must be
+     /// scpecified in the 'cat' parameter. Valid categories are those defined in the 
+     /// tagset description file loaded by the constructor.
+     std::wstring 
+        msd_to_tag(const std::wstring &cat,
+                   const std::list<std::pair<std::wstring,std::wstring> > &msd) const;
 
-    /// get list of <feature,value> pairs with morphological
-    /// information for given tag
-    std::list<std::pair<std::wstring,std::wstring> >
-              get_msf_features(const std::wstring &tag) const;
-
-    /// get list <feature,value> pairs with morphological 
-    /// information, in a string format
-    std::wstring get_msf_string(const std::wstring &tag) const;
+     /// convert string of <feature,value> pairs to a PoS tag. 
+     /// if the list does not contain a value for feature 'pos', the category must be
+     /// scpecified in the 'cat' parameter. Valid categories are those defined in the 
+     /// tagset description file loaded by the constructor.
+     std::wstring msd_to_tag(const std::wstring &cat,const std::wstring &msd) const;
 };
 ```
 
