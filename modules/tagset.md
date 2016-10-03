@@ -43,10 +43,13 @@ class tagset {
 };
 ```
 
-The class constructor receives a file name with a tagset description. Format of the file is described below. The class offers two services:
+The class constructor receives a file name with a tagset description. Format of the file is described below. The class offers three kinds of services:
 
-1.  Get the short version of a tag. This is useful for EAGLES tagsets, and required by some modules (e.g. PoS tagger). The length of a short tag depends on the language and part-of-speech, and the criteria to select it is usually to have a tag informative enough (capturing relevant features such as category, subcategory, case, etc) but also general enough so that significative statistics for PoS tagging can be acquired from reasonably-sized corpora.
-2.  Decompose a tag into a list of pairs feature-value (e.g. <tt>gender=masc</tt>, <tt>num=plural</tt>, <tt>case=dative</tt>, etc). This can be retrieved as a list of string pairs, or as a formatted string.
+1.  Get the short version of a tag. This is useful for EAGLES tagsets, and required by some modules (e.g. PoS tagger). The length of a short tag is defined in the tagset description file, and depends on the language and part-of-speech. The  criteria to select it is usually to have a tag informative enough (capturing relevant features such as category, subcategory, case, etc) but also general enough so that significative statistics for PoS tagging can be acquired from reasonably-sized corpora. For instance, in latin languages the PoS tag for nouns includes gender and number information (e.g. `NCMS000`), but using the whole tag results in statistical dispersion when estimating tagger or parser probabilities. So, the short version `NC` is used. Tagset description file defines which digits should be extracted from the full tag to build the short version.
+
+2.  Decompose a tag into a list of pairs feature-value (e.g. <tt>gender=masc</tt>, <tt>num=plural</tt>, <tt>case=dative</tt>, etc). This can be retrieved as a map, as a list of string pairs, or as a formatted string.
+
+3.  Given a list of pairs feature-value for morphological attributes, return a PoS tag encoding those properties.
 
 
 ## Tagset Description File {#tagset-description-file}
@@ -64,7 +67,8 @@ Tagset description file has two sections: `<DecompositionRules>` and `<DirectTra
 
 *   Section `<DecompositionRules>` encodes rules to compute the morphological features from an EAGLES label. The rules describe the possible values and meaning of each position in the label. The form of each line is:  
     `tag short-tag-size category position-description-1 position-description-2 ...`  
-    where `tag` is the character for the category in the EAGLES PoS tag (i.e. the first character: `N`, `V`, `A`, etc.), and `short-tag-size` is an integer stating the length of the short version of the tag (e.g. if the value is 2, the first two characters of the EAGLES PoS tag will we used as short version). 
+    where `tag` is the character for the category in the EAGLES PoS tag (i.e. the first character: `N`, `V`, 
+    `A`, etc.), and `short-tag-size` is an integer stating the length of the short version of the tag (e.g. if the value is 2, the first two characters of the EAGLES PoS tag will we used as short version). 
     `Category`is the name of the main category (e.g. <tt>noun</tt>, <tt>verb</tt>, etc.).  
 
     Finally, fields `position-description-n` contain information on how to interpret each character in the EAGLES PoS tag.  
