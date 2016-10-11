@@ -14,11 +14,11 @@ The basic bricks of language are words, and this is the basic class that FreeLin
 
 Class <tt>word</tt> can store the form of a word (so, how it was written in the text), its phonetic encoding, and other information about it.
 
-Many words are ambiguous with respect to their Part-of-Speech. For instance, the English word bit may be either a noun (a small piece of something) or a verb (past tense of verb to bite). Often, these different PoS tags are associated to different lemmas (e.g. bit for the noun reading and bite for the verb interpretation).
+Many words are ambiguous with respect to their Part-of-Speech. For instance, the English word *bit* may be either a noun (a small piece of something) or a verb (past tense of verb *to bite*). Often, these different PoS tags are associated to different lemmas (e.g. *bit* for the noun reading and *bite* for the verb interpretation).
 
 Thus, class <tt>word</tt> also stores a list of <tt>analysis</tt> objects. Every <tt>analysis</tt> is basically a combination of one lemma and one PoS tag. Analysis also may contain other information such as a list of senses, a probability, etc.
 
-The word also stores information about which analysis were selected by the tagger, whether the word is a multiword made by the agglutination of several input tokens, etc. It also offers iterators to traverse the list of analysis of the word, either all of them, or only the selected (or non-selected) subset.
+The word also stores information about which analysis were selected by the tagger, whether the word is a multiword made by the agglutination of several input tokens, etc. It also offers iterators to traverse the list of analysis of the word, either all of them, or only the subset selected (or non-selected) by the tagger.
 
 The API for the class word is:
 
@@ -332,13 +332,6 @@ class document : public std::list<paragraph> {
     /// Adds one mention to the doc (the mention should be already 
     /// assigned to  a group of coreferents)
     void add_mention(const mention &m);
-
-    /// Adds mention node2 to the coreference group of node1
-    ///void add_positive(const std::wstring &node1, const std::wstring &node2);
-    /// Gets the id of the coreference group of the node
-    ///int get_coref_group(const std::wstring&) const;
-    /// Gets all the nodes in a coreference group id
-    ///std::list<std::wstring> get_coref_nodes(int) const;
 
     // count number of words in the document
     int get_num_words() const;
