@@ -216,7 +216,7 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 *   Compile and install FreeLing using the procedure described either in [install from source](installation.md#install-from-tar-gz-source-packages) or in [install from GitHub](installation.md#install-from-github-repositories), but you must skip steps _"1. Install development tools"_ and _"2. Install packaged requirements"_ in that section and start directly at step 3.
 
     Important: libraries in MacOS are installed in `/opt/local` instead of `/usr/local`. So, when running `configure` command in step 3, you need to specify the right library paths, running `./configure` with the command:  
-    `./configure CPPFLAGS="-I/opt/local/include" LDFLAGS="-L/opt/lcal/lib"`
+    `./configure CPPFLAGS="-I/opt/local/include" LDFLAGS="-L/opt/local/lib"`
 
     You can add to this command any extra options you wish (`-enable-traces`, `-prefix`, etc). Use `./configure --help` to find out available options.
 
