@@ -224,7 +224,7 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 
 FreeLing is a library, which means that it not a final-user oriented executable program but a tool to develop new programs that require linguistic analysis services.
 
-Nevertheless, a sample main program is included in the package for those who just want a text analyzer. This program may be adapted to fit your needs (e.g. customized input/output formats).
+Nevertheless, a sample main program is included in the package for those who just want a text analyzer. This program may be adapted to fit your needs up to certain point (e.g. customized input/output formats, desired level of analysis) but very specific adaptations will require that you write your own main program, or adapt one of the existing examples.
 
 The usage and options of this main program is described in [this chapter](#using-the-sample-main-program-to-process-corpora).
 
