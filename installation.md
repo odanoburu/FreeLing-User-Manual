@@ -46,7 +46,7 @@ This installation procedure is the fastest and easiest. If you do not plan to mo
 
 Binary packages are available only for stable FreeLing versions. If you want to install an alpha or beta version, please see section about [installing from GitHub](#install-from-github-repositories).
 
-The provided packages will only work on debian-based distributions. They have been tested in Ubuntu (12.04-LTS Precise, 14.04-LTS Trusty, 16.04-LTS Xenial) and Debian (7.0 Wheezy, 8.3 Jessy).
+The provided packages will only work on debian-based distributions. They have been tested in Ubuntu (12.04-LTS Precise, 14.04-LTS Trusty, 16.04-LTS Xenial) and Debian (7.0 Wheezy, 8.3 Jessy, 9.0 Strecht).
 
 Most debian-based systems will launch the apropriate installer if you just double click on the package file. The installer should solve the dependencies and install all required packages.
 
