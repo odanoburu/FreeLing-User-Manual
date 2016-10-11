@@ -241,6 +241,7 @@ FreeLing library is entirely written in C++, so it is possible to compile it on 
 FreeLing can be successfully built for MacOS, as described above.
 
 It can also be built for MS-Windows using project files included in the tarball. You'll find the solution/project files and a README in the `msvc` folder inside FreeLing tarball.
+Binary packages for Windows can be found in [GitHub FreeLing Releases page](https://github.com/TALP-UPC/FreeLing/releases).
 
 You can visit the [Forum](http://nlp.lsi.upc.edu/freeling/forum) in FreeLing webpage for further help and details.
 
