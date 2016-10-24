@@ -8,12 +8,12 @@ In this example we will do a simple post processing consisting of counting the f
 For this, we will reuse all the code from [*Example 1*](./example1.md) and modify only the processing and output parts of the code.
 
 We will use two map variable to store the lemma and lemma bigram counts, so we need to include the proper STL library
-```
+```C++
 #include <map>
 ```
 
 Then, we can replace function `ProcessSententes` with the code below:
-```
+```C++
 void ProcessSentences(list<freeling::sentence> &ls) {
    // maps to count lemmas
    map<wstring,int> lemmas;
