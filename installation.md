@@ -46,7 +46,7 @@ This installation procedure is the fastest and easiest. If you do not plan to mo
 
 Binary packages are available only for stable FreeLing versions. If you want to install an alpha or beta version, please see section about [installing from GitHub](#install-from-github-repositories).
 
-The provided packages will only work on debian-based distributions. They have been tested in Ubuntu (12.04-LTS Precise, 14.04-LTS Trusty, 16.04-LTS Xenial) and Debian (7.0 Wheezy, 8.3 Jessy).
+The provided packages will only work on debian-based distributions. They have been tested in Ubuntu (12.04-LTS Precise, 14.04-LTS Trusty, 16.04-LTS Xenial) and Debian (7.0 Wheezy, 8.3 Jessy, 9.0 Strecht).
 
 Most debian-based systems will launch the apropriate installer if you just double click on the package file. The installer should solve the dependencies and install all required packages.
 
@@ -216,7 +216,7 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 *   Compile and install FreeLing using the procedure described either in [install from source](installation.md#install-from-tar-gz-source-packages) or in [install from GitHub](installation.md#install-from-github-repositories), but you must skip steps _"1. Install development tools"_ and _"2. Install packaged requirements"_ in that section and start directly at step 3.
 
     Important: libraries in MacOS are installed in `/opt/local` instead of `/usr/local`. So, when running `configure` command in step 3, you need to specify the right library paths, running `./configure` with the command:  
-    `./configure CPPFLAGS="-I/opt/local/include" LDFLAGS="-L/opt/lcal/lib"`
+    `./configure CPPFLAGS="-I/opt/local/include" LDFLAGS="-L/opt/local/lib"`
 
     You can add to this command any extra options you wish (`-enable-traces`, `-prefix`, etc). Use `./configure --help` to find out available options.
 
@@ -224,7 +224,7 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 
 FreeLing is a library, which means that it not a final-user oriented executable program but a tool to develop new programs that require linguistic analysis services.
 
-Nevertheless, a sample main program is included in the package for those who just want a text analyzer. This program may be adapted to fit your needs (e.g. customized input/output formats).
+Nevertheless, a sample main program is included in the package for those who just want a text analyzer. This program may be adapted to fit your needs up to certain point (e.g. customized input/output formats, desired level of analysis) but very specific adaptations will require that you write your own main program, or adapt one of the existing examples.
 
 The usage and options of this main program is described in [this chapter](#using-the-sample-main-program-to-process-corpora).
 
@@ -241,6 +241,7 @@ FreeLing library is entirely written in C++, so it is possible to compile it on 
 FreeLing can be successfully built for MacOS, as described above.
 
 It can also be built for MS-Windows using project files included in the tarball. You'll find the solution/project files and a README in the `msvc` folder inside FreeLing tarball.
+Binary packages for Windows can be found in [GitHub FreeLing Releases page](https://github.com/TALP-UPC/FreeLing/releases).
 
 You can visit the [Forum](http://nlp.lsi.upc.edu/freeling/forum) in FreeLing webpage for further help and details.
 
