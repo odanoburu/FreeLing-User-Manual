@@ -122,7 +122,8 @@ The module `output_conll` produces a CoNLL-like column format. The default forma
 The module will always print all information avaliable in the document (i.e. if the document is parsed, a column for the parse tree will be generated).
 
 The constructor may be called with a configuration file stating which columns should be printed and in which order.
-The configuration file must contain a section `<Type>` containing just the keyword `conll`, as well as a section `<TagsetFile>` pointing which [tagset definition](tagset.md) file should be used. Finally, a section `<Columns>` specifies the list of columns that must appear in the output, and in which order.
+The configuration file must contain a section `<Type>` containing just the keyword `conll` (just to explicit that this file is for this kind of output_handler), as well as a section `<Columns>` specifying the list of columns that must appear in the output, and in which order.
+The file may also contain a section `<TagsetFile>` pointing which [tagset definition](tagset.md) file should be used (this section is only required if `SHORT_TAG` or `MSD` are specified in the `<Columns>` section. 
 
 The default behaviour of this module (that is, if no configuration file is provided), is the same than with the configuration file:
 ```XML
