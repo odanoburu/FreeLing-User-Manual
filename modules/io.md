@@ -122,10 +122,13 @@ The module `output_conll` produces a CoNLL-like column format. The default forma
 The module will always print all information avaliable in the document (i.e. if the document is parsed, a column for the parse tree will be generated).
 
 The constructor may be called with a configuration file stating which columns should be printed and in which order.
-The configuration file should contain a section `<TagsetFile>` pointing which [tagset definition](tagset.md) file should be used, and a section `<Columns>` which contains the list of columns to output.
+The configuration file must contain a section `<Type>` containing just the keyword `conll`, as well as a section `<TagsetFile>` pointing which [tagset definition](tagset.md) file should be used. Finally, a section `<Columns>` specifies the list of columns that must appear in the output, and in which order.
 
 The default behaviour of this module (that is, if no configuration file is provided), is the same than with the configuration file:
 ```XML
+<Type>
+conll
+</Type>
 <TagsetFile>
 ./tagset.dat
 </TagsetFile>
@@ -151,8 +154,7 @@ Valid column names are:
 * `DEPREL`: Syntactic function of the word with regard to its head.
 * `COREF`: Coreference groups opening/closing in this word
 * `SRL`: Semantic Role Labelling predicates and arguments in CoNLL format. This may take more than one column, and must always be the last field in the list.
-
-
+* `USERx`: (where `x` is a number) Content of the `x`-th position in the `user` vector of each word (this vector is ignored by FreeLing, it is intended for the user application to store any needed information).
 ```C++
 class output_conll : public output_handler {
 
