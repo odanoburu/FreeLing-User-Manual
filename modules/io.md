@@ -155,6 +155,7 @@ Valid column names are:
 * `COREF`: Coreference groups opening/closing in this word
 * `SRL`: Semantic Role Labelling predicates and arguments in CoNLL format. This may take more than one column, and must always be the last field in the list.
 * `USERx`: (where `x` is a number) Content of the `x`-th position in the `user` vector of each word (this vector is ignored by FreeLing, it is intended for the user application to store any needed information).
+
 ```C++
 class output_conll : public output_handler {
 
