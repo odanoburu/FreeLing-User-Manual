@@ -391,8 +391,9 @@ Analysis level of input data (plain, token, splitted, morfo, tagged, shallow, de
 |:--- |:--- |
 | `--outlv <string>` | `OutputLevel=<string>` |
 
-Analysis level of output data (token, splitted, morfo, tagged, shallow, dep, coref, semgraph).
+Analysis level of output data (ident, token, splitted, morfo, tagged, shallow, dep, coref, semgraph).
 
+* ident: perform language identification instead of analysis.
 * token: tokenized text (one token per line).
 * splitted : tokenized and sentence-splitted text (one token per line, sentences separated with one blank line).
 * morfo: tokenized, sentence-splitted, and morphologically analyzed text. One token per line, sentences separated with one blank line. 
