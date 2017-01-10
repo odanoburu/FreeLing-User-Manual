@@ -70,7 +70,7 @@
 | 0        | category | **V**:_verb_ |
 | 1 | type |   **M**:_main_;   **A**:_auxiliary_;   **S**:_semiauxiliary_|
 | 2 | mood |   **I**:_indicative_;   **S**:_subjunctive_;   **M**:_imperative_;   **P**:_pastparticiple_;   **G**:_gerund_;   **N**:_infinitive_|
-| 3 | tense |   **P**:_present_;   **I**:_imperfect_;   **F**:_future_;   **S**:_past_;   **C**:_conditional_|
+| 3 | tense |   **P**:_present_;   **I**:_imperfect_;   **F**:_future_;   **S**:_past_;   **M**:_plusquamperfect_;   **C**:_conditional_|
 | 4 | person |   **1**:_1_;   **2**:_2_;   **3**:_3_|
 | 5 | num |   **S**:_singular_;   **P**:_plural_|
 | 6 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_;   **N**:_neuter_|
