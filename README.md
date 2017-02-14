@@ -4,10 +4,8 @@ This book contains the user manual for FreeLing.
 The online readable version can be found at [GitBook](https://www.gitbook.com/book/talp-upc/freeling-user-manual).
 The source code (markdown) of the book is located at [GitHub](https://github.com/TALP-UPC/FreeLing-User-Manual).
 
-[FreeLing](http://nlp.lsi.upc.edu/freeling) is a library oriented to developers, so a large part of the
-book describes which are the available C++ modules and classes.
-Developers can find more information in the
-[Technical Reference Manual](http://nlp.lsi.upc.edu/freeling/doc/refman).
+[FreeLing](http://nlp.lsi.upc.edu/freeling) is a library oriented to developers, so a large part of the book describes which are the available C++ modules and classes.
+Developers can find more information in the [Technical Reference Manual](http://nlp.lsi.upc.edu/freeling/doc/refman).
 
 Non-developer users can also find useful information, such as: 
 
