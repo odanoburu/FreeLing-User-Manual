@@ -1,5 +1,13 @@
 # Getting it to work {#getting-it-to-work}
 
+This chapter describes how to install and execute FreeLing. The setps to follow may be differnt depending on your needs and platform.
+
+* [Requirements](#requirements)
+* Installation
+   * [Install from <tt>.deb</tt> binary packages](#install-from-deb-binary-packages)
+
+
+
 ## Requirements {#requirements}
 
 To install FreeLing you'll need:
