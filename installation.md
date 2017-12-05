@@ -5,6 +5,15 @@ This chapter describes how to install and execute FreeLing. The setps to follow 
 * [Requirements](#requirements)
 * Installation
    * [Install from <tt>.deb</tt> binary packages](#install-from-deb-binary-packages)
+   * [Install from <tt>.tar.gz</tt> source packages](#install-from-tar-gz-source-packages)
+   * [Install from <tt>GitHub</tt> repositories](#install-from-github-repositories)
+* [Reducing needed disk space](#reducing-disk)
+* [Locale-related problems when installing](#locale-related-problems-when-installing)
+* [Installing on MacOS](#installing-on-macos)
+* [Executing](#executing)
+* [Porting to other platforms](#porting-to-other-platforms)
+* [APIs for languages other than C++](#apis-other-languages)
+
 
 ## Requirements {#requirements}
 
@@ -159,7 +168,7 @@ If you keep the source directories, you will be able to update to newer versions
 
 Depending on what changed in the repository, you may need to issue `autoreconf --install` after `git pull`. You may also need to issue `make distclean` and repeat the process from `./configure` onwards.
 
-## Reducing needed disk space
+## Reducing needed disk space {#reducing-disk}
 
 FreeLing packages include linguistic data for all supported languages, which total up over 1Gb of disk space.
 
@@ -226,7 +235,7 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 
     You can add to this command any extra options you wish (`-enable-traces`, `-prefix`, etc). Use `./configure --help` to find out available options.
 
-# Executing {#executing}
+## Executing {#executing}
 
 FreeLing is a library, which means that it not a final-user oriented executable program but a tool to develop new programs that require linguistic analysis services.
 
@@ -240,7 +249,7 @@ Thus, the question is not *why this program doesn't offer functionality X?*, *wh
 
 In the directory `src/main/simple_examples` in the tarball, you can find simpler sample programs that illustrate how to call the library, and that can be used as a starting point to develop your own application.
 
-# Porting to other platforms {#porting-to-other-platforms}
+## Porting to other platforms {#porting-to-other-platforms}
 
 FreeLing library is entirely written in C++, so it is possible to compile it on non-unix platforms with a reasonable effort.
 
@@ -250,4 +259,23 @@ It can also be built for MS-Windows using project files included in the tarball.
 Binary packages for Windows can be found in [GitHub FreeLing Releases page](https://github.com/TALP-UPC/FreeLing/releases).
 
 You can visit the [Forum](http://nlp.lsi.upc.edu/freeling/forum) in FreeLing webpage for further help and details.
+
+## APIs for languages other than C++ {#apis-other-languages}
+
+To call FreeLing library from a language different than C++ you will need to build the appropriate API.
+
+FreeLing source includes APIs for Java, Python, perl, ruby, and PHP. A [Dockerfile](https://www.docker.com/) can also be found in the same subdirectory.
+
+APIs are generated using [SWIG](http://www.swig.org). The completeness of the API varies from one language to another depending on the coverage of SWIG for STL structures in that language. Java and python APIs are almost fully-functional. Perl is a little behind, and ruby and PHP are experimental.
+
+To build your API, first you need to install SWIG. Then, check the subdirectory `APIs` in FreeLing source. If you installed FreeLing from a binary package, make sure you get the source package corresponding to the same version you installed.
+
+Each API has a `README` file, a `Makefile`, and a sample program to test it.  Follow the README instructions to build the API.
+
+MacOS users may need to slightly adapt the Makefile.
+Windows users will need to replicate the Makefile steps by hand.
+
+
+
+
 
