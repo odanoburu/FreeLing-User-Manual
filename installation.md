@@ -254,13 +254,14 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 
 Once dependencies are installed using either MacPorts or Homebrew, you can install FreeLing as you would in a Linux box.
 
-*   Compile and install FreeLing using the procedure described either in [install from source](installation.md#install-from-tar-gz-source-packages) or in [install from GitHub](installation.md#install-from-github-repositories), but you must skip steps _"1. Install development tools"_ and _"2. Install packaged requirements"_ in those sections and start directly at step 3.
-
-    Important: libraries in MacOS are installed in `/opt/local` or `/usr/local/opt` instead of `/usr/local`. So, when running `configure` command in step 3, you need to specify the right library paths, running `./configure` with the command:  
-    
+*   Build and install FreeLing  
     `./configure CPPFLAGS="-I/opt/local/include -I/usr/local/opt/icu4c/include" LDFLAGS="-L/opt/local/lib -L/usr/local/opt/icu4c/lib"`
+    `make`  
+    `sudo make install`
 
-    You can add to this command any extra options you wish (`-enable-traces`, `-prefix`, etc). Use `./configure --help` to find out available options.
+    Note that the `configure` command is different than in Linux, since libraries in MacOS are located in different paths.
+
+    You can add to `configure` any extra options you wish (`-enable-traces`, `-prefix`, etc). Use `./configure --help` to find out available options.
 
 ## Executing {#executing}
 
