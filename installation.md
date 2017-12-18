@@ -206,34 +206,31 @@ The procedure to install a locale in your system varies depending on your distri
 
 Installing on MacOS is very similar to installing on Linux. The main difference is how to install the dependencies and required development tools, which is greatly eased by MacPorts or Homebrew (you only need one of them, not both).
 
-### Get FreeLing sources
+### Install Apple development tools
 
-First of all, you need to get FreeLing sources, either from a tar file, or from GitHub.
-
-##### From tar.gz file
-*   Download source package `freeling-4.0.tar.gz` from FreeLing webpage download section, and then execute:  
-    `tar xzvf freeling-4.0.tar.gz`
-    `cd freeling-4.0`
-    
-    with this, you have uncompressed FreeLing sources in subdirectory `freeling-4.0`
-    
-##### From GitHub repository
-*   Clone latest development version:  
-    `git clone https://github.com/TALP-UPC/FreeLing.git mysrc`
-    `cd mysrc`
- 
-    You can replace `mysrc` with the directory name of your choice. You can also clone other stable versions, as described in section [Install from GitHub repositories](#install-from-github-repositories).
-
-### Install using Homebrew
-
-*   Install `XCode`.
+First of all, you need to install XCode to be able to compile in MacOS:
     * Download and install `XCode` from Apple AppStore
     * Configure it with: 
            sudo xcodebuild -license 
            sudo xcode-select --install
 
+### Get FreeLing source code
+
+Then, you need to get FreeLing source, either from a tar file or from GitHub.
+
+##### Getting source from tar.gz file
+*   Download source package `freeling-4.0.tar.gz` from FreeLing webpage download section, and then execute:  
+        tar xzvf freeling-4.0.tar.gz
+        cd freeling-4.0
+    
+##### Getting source from GitHub repository
+*   Clone latest development version (to clone other stable versions, see section [Install from <tt>GitHub</tt> repositories](#install-from-github-repositories)):
+         git clone https://github.com/TALP-UPC/FreeLing.git freeling-4.0
+         cd freeling-4.0
+
+### Install using Homebrew
  
-*   Download and install [Homebrew](http://brew.sh)
+*   Download and install [Homebrew](http://brew.sh) if you don't have it already.
 
 *   Use Homebrew to install required developer tools:  
     `brew install automake`
@@ -249,18 +246,11 @@ First of all, you need to get FreeLing sources, either from a tar file, or from 
     You can add to `configure` any extra options you wish (`-enable-traces`, `-prefix`, etc). Use `./configure --help` to find out available options.
 
 ### Install using MacPorts
-*   Install `XCode`.
-    * Download and install `XCode` from Apple AppStore
-    * Configure it with
-           sudo xcodebuild -license
-           sudo xcode-select --install
 
-
-*   Install `MacPorts` 
+*   Install `MacPorts` if you don't have it already
     * Download and install [MacPorts](http://www.macports.org/install.php)
     * Update and configure:  
           sudo port -v selfupdate
-
 
 *   Use MacPorts to install required developer tools:  
     `sudo port install automake`  
