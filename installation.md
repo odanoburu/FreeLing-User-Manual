@@ -105,7 +105,7 @@ Installing from source is slower and harder, but it will work in any Linux box, 
 
 *   Download and Install FreeLing
 
-    Download source package `freeling-4.0.tar.gz` from FreeLing webpage download section, and then execute:   
+    Download source package `freeling-4.0.tar.gz` from FreeLing webpage download section, and then execute:          
     `tar xzvf freeling-4.0.tar.gz`  
     `cd freeling-4.0`  
     `autoreconf --install`  
@@ -136,7 +136,7 @@ Installing from GitHub is very similar to installing from source, but you'll hav
 
 *   Checkout FreeLing sources
 
-    If you want the latest development version, do:  
+   If you want the latest development version, do:  
     `git clone https://github.com/TALP-UPC/FreeLing.git mysrc`
 
     (you can replace `mysrc` with the directory name of your choice).
@@ -206,17 +206,33 @@ The procedure to install a locale in your system varies depending on your distri
 
 Installing on MacOS is very similar to installing on Linux. The main difference is how to install the dependencies and required development tools, which is greatly eased by MacPorts or Homebrew (you only need one of them, not both).
 
-### Installing dependencies
+### Get FreeLing sources
 
-##### Using Homebrew
+First of all, you need to get FreeLing sources, either from a tar file, or from GitHub.
+
+##### From tar.gz file
+*   Download source package `freeling-4.0.tar.gz` from FreeLing webpage download section, and then execute:  
+    `tar xzvf freeling-4.0.tar.gz`
+    `cd freeling-4.0`
+    
+    with this, you have uncompressed FreeLing sources in subdirectory `freeling-4.0`
+    
+##### From GitHub repository
+*   Clone latest development version:  
+    `git clone https://github.com/TALP-UPC/FreeLing.git mysrc`
+    `cd mysrc`
+ 
+    You can replace `mysrc` with the directory name of your choice. You can also clone other stable versions, as described in section [Install from GitHub repositories](#install-from-github-repositories).
+
+### Install using Homebrew
 
 *   Install `XCode`.
     * Download and install `XCode` from Apple AppStore
-    * Configure it with
-      `sudo xcodebuild -license`  
-      `sudo xcode-select --install`
+    * Configure it with: 
+           sudo xcodebuild -license 
+           sudo xcode-select --install
 
-
+ 
 *   Download and install [Homebrew](http://brew.sh)
 
 *   Use Homebrew to install required developer tools:  
@@ -225,18 +241,25 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
     `brew install libtool`
     `brew install boost —with-icu4c`
 
-##### Using MacPorts
+*   Build and install FreeLing  
+    `./configure CPPFLAGS="-I/usr/local/opt/icu4c/include" LDFLAGS="-L/usr/local/opt/icu4c/lib"`
+    `make`  
+    `sudo make install`
+
+    You can add to `configure` any extra options you wish (`-enable-traces`, `-prefix`, etc). Use `./configure --help` to find out available options.
+
+### Install using MacPorts
 *   Install `XCode`.
     * Download and install `XCode` from Apple AppStore
     * Configure it with
-      `sudo xcodebuild -license`  
-      `sudo xcode-select --install` 
+           sudo xcodebuild -license
+           sudo xcode-select --install
 
 
 *   Install `MacPorts` 
     * Download and install [MacPorts](http://www.macports.org/install.php)
     * Update and configure:  
-      `sudo port -v selfupdate`
+          sudo port -v selfupdate
 
 
 *   Use MacPorts to install required developer tools:  
@@ -248,18 +271,12 @@ Installing on MacOS is very similar to installing on Linux. The main difference 
 *   Use MacPorts to install required dependencies:  
     `sudo port install boost`
 
-    This will install also `libicu` and `zlib`. If configure complains about it not being there, you can install it with `sudo port install zlib`.
-
-### Install FreeLing
-
-Once dependencies are installed using either MacPorts or Homebrew, you can install FreeLing as you would in a Linux box.
+    This will install also `libicu` and `zlib`. If configure below complains about it not being there, you can install it with `sudo port install zlib`.
 
 *   Build and install FreeLing  
-    `./configure CPPFLAGS="-I/opt/local/include -I/usr/local/opt/icu4c/include" LDFLAGS="-L/opt/local/lib -L/usr/local/opt/icu4c/lib"`
+    `./configure CPPFLAGS="-I/opt/local/include" LDFLAGS="-L/opt/local/lib"`
     `make`  
     `sudo make install`
-
-    Note that the `configure` command is different than in Linux, since libraries in MacOS are located in different paths.
 
     You can add to `configure` any extra options you wish (`-enable-traces`, `-prefix`, etc). Use `./configure --help` to find out available options.
 
