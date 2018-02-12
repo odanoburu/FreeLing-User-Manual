@@ -2,7 +2,7 @@
 
 There are two different modules able to perform PoS tagging. The application should decide which method is to be used, and instantiate the right class.
 
-The first PoS tagger is the `hmm_tagger` class, which is a classical trigam Markovian tagger, following [\[Bra00\]](../references.md).
+The first PoS tagger is the `hmm_tagger` class, which is a classical trigram Markovian tagger, following [\[Bra00\]](../references.md).
 
 The second module, named `relax_tagger`, is a hybrid system capable to integrate statistical and hand-coded knowledge, following [\[Pad98\]](../references.md).
 
@@ -37,7 +37,7 @@ Other PoS methods can be added deriving new classes from `POS_tagger`.
 
 ## Hidden Markov Model PoS Tagger
 
-The `hmm_tagger` implements a classical trigam Markovian tagger. 
+The `hmm_tagger` implements a classical trigram Markovian tagger. 
 
 Its API is:
 ```C++
