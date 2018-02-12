@@ -349,6 +349,20 @@ Valid values are:
 * <tt>conll</tt>: CoNLL-like column format.
 
 ----------------------------------
+##### Input CoNLL format definition file
+
+| Command line | Configuration file |
+|:--- |:--- |
+| `--iconll <filename>` | `InputConllConfig=<filename>` |
+
+Configuration file for input CoNLL format.
+Defines which columns --and in which order-- must be read.
+See section [Input/Output Handling Modules](modules/io.md) for details on the file format.
+
+This option is valid only when `InputFormat=conll`. Otherwise, it is ignored.
+
+
+----------------------------------
 ##### Output Format
 
 | Command line | Configuration file |
@@ -365,6 +379,20 @@ Valid values are:
 * <tt>json</tt>: JSON format
 * <tt>naf</tt>: XML format following NAF conventions (see <small class="SMALL"><tt>[https://github.com/newsreader/NAF](https://github.com/newsreader/NAF)</tt></small>)
 * <tt>train</tt>: Produce freeling pseudo-column format suitable to train PoS taggers. This option can be used to annotate a corpus, correct the output manually, and use it to retrain the taggers with the script <tt>src/utilities/train-tagger/bin/TRAIN.sh</tt> provided in FreeLing package. See <tt>src/utilities/train-tagger/README</tt> for details about how to use it.
+
+----------------------------------
+##### Output CoNLL format definition file
+
+| Command line | Configuration file |
+|:--- |:--- |
+| `--oconll <filename>` | `OutputConllConfig=<filename>` |
+
+Configuration file for out CoNLL format.
+Defines which columns --and in which order-- must be written.
+See section [Input/Output Handling Modules](modules/io.md) for details on the file format.
+
+This option is valid only when `OutputFormat=conll`. Otherwise, it is ignored.
+
 
 ----------------------------------
 ##### Input Level
