@@ -1,55 +1,100 @@
 # Getting it to work {#getting-it-to-work}
 
-This chapter describes how to install and execute FreeLing. The setps to follow may be differnt depending on your needs and platform.
+This chapter describes how to install and execute FreeLing. The setps to follow may be different depending on your needs and platform.
 
-* [Requirements](#requirements)
-* Installation
-   * [Install from <tt>.deb</tt> binary packages](#install-from-deb-binary-packages)
-   * [Install from <tt>.tar.gz</tt> source packages](#install-from-tar-gz-source-packages)
-   * [Install from <tt>GitHub</tt> repositories](#install-from-github-repositories)
+* [Installing from binary packages](#install-from-binary-packages)
+* [Installing from source](#install-from-source)
+
+Other issues you might be interested in;
+
 * [Reducing needed disk space](#reducing-disk)
-* [Locale-related problems when installing](#locale-related-problems-when-installing)
-* [Installing on MacOS](#installing-on-macos)
-* [Executing](#executing)
-* [Porting to other platforms](#porting-to-other-platforms)
-* [APIs for languages other than C++](#apis-other-languages)
+
+## Installing from binary packages {#install-from-binary-packages}
+
+This installation procedure is the fastest and easiest. If you do not plan to modify the code, this is the option you should take.
+
+Binary packages are available only for stable FreeLing versions. If you want to install a development version or the provided packages do not match your system, please see section [Installing from source](#install-from-source).
+
+You'll find downloadable binary packages in [GitHub FreeLing Releases page](https://github.com/TALP-UPC/FreeLing/releases).
+Packages for several debian and Ubuntu versions are provided, as well as for MS-Windows.
+
+### Install binary package on Linux
+
+Most debian-based systems will launch the apropriate installer if you just double click on the package file. The installer should solve the dependencies and install all required packages.
+
+If that doesn't work, you can install it by hand (in Ubuntu or Debian) with the following procedure (will probably work for other debian-based distros):
+
+1.  Install required system libraries.
+  
+    The following commands should install *both* header packages and binary libraries. If they don't, use your package manager to install all required packages as described in section [Requirements](#orientative-package-names).    
+    `sudo apt-get install libboost-regex-dev libicu-dev zlib1g-dev`    
+    `sudo apt-get install libboost-system-dev libboost-program-options-dev libboost-thread-dev`
+
+2.   Install freeling package
+    `sudo dpkg -i freeling-4.1.deb`
+
+  
+   In a Debian system, the above commands must be issued as root and without `sudo`.
+  
+### Install binary package on MS-Windows
+
+Get the zip file FreeLing-4.0.zip and uncompress it in a folder of your choice (let's call it %FLINSTALL%).
+
+The zipfile already includes all third-party dependencies required by FreeLing (you can find out how to install them yourself in section [Install from source on Windows](installation-windows.md) if you are curious).
+
+See sections [Execute FreeLing demo](#execute-analyzer) and [Call FreeLing Library](#call-library) to find out more on how to use FreeLing.
 
 
-## Requirements {#requirements}
+## Installing from source {#install-from-source}
 
-To install FreeLing you'll need:
+Unless you have a special interest in compiling FreeLing, [installing it from a binary package](#install-from-binary-packages) is recommended.
 
-*   A typical Linux box with usual development tools:
-    *   bash
-    *   make
-    *   C++ compiler with STL and C++11 support (e.g. g++ 4.6 or newer)
-*   Enough hard disk space -about 3 Gb for source and temporary compilation files (which you can delete later if needed), plus some 1.1Gb for final installation.
-*   Some external libraries are required to compile FreeLing:
-    *   <tt>libboost</tt> & <tt>libicu</tt> libraries. Included in all Linux distributions. You probably do not have all neeeded components installed. Make sure to install both runtime and development packages for:
-        *   libicu
-        *   libboost-regex
-        *   libboost-system
-        *   libboost-thread
-        *   libboost-program-options
-        *   libboost-locale (only required for MacOSX or FreeBSD, not required in Linux)
-    *   <tt>libz</tt> compression library. Included in all Linux distributions. You probably do not have all neeeded components installed. Make sure to install both runtime and development packages for:
-        *   zlib
+Installing FreeLing from source makes sense only in one of the following cases:
+  - You want to use a development FreeLing version for which there is no binary package yet
+  - You want to modify or extend FreeLing
+  
+To install from source, you need to follow the steps:
 
-### Orientative package names {#orientative-package-names}
+1. Download FreeLing source
+2. Install development tools and FreeLing requirements
+3. Build FreeLing
 
-The name of the packages containing the dependencies listed above vary depending on your linux distribution.
+The first step is the same for all systems, and can be performed in two ways:
+* Go to [GitHub FreeLing Releases page](https://github.com/TALP-UPC/FreeLing/releases), download the source package (e.g. FreeLing-4.1.tar.gz or FreeLing-4.1.zip), and uncompress it in a folder of your choice.
+* Alternatively, clone FreeLing GitHub repository (either a stable version tag such as "v4.1", or the development version "master"). If you don't know what a git repository is, you probably should stick with the first option above.
 
-Please check the package manager in your system, and use its package search capabilities to install the needed dependencies.
+Next steps vary depending on your operating system:
+* [Install from source on Linux](installation-linux.md)
+* [Install from source on Windows](installation-windows.md)
+* [Install from source on MacOS](installation-mac.md)
 
-As an orientation, here are the names of these packages in some popular distributions. (Note that this may change over time too)
 
-*   Ubuntu/Debian: `libboost-dev libboost-regex-dev libicu-dev libboost-system-dev libboost-program-options-dev libboost-thread-dev zlib1g-dev`
-*   OpenSuse/Fedora/Mandriva: `boost-devel boost-regex-devel libicu-devel boost-system-devel boost-program-options-devel boost-thread-dev zlib-devel`
-*   Slackware: `boost icu4c zlib`
 
-Note that you need to install both the binary libraries and the development packages (usually sufixed as `-dev` or `-devel`). Most package managers will install both binary and development packages when the `-dev` package is required. If this is not your case, you'll need to manually select both packages.
+## Reducing needed disk space {#reducing-disk}
 
-See details on the installation procedure in section [Installation](#installation).
+FreeLing packages include linguistic data for all supported languages, which total up over 1Gb of disk space.
+
+It is possible to safely remove data for languages that are not needed, saving that space.
+
+FreeLing installation directory contains all linguistic data in the subfolder 
+``FREELINGDIR/share/freeling``.
+This folder contains a directory for each language.
+
+To free space, you can simply remove the unneeded language directories ``FREELINGDIR/share/freeling/XX``.
+
+Make sure to keep 
+`FREELINGDIR/share/freeling/common`, `FREELINGDIR/share/freeling/config`, and `FREELINGDIR/share/freeling/XX` for any language XX you want to process.
+
+
+Where the folder ``FREELINGDIR`` is located, depends on which is your system and on how did you install FreeLing.
+* If you installed a Linux .deb package, ``FREELINGDIR`` is ``/usr``
+* If you installed on Linux compiling from source, ``FREELINGDIR`` is ``/usr/local`` (unless you specified a custom installation directory... then, ``FREELINGDIR`` is that directory).
+* If you installed a Windows binary package, ``FREELINGDIR`` is the folder where you uncompressed it)
+* If you installed on Windows compiling from source, ``FREELINGDIR`` is the folder you used as ``CMAKE_INSTALL_PREFIX``.  If you used the default installation, it is ``C:\Program Files``
+
+
+----------------------------------------------------------------
+daqui en avall es el vell
 
 ## Installation {#installation}
 
@@ -168,39 +213,8 @@ If you keep the source directories, you will be able to update to newer versions
 
 Depending on what changed in the repository, you may need to issue `autoreconf --install` after `git pull`. You may also need to issue `make distclean` and repeat the process from `./configure` onwards.
 
-## Reducing needed disk space {#reducing-disk}
-
-FreeLing packages include linguistic data for all supported languages, which total up over 1Gb of disk space.
-
-It is possible to safely remove data for languages that are not needed, saving that space.
-
-* If installing from a `.deb` package, you can simply remove the unneeded language directories from `/usr/share/freeling/XX`. Make sure to keep 
-`/usr/share/freeling/common`, `/usr/share/freeling/config`, and `/usr/share/freeling/XX` for any language XX you want to process.
-
-* If installing from source (either from source package or from git repository) you can remove the unneeded data after installing, but it may be easier to remove it from source:
-     * Remove the directories `data/XX` for any unneeded language. Make sure to keep directories `data/common`, `data/config`, and `data/XX` for any language XX you want to process.
-     * After removing the unneeded directories, install normaly.
 
 
-## Locale-related problems when installing {#locale-related-problems-when-installing}
-
-If you get an error about <tt>bad locale</tt> when you enter `make install` or when you try to execute the `analyzer` sample program, you probably need to generate some locales in your system.
-
-FreeLing uses <tt>en_US.UTF8</tt> locale as default during installation. If this locale is not installed in your system, you'll get an error during dictionary installation.
-
-all languages in FreeLing should work with this locale, though Russian may need to have its own locale installed in the system.
-
-The procedure to install a locale in your system varies depending on your distribution. For instance:
-
-*   In Ubuntu, you must use the `locale-get` command. E.g.:   
-    `sudo locale-gen en_US.UTF8`  
-    `sudo locale-gen pt_BR.UTF8`  
-    `sudo locale-gen ru_RU.UTF8`   
-    `...`
-    
-*   In Debian, you need to run the command:   
-    `dpkg-reconfigure locales`   
-    and select the desired locales from the list.
 
 ## Installing on MacOS {#installing-on-macos}
 
@@ -270,6 +284,7 @@ Then, you need to get FreeLing source, either from a tar file or from GitHub.
 
     You can add to `configure` any extra options you wish (`-enable-traces`, `-prefix`, etc). Use `./configure --help` to find out available options.
 
+
 ## Executing {#executing}
 
 FreeLing is a library, which means that it not a final-user oriented executable program but a tool to develop new programs that require linguistic analysis services.
@@ -283,33 +298,6 @@ Please take into account that this program is only a friendly interface to demon
 Thus, the question is not *why this program doesn't offer functionality X?*, *why it doesn't output information Y?*, or *why it doesn't present results in format Z?*, but *How should I use FreeLing library to write a program that does exactly what I need?*.
 
 In the directory `src/main/simple_examples` in the tarball, you can find simpler sample programs that illustrate how to call the library, and that can be used as a starting point to develop your own application.
-
-## Porting to other platforms {#porting-to-other-platforms}
-
-FreeLing library is entirely written in C++, so it is possible to compile it on non-unix platforms with a reasonable effort.
-
-FreeLing can be successfully built for MacOS, as described above.
-
-It can also be built for MS-Windows using project files included in the tarball. You'll find the solution/project files and a README in the `msvc` folder inside FreeLing tarball.
-Binary packages for Windows can be found in [GitHub FreeLing Releases page](https://github.com/TALP-UPC/FreeLing/releases).
-
-You can visit the [Forum](http://nlp.lsi.upc.edu/freeling/forum) in FreeLing webpage for further help and details.
-
-## APIs for languages other than C++ {#apis-other-languages}
-
-To call FreeLing library from a language different than C++ you will need to build the appropriate API.
-
-FreeLing source includes APIs for Java, Python, perl, ruby, and PHP. A [Dockerfile](https://www.docker.com/) can also be found in the same subdirectory.
-
-APIs are generated using [SWIG](http://www.swig.org). The completeness of the API varies from one language to another depending on the coverage of SWIG for STL structures in that language. Java and python APIs are almost fully-functional. Perl is a little behind, and ruby and PHP are experimental.
-
-To build your API, first you need to install SWIG. Then, check the subdirectory `APIs` in FreeLing source. If you installed FreeLing from a binary package, make sure you get the source package corresponding to the same version you installed.
-
-Each API has a `README` file, a `Makefile`, and a sample program to test it.  Follow the README instructions to build the API.
-
-MacOS users may need to slightly adapt the Makefile.
-Windows users will need to replicate the Makefile steps by hand.
-
 
 
 
