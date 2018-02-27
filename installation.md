@@ -1,6 +1,6 @@
 # Getting it to work {#getting-it-to-work}
 
-This chapter describes how to install and execute FreeLing. The setps to follow may be different depending on your needs and platform.
+This chapter describes how to install and execute FreeLing. The steps to follow may be different depending on your needs and platform.
 
 * [Installing from binary packages](#install-from-binary-packages)
 * [Installing from source](#install-from-source)
