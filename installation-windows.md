@@ -8,7 +8,7 @@ If not, please read Section [Getting it to work]{installation.md} before continu
 
 Decide where will you install FreeLing (e.g. `C:\FreeLing`, `C:\Program Files\FreeLing`, etc.). You can omit this, and FreeLing will be installed in the default location `C:\Program Files`.
 
-From this point on, we will refer to FreeLing installation folder (either chosen by you or the default location) as `%FLINSTALL%`.
+***IMPORTANT***: From this point on, we will refer to FreeLing installation folder (either chosen by you or the default location) as `%FLINSTALL%`.
 
 # Install development tools
 
@@ -159,18 +159,12 @@ To run the example, do:
 
 ## JAVA
 
-If you built the Java API you'll find in `%FLINSTALL%\freeling\share\freeling\APIs\java` 
-the following files:
+If you built the Java API you'll find in `%FLINSTALL%\freeling\share\freeling\APIs\java` the following files:
 
 | File | Content |
 | -- | -- |
-| Jfreeling.jar  | FreeLing Java module, to be imported from your program. |
-|                | Must be included in ``%CLASSPATH%`` | 
-|                |                                |
-| Jfreeling.lib  | The actual API DLL, bridging between Java and C++. |
-| Jfreeling.dll  | They both must be in the same folder than your program |
-|                  or in a folder included in ``%PATH%`` |
-|                |                                |
+| Jfreeling.jar  | FreeLing Java module, to be imported from your program.<br>It must be included in ``%CLASSPATH%`` | 
+| Jfreeling.lib<br>Jfreeling.dll  | The actual API DLL, bridging between Java and C++.<br>They both must be in the same folder than your program or in a folder included in ``%PATH%`` |
 | Analyzer.java  | An example of a Java program that calls FreeLing. |
 	
 To run the example, do:
@@ -180,10 +174,7 @@ To run the example, do:
    java Analyzer < mytext.txt
 ```
 
-- If you get "UnsatisfiedLinkError" about not found libraries, you need to
-  set the ``PATH`` so all the required libraries (freeling and all its dependencies) 
-  are found (you need to do this only once per session, or you can set it once
-  and forever in your system-wide configuration):
+- If you get "UnsatisfiedLinkError" about not found libraries, you need to set the ``PATH`` so all the required libraries (freeling and all its dependencies) are found (you need to do this only once per session, or you can set it once and forever in your system-wide configuration):
   ```
       set PATH=%PATH%;%FLINSTALL%\freeling\bin;%FLINSTALL%\dependencies\boost\lib;%FLINSTALL%\dependencies\zlib\bin;%FLINSTALL%\dependencies\icu\bin64;
   ``` 
@@ -192,26 +183,20 @@ To run the example, do:
   ```       
      set FREELINGDIR=%FLINSTALL%\freeling
   ```
-  (this is because the example program "Analyzer.java" checks that variable, it is
-   not a general requirement of the API or FreeLing)
+  (this is because the example program "Analyzer.java" checks that variable, it is not a general requirement of the API or FreeLing)
 
-- If you get memory-related errors (allocation error, array out of range, etc), it
-  may be that your JVM has to not enough RAM for FreeLing.  Try with -Xmx1G or more.
+- If you get memory-related errors (allocation error, array out of range, etc), it  may be that your JVM has to not enough RAM for FreeLing.  Try with -Xmx1G or more.
 
 
 # OBSERVATIONS
 
 ## Installing dependencies in different folders
 
-You can install zlib, boost, and icu anywhere (that is, they don't HAVE to
-be in %FLINSTALL%\dependencies).
+You can install zlib, boost, and icu anywhere (that is, they don't HAVE to be in `%FLINSTALL%\dependencies`).
 
-If you install them somewhere else, you just need to set the right paths for
-variables ``ZLIB_INCLUDE_DIR``, ``ZLIB_LIBRARY``, ``BOOST_ROOT``, and ``ICU_ROOT`` 
-in the ``CMake`` command, and adjust the ``%PATH`` definition if you are using an API.
+If you install them somewhere else, you just need to set the right paths for variables ``ZLIB_INCLUDE_DIR``, ``ZLIB_LIBRARY``, ``BOOST_ROOT``, and ``ICU_ROOT``  in the ``CMake`` command, and adjust the ``%PATH`` definition if you are using an API.
 
-If you plan to use the ``analyzer.bat`` script, you'll need to edit it and adjust
-the paths to those libraries too.
+Also, if you plan to use the ``analyzer.bat`` script, you'll need to edit it and adjust the paths to those libraries too.
 
 
 ## APIs REQUIREMENTS 
@@ -219,14 +204,13 @@ the paths to those libraries too.
 If you want to call FreeLing library from Python or Java, you need to install some
 extra software before building FreeLing:
 
-1. Install SWIG.
-   Download swigwin.zip package from http://swig.org and uncompress it anywhere
-   you want (e.g. ``C:\Program Files\swigwin``).
-   We will refer to this folder as ``%SWIGDIR%`` from now on
+1. **Install SWIG**
+   Download swigwin.zip package from http://swig.org and uncompress it anywhere you want (e.g. ``C:\Program Files\swigwin``).
+   ***IMPORTANT***: We will refer to this folder as ``%SWIGDIR%`` from now on.
 
 2. Install target language, including interfaces, that is:
-    * For Python: Install Python2 or Python3.
-    * For Java: Install Java Development Kit.
+    * **For Python**: Install Python2 or Python3, to your choice (Python3 is recommended though).
+    * **For Java**: Install Java Development Kit.
 
 3. Add the following options to the "cmake" command
    ``-DSWIG_DIR=%SWIGDIR%``             
