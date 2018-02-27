@@ -49,7 +49,7 @@ As an orientation, here are the names of these packages in some popular distribu
 * OpenSuse/Fedora/Mandriva: `boost-devel boost-regex-devel libicu-devel boost-system-devel boost-program-options-devel boost-thread-dev zlib-devel`
 * Slackware: `boost icu4c zlib`
 
-Note that you need to install both the binary libraries and the development packages \(usually sufixed as `-dev` or `-devel`\). Most package managers will install both binary and development packages when the `-dev` package is required. If this is not your case, you'll need to manually select both packages.
+Note that you need to install **both** the binary libraries and the development packages \(usually sufixed as `-dev` or `-devel`\). Most package managers will install both binary and development packages when the `-dev` package is required. If this is not your case, you'll need to manually select both packages.
 
 # Build FreeLing
 
@@ -82,6 +82,7 @@ Note that you need to install both the binary libraries and the development pack
   * `-DWARNINGS=OFF`     Build FreeLing without warning messages \(default: `ON`\)
 
   * `-DXPRESSIVE=ON`     Build FreeLing using boost::xpressive regexps instead of boost::regex  \(default: `OFF`\)
+
   * `-DEMBEDDINGS=ON`    Download word embeddings files when installing \(default: `OFF`\)
   * `-DJAVA_API=ON`      Build Java API \(see "Observations" below before running cmake\) \(default: `OFF`\)
   * `-DPYTHON2_API=ON`   Build Python 2 API \(see "Observations" below before running cmake\) \(default: `OFF`\)
