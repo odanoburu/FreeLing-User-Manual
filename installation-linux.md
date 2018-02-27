@@ -74,38 +74,33 @@ Note that you need to install **both** the binary libraries and the development 
 
   Available options that can be added to the `cmake` command:
 
-  * `-DCMAKE_INSTALL_PREFIX=[path]`  Install FreeLing in given location \(default: `/usr/local`\)
-  * `-DTRACES=ON`        Build FreeLing with debugging traces \(default: `OFF`\)
-  * `-DWARNINGS=OFF`     Build FreeLing without warning messages \(default: `ON`\)
-  * `-DXPRESSIVE=ON`     Build FreeLing using boost::xpressive regexps instead of boost::regex  \(default: `OFF`\)
-  * `-DEMBEDDINGS=ON`    Download word embeddings files when installing \(default: `OFF`\)
-  * `-DJAVA_API=ON`      Build Java API \(see "Observations" below before running cmake\) \(default: `OFF`\)
-  * `-DPYTHON2_API=ON`   Build Python 2 API \(see "Observations" below before running cmake\) \(default: `OFF`\)
-  * `-DPYTHON3_API=ON`   Build Python 3 API \(see "Observations" below before running cmake\) \(default: `OFF`\)
+  `-DCMAKE_INSTALL_PREFIX=[path]`  Install FreeLing in given location \(default: `/usr/local`\)
+  `-DTRACES=ON`        Build FreeLing with debugging traces \(default: `OFF`\)
+  `-DWARNINGS=OFF`     Build FreeLing without warning messages \(default: `ON`\)
+  `-DXPRESSIVE=ON`     Build FreeLing using boost::xpressive regexps instead of boost::regex  \(default: `OFF`\)
+  `-DEMBEDDINGS=ON`    Download word embeddings files when installing \(default: `OFF`\)
+  `-DJAVA_API=ON`      Build Java API \(see "Observations" below before running cmake\) \(default: `OFF`\)
+  `-DPYTHON2_API=ON`   Build Python 2 API \(see "Observations" below before running cmake\) \(default: `OFF`\)
+  `-DPYTHON3_API=ON`   Build Python 3 API \(see "Observations" below before running cmake\) \(default: `OFF`\)
 
 # Execute FreeLing
 
-FreeLing provides a main program that allows to execute most of its capabilities.  
-However, remember that FreeLing is a library and that much more functionalities are  
-accessible writting your own main program.
+FreeLing provides a main program that allows to execute most of its capabilities. However, remember that FreeLing is a library and that many more functionalities are accessible writting your own main program.
 
 The provided main program can be executed running the command:
 ```
    $FLINSTALL/bin/analyze -f en.cfg < myfile.txt
 ```
-Check FreeLing manual \([https://talp-upc.gitbooks.io/freeling-user-manual/](https://talp-upc.gitbooks.io/freeling-user-manual/)\),  
-section "Using the analyze script", to find out the parameters it accepts.
+Check FreeLing manual \([https://talp-upc.gitbooks.io/freeling-user-manual/](https://talp-upc.gitbooks.io/freeling-user-manual/)\), section "Using the analyze script", to find out the parameters it accepts.
 
 Note that the input text in `myfile.txt` must be UTF8 encoded.  
 You can also provide input from the terminal and end it with ctl-D.
 
 # Calling FreeLing library from Python or Java \(optional\)
 
-If you don't want to write Python or Java programs that call Freeling, you can  
-skip this section
+If you don't want to write Python or Java programs that call Freeling, you can skip this section.
 
-To be able to call FreeLing from Python or Java, you should ahve built it with  
-cmake options `-DPYTHON2_API`, `-DPYTHON3_API`, or `-DJAVA_API`, depending on your target.
+To be able to call FreeLing from Python or Java, you should ahve built it with cmake options `-DPYTHON2_API`, `-DPYTHON3_API`, or `-DJAVA_API`, depending on your target.
 
 ## PYTHON
 
@@ -123,26 +118,20 @@ To run the example, do:
    python sample.py < mytext.txt
 ```
 
-* If you get "ImportError" about not found modules, you need to set `$LD_LIBRARY_PATH`  
-  so all the required libraries \(freeling and all its dependencies\) are found,  
-  as well as the \_pyfreeling.so API library \(you need to do this only once per  
-  session, or you can set it once and forever in your system-wide configuration\):
+* If you get "ImportError" about not found modules, you need to set `$LD_LIBRARY_PATH` so all the required libraries \(freeling and all its dependencies\) are found, as well as the \_pyfreeling.so API library \(you need to do this only once per session, or you can set it once and forever in your system-wide configuration\):
   ```
   export LD_LIBRARY_PATH=$FLINSTALL/lib;$FLINSTALL/share/freeling/APIs/python2
   ```
 
-* If you get "FREELINGDIR not defined", you need to set the location where  
-  FreeLing was installed:
+* If you get "FREELINGDIR not defined", you need to set the location where FreeLing was installed:
   ```
   set FREELINGDIR=$FLINSTALL
   ```
-  \(this is because the example program "sample.py" checks that variable, it is  
-   not a general requirement of the API or FreeLing\)
+  \(this is because the example program "sample.py" checks that variable, it is not a general requirement of the API or FreeLing\)
 
 ## JAVA
 
-If you built the Java API, you'll find in `$FLINSTALL/share/freeling/APIs/java`  
-the following files:
+If you built the Java API, you'll find in `$FLINSTALL/share/freeling/APIs/java` the following files:
 
 | File | Content |
 | --- | --- |
@@ -157,10 +146,7 @@ To run the example, do:
    java Analyzer < mytext.txt
 ```
 
-* If you get "UnsatisfiedLinkError" about not found libraries, you need to  
-  set `$LS_LIBRARY_PATH` so all the required libraries \(freeling and all its dependencies,  
-  as well as `libJfreeling.so`\) are found \(you need to do this only once per session, or you  
-  can set it once and forever in your system-wide configuration\):
+* If you get "UnsatisfiedLinkError" about not found libraries, you need to set `$LS_LIBRARY_PATH` so all the required libraries \(freeling and all its dependencies, as well as `libJfreeling.so`\) are found \(you need to do this only once per session, or you can set it once and forever in your system-wide configuration\):
   ```
   export LD_LIBRARY_PATH=$FLINSTALL/lib;$FLINSTALL/share/freeling/APIs/java
   ```
@@ -169,29 +155,26 @@ To run the example, do:
   ```
      export FREELINGDIR=$FLINSTALL
   ```
-  \(this is because the example program "Analyzer.java" checks that variable, it is  
-   not a general requirement of the API or FreeLing\)
+  \(this is because the example program "Analyzer.java" checks that variable, it is not a general requirement of the API or FreeLing\)
 
-* If you get memory-related errors \(allocation error, array out of range, etc\), it  
-  may be that your JVM has not enough RAM for FreeLing.  Try with -Xmx1G or more.
+* If you get memory-related errors \(allocation error, array out of range, etc\), it may be that your JVM has not enough RAM for FreeLing.  Try with -Xmx1G or more.
 
 # OBSERVATIONS
 
 ## APIs REQUIREMENTS
 
-If you want to call FreeLing library from Python or Java, you need to install some  
-extra software before building FreeLing:
+If you want to call FreeLing library from Python or Java, you need to install some extra software before building FreeLing:
 
-1. Install SWIG.  
+1. **Install SWIG** 
    Available as a package in most distributions.  
    If not, you can download the source from  [http://swig.org](http://swig.org) and compile it.
 
 2. Install target language, including interfaces, that is:
 
-   * For Python: Install Python2 or Python3.
-    Make sure you install also development headers (e.g. package python3-dev)
+   * **For Python**: Install Python2 or Python3, at your choice (Python3 is recommended though)
+     Make sure you install also development headers (e.g. package python3-dev)
     
-   * For Java: Install Java Development Kit.
+   * **For Java**: Install Java Development Kit.
 
 3. Add the following options to the "cmake" command  
    `-DPYTHON2_API=ON`  \(if you want to build Python 2 API. Not compatible with `-DPYTHON3_API`\)  
@@ -200,12 +183,11 @@ extra software before building FreeLing:
 
 ## Using Python2 instead of Python3
 
-FreeLing uses UTF8 encoding to support multilinguality. Python3 is native  
-in UTF8, which provides a much smoother integration with FreeLing.
+FreeLing uses UTF8 encoding to support multilinguality. Python3 is native in UTF8, which provides a much smoother integration with FreeLing.
 
-However, you can use FreeLing from Python2 too \(though if you encounter  
-encoding problems, don't complain, we told you so...\)  
-Just specify cmake option `-DPYTHON2_API` instead of `-DPYTHON3_API`.
+However, you can use FreeLing from Python2 too \(though if you encounter encoding problems, don't complain, we told you so...\).  
+
+You can choose which Python API is generated with CMake options `-DPYTHON2_API` and `-DPYTHON3_API`.
 
 ## Locale-related problems when installing {#locale-related-problems-when-installing}
 
