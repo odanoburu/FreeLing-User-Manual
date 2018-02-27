@@ -31,7 +31,8 @@ Some external libraries are required to compile FreeLing:
   * libboost-system
   * libboost-thread
   * libboost-program-options
-  * libboost-locale \(only required for MacOSX or FreeBSD, not required in Linux\)  
+  * libboost-locale \(only required for MacOSX or FreeBSD, not required in Linux\)
+ 
 
 * libz compression library. Included in all Linux distributions. You probably do not have all neeeded components installed. Make sure to install both runtime **and development** packages for:
 
@@ -49,23 +50,21 @@ As an orientation, here are the names of these packages in some popular distribu
 * OpenSuse/Fedora/Mandriva: `boost-devel boost-regex-devel libicu-devel boost-system-devel boost-program-options-devel boost-thread-dev zlib-devel`
 * Slackware: `boost icu4c zlib`
 
-Note that you need to install **both** the binary libraries and the development packages \(usually sufixed as `-dev` or `-devel`\). Most package managers will install both binary and development packages when the `-dev` package is required. If this is not your case, you'll need to manually select both packages.
+Note that you need to install **both** the binary libraries and the development packages \(usually sufixed as `-dev` or `-devel`\). Most package managers will install both binary and development packages when the `-dev` package is requested. If this is not your case, you'll need to manually select both packages.
 
 # Build FreeLing
 
 * Open a terminal and change to the folder where you uncompressed or cloned the downloaded FreeLing source
 
 * Execute the commands:
-
   ```
   mkdir build
   cd build
   cmake .. 
   make install
   ```
-
   This will install FreeLing in `/usr/local`.  
-  To change the destination directory, add option `-DCMAKE_INSTALL_PREFIX=$FLINSTALL` to the `cmake` command.
+  To change the destination directory, add option `-DCMAKE_INSTALL_PREFIX=$FLINSTALL` to the `cmake` command (where `$FLINSTALL` is the path where you want to install FreeLing).
 
   Note that cmake does not create an "uninstall" target. So, if you install in `/usr/local`, you may need to selectively remove files when you want to uninstall FreeLing
 
@@ -76,13 +75,9 @@ Note that you need to install **both** the binary libraries and the development 
   Available options that can be added to the `cmake` command:
 
   * `-DCMAKE_INSTALL_PREFIX=[path]`  Install FreeLing in given location \(default: `/usr/local`\)
-
   * `-DTRACES=ON`        Build FreeLing with debugging traces \(default: `OFF`\)
-
   * `-DWARNINGS=OFF`     Build FreeLing without warning messages \(default: `ON`\)
-
   * `-DXPRESSIVE=ON`     Build FreeLing using boost::xpressive regexps instead of boost::regex  \(default: `OFF`\)
-
   * `-DEMBEDDINGS=ON`    Download word embeddings files when installing \(default: `OFF`\)
   * `-DJAVA_API=ON`      Build Java API \(see "Observations" below before running cmake\) \(default: `OFF`\)
   * `-DPYTHON2_API=ON`   Build Python 2 API \(see "Observations" below before running cmake\) \(default: `OFF`\)
@@ -95,11 +90,9 @@ However, remember that FreeLing is a library and that much more functionalities 
 accessible writting your own main program.
 
 The provided main program can be executed running the command:
-
 ```
    $FLINSTALL/bin/analyze -f en.cfg < myfile.txt
 ```
-
 Check FreeLing manual \([https://talp-upc.gitbooks.io/freeling-user-manual/](https://talp-upc.gitbooks.io/freeling-user-manual/)\),  
 section "Using the analyze script", to find out the parameters it accepts.
 
@@ -120,16 +113,11 @@ If you built the Python2 \(or Python3 API\), you'll find in `$FLINSTALL/share/fr
 
 | File | Content |
 | --- | --- |
-| `pyfreeling.py` | FreeLing python module, to be imported from your program. |
-|  | It must be in the same folder than your program or in a folder |
-|  | included in `$PYTHONPATH`. |
-| `_pyfreeling.so` | This file is the actual API DLL, bridging between |
-|  | Python and C++. It must be in the same folder than |
-|  | your program, or in a folder included in `$LD_LIBRARY_PATH`. |
+| `pyfreeling.py` | FreeLing python module, to be imported from your program.<br>It must be in the same folder than your program or in a folder included in `$PYTHONPATH`.|
+| `_pyfreeling.so` | This file is the actual API DLL, bridging between Python and C++.<br>It must be in the same folder than your program, or in a folder included in `$LD_LIBRARY_PATH`. |
 | `sample.py` | An example of a python program that calls FreeLing. |
 
 To run the example, do:
-
 ```
    cd $FLINSTALL/share/freeling/APIs/python
    python sample.py < mytext.txt
@@ -139,14 +127,12 @@ To run the example, do:
   so all the required libraries \(freeling and all its dependencies\) are found,  
   as well as the \_pyfreeling.so API library \(you need to do this only once per  
   session, or you can set it once and forever in your system-wide configuration\):
-
   ```
   export LD_LIBRARY_PATH=$FLINSTALL/lib;$FLINSTALL/share/freeling/APIs/python2
   ```
 
 * If you get "FREELINGDIR not defined", you need to set the location where  
   FreeLing was installed:
-
   ```
   set FREELINGDIR=$FLINSTALL
   ```
@@ -161,13 +147,8 @@ the following files:
 
 | File | Content |
 | --- | --- |
-| Jfreeling.jar | FreeLing Java module, to be imported from your program. |
-|  | Must be included in `$CLASSPATH`. |
-|  |  |
-| libJfreeling.so | The actual API, bridging between Java and C++. |
-|  | It must be in the same folder than your program |
-|  | or in a folder included in `LD_LIBRARY_PATH` |
-|  |  |
+| Jfreeling.jar | FreeLing Java module, to be imported from your program.<br>It must be included in `$CLASSPATH`. |
+| libJfreeling.so | The actual API, bridging between Java and C++.<br>It must be in the same folder than your program or in a folder included in `LD_LIBRARY_PATH` |
 | Analyzer.java | An example of a Java program that calls FreeLing. |
 
 To run the example, do:
