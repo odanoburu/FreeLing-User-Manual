@@ -31,11 +31,11 @@ Some external libraries are required to compile FreeLing:
   * libboost-system
   * libboost-thread
   * libboost-program-options
-  * libboost-locale \(only required for MacOSX or FreeBSD, not required in Linux\)
+  * libboost-locale \(only required for MacOSX or FreeBSD, not required in Linux\)  
 
 * libz compression library. Included in all Linux distributions. You probably do not have all neeeded components installed. Make sure to install both runtime **and development** packages for:
 
-  * zlib
+   * zlib
 
 ## Orientative package names {#orientative-package-names}
 
