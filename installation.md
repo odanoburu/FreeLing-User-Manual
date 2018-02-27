@@ -36,6 +36,7 @@ If that doesn't work, you can install it by hand (in Ubuntu or Debian) with the 
   
    In a Debian system, the above commands must be issued as root and without `sudo`.
   
+  
 ### Install binary package on MS-Windows
 
 Get the zip file FreeLing-4.0.zip and uncompress it in a folder of your choice (let's call it %FLINSTALL%).
