@@ -43,11 +43,8 @@ The easiest way to install these dependencies is to get precompiled binary packa
 
 * Uncompress boost package in %FLINSTALL%\dependencies 
 
-* Each boost binary package has associated an ICU version, which is mentioned in the
-  rightmost column of the table ("Notes").
-  Follow the link to the associated ICU version, and download the package. 
-  Make sure you are getting the right version (you may need to go 
-  to "past builds" page [https://www.npcglib.org/~stathis/blog/precompiled-icu-past/](https://www.npcglib.org/~stathis/blog/precompiled-icu-past/).
+* Each boost binary package has associated an ICU version, which is mentioned in the rightmost column of the table ("Notes").
+  Follow the link to the associated ICU version, and download the package.  Make sure you are getting the right version (you may need to go to "past builds" page [https://www.npcglib.org/~stathis/blog/precompiled-icu-past/](https://www.npcglib.org/~stathis/blog/precompiled-icu-past/).
   Also, make sure the package matches your MSVC version and architecture.
     
 * Uncompress icu package in %FLINSTALL%\dependencies.
@@ -59,9 +56,7 @@ After this, the content of your %FLINSTALL% folder should look like (version num
               \icu-57.1-vs2015
 ```
 
-You can keep these names or change them to "boost" and "icu".
-(From now on we will assume you changed them, so if you keep the full names, you'll need
-to change some paths in the commands described in steps below).
+You can keep these names or change them to "boost" and "icu". (From now on we will assume you changed them, so if you keep the full names, you'll need to change some paths in the commands described in steps below).
 Now your installation folder looks like:
 ```
    %FLINSTALL%\dependencies\zlib
@@ -96,69 +91,53 @@ Now your installation folder looks like:
                        \share
    ```
 
-   If you want a clean re-install, you can delete folder %FLINSTALL%\freeling, 
-   and run again "nmake install" from the "build" folder.
+   If you want a clean re-install, you can delete folder %FLINSTALL%\freeling, and run again "nmake install" from the "build" folder.
 
-   If you want a clean re-build, you can delete the "build" folder, and repeat the 
-   whole procedure.
+   If you want a clean re-build, you can delete the "build" folder, and repeat the whole procedure.
 
    Available options that can be added to the `cmake` command:
 
-    * `-DCMAKE_INSTALL_PREFIX=[path]`  Install FreeLing in given location (default: `C:\Program Files`)
-
-    * `-DTRACES=ON`        Build FreeLing with debugging traces (default: `OFF`)
-    * `-DWARNINGS=OFF`     Build FreeLing without warning messages (default: `ON`)
-    * `-DXPRESSIVE=ON`     Build FreeLing using boost::xpressive regexps instead of boost::regex  (default: `OFF`)
-    * `-DEMBEDDINGS=ON`    Download word embeddings files when installing (default: `OFF`)
-    * `-DJAVA_API=ON`      Build Java API (see "Observations" below before running cmake) (default: `OFF`)
-    * `-DPYTHON2_API=ON`   Build Python 2 API (see "Observations" below before running cmake) (default: `OFF`)
-    * `-DPYTHON3_API=ON`   Build Python 3 API (see "Observations" below before running cmake) (default: `OFF`)
+   `-DCMAKE_INSTALL_PREFIX=[path]`  Install FreeLing in given location (default: `C:\Program Files`)
+   `-DTRACES=ON`        Build FreeLing with debugging traces (default: `OFF`)
+   `-DWARNINGS=OFF`     Build FreeLing without warning messages (default: `ON`)
+   `-DXPRESSIVE=ON`     Build FreeLing using boost::xpressive regexps instead of boost::regex  (default: `OFF`)
+   `-DEMBEDDINGS=ON`    Download word embeddings files when installing (default: `OFF`)
+   `-DJAVA_API=ON`      Build Java API (see "Observations" below before running cmake) (default: `OFF`)
+   `-DPYTHON2_API=ON`   Build Python 2 API (see "Observations" below before running cmake) (default: `OFF`)
+   `-DPYTHON3_API=ON`   Build Python 3 API (see "Observations" below before running cmake) (default: `OFF`)
 
 
 # Execute FreeLing
 
 FreeLing provides a main program that allows to execute most of its capabilities.
-However, remember that FreeLing is a library and that much more functionalities are
-accessible writting your own main program.
+However, remember that FreeLing is a library and that much more functionalities are accessible writting your own main program.
 
 The provided main program can be executed running the command:
 ```
    %FLINSTALL%\freeling\bin\analyze.bat -f en.cfg < myfile.txt
 ```
 
-"analyze.bat" behaves just the Linux "analyze" script. Check FreeLing
-manual (https://talp-upc.gitbooks.io/freeling-user-manual/),
-section "Using the analyze script", to find out the parameters it accepts.
+"analyze.bat" behaves just the Linux "analyze" script. Check FreeLing manual (https://talp-upc.gitbooks.io/freeling-user-manual/), section "Using the analyze script", to find out the parameters it accepts.
 
-Note that the input text in `myfile.txt` must be UTF8 encoded.
-You can also provide input from the terminal and end it with ctl-Z. 
-Take into account windows command prompt is not UTF8, so you will 
-find problems if you use non-ascii characters.
+Note that the input text in `myfile.txt` must be UTF8 encoded. You can also provide input from the terminal and end it with ctl-Z. 
+Take into account windows command prompt is not UTF8, so you will find problems if you use non-ascii characters.
 
 
 # Calling FreeLing library from Python or Java (optional)
 
-If you don't want to write Python or Java programs that call Freeling, you can
-skip this section
+If you don't want to write Python or Java programs that call Freeling, you can skip this section.
 
-To be able to call FreeLing from Python or Java, you should have built it with 
-CMake options `-DPYTHON2_API`, `-DPYTHON3_API`, or `-DJAVA_API`, depending on your target. 
+To be able to call FreeLing from Python or Java, you should have built it with CMake options `-DPYTHON2_API`, `-DPYTHON3_API`, or `-DJAVA_API`, depending on your target. 
 
 ## PYTHON
   
-If you built the Python2 (or Python3) API, you'll find
-in `%FLINSTALL%\freeling\share\freeling\APIs\python2` (or `python3`) the following files:
+If you built the Python2 (or Python3) API, you'll find in `%FLINSTALL%\freeling\share\freeling\APIs\python2` (or `python3`) the following files:
 
 | File | Content |
 | -- | -- |
-| `pyfreeling.py`   | FreeLing python module, to be imported from your program. |
-|                   | It must be in the same folder than your program or in a folder |
-|                   | included in `%PYTHONPATH%`. |
-| `_pyfreeling.lib` | These two files are the actual API DLL, bridging between |
-| `_pyfreeling.pyd` | Python and C++. They both must be in the same folder than | 
-|                   | your program, or in a folder included in `%PATH%`. | 
+| `pyfreeling.py`   | FreeLing python module, to be imported from your program.<br>It must be in the same folder than your program or in a folder included in `%PYTHONPATH%`. |
+| `_pyfreeling.lib`<br>`_pyfreeling.pyd` | These two files are the actual API DLL, bridging between Python and C++.<br>They both must be in the same folder than your program, or in a folder included in `%PATH%`. | 
 | `sample.py`       | An example of a python program that calls FreeLing. |
-
 	
 To run the example, do:
 ```
@@ -166,26 +145,21 @@ To run the example, do:
    python sample.py < mytext.txt
 ```
 
-- If you get "ImportError" about not found DLLs, you need to set the PATH
-  so all the required libraries (freeling and all its dependencies) are found
-  (you need to do this only once per session, or you can set it once
-  and forever in your system-wide configuration):
+- If you get "ImportError" about not found DLLs, you need to set %PATH% so all the required libraries (freeling and all its dependencies) are found. (You need to do this only once per session, or you can set it once and forever in your system-wide configuration):
   ```
   set PATH=%PATH%;%FLINSTALL%\freeling\bin;%FLINSTALL%\dependencies\boost\lib;%FLINSTALL%\dependencies\zlib\bin;%FLINSTALL%\dependencies\icu\bin64;
   ```
   
-- If you get "FREELINGDIR not defined", you need to set the location where
-  FreeLing was installed:
+- If you get "FREELINGDIR not defined", you need to set the location where FreeLing was installed:
   ```     
   set FREELINGDIR=%FLINSTALL%\freeling
   ```
-  (this is because the example program "sample.py" checks that variable, it is
-   not a general requirement of the API or FreeLing)
+  (this is because the example program "sample.py" checks that variable, it is not a general requirement of the API or FreeLing)
 
 
 ## JAVA
 
-If you built the Python you'll find in `%FLINSTALL%\freeling\share\freeling\APIs\java` 
+If you built the Java API you'll find in `%FLINSTALL%\freeling\share\freeling\APIs\java` 
 the following files:
 
 | File | Content |
