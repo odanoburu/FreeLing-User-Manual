@@ -136,7 +136,6 @@ To run the example, do:
   ```
   set FREELINGDIR=$FLINSTALL
   ```
-
   \(this is because the example program "sample.py" checks that variable, it is  
    not a general requirement of the API or FreeLing\)
 
@@ -152,7 +151,6 @@ the following files:
 | Analyzer.java | An example of a Java program that calls FreeLing. |
 
 To run the example, do:
-
 ```
    cd $FLINSTALL/share/freeling/APIs/java
    javac Analyzer.java
@@ -163,17 +161,14 @@ To run the example, do:
   set `$LS_LIBRARY_PATH` so all the required libraries \(freeling and all its dependencies,  
   as well as `libJfreeling.so`\) are found \(you need to do this only once per session, or you  
   can set it once and forever in your system-wide configuration\):
-
   ```
   export LD_LIBRARY_PATH=$FLINSTALL/lib;$FLINSTALL/share/freeling/APIs/java
   ```
 
 * If you get "FREELINGDIR not defined", you need to set the location where reeLing was installed:
-
   ```
      export FREELINGDIR=$FLINSTALL
   ```
-
   \(this is because the example program "Analyzer.java" checks that variable, it is  
    not a general requirement of the API or FreeLing\)
 
@@ -194,9 +189,8 @@ extra software before building FreeLing:
 2. Install target language, including interfaces, that is:
 
    * For Python: Install Python2 or Python3.
-     ```
-             Make sure you install also development headers (e.g. package python3-dev)
-     ```
+    Make sure you install also development headers (e.g. package python3-dev)
+    
    * For Java: Install Java Development Kit.
 
 3. Add the following options to the "cmake" command  
