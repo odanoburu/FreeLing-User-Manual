@@ -7,7 +7,7 @@ If not, please read Section \[Getting it to work\]{installation.md} before conti
 
 Decide where will you install FreeLing \(e.g. `/home/user/freeling`, `/home/user/programs/freeling`\). You can omit this, and FreeLing will be installed in the default location `/usr/local`.
 
-From this point on, we will refer to FreeLing installation folder \(either chosen by you or the default location\) as `$FLINSTALL`.
+***IMPORTANT***: From this point on, we will refer to FreeLing installation folder \(either chosen by you or the default location\) as `$FLINSTALL`.
 
 # Install development tools
 
