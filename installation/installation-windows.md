@@ -50,15 +50,3 @@ Finally, it assumes you know where you want to install FreeLing (e.g. `C:\FreeLi
    `-DJAVA_API=ON`      Build Java API (see "Observations" below before running cmake) (default: `OFF`)
    `-DPYTHON2_API=ON`   Build Python 2 API (see "Observations" below before running cmake) (default: `OFF`)
    `-DPYTHON3_API=ON`   Build Python 3 API (see "Observations" below before running cmake) (default: `OFF`)
-
-
-# OBSERVATIONS
-
-## Installing dependencies in different folders
-
-You can install zlib, boost, and icu anywhere (that is, they don't HAVE to be in `%FLINSTALL%\dependencies`).
-
-If you install them somewhere else, you'll need to set the right paths for variables `ZLIB_INCLUDE_DIR`, `ZLIB_LIBRARY`, `BOOST_ROOT`, and `ICU_ROOT`  in the `CMake` command, and adjust the `%PATH%` definition if you are using an API.
-
-Also, if you plan to use the `analyzer.bat` script, you'll need to edit it and adjust the paths to those libraries too.
-

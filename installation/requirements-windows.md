@@ -12,6 +12,7 @@ Some external libraries are required to compile FreeLing.
 Next sections describe how to install them. Some can be installed from binary packages, others have to be compiled.
 
 ***IMPORTANT***:  All sections below assume that you decided where you will install FreeLing  (e.g. `C:\FreeLing`, `C:\Program Files\FreeLing`, etc.) and will install the dependencies in the same place.
+ You can install the dependencies anywhere else, but then you'll need to adjust the paths used in this installation guide. See [Install dependencies in a different folder](#dependencies-location) for details.
 
 For short, we will refer to this installation folder as `%FLINSTALL%`.
 
@@ -60,4 +61,15 @@ Now your installation folder looks like:
                            \icu
 ```
 
-Now you can continue to [build FreeLing](installation-windows.md)
+Now you can continue to sseeccttiioonn  [Install from source on Windows](installation-windows.md).
+
+
+
+## Installing dependencies in a different folder {#dependencies-location}
+
+You can install zlib, boost, and icu anywhere (that is, they don't *have* to be in `%FLINSTALL%\dependencies`).
+
+If you install them somewhere else, you'll need to set the right paths for variables `ZLIB_INCLUDE_DIR`, `ZLIB_LIBRARY`, `BOOST_ROOT`, and `ICU_ROOT`  in the `CMake` command in the procedure described in [Install from source on Windows](installation-windows.md), as well as adjusting the `%PATH%` definition if you plan to use an API (see [Building and using APIs on Windows](apis-windows.md) for details).
+
+Also, if you plan to use the `analyzer.bat` script, you'll need to edit it and adjust the paths to those libraries too.
+
