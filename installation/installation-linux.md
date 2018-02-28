@@ -1,14 +1,13 @@
 # Install from source on Linux
 
-This section assumes you already downloaded and uncompressed FreeLing sources in a folder of your choice.  
-If not, please read Section [Getting it to work](installation.md) before continuing.
+This section assumes you already downloaded and uncompressed FreeLing sources in a folder of your choice.
+If not, please read Section [Installing from source](installation-source.md) before continuing.
 
-# Preliminaries
+It also assumes you installed development tools and FreeLing dependencies. 
+If not, please read Section [Install FreeLing Requirements on Linux](requirements-linux.md)
 
-Decide where will you install FreeLing \(e.g. `/home/user/freeling`, `/home/user/programs/freeling`\). You can omit this, and FreeLing will be installed in the default location `/usr/local`.
-
-***IMPORTANT***: From this point on, we will refer to FreeLing installation folder \(either chosen by you or the default location\) as `$FLINSTALL`.
-
+Finally, it assumes you know where you want to install FreeLing (e.g. `/home/user/freeling`, `/home/user/programs/freeling`). You can omit this, and FreeLing will be installed in the default location `/usr/local`.
+***IMPORTANT***: From this point on, we will refer to FreeLing installation folder (either chosen by you or the default location) as `$FLINSTALL`
 # Build FreeLing
 
 * Open a terminal and change to the folder where you uncompressed or cloned the downloaded FreeLing source
