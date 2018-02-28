@@ -15,7 +15,7 @@ Next sections describe how to install them. Some can be installed from binary pa
 
 For short, we will refer to this installation folder as `%FLINSTALL%`.
 
-### Install ZLIB
+#### Install ZLIB
 
 1. Download zlib source from [http://www.zlib.net/](http://www.zlib.net/), and unzip the source file somewhere you know where it is.
 
@@ -29,7 +29,7 @@ For short, we will refer to this installation folder as `%FLINSTALL%`.
    nmake install
    ```
   
-### Install Boost and ICU
+#### Install Boost and ICU
 
 The easiest way to install these dependencies is to get precompiled binary packages.
 

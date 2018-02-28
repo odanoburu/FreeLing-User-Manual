@@ -27,7 +27,7 @@ Some external libraries are required to compile FreeLing:
 
 If you are compiling FreeLing from source, you'll need to install **both** binary and development packages for all the libraries.
 
-### Orientative package names {#orientative-package-names}
+#### Orientative package names {#orientative-package-names}
 
 The name of the packages containing the dependencies listed above vary depending on your linux distribution.
 
