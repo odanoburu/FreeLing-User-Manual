@@ -35,7 +35,7 @@ If you want a clean re-build, you can delete the `build` folder, and repeat the 
 Available options that can be added to the `cmake` command:
 
 | Option  | Effect  |
-| ---     | ---     |
+|:---     |:---     |
 |`-DCMAKE_INSTALL_PREFIX=<path>`| Install FreeLing in given location (default: `/usr/local`) |
 |`-DTRACES=ON`      | Build FreeLing with debugging traces (default: `OFF`) |
 |`-DWARNINGS=OFF`   | Build FreeLing without warning messages (default: `ON`)|
