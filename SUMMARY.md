@@ -9,6 +9,9 @@
        * [Installing from source on Linux](installation/installation-linux.md)
        * [Requirements to install on Windows](installation/requirements-windows.md)
        * [Installing from source on Windows](installation/installation-windows.md)
+   * Calling FreeLing from langiages other than C++
+       * [Building and using APIs on Linux](apis-linux.md)
+       * [Building and using APIs on Windows](apis-windows.md)
 * [Linguistic Data Classes](language-classes.md)
 * [Language Processing Modules](processing-classes.md)
    * [Language Identifier](modules/lang_ident.md)
