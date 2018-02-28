@@ -23,9 +23,9 @@ Finally, it assumes you know where you want to install FreeLing (e.g. `C:\FreeLi
    nmake install
    ```
 
-   Since most dependencies are not installed in default locations, we need to specify the paths for them all, that is why the command is so long.
+Since most dependencies are not installed in default locations, we need to specify the paths for them all, that is why the command is so long.
 
-   With this, you are done. Your `%FLINSTALL%` folder should look like:
+With this, you are done. Your `%FLINSTALL%` folder should look like:
    ```
    %FLINSTALL%\dependencies\zlib
               |            \boost
@@ -36,21 +36,21 @@ Finally, it assumes you know where you want to install FreeLing (e.g. `C:\FreeLi
                        \share
    ```
 
-   If you want a clean re-install, you can delete folder `%FLINSTALL%\freeling`, and run again "nmake install" from the "build" folder.
+If you want a clean re-install, you can delete folder `%FLINSTALL%\freeling`, and run again "nmake install" from the "build" folder.
 
-   If you want a clean re-build, you can delete the "build" folder, and repeat the whole procedure.
+If you want a clean re-build, you can delete the "build" folder, and repeat the whole procedure.
 
-   Available options that can be added to the `cmake` command:
+Available options that can be added to the `cmake` command:
 
-  | Option  | Effect    |
-  |:---     |:--- |
-  |`-DCMAKE_INSTALL_PREFIX=<path>`  |  Install FreeLing in given location \(default: `C:\Program Files`\) |    
-  |`-DTRACES=ON`    | Build FreeLing with debugging traces \(default: `OFF`\) |  
-  |`-DWARNINGS=OFF` | Build FreeLing without warning messages \(default: `ON`\)|   
-  |`-DXPRESSIVE=ON` | Build FreeLing using boost::xpressive regexps instead of boost::regex  \(default: `OFF`\) |  
-  |`-DEMBEDDINGS=ON` | Download word embeddings files when installing \(default: `OFF`\). Warning: Adds 2Gb to required installation space. |
-  | `-DJAVA_API=ON` | Build Java API (default: `OFF`. See [Building and using APIs on Windows](apis-windows.md) for details). |
-  |`-DPYTHON2_API=ON` | Build Python 2 API (default: `OFF`. See [Building and using APIs on Windows](apis-windows.md) for details).|
-  |`-DPYTHON3_API=ON` | Build Python 3 API (default: `OFF`. See [Building and using APIs on Windows](apis-windows.md) for details).|
+| Option  | Effect    |
+| :---    | :---      |
+|`-DCMAKE_INSTALL_PREFIX=<path>`  |  Install FreeLing in given location \(default: `C:\Program Files`\) |    
+|`-DTRACES=ON`    | Build FreeLing with debugging traces \(default: `OFF`\) |  
+|`-DWARNINGS=OFF` | Build FreeLing without warning messages \(default: `ON`\)|   
+|`-DXPRESSIVE=ON` | Build FreeLing using boost::xpressive regexps instead of boost::regex  \(default: `OFF`\) |  
+|`-DEMBEDDINGS=ON` | Download word embeddings files when installing \(default: `OFF`\). Warning: Adds 2Gb to required installation space. |
+| `-DJAVA_API=ON` | Build Java API (default: `OFF`. See [Building and using APIs on Windows](apis-windows.md) for details). |
+|`-DPYTHON2_API=ON` | Build Python 2 API (default: `OFF`. See [Building and using APIs on Windows](apis-windows.md) for details).|
+|`-DPYTHON3_API=ON` | Build Python 3 API (default: `OFF`. See [Building and using APIs on Windows](apis-windows.md) for details).|
 
 
