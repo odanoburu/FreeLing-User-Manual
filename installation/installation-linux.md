@@ -7,10 +7,11 @@ It also assumes you installed development tools and FreeLing dependencies.
 If not, please read Section [Install FreeLing Requirements on Linux](requirements-linux.md)
 
 Finally, it assumes you know where you want to install FreeLing (e.g. `/home/user/freeling`, `/home/user/programs/freeling`). You can omit this, and FreeLing will be installed in the default location `/usr/local`.
-***IMPORTANT***: From this point on, we will refer to FreeLing installation folder (either chosen by you or the default location) as `$FLINSTALL`
+***IMPORTANT***: From this point on, we will refer to FreeLing installation folder (either chosen by you or the default location) as `$FLINSTALL`.
+
 # Build FreeLing
 
-* Open a terminal and change to the folder where you uncompressed or cloned the downloaded FreeLing source
+* Open a terminal and change to the folder where you uncompressed or cloned the downloaded FreeLing source.
 
 * Execute the commands:
   ```
@@ -20,11 +21,14 @@ Finally, it assumes you know where you want to install FreeLing (e.g. `/home/use
   make install
   ```
   This will install FreeLing in `/usr/local`.  
+  
+  You can speed up compilation using several processors with, e.g.,  `make -j 4 install` (you can replace `4` with the number of processors you want to use).
+  
   To change the destination directory, add option `-DCMAKE_INSTALL_PREFIX=$FLINSTALL` to the `cmake` command (where `$FLINSTALL` is the path where you want to install FreeLing).
 
-  Note that cmake does not create an "uninstall" target. So, if you install in `/usr/local`, you may need to selectively remove files when you want to uninstall FreeLing
+  Note that cmake does not create an "uninstall" target. So, if you install in `/usr/local`, you may need to selectively remove files when you want to uninstall FreeLing.
 
-  If you installed in a custom folder and want a clean re-install, you can delete folder `$FLINSTALL`, and run `make install` again from the `build` folder.
+  If you installed in a custom folder and want a clean re-install, you can delete folder `$FLINSTALL` (be careful if it is  `/usr/local`, there may be other software installed there), and run `make install` again from the `build` folder.
 
   If you want a clean re-build, you can delete the `build` folder, and repeat the  whole procedure.
 
