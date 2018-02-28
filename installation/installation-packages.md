@@ -15,16 +15,16 @@ If that doesn't work, you can install it by hand (in Ubuntu or Debian) with the 
 
 1. Install FreeLing dependencies, as described in section [Install Requirements on Linux](requirements-linux.md#dependencies).
 
-2. Install downloaded binary packages
+2. Install downloaded binary package
    ```
    sudo dpkg -i FreeLing-4.1.deb
    ```
 
 In a Debian system, the above command must be issued as root and without `sudo`.
   
-In other distributions, package names may differ.  You will  find further information in sseeccttiioonn  [Install requirements on Linux](requirements-linux.md#dependencies).
+In other distributions, package names may differ.  You will  find further information in section [Install requirements on Linux](requirements-linux.md#dependencies).
 
-        
+After installing, you are ready to use FreeLing. See sections [Test FreeLing Installation on Linux](test-linux-md), [Execute FreeLing demo](#execute-analyzer) and [Call FreeLing Library](#call-library) to find out more on how to use FreeLing.        
   
 ## Install binary package on MS-Windows {#install-package-windows}
 
@@ -32,6 +32,6 @@ Get the zipfile `freeling-4.1-win.zip` from [GitHub FreeLing Releases page](http
 
 The zipfile already includes all third-party dependencies required by FreeLing (if you are curious you can find out how to install them yourself in section [Install from source on Windows](installation-windows.md) ).
 
-After uncompressing, you are ready to use FreeLing. See sections [Execute FreeLing demo](#execute-analyzer) and [Call FreeLing Library](#call-library) to find out more on how to use FreeLing.
+After uncompressing, you are ready to use FreeLing. See sections [Test FreeLing Installation on Windows](test-windows-md), [Execute FreeLing demo](#execute-analyzer) and [Call FreeLing Library](#call-library) to find out more on how to use FreeLing.
 
 
