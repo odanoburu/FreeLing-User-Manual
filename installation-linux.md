@@ -1,7 +1,7 @@
 # Install from source on Linux
 
 This section assumes you already downloaded and uncompressed FreeLing sources in a folder of your choice.  
-If not, please read Section \[Getting it to work\]{installation.md} before continuing.
+If not, please read Section \[Getting it to work\](installation.md) before continuing.
 
 # Preliminaries
 
