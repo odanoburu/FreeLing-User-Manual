@@ -1,4 +1,4 @@
-# Calling FreeLing library from Python or Java 
+# Building and using APIs on Linux
 
 If you don't want to write Python or Java programs that call Freeling, you can skip this section.
 
@@ -8,7 +8,7 @@ If you haven't see [Install from source on Linux](installation-linux.md) to find
 Next sections assume you compiled and installed FreeLing with the appropriate APIs for your target language.
 ***IMPORTANT***: From this point on, we will refer to FreeLing installation folder (either chosen by you or the default location) as `$FLINSTALL`.
 
-## APIs REQUIREMENTS
+## APIs Requirements
 
 If you want to call FreeLing library from Python or Java, you need to install some extra software *before* building FreeLing:
 
