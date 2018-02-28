@@ -24,7 +24,7 @@ If that doesn't work, you can install it by hand (in Ubuntu or Debian) with the 
   
 In a Debian system, the above commands must be issued as root and without `sudo`.
   
-In other distributions, package names may differ.  You will  find further information in [linux-requirements.md](installation.md#install-from-github-repositories)
+In other distributions, package names may differ.  You will  find further information in [linux requirements](installation.md#install-from-github-repositories)
         
   
 ## Install binary package on MS-Windows
