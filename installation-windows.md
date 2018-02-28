@@ -2,7 +2,7 @@
 # Install from source on Windows
 
 This section assumes you already downloaded and uncompressed FreeLing sources in a folder of your choice.
-If not, please read Section [Getting it to work]{installation.md} before continuing.
+If not, please read Section [Getting it to work](installation.md) before continuing.
 
 # Preliminaries
 
@@ -41,13 +41,13 @@ The easiest way to install these dependencies is to get precompiled binary packa
 * Get boost binaries from: [https://www.npcglib.org/~stathis/blog/precompiled-boost/](https://www.npcglib.org/~stathis/blog/precompiled-boost/)
   Select a package that matches your MSVC version (2014, 2015, ...) and architecture (32/64 bits)
 
-* Uncompress boost package in %FLINSTALL%\dependencies 
+* Uncompress boost package in `%FLINSTALL%\dependencies`
 
 * Each boost binary package has associated an ICU version, which is mentioned in the rightmost column of the table ("Notes").
   Follow the link to the associated ICU version, and download the package.  Make sure you are getting the right version (you may need to go to "past builds" page [https://www.npcglib.org/~stathis/blog/precompiled-icu-past/](https://www.npcglib.org/~stathis/blog/precompiled-icu-past/).
   Also, make sure the package matches your MSVC version and architecture.
     
-* Uncompress icu package in %FLINSTALL%\dependencies.
+* Uncompress icu package in `%FLINSTALL%\dependencies`.
 
 After this, the content of your %FLINSTALL% folder should look like (version numbers may differ):
 ```
@@ -80,7 +80,7 @@ Now your installation folder looks like:
 
    Since most dependencies are not installed in default locations, we need to specify the paths for them all, that is why the command is so long.
 
-   With this, you are done. Your %FLINSTALL% folder should look like:
+   With this, you are done. Your `%FLINSTALL%` folder should look like:
    ```
    %FLINSTALL%\dependencies\zlib
               |            \boost
@@ -91,7 +91,7 @@ Now your installation folder looks like:
                        \share
    ```
 
-   If you want a clean re-install, you can delete folder %FLINSTALL%\freeling, and run again "nmake install" from the "build" folder.
+   If you want a clean re-install, you can delete folder `%FLINSTALL%\freeling`, and run again "nmake install" from the "build" folder.
 
    If you want a clean re-build, you can delete the "build" folder, and repeat the whole procedure.
 
@@ -117,7 +117,7 @@ The provided main program can be executed running the command:
    %FLINSTALL%\freeling\bin\analyze.bat -f en.cfg < myfile.txt
 ```
 
-"analyze.bat" behaves just the Linux "analyze" script. Check FreeLing manual (https://talp-upc.gitbooks.io/freeling-user-manual/), section "Using the analyze script", to find out the parameters it accepts.
+`analyze.bat` behaves just the Linux `analyze` script. Check FreeLing manual (https://talp-upc.gitbooks.io/freeling-user-manual/), section "Using the analyze script", to find out the parameters it accepts.
 
 Note that the input text in `myfile.txt` must be UTF8 encoded. You can also provide input from the terminal and end it with ctl-Z. 
 Take into account windows command prompt is not UTF8, so you will find problems if you use non-ascii characters.
@@ -163,8 +163,8 @@ If you built the Java API you'll find in `%FLINSTALL%\freeling\share\freeling\AP
 
 | File | Content |
 | -- | -- |
-| Jfreeling.jar  | FreeLing Java module, to be imported from your program.<br>It must be included in ``%CLASSPATH%`` | 
-| Jfreeling.lib<br>Jfreeling.dll  | The actual API DLL, bridging between Java and C++.<br>They both must be in the same folder than your program or in a folder included in ``%PATH%`` |
+| Jfreeling.jar  | FreeLing Java module, to be imported from your program.<br>It must be included in `%CLASSPATH%` | 
+| Jfreeling.lib<br>Jfreeling.dll  | The actual API DLL, bridging between Java and C++.<br>They both must be in the same folder than your program or in a folder included in `%PATH%` |
 | Analyzer.java  | An example of a Java program that calls FreeLing. |
 	
 To run the example, do:
@@ -174,7 +174,7 @@ To run the example, do:
    java Analyzer < mytext.txt
 ```
 
-- If you get "UnsatisfiedLinkError" about not found libraries, you need to set the ``PATH`` so all the required libraries (freeling and all its dependencies) are found (you need to do this only once per session, or you can set it once and forever in your system-wide configuration):
+- If you get "UnsatisfiedLinkError" about not found libraries, you need to set `%PATH%` so all the required libraries (freeling and all its dependencies) are found (you need to do this only once per session, or you can set it once and forever in your system-wide configuration):
   ```
       set PATH=%PATH%;%FLINSTALL%\freeling\bin;%FLINSTALL%\dependencies\boost\lib;%FLINSTALL%\dependencies\zlib\bin;%FLINSTALL%\dependencies\icu\bin64;
   ``` 
@@ -194,9 +194,9 @@ To run the example, do:
 
 You can install zlib, boost, and icu anywhere (that is, they don't HAVE to be in `%FLINSTALL%\dependencies`).
 
-If you install them somewhere else, you just need to set the right paths for variables ``ZLIB_INCLUDE_DIR``, ``ZLIB_LIBRARY``, ``BOOST_ROOT``, and ``ICU_ROOT``  in the ``CMake`` command, and adjust the ``%PATH`` definition if you are using an API.
+If you install them somewhere else, you'll need to set the right paths for variables `ZLIB_INCLUDE_DIR`, `ZLIB_LIBRARY`, `BOOST_ROOT`, and `ICU_ROOT`  in the `CMake` command, and adjust the `%PATH%` definition if you are using an API.
 
-Also, if you plan to use the ``analyzer.bat`` script, you'll need to edit it and adjust the paths to those libraries too.
+Also, if you plan to use the `analyzer.bat` script, you'll need to edit it and adjust the paths to those libraries too.
 
 
 ## APIs REQUIREMENTS 
@@ -205,19 +205,21 @@ If you want to call FreeLing library from Python or Java, you need to install so
 extra software before building FreeLing:
 
 1. **Install SWIG**
-   Download swigwin.zip package from http://swig.org and uncompress it anywhere you want (e.g. ``C:\Program Files\swigwin``).
-   ***IMPORTANT***: We will refer to this folder as ``%SWIGDIR%`` from now on.
+   Download swigwin.zip package from http://swig.org and uncompress it anywhere you want (e.g. `C:\Program Files\swigwin`).
+   ***IMPORTANT***: We will refer to this folder as `%SWIGDIR%` from now on.
 
 2. Install target language, including interfaces, that is:
     * **For Python**: Install Python2 or Python3, to your choice (Python3 is recommended though).
     * **For Java**: Install Java Development Kit.
+    
+    
+3. Add the following options to the "cmake" command:
 
-3. Add the following options to the "cmake" command
-   ``-DSWIG_DIR=%SWIGDIR%``             
-   ``-DSWIG_EXECUTABLE=%SWIGDIR%\swig.exe`` 
-   ``-DPYTHON2_API=ON``  (if you want to build Python 2 API. Not compatible with ``-DPYTHON3_API``)
-   ``-DPYTHON3_API=ON``  (if you want to build Python 3 API. Not compatible with ``-DPYTHON2_API``)
-   ``-DJAVA_API=ON``     (if you want to build Java API)
+   `-DSWIG_DIR=%SWIGDIR%`             
+   `-DSWIG_EXECUTABLE=%SWIGDIR%\swig.exe`
+   `-DPYTHON2_API=ON`  (if you want to build Python 2 API. Not compatible with `-DPYTHON3_API`)
+   `-DPYTHON3_API=ON`  (if you want to build Python 3 API. Not compatible with `-DPYTHON2_API`)
+   `-DJAVA_API=ON`     (if you want to build Java API)
 
 
 ## Using Python2 instead of Python3
@@ -227,4 +229,4 @@ in UTF8, which provides a much smoother integration with FreeLing.
 
 However, you can use FreeLing from Python2 too (though if you encounter
 encoding problems, don't complain, we told you so...)
-Just specify cmake option ``-DPYTHON2_API`` instead of ``-DPYTHON3_API``.
+Just specify cmake option `-DPYTHON2_API` instead of `-DPYTHON3_API`.
