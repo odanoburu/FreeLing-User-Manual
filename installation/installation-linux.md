@@ -9,49 +9,6 @@ Decide where will you install FreeLing \(e.g. `/home/user/freeling`, `/home/user
 
 ***IMPORTANT***: From this point on, we will refer to FreeLing installation folder \(either chosen by you or the default location\) as `$FLINSTALL`.
 
-# Install development tools
-
-* Install g++ and related packages.  
-   Installing meta-package "build-essential" will do the trick in most distributions.  
-   `sudo apt-get install build-essential`  
-   Make sure you have a C++11 capable compiler \(e.g. g++ version 4.6 or newer\)
-
-* Install CMake \(3.8 or newer\).  
-   `sudo apt-get install cmake`  
-   If your distro has a version older than 3.8, do not install it. Instead, download the binary package for linux from [https://cmake.org/download/](https://cmake.org/download/)
-
-# Install dependencies
-
-Some external libraries are required to compile FreeLing:
-
-* libboost & libicu libraries. Included in all Linux distributions. You probably do not have all neeeded components installed. Make sure to install both runtime **and development** packages for:
-
-  * libicu
-  * libboost-regex
-  * libboost-system
-  * libboost-thread
-  * libboost-program-options
-  * libboost-locale \(only required for MacOSX or FreeBSD, not required in Linux\)
- 
-
-* libz compression library. Included in all Linux distributions. You probably do not have all neeeded components installed. Make sure to install both runtime **and development** packages for:
-
-   * zlib
-
-## Orientative package names {#orientative-package-names}
-
-The name of the packages containing the dependencies listed above vary depending on your linux distribution.
-
-Please check the package manager in your system, and use its package search capabilities to install the needed dependencies.
-
-As an orientation, here are the names of these packages in some popular distributions. \(Note that this may change over time too\)
-
-* Ubuntu/Debian: `libboost-dev libboost-regex-dev libicu-dev libboost-system-dev libboost-program-options-dev libboost-thread-dev zlib1g-dev`
-* OpenSuse/Fedora/Mandriva: `boost-devel boost-regex-devel libicu-devel boost-system-devel boost-program-options-devel boost-thread-dev zlib-devel`
-* Slackware: `boost icu4c zlib`
-
-Note that you need to install **both** the binary libraries and the development packages \(usually sufixed as `-dev` or `-devel`\). Most package managers will install both binary and development packages when the `-dev` package is requested. If this is not your case, you'll need to manually select both packages.
-
 # Build FreeLing
 
 * Open a terminal and change to the folder where you uncompressed or cloned the downloaded FreeLing source
