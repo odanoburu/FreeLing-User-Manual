@@ -23,20 +23,20 @@ FreeLing packages include linguistic data for all supported languages, which tot
 It is possible to safely remove data for languages that are not needed, saving that space.
 
 FreeLing installation directory contains all linguistic data in the subfolder 
-``FREELINGDIR/share/freeling``.
+`FREELINGDIR/share/freeling`.
 This folder contains a directory for each language.
 
-To free space, you can simply remove the unneeded language directories ``FREELINGDIR/share/freeling/XX``.
+To free space, you can simply remove the unneeded language directories `FREELINGDIR/share/freeling/XX`.
 
 Make sure to keep 
 `FREELINGDIR/share/freeling/common`, `FREELINGDIR/share/freeling/config`, and `FREELINGDIR/share/freeling/XX` for any language XX you want to process.
 
 
-Where the folder ``FREELINGDIR`` is located, depends on which is your system and on how did you install FreeLing.
-* If you installed a Linux .deb package, ``FREELINGDIR`` is ``/usr``
-* If you installed on Linux compiling from source, ``FREELINGDIR`` is ``/usr/local`` (unless you specified a custom installation directory... then, ``FREELINGDIR`` is that directory).
-* If you installed a Windows binary package, ``FREELINGDIR`` is the folder where you uncompressed it)
-* If you installed on Windows compiling from source, ``FREELINGDIR`` is the folder you used as ``CMAKE_INSTALL_PREFIX``.  If you used the default installation, it is ``C:\Program Files``
+Where the folder `FREELINGDIR` is located, depends on which is your system and on how did you install FreeLing.
+* If you installed a Linux .deb package, `FREELINGDIR` is `/usr`
+* If you installed on Linux compiling from source, `FREELINGDIR` is `/usr/local` (unless you specified a custom installation directory... then, `FREELINGDIR` is that directory).
+* If you installed a Windows binary package, `FREELINGDIR` is the folder where you uncompressed it)
+* If you installed on Windows compiling from source, `FREELINGDIR` is the folder you used as `CMAKE_INSTALL_PREFIX`.  If you used the default installation, it is `C:\Program Files`.
 
 
 ----------------------------------------------------------------
