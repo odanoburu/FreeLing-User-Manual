@@ -25,8 +25,8 @@ So, APIs are not included in the precompiled binary packages. If you plan to cal
 
 You'll find details about building and using the APIs in:
 
-* [Bulding and using APIs on Linux](apis-linux.md)
-* [Bulding and using APIs on Windows](apis-windows.md)
+* [Bulding and using APIs on Linux](installation/apis-linux.md)
+* [Bulding and using APIs on Windows](installation/apis-windows.md)
 
 
 ## Reducing needed disk space {#reducing-disk}
