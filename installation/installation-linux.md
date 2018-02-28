@@ -35,12 +35,19 @@ Finally, it assumes you know where you want to install FreeLing (e.g. `/home/use
   Available options that can be added to the `cmake` command:
 
   `-DCMAKE_INSTALL_PREFIX=[path]`  Install FreeLing in given location \(default: `/usr/local`\)
+  
   `-DTRACES=ON`        Build FreeLing with debugging traces \(default: `OFF`\)
+  
   `-DWARNINGS=OFF`     Build FreeLing without warning messages \(default: `ON`\)
+  
   `-DXPRESSIVE=ON`     Build FreeLing using boost::xpressive regexps instead of boost::regex  \(default: `OFF`\)
+  
   `-DEMBEDDINGS=ON`    Download word embeddings files when installing \(default: `OFF`\)
+  
   `-DJAVA_API=ON`      Build Java API \(see "Observations" below before running cmake\) \(default: `OFF`\)
+  
   `-DPYTHON2_API=ON`   Build Python 2 API \(see "Observations" below before running cmake\) \(default: `OFF`\)
+  
   `-DPYTHON3_API=ON`   Build Python 3 API \(see "Observations" below before running cmake\) \(default: `OFF`\)
 
 
