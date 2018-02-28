@@ -4,38 +4,16 @@ This chapter describes how to install and execute FreeLing. The steps to follow 
 
 The easiest way is installing from a pre-compiled binary package. Packages for the latest stable version are provided for Ubuntu/Debian Linux and Windows.
 
-* [Installing from binary packages](installation-packages.md)
+If you want to install on a distribution where provided `.deb` packages are not suitable, modify FreeLing code, or install a development version with no binary package available, then you need to install from source.
 
-* [Installing from source](#install-from-source)
+Here you'll find detailed instruction about each choice:
+
+* [Installing from binary packages](installation/installation-packages.md)
+* [Installing from source](installation/installation-source.md)
 
 Other issues you might be interested in;
 
 * [Reducing needed disk space](#reducing-disk)
-
-
-## Installing from source {#install-from-source}
-
-Unless you have a special interest in compiling FreeLing, [installing it from a binary package](#install-from-binary-packages) is recommended.
-
-Installing FreeLing from source makes sense only in one of the following cases:
-  - You want to use a development FreeLing version for which there is no binary package yet
-  - You want to modify or extend FreeLing
-  
-To install from source, you need to follow the steps:
-
-1. Download FreeLing source
-2. Install development tools and FreeLing requirements
-3. Build FreeLing
-
-The first step is the same for all systems, and can be performed in two ways:
-* Go to [GitHub FreeLing Releases page](https://github.com/TALP-UPC/FreeLing/releases), download the source package (e.g. FreeLing-4.1.tar.gz or FreeLing-4.1.zip), and uncompress it in a folder of your choice.
-* Alternatively, clone FreeLing GitHub repository (either a stable version tag such as "v4.1", or the development version "master"). If you don't know what a git repository is, you probably should stick with the first option above.
-
-Next steps vary depending on your operating system:
-* [Install from source on Linux](installation-linux.md)
-* [Install from source on Windows](installation-windows.md)
-* [Install from source on MacOS](installation-mac.md)
-
 
 
 ## Reducing needed disk space {#reducing-disk}
