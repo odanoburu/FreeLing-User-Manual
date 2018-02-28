@@ -61,7 +61,7 @@ Now your installation folder looks like:
                            \icu
 ```
 
-Now you can continue to sseeccttiioonn  [Install from source on Windows](installation-windows.md).
+Now you can continue to section [Install from source on Windows](installation-windows.md).
 
 
 
