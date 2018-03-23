@@ -23,7 +23,7 @@ If you want to call FreeLing library from Python or Java, you need to install so
     
     FreeLing uses UTF8 encoding to support multilinguality. Python3 is native in UTF8, which provides a much smoother integration with FreeLing. You can use Python2, but if you have encoding problems, we told you so...
     
-   * **For Java**: Install Java Development Kit. Make it includes JNI headers.
+   * **For Java**: Install Java Development Kit. Make sure it includes JNI headers.
 
 3. Add the following options to the "cmake" command during the procedure described in [Install from source on Linux](installation-linux.md)  
    `-DPYTHON2_API=ON`  \(if you want to build Python 2 API. Not compatible with `-DPYTHON3_API`\)  
