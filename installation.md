@@ -27,6 +27,9 @@ You'll find details about building and using the APIs in:
 
 * [Bulding and using APIs on Linux](installation/apis-linux.md)
 * [Bulding and using APIs on Windows](installation/apis-windows.md)
+* [Bulding and using APIs on Windows](installation/apis-mac.md)
+
+
 
 
 ## Reducing needed disk space {#reducing-disk}
