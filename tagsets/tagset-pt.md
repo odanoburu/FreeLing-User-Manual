@@ -6,7 +6,7 @@
 |:----     |:----     |:----   |
 | 0        | category | **A**:_adjective_ |
 | 1 | type |   **O**:_ordinal_;   **Q**:_qualificative_;   **P**:_possessive_|
-| 2 | degree |   **S**:_superlative_;   **V**:_evaluative_|
+| 2 | degree |   **S**:_superlative_;   **A**:_aumentative_; **C**:_diminutive_|
 | 3 | gen |   **F**:_feminine_;   **M**:_masculine_;   **C**:_common_|
 | 4 | num |   **S**:_singular_;   **P**:_plural_;   **N**:_invariable_|
 | 5 | possessorpers |   **1**:_1_;   **2**:_2_;   **3**:_3_|
